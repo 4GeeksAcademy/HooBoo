@@ -1,0 +1,80 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+/* Estilos de la parte izquierda del navbar (logo y pestañas) */
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo del navbar */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.logo-img {
+    width: 50px; /* Ajusta el tamaño del logo según prefieras */
+    cursor: pointer;
+}
+
+/* Estilos para las pestañas "Hoy" y "Explorar" */
+.nav-link {
+    margin-right: 15px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff; /* Cambia el color al pasar el mouse por encima */
+}
+
+/* Estilos de la parte derecha (botones de inicio de sesión y registro) */
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Botón Iniciar Sesión */
+.btn-login {
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #218838; /* Hover - Verde más oscuro */
+}
+
+/* Botón Registrarse */
+.btn-signup {
+    background-color: #6c757d;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-signup:hover {
+    background-color: #5a6268; /* Hover - Gris más oscuro */
+}

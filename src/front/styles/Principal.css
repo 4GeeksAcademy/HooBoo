@@ -1,0 +1,89 @@
+/* Contenedor principal */
+.principal-container {
+    text-align: center;
+    padding: 70px 20px 20px 20px;
+    background-color: #f5f5f5;
+}
+
+/* Encabezado con el texto dinámico */
+.header-text {
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.header-text h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Contenedor de imágenes en estructura triangular */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas para acomodar las imágenes */
+    justify-items: center;
+    position: relative; /* Asegura que las imágenes pueden ser reposicionadas dentro del contenedor */
+}
+
+/* Estilos para las posiciones específicas de las imágenes */
+.image-grid img:nth-child(1) {
+    grid-column: 1;
+}
+
+.image-grid img:nth-child(2) {
+    grid-column: 5;
+}
+
+.image-grid img:nth-child(3) {
+    grid-column: 2;
+    position: relative;
+    top: -250px; /* Subimos la segunda fila para que quede a la mitad de la primera */
+}
+
+.image-grid img:nth-child(4) {
+    grid-column: 4;
+    position: relative;
+    top: -250px; /* Igual que la tercera imagen */
+}
+
+.image-grid img:nth-child(5) {
+    grid-column: 3;
+    position: relative;
+    top: -470px; /* Subimos la última imagen aún más para que quede centrada y más arriba */
+}
+
+.book-image {
+    width: 230px;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.book-image:hover {
+    transform: scale(1.1); /* Efecto hover para las imágenes */
+}
+
+/* Indicadores para cambiar de género */
+.genre-indicators {
+    margin-top: 20px;
+}
+
+.indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator.active {
+    background-color: #2d8659; /* Color activo (verde) */
+}
+
+.indicator:hover {
+    background-color: #218838; /* Color hover (verde oscuro) */
+}
