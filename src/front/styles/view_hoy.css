@@ -1,0 +1,19 @@
+
+/* Estilo para las imágenes */
+.grid img {
+  width: 100%;
+  height: auto; 
+  object-fit: cover; 
+  border-radius: 8px; 
+}
+.container-hoy {
+  text-align: center;
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+  gap: 20px; 
+  justify-items: center; 
+}
