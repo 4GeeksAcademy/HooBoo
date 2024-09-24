@@ -5,6 +5,7 @@ import { BackendURL } from "./component/backendURL";
 import Login from "./pages/Login";
 import Principal from "./pages/Principal";
 import Registro from "./pages/Registro";
+import Home from "./pages/Home";
 import injectContext from "./store/appContext";
 
 import { Footer } from "./component/footer";
@@ -18,9 +19,10 @@ const Layout = () => {
         <div>
             <BrowserRouter basename={basename}>
                     <Routes>
-                        <Route element={<Login />} path="/" />
+                        <Route element={<Principal />} path="/" />
+                        <Route element={<Login />} path="/Login" />
                         <Route element={<Registro />} path="/Registro" />
-                        <Route element={<Principal />} path="/Principal" />
+                        <Route element={<Home />} path="/Home" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

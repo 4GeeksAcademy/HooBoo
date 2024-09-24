@@ -23,7 +23,7 @@
 }
 
 .logo-img {
-    width: 50px;
+    width: 20px;
     cursor: pointer;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .btn-login {
-    background-color: #28a745;
+    background-color: #bc82eb;
     color: #fff;
     padding: 8px 15px;
     border-radius: 5px;
@@ -60,7 +60,7 @@
 }
 
 .btn-signup {
-    background-color: #6c757d;
+    background-color: #bc82eb;
     color: #fff;
     padding: 8px 15px;
     border-radius: 5px;

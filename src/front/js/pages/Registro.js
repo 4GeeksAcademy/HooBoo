@@ -9,7 +9,7 @@ const Registro = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/');
+        navigate('/Login');
     };
 
     return (

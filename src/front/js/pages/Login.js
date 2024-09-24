@@ -9,7 +9,7 @@ const Login = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		navigate('/Principal');
+		navigate('/Home');
 	};
 
 	const handleSignupRedirect = () => {
