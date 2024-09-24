@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../../styles/Login.css';
 
 const Login = () => {
 	const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ const Login = () => {
 	};
 
 	return (
-		<div className="">
+		<div className="form-container">
 			<form onSubmit={handleSubmit}>
 				<h2>Iniciar Sesión</h2>
 				<label htmlFor="email">Correo electrónico:</label>
@@ -38,12 +39,12 @@ const Login = () => {
 					required
 				/>
 				<button type="submit">Ingresar</button>
-				<div className="">
+				<div className="forgot-password">
 					<a href="#">has olvidado tu contraseña?</a>
 				</div>
-				<div className="">Ingresa con</div>
-				<button className="">Gmail</button>
-				<div className="">
+				<div className="or-login-with">Ingresa con Gmail</div>
+				<button className="Gmail">Gmail</button>
+				<div className="signup-redirect">
 					<p>¿No tienes una cuenta?</p>
 					<button onClick={handleSignupRedirect} className="cancel-button">Registrarse</button>
 				</div>

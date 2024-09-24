@@ -1,11 +1,9 @@
-/* Contenedor principal */
 .principal-container {
     text-align: center;
     padding: 70px 20px 20px 20px;
     background-color: #f5f5f5;
 }
 
-/* Encabezado con el texto dinámico */
 .header-text {
     margin-top: 50px;
     margin-bottom: 40px;
@@ -17,15 +15,13 @@
     color: #333;
 }
 
-/* Contenedor de imágenes en estructura triangular */
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columnas para acomodar las imágenes */
+    grid-template-columns: repeat(5, 1fr);
     justify-items: center;
-    position: relative; /* Asegura que las imágenes pueden ser reposicionadas dentro del contenedor */
+    position: relative;
 }
 
-/* Estilos para las posiciones específicas de las imágenes */
 .image-grid img:nth-child(1) {
     grid-column: 1;
 }
@@ -37,19 +33,19 @@
 .image-grid img:nth-child(3) {
     grid-column: 2;
     position: relative;
-    top: -250px; /* Subimos la segunda fila para que quede a la mitad de la primera */
+    top: -250px;
 }
 
 .image-grid img:nth-child(4) {
     grid-column: 4;
     position: relative;
-    top: -250px; /* Igual que la tercera imagen */
+    top: -250px;
 }
 
 .image-grid img:nth-child(5) {
     grid-column: 3;
     position: relative;
-    top: -470px; /* Subimos la última imagen aún más para que quede centrada y más arriba */
+    top: -470px;
 }
 
 .book-image {
@@ -61,7 +57,7 @@
 }
 
 .book-image:hover {
-    transform: scale(1.1); /* Efecto hover para las imágenes */
+    transform: scale(1.1);
 }
 
 /* Indicadores para cambiar de género */
@@ -81,9 +77,9 @@
 }
 
 .indicator.active {
-    background-color: #2d8659; /* Color activo (verde) */
+    background-color: #2d8659;
 }
 
 .indicator:hover {
-    background-color: #218838; /* Color hover (verde oscuro) */
+    background-color: #218838;
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../../styles/Registro.css';
 
 const Registro = () => {
     const [correo, setCorreo] = useState('');
@@ -12,10 +13,10 @@ const Registro = () => {
     };
 
     return (
-        <div className="">
+        <div className="form-container">
             <h2 className="">Crear Usuario</h2>
             <form onSubmit={handleSubmit}>
-                <div className="">
+                <div className="form-group">
                     <label htmlFor="correo" className="form-label">Correo Electrónico:</label>
                     <input
                         type="email"
@@ -39,7 +40,7 @@ const Registro = () => {
                         required
                     />
                 </div>
-                <div className="">
+                <div className="form-group">
                     <button type="submit" className="">Registrarse</button>
                 </div>
             </form>

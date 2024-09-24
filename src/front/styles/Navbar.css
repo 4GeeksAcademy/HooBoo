@@ -11,13 +11,11 @@
     z-index: 100;
 }
 
-/* Estilos de la parte izquierda del navbar (logo y pestañas) */
 .navbar-left {
     display: flex;
     align-items: center;
 }
 
-/* Logo del navbar */
 .logo {
     display: flex;
     align-items: center;
@@ -25,11 +23,10 @@
 }
 
 .logo-img {
-    width: 50px; /* Ajusta el tamaño del logo según prefieras */
+    width: 50px;
     cursor: pointer;
 }
 
-/* Estilos para las pestañas "Hoy" y "Explorar" */
 .nav-link {
     margin-right: 15px;
     font-size: 16px;
@@ -39,16 +36,14 @@
 }
 
 .nav-link:hover {
-    color: #007bff; /* Cambia el color al pasar el mouse por encima */
+    color: #007bff;
 }
 
-/* Estilos de la parte derecha (botones de inicio de sesión y registro) */
 .navbar-right {
     display: flex;
     align-items: center;
 }
 
-/* Botón Iniciar Sesión */
 .btn-login {
     background-color: #28a745;
     color: #fff;
@@ -61,10 +56,9 @@
 }
 
 .btn-login:hover {
-    background-color: #218838; /* Hover - Verde más oscuro */
+    background-color: #218838;
 }
 
-/* Botón Registrarse */
 .btn-signup {
     background-color: #6c757d;
     color: #fff;
@@ -76,5 +70,5 @@
 }
 
 .btn-signup:hover {
-    background-color: #5a6268; /* Hover - Gris más oscuro */
+    background-color: #5a6268;
 }
