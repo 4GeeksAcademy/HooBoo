@@ -8,7 +8,7 @@ import Registro from "./pages/Registro";
 import Home from "./pages/Home";
 import injectContext from "./store/appContext";
 
-import { Footer } from "./component/footer";
+import Footer from "./component/footer";
 
 const Layout = () => {
     const basename = process.env.BASENAME || "";
