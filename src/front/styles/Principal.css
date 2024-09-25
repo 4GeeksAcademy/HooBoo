@@ -1,0 +1,85 @@
+.principal-container {
+    text-align: center;
+    padding: 70px 20px 20px 20px;
+    margin-left: 250px;
+    background-color: #f5f5f5;
+}
+
+.header-text {
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.header-text h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    position: relative;
+}
+
+.image-grid img:nth-child(1) {
+    grid-column: 1;
+}
+
+.image-grid img:nth-child(2) {
+    grid-column: 5;
+}
+
+.image-grid img:nth-child(3) {
+    grid-column: 2;
+    position: relative;
+    top: -250px;
+}
+
+.image-grid img:nth-child(4) {
+    grid-column: 4;
+    position: relative;
+    top: -250px;
+}
+
+.image-grid img:nth-child(5) {
+    grid-column: 3;
+    position: relative;
+    top: -470px;
+}
+
+.book-image {
+    width: 230px;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.book-image:hover {
+    transform: scale(1.1);
+}
+
+.genre-indicators {
+    margin-top: 20px;
+}
+
+.indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator.active {
+    background-color: #2d8659;
+}
+
+.indicator:hover {
+    background-color: #218838;
+}

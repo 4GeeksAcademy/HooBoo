@@ -1,0 +1,104 @@
+.form-container {
+    background-color: #1A1A1A;
+    border-radius: 12px;
+    padding: 20px;
+    width: 320px;
+    margin: 50px auto;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+}
+
+input[type="email"]::placeholder, input[type="password"]::placeholder {
+    color: #aaa;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.signup-redirect p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.signup-redirect button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5A5A5A;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.signup-redirect button:hover {
+    background-color: #484848;
+}
+
+.forgot-password {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+}
+
+.forgot-password a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.or-login-with {
+    text-align: center;
+    margin: 15px 0;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.Gmail {
+    background-color: #1DB954;
+}
+
+.Gmail:hover {
+    background-color: #1AA34A;
+}
