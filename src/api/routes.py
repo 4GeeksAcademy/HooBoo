@@ -6,6 +6,7 @@ from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 
+
 api = Blueprint('api', __name__)
 
 # Allow CORS requests to this API
@@ -20,3 +21,22 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+
+@api.route('/user', methods=['POST'])
+def add_user():
+    data=request.get_json()
+    name=data.get('name')
+    email=data.get('email')
+    password=data.get('password')
+    newuser=User(email=email, password=password, name=name)
+    db.session.add(newuser)
+    db.session.commit()
+    return jsonify({'msg': 'Usuario registrado con éxito'}), 200 
+
+@api.route('/users', methods=['GET'])
+def get_all_user():
+        users = User.query.all()
+        usuarios = [user.serialize() for user in users]    
+
+        return jsonify(usuarios), 200
