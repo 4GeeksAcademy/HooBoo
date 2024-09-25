@@ -23,20 +23,20 @@ def handle_hello():
     return jsonify(response_body), 200
 
 
-@api.route('/user', methods=['POST'])
-def add_user():
-    data=request.get_json()
-    name=data.get('name')
-    email=data.get('email')
-    password=data.get('password')
-    newuser=User(email=email, password=password, name=name)
-    db.session.add(newuser)
-    db.session.commit()
-    return jsonify({'msg': 'Usuario registrado con éxito'}), 200 
+# @api.route('/user', methods=['POST'])
+# def add_user():
+#     data=request.get_json()
+#     name=data.get('name')
+#     email=data.get('email')
+#     password=data.get('password')
+#     newuser=User(email=email, password=password, name=name)
+#     db.session.add(newuser)
+#     db.session.commit()
+#     return jsonify({'msg': 'Usuario registrado con éxito'}), 200 
 
-@api.route('/users', methods=['GET'])
-def get_all_user():
-        users = User.query.all()
-        usuarios = [user.serialize() for user in users]    
+# @api.route('/users', methods=['GET'])
+# def get_all_user():
+#         users = User.query.all()
+#         usuarios = [user.serialize() for user in users]    
 
-        return jsonify(usuarios), 200
+#         return jsonify(usuarios), 200

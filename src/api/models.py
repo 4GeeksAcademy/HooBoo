@@ -21,34 +21,13 @@ class User(db.Model):
             "email": self.email,
         }
     
-class Favorites(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    book_id = db.Column(db.Integer, db.ForeignKey('book.id'), nullable=False)
-    
-    def __repr__(self):
-        return f'<Favorites {self.id}>'
-    def serialize(self):
-        return{
-            "id": self.id
-        }
-    
-class TypesBooks(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    books = db.relationship('Book', backref='types_books', lazy=True)
-
-    def __repr__(self):
-        return f'<TypesBooks {self.id}>'
-    def serialize(self):
-        return{
-            "id": self.id
-        }
-
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     synopsis = db.Column(db.Text, nullable=False)
     publication_date = db.Column(db.Date, nullable=False)
+
+    favorites = db.relationship('Favorites', backref='book', lazy=True)
 
     types_books_id = db.Column(db.Integer, db.ForeignKey('types_books.id'), nullable=False)
     saga_id = db.Column(db.Integer, db.ForeignKey('saga.id'), nullable=True)
@@ -65,8 +44,73 @@ class Book(db.Model):
             "id": self.id,
             "title": self.title,
             "synopsis": self.synopsis,
-            "publication_date": self.publication_date
+            "publication_date": self.publication_date,
+            "types_books_id": self.types_books_id,
+            "saga_id": self.saga_id,
+            "universe_id":self.universe_id, 
         }
+    
+    
+class UserBook(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    book_id = db.Column(db.Integer, db.ForeignKey('book.id'), nullable=False)
+
+    def __repr__(self):
+        return f'<UserBook {self.id}>'
+    
+    def serialize(self):
+        return{
+            "id": self.id,
+            "user_id": self.id,
+            "book_id": self.id
+        }
+
+
+class Favorites(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    book_id = db.Column(db.Integer, db.ForeignKey('book.id'), nullable=False)
+    
+    def __repr__(self):
+        return f'<Favorites {self.id}>'
+    def serialize(self):
+        return{
+            "id": self.id,
+            "book_id": self.book_id,
+            "user_id":self.user_id
+        }
+
+class UserFavorites(db.Model):
+    id =  id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    favorites_id = db.Column(db.Integer, db.ForeignKey('favorites.id'), nullable=False)
+
+    def __repr__(self):
+        return f'<UserFavorites {self.id}>'
+    
+    def serialize(self):
+        return{
+            "id": self.id,
+            "user_id": self.id,
+            "favorites_id": self.id
+        }
+
+
+class TypesBooks(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, primary_key=True)
+    
+    books = db.relationship('Book', backref='types_books', lazy=True)
+
+    def __repr__(self):
+        return f'<TypesBooks {self.id}>'
+    def serialize(self):
+        return{
+            "id": self.id,
+            "name": self.name
+        }
+
 
 class SpinOff(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -143,4 +187,6 @@ class BookAuthor(db.Model):
     def serialize(self):
         return{
             "id": self.id,
+            "book_id": self.id,
+            "author_id": self.id
         }
