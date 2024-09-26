@@ -59,7 +59,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 // aqui habria que cambiar propiedades por como se llamase la lista de detalles y el id
 			getInfolibroAccion: (id) => {
-				fetch(url)
+				fetch(`url/${id}`)
 				.then(resp => resp.json())
 				.then(data => 
 					setStore({libroAccion: data.results.propiedades})
@@ -68,7 +68,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 			getInfolibroRomance: (id) => {
-				fetch(url)
+				fetch(`url/${id}`)
 				.then(resp => resp.json())
 				.then(data => 
 					setStore({libroRomance: data.results.propiedades})
@@ -77,7 +77,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 			getInfolibroFantasia: () => {
-				fetch(url)
+				fetch(`url/${id}`)
 				.then(resp => resp.json())
 				.then(data => 
 					setStore({libroFantasia: data.results.propiedades})
@@ -86,7 +86,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 			getInfolibroThriller: () => {
-				fetch(url)
+				fetch(`url/${id}`)
 				.then(resp => resp.json())
 				.then(data => 
 					setStore({libroThriller: data.results.propiedades})

@@ -1,16 +1,49 @@
+/* Contenedor del encabezado */
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 25px;
+    /* border: 4px solid #ffffff; */
+    background-image: linear-gradient(45deg, #c6afeecb 25%, transparent 25%), 
+                      linear-gradient(-45deg, #c6afeecb 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, #c6afeecb 75%), 
+                      linear-gradient(-45deg, transparent 75%, #c6afeecb 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: auto;
+    height: 6em;
+    margin: 20px;
+}
+
+/* Texto del encabezado */
+.header-text {
+    font-family: 'Special Elite', cursive;
+    font-size: 350%;
+    font-weight: bold;
+    color: #2c2c2c;
+    margin: 0 20px;
+}
+
+/* Contenedor de la barra de navegación */
 .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #f8f9fa;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: fixed;
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    position: relative;
     width: 100%;
     top: 0;
     z-index: 100;
+    font-family: "IBM Plex Mono", monospace;
 }
 
+/* Sección izquierda de la barra de navegación */
 .navbar-left {
     display: flex;
     align-items: center;
@@ -23,52 +56,55 @@
 }
 
 .logo-img {
-    width: 20px;
+    width: 30px;
     cursor: pointer;
 }
 
+/* Estilo de los enlaces de navegación */
 .nav-link {
     margin-right: 15px;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color: #4c347e;
     transition: color 0.3s ease;
 }
 
-.nav-link:hover {
-    color: #007bff;
-}
-
+/* Sección derecha de la barra de navegación */
 .navbar-right {
     display: flex;
     align-items: center;
 }
 
-.btn-login {
-    background-color: #bc82eb;
+/* Estilo de los botones generales */
+.btn-login, .btn-signup, .btn-explorar, .btn-logo {
+    background-color: #a75df2; /* Color principal del botón (morado más claro) */
     color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
+    border-radius: 35px;
     text-decoration: none;
     font-size: 16px;
     margin-right: 10px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    border: 4px solid #7029ab; /* Borde para igualar el efecto hover (morado oscuro) */
+    width: 9em;
+    height: 4em;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
 }
 
-.btn-login:hover {
-    background-color: #218838;
+/* Efecto hover */
+.btn-login:hover, .btn-signup:hover, .btn-explorar:hover, .btn-logo:hover {
+    background-color: #7029ab; /* Morado más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Ligero aumento del tamaño al pasar el mouse */
+    color: #fff; /* Asegura que el color del texto siga siendo blanco */
+    border: 4px solid #a75df2; /* Borde más claro al hacer hover */
 }
 
-.btn-signup {
-    background-color: #bc82eb;
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-signup:hover {
-    background-color: #5a6268;
+/* Efecto extra cuando el botón está en focus */
+.btn-login:focus, .btn-signup:focus, .btn-explorar:focus, .btn-logo:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(167, 93, 242, 0.5);
 }

@@ -46,7 +46,7 @@ const Principal = () => {
             <div className="principal-container">
                 <div className="header-text">
                     <h1>
-                        Encuentra tu próxima{' '}
+                        Encuentra tu próxima lectura de {' '}
                         <span className="dynamic-genre">
                             {currentGenre === 'fantasia' && 'FANTASÍA'}
                             {currentGenre === 'romance' && 'ROMANCE'}

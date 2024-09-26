@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../component/Navbar.jsx';
 import '../../styles/Principal.css';
 
@@ -35,9 +35,32 @@ const genres = {
 
 const Principal = () => {
     const [currentGenre, setCurrentGenre] = useState('fantasia');
+    const [isVisible, setIsVisible] = useState(true);
+
+    // Lógica para cambiar de género automáticamente cada 5 segundos
+    useEffect(() => {
+        const genreKeys = Object.keys(genres);
+        const genreInterval = setInterval(() => {
+            setIsVisible(false); // Inicia la animación de salida
+            setTimeout(() => {
+                setCurrentGenre((prevGenre) => {
+                    const currentIndex = genreKeys.indexOf(prevGenre);
+                    const nextIndex = (currentIndex + 1) % genreKeys.length;
+                    return genreKeys[nextIndex];
+                });
+                setIsVisible(true); // Muestra las nuevas imágenes con animación de entrada
+            }, 500); // Duración de la animación de salida
+        }, 5500); // Tiempo total para cambiar (5s + 0.5s para la animación de salida)
+
+        return () => clearInterval(genreInterval); // Limpia el intervalo al desmontar el componente
+    }, []);
 
     const handleGenreChange = (genre) => {
-        setCurrentGenre(genre);
+        setIsVisible(false); // Inicia la animación de salida
+        setTimeout(() => {
+            setCurrentGenre(genre);
+            setIsVisible(true); // Muestra las nuevas imágenes con animación de entrada
+        }, 500); // Duración de la animación de salida
     };
 
     return (
@@ -46,7 +69,8 @@ const Principal = () => {
             <div className="principal-container">
                 <div className="header-text">
                     <h1>
-                        Encuentra tu próxima{' '}
+                        Encuentra tu próxima lectura de 
+                        <div>{' '}</div>
                         <span className="dynamic-genre">
                             {currentGenre === 'fantasia' && 'FANTASÍA'}
                             {currentGenre === 'romance' && 'ROMANCE'}
@@ -56,24 +80,15 @@ const Principal = () => {
                     </h1>
                 </div>
                 <div className="genre-indicators">
-                    <span
-                        className={`indicator ${currentGenre === 'fantasia' ? 'active' : ''}`}
-                        onClick={() => handleGenreChange('fantasia')}
-                    ></span>
-                    <span
-                        className={`indicator ${currentGenre === 'romance' ? 'active' : ''}`}
-                        onClick={() => handleGenreChange('romance')}
-                    ></span>
-                    <span
-                        className={`indicator ${currentGenre === 'drama' ? 'active' : ''}`}
-                        onClick={() => handleGenreChange('drama')}
-                    ></span>
-                    <span
-                        className={`indicator ${currentGenre === 'thriller' ? 'active' : ''}`}
-                        onClick={() => handleGenreChange('thriller')}
-                    ></span>
+                    {Object.keys(genres).map((genre) => (
+                        <span
+                            key={genre}
+                            className={`indicator ${currentGenre === genre ? 'active' : ''}`}
+                            onClick={() => handleGenreChange(genre)}
+                        ></span>
+                    ))}
                 </div>
-                <div className="image-grid">
+                <div className={`image-grid ${isVisible ? 'fade-in' : 'fade-out'}`}>
                     {genres[currentGenre].map((book) => (
                         <img
                             key={book.id}
