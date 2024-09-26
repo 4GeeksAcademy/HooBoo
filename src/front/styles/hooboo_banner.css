@@ -1,0 +1,33 @@
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 25px;
+    background-image: linear-gradient(45deg, #c6afeecb 25%, transparent 25%),
+        linear-gradient(-45deg, #c6afeecb 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #c6afeecb 75%),
+        linear-gradient(-45deg, transparent 75%, #c6afeecb 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: auto;
+    height: 6em;
+    margin-top: 2vh;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    position: fixed;
+    top: 0;
+    left:0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header-text {
+    font-family: 'Special Elite', cursive;
+    font-size: 350%;
+    font-weight: bold;
+    color: #2c2c2c;
+    margin: 0 20px;
+}

@@ -17,9 +17,25 @@ export const OneBookFantasia = ({ tituloFantasia, id }) => {
 	};
 
 	return (
-		<div>
 			<div className="onebook">
-				<div className="card">
+					<img
+						src={imgURL}
+						className="card-img-top"
+						alt={`foto personaje ${tituloFantasia}`}
+						onError={(e) => e.target.src = imgReserva}
+					/>
+					<img
+						src={imgURL}
+						className="card-img-top"
+						alt={`foto personaje ${tituloFantasia}`}
+						onError={(e) => e.target.src = imgReserva}
+					/>
+					<img
+						src={imgURL}
+						className="card-img-top"
+						alt={`foto personaje ${tituloFantasia}`}
+						onError={(e) => e.target.src = imgReserva}
+					/>
 					<img
 						src={imgURL}
 						className="card-img-top"
@@ -42,10 +58,6 @@ export const OneBookFantasia = ({ tituloFantasia, id }) => {
 						</div>
 					</div>
 				</div>
-			</div>
-
-
-		</div>
 	);
 };
 

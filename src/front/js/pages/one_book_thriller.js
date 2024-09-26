@@ -26,6 +26,30 @@ export const OneBookThriller = ({ tituloThriller, id }) => {
 						alt={`foto personaje ${tituloThriller}`}
 						onError={(e) => e.target.src = imgReserva}
 					/>
+					<img
+						src={imgURL}
+						className="card-img-top"
+						alt={`foto personaje ${tituloThriller}`}
+						onError={(e) => e.target.src = imgReserva}
+					/>
+					<img
+						src={imgURL}
+						className="card-img-top"
+						alt={`foto personaje ${tituloThriller}`}
+						onError={(e) => e.target.src = imgReserva}
+					/>
+					<img
+						src={imgURL}
+						className="card-img-top"
+						alt={`foto personaje ${tituloThriller}`}
+						onError={(e) => e.target.src = imgReserva}
+					/>
+					<img
+						src={imgURL}
+						className="card-img-top"
+						alt={`foto personaje ${tituloThriller}`}
+						onError={(e) => e.target.src = imgReserva}
+					/>
 					<div className="card-body">
 						<h5 className="card-title">{tituloThriller}</h5>
 

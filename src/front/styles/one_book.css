@@ -3,6 +3,8 @@
   display: flex;
   justify-content: center;
   margin-bottom: 16px;
+  gap:20px;
+  
 }
 
 .card {

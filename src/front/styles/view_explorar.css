@@ -1,19 +1,46 @@
-
-/* Estilo para las imágenes */
-.grid img {
-  width: 100%;
-  height: auto; 
-  object-fit: cover; 
-  border-radius: 8px; 
-}
-.container-hoy {
-  text-align: center;
-  padding: 20px;
-}
-
-.grid {
+/* Contenedor principal de la cuadrícula tipo Pinterest */
+.pinterest-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-  gap: 20px; 
-  justify-items: center; 
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta la cantidad de columnas automáticamente */
+  gap: 20px; /* Espacio entre los elementos */
+  padding: 20px; /* Espacio alrededor de la cuadrícula */
+  justify-content: center; /* Centra los elementos dentro de la cuadrícula */
+  margin-top: 140px;
+  margin-left: 300px;
 }
+
+/* Estilo para cada item en la cuadrícula */
+.pinterest-item {
+  background-color: #fff; /* Color de fondo blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  overflow: hidden; /* Oculta cualquier contenido que se salga del contenedor */
+  transition: transform 0.3s ease; /* Transición suave en hover */
+  gap:20px;
+  display: flex;
+
+}
+
+/* Efecto hover para los items */
+.pinterest-item:hover {
+  transform: translateY(-10px); /* Eleva un poco el item al pasar el ratón */
+}
+
+/* Ajustes específicos para diferentes tamaños de libros */
+.pinterest-item:nth-child(1) {
+  grid-row-end: span 2; /* Primera imagen ocupa 2 filas */
+}
+
+.pinterest-item:nth-child(2) {
+  grid-row-end: span 3; /* Segunda imagen ocupa 3 filas */
+}
+
+.pinterest-item:nth-child(3) {
+  grid-row-end: span 1; /* Tercera imagen ocupa 1 fila */
+}
+
+.pinterest-item:nth-child(4) {
+  grid-row-end: span 2; /* Cuarta imagen ocupa 2 filas */
+}
+
+/* Ajusta estos tamaños de fila según el contenido */

@@ -6,19 +6,22 @@ import BookList from "../pages/book_list";
 
 
 
+
 export const VistaExplorar = () => {
 
     const { store, actions } = useContext(Context);
-    
+
     return (
-        <div className="container-hoy">
-            <div className="grid">
-            <BookList>
+        <>
+            <div className="container-hoy">
+                <div className="grid">
+                    <BookList>
 
-            </BookList>
-</div>
+                    </BookList>
+                </div>
 
-        </div>
+            </div>
+        </>
     );
 
 }
