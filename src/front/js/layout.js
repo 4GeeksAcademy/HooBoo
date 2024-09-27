@@ -6,9 +6,8 @@ import Login from "./pages/Login";
 import Principal from "./pages/Principal";
 import Registro from "./pages/Registro";
 import Home from "./pages/Home";
+import Editarperfil from "./pages/Editarperfil";
 import injectContext from "./store/appContext";
-
-import Footer from "./component/footer";
 
 const Layout = () => {
     const basename = process.env.BASENAME || "";
@@ -23,9 +22,9 @@ const Layout = () => {
                         <Route element={<Login />} path="/Login" />
                         <Route element={<Registro />} path="/Registro" />
                         <Route element={<Home />} path="/Home" />
+                        <Route element={<Editarperfil />} path="/Editarperfil" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
-                    <Footer />
             </BrowserRouter>
         </div>
     );

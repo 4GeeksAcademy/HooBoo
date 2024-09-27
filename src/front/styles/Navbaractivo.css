@@ -37,7 +37,7 @@
 }
 
 .menu-item:hover {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.596);
+    box-shadow: 0 0 10px #4fd1c5;
     color: #4fd1c5;
 }
 
@@ -94,4 +94,17 @@
     color: #fff;
     text-decoration: none;
 }
+
+.perfil_correo {
+    font-size: 12px;
+    margin-top: 0; /* Elimina el espacio inferior */
+    padding-top: 0; 
+}
+
+.perfil_nombre {
+    font-size: 22px;
+    margin-bottom: 0; /* Elimina el espacio inferior */
+    padding-bottom: 0; 
+}
+
 

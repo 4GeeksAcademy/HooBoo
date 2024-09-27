@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../component/Navbar.jsx';
+import Footer from '../component/Footer.jsx';
 import '../../styles/Principal.css';
 
 const genres = {
@@ -84,6 +85,7 @@ const Principal = () => {
                     ))}
                 </div>
             </div>
+            < Footer />
         </div>
     );
 };

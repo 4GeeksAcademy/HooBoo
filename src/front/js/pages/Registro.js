@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Context } from "../store/appContext";
 import '../../styles/Registro.css';
 
 const Registro = () => {
     const [correo, setCorreo] = useState('');
     const [contrasena, setContrasena] = useState('');
+    const { actions } = useContext(Context);
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/Login');
+        actions.crear_usuario(correo, contrasena).then(() => {
+            navigate('/Login');
+        });
     };
 
     return (
