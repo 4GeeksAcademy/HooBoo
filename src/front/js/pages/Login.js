@@ -17,7 +17,7 @@ const Login = () => {
         const response = await actions.iniciarSesion(email, password);
 
         if (response.success) {
-            navigate('/Home');
+            navigate('/vistaexplorar');
         } else {
             setError(`${response.error}`);
         }

@@ -1,26 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Navbar.css";
+import logo from "/workspaces/HooBoo/src/front/img/logo.png";
+import HoobooBanner from "./hooboo_banner.jsx";
+
 
 const Navbar = () => {
     return (
-        <nav className="navbar-container">
-            <div className="navbar-left">
-                <Link to="/Private" className="logo">
-                    <img src="logo.png" alt="Logo" className="logo-img" />
-                </Link>
-                <Link to="/hoy" className="nav-link">Hoy</Link>
-                <Link to="/explorar" className="nav-link">Explorar</Link>
-            </div>
-            <div className="navbar-right">
-                <Link to="/Login" className="btn-login">
-                    Iniciar Sesión
-                </Link>
-                <Link to="/Registro" className="btn-signup">
-                    Registrarse
-                </Link>
-            </div>
-        </nav>
+        <>
+            <HoobooBanner></HoobooBanner>
+            <nav className="navbar-container">
+
+                <div className="navbar-left">
+
+                    <Link to="/" className="btn-logo">
+                        <img src={logo} alt="Logo" className="logo-img" />
+                    </Link>
+
+                    <Link to="/vistaexplorar" className="btn-explorar">Explorar</Link>
+                </div>
+                <div className="navbar-right">
+                    <Link to="/Login" className="btn-login">
+                        Inicio Sesión
+                    </Link>
+                    <Link to="/Registro" className="btn-signup">
+                        Registro
+                    </Link>
+
+                </div>
+            </nav>
+
+
+        </>
     );
 };
 

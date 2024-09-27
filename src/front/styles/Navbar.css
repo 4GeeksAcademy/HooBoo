@@ -1,15 +1,21 @@
+/* Contenedor del encabezado */
 .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #f8f9fa;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: fixed;
+    padding: 1%;
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    position: relative;
     width: 100%;
     top: 0;
     z-index: 100;
+    font-family: "IBM Plex Mono", monospace;
+    margin-top: 7%;
+    position: fixed;
+   
 }
+
 
 .navbar-left {
     display: flex;
@@ -19,56 +25,95 @@
 .logo {
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 7vw;
 }
 
 .logo-img {
-    width: 20px;
+    width: 5vw;
     cursor: pointer;
 }
 
+
 .nav-link {
-    margin-right: 15px;
-    font-size: 16px;
+    margin-right: 10vw;
+    font-size: 20%;
+    font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color: #4c347e;
     transition: color 0.3s ease;
 }
 
-.nav-link:hover {
-    color: #007bff;
-}
 
 .navbar-right {
     display: flex;
     align-items: center;
 }
 
-.btn-login {
-    background-color: #bc82eb;
+
+.btn-login,
+.btn-signup,
+.btn-explorar,
+.btn-logo {
+    background-color: #a75df2;
     color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
+    border-radius: 35px;
     text-decoration: none;
-    font-size: 16px;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    margin-right: 1vw; 
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    border: 0.25rem solid #7029ab; 
+    width: 9vw; 
+    height: 7vh; 
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
-.btn-login:hover {
-    background-color: #218838;
+/* Estilo responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .btn-login,
+    .btn-signup,
+    .btn-explorar,
+    .btn-logo {
+        width: 20vw; 
+        height: 6vh; 
+        font-size: 0.9rem; 
+        border: 0.2rem solid #7029ab;
+    }
 }
 
-.btn-signup {
-    background-color: #bc82eb;
+/* Estilo responsivo para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .btn-login,
+    .btn-signup,
+    .btn-explorar,
+    .btn-logo {
+        width: 40vw; 
+        height: 8vh;
+        font-size: 0.8rem; 
+        border: 0.15rem solid #7029ab;
+        margin-right: 0.5vw; 
+    }
+}
+
+
+/* Efecto hover */
+.btn-login:hover,
+.btn-signup:hover,
+.btn-explorar:hover,
+.btn-logo:hover {
+    background-color: #7029ab;
+    transform: scale(1.05);
     color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    border: 4px solid #a75df2;
 }
 
-.btn-signup:hover {
-    background-color: #5a6268;
+
+.btn-login:focus,
+.btn-signup:focus,
+.btn-explorar:focus,
+.btn-logo:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(167, 93, 242, 0.5);
 }

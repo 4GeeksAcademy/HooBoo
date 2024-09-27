@@ -1,8 +1,11 @@
+import BookList from "../pages/book_list";
+
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
             token: localStorage.getItem("jwt-token") || null,
-            libros: []
+            libros: [],
+			favorito: []
         },
         actions: {
             crear_usuario: async (email, password) => {
@@ -79,7 +82,30 @@ const getState = ({ getStore, getActions, setStore }) => {
                 localStorage.removeItem("jwt-token");
                 setStore({ token: null });
                 console.log("Usuario deslogueado");
-            }
+            },
+			añadirFavorito: (categoria, libroFavorito) => {
+				const store = getStore();
+				const favorito = {categoria, libro: libroFavorito}
+
+				if (store.favorito.some(f => f.libro === libroFavorito && f.categoria === categoria)) {
+					setStore({
+						favorito: store.favorito.filter(f => f.libro !== libroFavorito || f.categoria !== categoria )
+					});
+					
+				} else {
+					setStore({
+						favorito: [ ...store.favorito, favorito]
+					})
+				}
+
+			},
+			deleteFavorito: (categoria, libroFavorito) => {
+				const store = getStore();
+				setStore({
+					favorito: store.favorito.filter(f => f.libro !== libroFavorito || f.categoria !== categoria )
+				})
+
+			}
         }
     };
 };
