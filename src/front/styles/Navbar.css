@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 1%;
     background-size: 20px 20px;
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     position: relative;
@@ -11,7 +11,9 @@
     top: 0;
     z-index: 100;
     font-family: "IBM Plex Mono", monospace;
-    margin-top: 7vw;
+    margin-top: 7%;
+    position: fixed;
+   
 }
 
 
@@ -23,18 +25,18 @@
 .logo {
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 7vw;
 }
 
 .logo-img {
-    width: 30px;
+    width: 5vw;
     cursor: pointer;
 }
 
 
 .nav-link {
-    margin-right: 15px;
-    font-size: 18px;
+    margin-right: 10vw;
+    font-size: 20%;
     font-weight: bold;
     text-decoration: none;
     color: #4c347e;
@@ -56,18 +58,45 @@
     color: #fff;
     border-radius: 35px;
     text-decoration: none;
-    font-size: 16px;
-    margin-right: 10px;
+    font-size: 1rem;
+    margin-right: 1vw; 
     transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
-    border: 4px solid #7029ab;
-    width: 9em;
-    height: 4em;
+    border: 0.25rem solid #7029ab; 
+    width: 9vw; 
+    height: 7vh; 
     display: flex;
     align-content: center;
     justify-content: center;
     align-items: center;
-    font-size: large;
 }
+
+/* Estilo responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .btn-login,
+    .btn-signup,
+    .btn-explorar,
+    .btn-logo {
+        width: 20vw; 
+        height: 6vh; 
+        font-size: 0.9rem; 
+        border: 0.2rem solid #7029ab;
+    }
+}
+
+/* Estilo responsivo para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .btn-login,
+    .btn-signup,
+    .btn-explorar,
+    .btn-logo {
+        width: 40vw; 
+        height: 8vh;
+        font-size: 0.8rem; 
+        border: 0.15rem solid #7029ab;
+        margin-right: 0.5vw; 
+    }
+}
+
 
 /* Efecto hover */
 .btn-login:hover,

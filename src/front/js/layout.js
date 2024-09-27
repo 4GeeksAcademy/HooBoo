@@ -9,9 +9,6 @@ import Home from "./pages/Home";
 import injectContext from "./store/appContext";
 import HoobooBanner from './component/hooboo_banner.jsx';
 
-// import Navbaractivo from "./component/Navbaractivo.jsx";
-
-
 
 const Layout = () => {
     const basename = process.env.BASENAME || "";
@@ -22,7 +19,6 @@ const Layout = () => {
         <div>
             <BrowserRouter basename={basename}>
                 <HoobooBanner />
-                {/* <Navbaractivo /> */}
                 <Routes>
                     <Route element={<Principal />} path="/" />
                     <Route element={<Login />} path="/Login" />

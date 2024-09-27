@@ -14,7 +14,7 @@ const Navbaractivo = () => {
         <nav className="navbar-activo">
             <div className="menu">
                 <Link to="/main" className="logo-activo">
-                    <h1>Logo</h1>
+                    <h4>Logo</h4>
                 </Link>
                 <Link to="/busqueda" className="menu-item">
                     <FaSearch /> <span>Búsqueda</span>

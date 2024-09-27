@@ -10,7 +10,7 @@ import OneBookRomance from "./one_book_romance.js";
 const BookList = () => {
 
     return (
-        <div>
+        <>
             <div className="pinterest-grid">
                 <div className="pinterest-item"><OneBookAccion /></div>
                 <div className="pinterest-item"><OneBookFantasia /></div>
@@ -19,7 +19,7 @@ const BookList = () => {
             </div>
 
             {/* aqui irá un .map para cargar los libros */}
-        </div>
+        </>
     )
 }
 

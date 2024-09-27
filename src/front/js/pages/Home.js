@@ -41,7 +41,7 @@ const Principal = () => {
     };
 
     return (
-        <div>
+        <>
             < Navbaractivo />
             <div className="principal-container">
                 <div className="header-text">
@@ -84,7 +84,7 @@ const Principal = () => {
                     ))}
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

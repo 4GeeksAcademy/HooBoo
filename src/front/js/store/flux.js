@@ -28,72 +28,72 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log(error))
 			},
 
-			cargarListaRomance: () => {
-				fetch(url)
-				.then(resp => resp.json())
-				.then(data => {
-					setStore({listaRomance: data.results})
-				})
-				.catch(error => console.log(error))
+			// cargarListaRomance: () => {
+			// 	fetch(url)
+			// 	.then(resp => resp.json())
+			// 	.then(data => {
+			// 		setStore({listaRomance: data.results})
+			// 	})
+			// 	.catch(error => console.log(error))
 
-			},
+			// },
 
-			cargarListaFantasia: () => {
-				fetch(url)
-				.then(resp => resp.json())
-				.then(data => {
-					setStore({listaFantasia: data.results})
-				})
-				.catch(error => console.log(error))
-			},
+			// cargarListaFantasia: () => {
+			// 	fetch(url)
+			// 	.then(resp => resp.json())
+			// 	.then(data => {
+			// 		setStore({listaFantasia: data.results})
+			// 	})
+			// 	.catch(error => console.log(error))
+			// },
 
-			cargarListaThriller: () => {
-				fetch(url)
-				.then(resp => resp.json())
-				.then(data => {
-					setStore({listaThriller: data.results})
-				})
-				.catch(error => console.log(error))
+			// cargarListaThriller: () => {
+			// 	fetch(url)
+			// 	.then(resp => resp.json())
+			// 	.then(data => {
+			// 		setStore({listaThriller: data.results})
+			// 	})
+			// 	.catch(error => console.log(error))
 
-			},
+			// },
 			
 // aqui habria que cambiar propiedades por como se llamase la lista de detalles y el id
-			getInfolibroAccion: (id) => {
-				fetch(`url/${id}`)
-				.then(resp => resp.json())
-				.then(data => 
-					setStore({libroAccion: data.results.propiedades})
-				)
-				.catch(error => console.log(error))
+			// getInfolibroAccion: (id) => {
+			// 	fetch(`url/${id}`)
+			// 	.then(resp => resp.json())
+			// 	.then(data => 
+			// 		setStore({libroAccion: data.results.propiedades})
+			// 	)
+			// 	.catch(error => console.log(error))
 
-			},
-			getInfolibroRomance: (id) => {
-				fetch(`url/${id}`)
-				.then(resp => resp.json())
-				.then(data => 
-					setStore({libroRomance: data.results.propiedades})
-				)
-				.catch(error => console.log(error))
+			// },
+			// getInfolibroRomance: (id) => {
+			// 	fetch(`url/${id}`)
+			// 	.then(resp => resp.json())
+			// 	.then(data => 
+			// 		setStore({libroRomance: data.results.propiedades})
+			// 	)
+			// 	.catch(error => console.log(error))
 
-			},
-			getInfolibroFantasia: () => {
-				fetch(`url/${id}`)
-				.then(resp => resp.json())
-				.then(data => 
-					setStore({libroFantasia: data.results.propiedades})
-				)
-				.catch(error => console.log(error))
+			// },
+			// getInfolibroFantasia: () => {
+			// 	fetch(`url/${id}`)
+			// 	.then(resp => resp.json())
+			// 	.then(data => 
+			// 		setStore({libroFantasia: data.results.propiedades})
+			// 	)
+			// 	.catch(error => console.log(error))
 
-			},
-			getInfolibroThriller: () => {
-				fetch(`url/${id}`)
-				.then(resp => resp.json())
-				.then(data => 
-					setStore({libroThriller: data.results.propiedades})
-				)
-				.catch(error => console.log(error))
+			// },
+			// getInfolibroThriller: () => {
+			// 	fetch(`url/${id}`)
+			// 	.then(resp => resp.json())
+			// 	.then(data => 
+			// 		setStore({libroThriller: data.results.propiedades})
+			// 	)
+			// 	.catch(error => console.log(error))
 
-			},
+			// },
 			añadirFavorito: (categoria, libroFavorito) => {
 				const store = getStore();
 				const favorito = {categoria, libro: libroFavorito}
