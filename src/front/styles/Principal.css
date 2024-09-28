@@ -2,7 +2,6 @@
 .principal-container {
     text-align: center;
     margin-top: 5vw;
-
 }
 
 .header-text {
@@ -19,30 +18,30 @@ h1 {
 
 /* Grid de imágenes */
 .image-grid {
-    display: grid; /* Usamos grid layout */
+    display: grid;
     grid-template-columns: repeat(7, 1fr); /* 7 columnas, una para cada imagen */
-    justify-items: center; /* Centra las imágenes dentro de sus celdas */
+    justify-items: center;
     position: relative;
     opacity: 1;
-    transition: opacity 1s ease-in-out; /* Suave transición de opacidad */
+    transition: opacity 1s ease-in-out;
 }
 
 /* Estilo de las imágenes */
 .image-grid img {
-    width: 12vw; /* Ajusta el tamaño de las imágenes */
-    height: auto; /* Mantiene la proporción de las imágenes */
-    object-fit: cover; /* Ajusta la imagen sin distorsión */
-    border-radius: 10px; /* Bordes redondeados */
+    width: 12vw; 
+    height: auto;
+    object-fit: cover; 
+    border-radius: 10px; 
     opacity: 1;
     transition: opacity 1s ease-in-out, transform 1s ease-in-out; 
     box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
     border: 2px solid #a75df267;
-    position: relative; /* Necesario para desplazar cada imagen */
+    position: relative;
 }
 
 /* Efecto hover en las imágenes */
 .image-grid img:hover {
-    transform: scale(1.1); /* Aumenta el tamaño de la imagen en hover */
+    transform: scale(1.1);
 }
 
 /* Posición personalizada de cada imagen */
@@ -119,12 +118,10 @@ h1 {
 /* Animación de desvanecimiento */
 .fade-in {
     animation: fadeIn 1s forwards;
-    /* Aumenta el tiempo de la animación para una transición más suave */
 }
 
 .fade-out {
     animation: fadeOut 1s forwards;
-    /* Añade fade-out para que desaparezca suavemente */
 }
 
 @keyframes fadeIn {

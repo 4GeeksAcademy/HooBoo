@@ -10,13 +10,10 @@ const Navbar = () => {
         <>
             <HoobooBanner></HoobooBanner>
             <nav className="navbar-container">
-
                 <div className="navbar-left">
-
                     <Link to="/" className="btn-logo">
                         <img src={logo} alt="Logo" className="logo-img" />
                     </Link>
-
                     <Link to="/vistaexplorar" className="btn-explorar">Explorar</Link>
                 </div>
                 <div className="navbar-right">
@@ -26,11 +23,8 @@ const Navbar = () => {
                     <Link to="/Registro" className="btn-signup">
                         Registro
                     </Link>
-
                 </div>
             </nav>
-
-
         </>
     );
 };

@@ -16,30 +16,30 @@ export const OneBookRomance = ({ tituloRomance, id }) => {
 	};
 
 	return (
-			<div className="onebook">
-				<img
-					src={imgURL}
-					className="card-img-top"
-					alt={`foto personaje ${tituloRomance}`}
-					onError={(e) => e.target.src = imgReserva}
-				/>
+		<div className="onebook">
+			<img
+				src={imgURL}
+				className="card-img-top"
+				alt={`foto personaje ${tituloRomance}`}
+				onError={(e) => e.target.src = imgReserva}
+			/>
 
-				<div className="card-body">
-					<h5 className="card-title">{tituloRomance}</h5>
+			<div className="card-body">
+				<h5 className="card-title">{tituloRomance}</h5>
 
-					<div className="botonesinfoyfav">
-						<Link to={`/libroRomance/${id}`} className="boton-info"> <i class="fa-solid fa-plus"></i> </Link>
-						<button
-							onClick={handleFavoriteToggle}
-							className="btn"
-							aria-label={esFavorito ? `Eliminar ${tituloRomance} de favoritos` : `Añadir ${tituloRomance} a favoritos`}
-						>
-							<i className={`fa-star ${esFavorito ? 'fa-solid' : 'fa-regular'}`}></i>
-						</button>
-						{/* //necesito que lo agregue al panel de libros favoritos añadidos*/}
-					</div>
+				<div className="botonesinfoyfav">
+					<Link to={`/libroRomance/${id}`} className="boton-info"> <i class="fa-solid fa-plus"></i> </Link>
+					<button
+						onClick={handleFavoriteToggle}
+						className="btn"
+						aria-label={esFavorito ? `Eliminar ${tituloRomance} de favoritos` : `Añadir ${tituloRomance} a favoritos`}
+					>
+						<i className={`fa-star ${esFavorito ? 'fa-solid' : 'fa-regular'}`}></i>
+					</button>
+					{/* //necesito que lo agregue al panel de libros favoritos añadidos*/}
 				</div>
 			</div>
+		</div>
 	);
 };
 

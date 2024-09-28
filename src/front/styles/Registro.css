@@ -39,7 +39,7 @@ h2 {
     width: 100%;
     padding: 12px;
     margin-bottom: 12px;
-    background-color: #4CAF50;
+    background-color: #7029ab;
     color: white;
     font-size: 16px;
     border: none;
@@ -49,5 +49,5 @@ h2 {
 }
 
 .form-button:hover {
-    background-color: #45a049;
+    background-color: #7029ab;
 }

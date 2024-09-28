@@ -29,7 +29,8 @@
     justify-content: center;
     align-items: center;
 }
-.chat-x{
+
+.chat-x {
     display: flex;
     justify-content: center;
     align-items: flex-end;

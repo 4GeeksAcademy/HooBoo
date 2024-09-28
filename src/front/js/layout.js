@@ -13,8 +13,7 @@ import Footer from './component/Footer.jsx';
 import ChatCollapsed from './component/ChatCollapsed.jsx';
 
 const AppContent = () => {
-    const location = useLocation(); // Utilizamos useLocation dentro de un componente envuelto por BrowserRouter
-    
+    const location = useLocation(); 
     const isHomePage = location.pathname === "/";
 
     return (
@@ -29,12 +28,11 @@ const AppContent = () => {
                 <Route element={<Editarperfil />} path="/Editarperfil" />
                 <Route element={<h1>Not found!</h1>} />
             </Routes>
-            {/* Mostrar el Footer y Chat correspondientes dependiendo de la ruta */}
             {isHomePage ? (
                 <Footer />
             ) : (
                 <>
-                    <ChatCollapsed /> {/* Muestra el chat colapsado */}
+                    <ChatCollapsed />
                 </>
             )}
         </div>

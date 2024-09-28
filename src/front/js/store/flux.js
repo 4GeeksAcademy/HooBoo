@@ -5,7 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         store: {
             token: localStorage.getItem("jwt-token") || null,
             libros: [],
-			favorito: []
+            favorito: []
         },
         actions: {
             crear_usuario: async (email, password) => {
@@ -38,17 +38,17 @@ const getState = ({ getStore, getActions, setStore }) => {
                         },
                         body: JSON.stringify({ email, password }),
                     });
-            
+
                     if (!res.ok) {
                         const errorData = await res.json();
                         throw new Error(errorData.msg || "Error en la solicitud de login");
                     }
-            
+
                     const data = await res.json();
                     localStorage.setItem("jwt-token", data.access_token);
                     setStore({ token: data.access_token });
                     console.log("Usuario autenticado:", data);
-            
+
                     return { success: true, token: data.access_token };
                 } catch (error) {
                     console.error("Error en la solicitud de login:", error);
@@ -83,29 +83,29 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({ token: null });
                 console.log("Usuario deslogueado");
             },
-			añadirFavorito: (categoria, libroFavorito) => {
-				const store = getStore();
-				const favorito = {categoria, libro: libroFavorito}
+            añadirFavorito: (categoria, libroFavorito) => {
+                const store = getStore();
+                const favorito = { categoria, libro: libroFavorito }
 
-				if (store.favorito.some(f => f.libro === libroFavorito && f.categoria === categoria)) {
-					setStore({
-						favorito: store.favorito.filter(f => f.libro !== libroFavorito || f.categoria !== categoria )
-					});
-					
-				} else {
-					setStore({
-						favorito: [ ...store.favorito, favorito]
-					})
-				}
+                if (store.favorito.some(f => f.libro === libroFavorito && f.categoria === categoria)) {
+                    setStore({
+                        favorito: store.favorito.filter(f => f.libro !== libroFavorito || f.categoria !== categoria)
+                    });
 
-			},
-			deleteFavorito: (categoria, libroFavorito) => {
-				const store = getStore();
-				setStore({
-					favorito: store.favorito.filter(f => f.libro !== libroFavorito || f.categoria !== categoria )
-				})
+                } else {
+                    setStore({
+                        favorito: [...store.favorito, favorito]
+                    })
+                }
 
-			}
+            },
+            deleteFavorito: (categoria, libroFavorito) => {
+                const store = getStore();
+                setStore({
+                    favorito: store.favorito.filter(f => f.libro !== libroFavorito || f.categoria !== categoria)
+                })
+
+            }
         }
     };
 };

@@ -111,7 +111,7 @@ const Principal = () => {
                     ))}
                 </div>
             </div>
-            
+
         </div>
     );
 };

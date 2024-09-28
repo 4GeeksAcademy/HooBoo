@@ -1,6 +1,5 @@
 /* lista de los libros*/
 import "../../styles/view_explorar.css";
-
 import React from "react";
 import OneBookFantasia from "./one_book_fantasia.js";
 import OneBookThriller from "./one_book_thriller.js";
@@ -18,6 +17,5 @@ const BookList = () => {
         </div>
     )
 }
-
 
 export default BookList
