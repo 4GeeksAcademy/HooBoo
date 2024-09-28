@@ -1,13 +1,16 @@
 .navbar-activo {
-    width: 13%;
+    width: 20%;
     background-color: #000;
     color: #fff;
     position: fixed;
-    height: 90%;
+    height: 103%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    margin-top: 60px;
+    left: 0; /* Fijado a la izquierda */
+    top: 0; /* Fijado en la parte superior */
+    /* z-index: 1000; */
 }
 
 .logo-activo {
@@ -54,6 +57,7 @@
     left: 0;
     width: 100%;
     z-index: 10;
+    margin-top: 55px;
 }
 
 .profile-picture {

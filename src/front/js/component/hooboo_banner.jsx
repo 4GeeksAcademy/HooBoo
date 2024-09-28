@@ -13,4 +13,4 @@ const HoobooBanner = () => {
     )
 }
 
-export default HoobooBanner
+export default HoobooBanner;

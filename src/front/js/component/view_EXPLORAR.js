@@ -1,33 +1,26 @@
 import React, { useContext } from "react";
-import { Link } from 'react-router-dom';
 import { Context } from "../store/appContext";
+import Navbaractivo from "../component/Navbaractivo.jsx";
+import Footercolapsado from "../component/Footercolapsado.jsx";
+import BookCard from "../component/BookCard.jsx";
 import "../../styles/view_explorar.css";
-import BookList from "../pages/book_list";
-import Navbaractivo from "./Navbaractivo.jsx";
-
-import "../../styles/Navbaractivo.css";
-
-
-
 
 export const VistaExplorar = () => {
-
-    const { store, actions } = useContext(Context);
+    const { store } = useContext(Context);
+    const books = store.books; // Asumiendo que hay un arreglo de libros en el store
 
     return (
-        <>
-        <Navbaractivo />
-            <div className="container-hoy">
-                <div className="grid">
-                    <BookList>
-
-                    </BookList>
-                </div>
-
+        <div className="vista-explorar">
+            <Navbaractivo />
+            <div className="hooboobaner">Hooked and Bookish</div>
+            <div className="book-list">
+                {books && books.map((book, index) => (
+                    <BookCard key={index} book={book} />
+                ))}
             </div>
-        </>
+            <Footercolapsado />
+        </div>
     );
-
 }
 
 
