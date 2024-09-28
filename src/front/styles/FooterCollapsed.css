@@ -1,0 +1,29 @@
+.footer-collapsed-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .footer-toggle-button {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .footer-expanded {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+  }
+  

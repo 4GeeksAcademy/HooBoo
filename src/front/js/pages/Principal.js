@@ -3,6 +3,8 @@ import Navbar from '../component/Navbar.jsx';
 import Footer from '../component/Footer.jsx';
 import '../../styles/Principal.css';
 
+
+
 const genres = {
     fantasia: [
         { id: 1, src: 'https://www.unebook.es/blog/wp-content/uploads/2020/05/Juego_de_Tronos-657x1024.jpg', alt: 'Fantasy Book 1' },
@@ -109,7 +111,7 @@ const Principal = () => {
                     ))}
                 </div>
             </div>
-            < Footer />
+            
         </div>
     );
 };

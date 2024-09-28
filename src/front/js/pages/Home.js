@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../styles/Principal.css';
+import Navbaractivo from '../component/Navbaractivo.jsx';
 
 
 const genres = {
