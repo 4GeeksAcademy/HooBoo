@@ -1,3 +1,4 @@
+/* Estilo del contenedor del banner */
 .header-container {
     display: flex;
     justify-content: center;
@@ -12,22 +13,97 @@
     background-size: 20px 20px;
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: auto;
+    width: 100%;
     height: 6em;
-    margin-top: 2vh;
-    margin-left: 1vh;
-    margin-right: 1vh;
     position: fixed;
     top: 0;
-    left:0;
+    left: 0;
     z-index: 1000;
-    width: 100%;
+    box-sizing: border-box;
 }
 
+/* Ajuste del tamaño de la fuente del banner */
 .header-text {
     font-family: 'Special Elite', cursive;
-    font-size: 350%;
+    font-size: 2.5vw; /* Se usa una unidad relativa para ajustarse al ancho de la pantalla */
     font-weight: bold;
     color: #2c2c2c;
     margin: 0 20px;
+}
+
+/* Estilo del contenedor del navbar */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    position: relative;
+    width: 100%;
+    top: 6em; /* Se ajusta la posición para evitar el colapso con el banner */
+    z-index: 100;
+    font-family: "IBM Plex Mono", monospace;
+    margin-top: 0;
+    position: fixed;
+    background: white; /* Agregamos un fondo blanco para que no se superponga el contenido */
+}
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 768px) {
+    .header-text {
+        font-size: 5vw; /* Ajustar la fuente para pantallas medianas */
+    }
+
+    .navbar-container {
+        top: 8em; /* Ajuste para el navbar */
+        padding: 0.5rem;
+    }
+
+    .btn-login,
+    .btn-signup,
+    .btn-explorar,
+    .btn-logo {
+        width: 30vw;
+        height: 5vh;
+        font-size: 0.9rem;
+        border: 0.2rem solid #7029ab;
+        margin-right: 2vw;
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+    .header-text {
+        font-size: 7vw; /* Tamaño mayor para la fuente en pantallas pequeñas */
+    }
+
+    .navbar-container {
+        top: 9em; /* Ajuste adicional para el navbar en pantallas pequeñas */
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem 1rem;
+    }
+
+    .btn-login,
+    .btn-signup,
+    .btn-explorar,
+    .btn-logo {
+        width: 80vw;
+        height: 8vh;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+}
+
+.headerfondo {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    position: fixed;width: 100%;
+    height: 7em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-sizing: border-box;
 }

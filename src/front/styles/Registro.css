@@ -51,3 +51,30 @@ h2 {
 .form-button:hover {
     background-color: #45a049;
 }
+
+/* Estilo para centrar el formulario verticalmente */
+.form-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-color: #fffafa; /* Color de fondo */
+}
+
+/* Estilos previos */
+.form-container {
+    background-color: #1A1A1A;
+    border-radius: 12px;
+    padding: 20px;
+    width: 320px;
+    margin: auto; /* Quitar el margen superior */
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 600px) {
+    .form-container {
+        width: 90%; /* Ajustar el tamaño en dispositivos móviles */
+    }
+}

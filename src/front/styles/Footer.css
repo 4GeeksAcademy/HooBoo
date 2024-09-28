@@ -1,54 +1,143 @@
 .footer {
   background-color: #222;
   color: #fff;
-  padding: 20px;
+  padding: 20px 40px 0 40px;
   text-align: center;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
-}
-  
-.top-section {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1000px;
-  padding-bottom: 20px;
+  box-sizing: border-box;
+  font-size: 12px;
 }
 
-.social-icons {
+.footer-content {
   display: flex;
-  gap: 15px;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.section {
+  text-align: left;
 }
 
 .icon {
   font-size: 24px;
   cursor: pointer;
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo para cada red social con su color específico */
+.twitter-icon {
+  background-color: #1DA1F2; /* Azul de Twitter */
+  color: white; /* Pájaro blanco */
+  border-radius: 5px;
+}
+
+.instagram-icon {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+  border-radius: 5px;
+}
+
+.facebook-icon {
+  background-color: #1877F2; /* Azul de Facebook */
+  color: white; /* Letra F blanca */
+  border-radius: 5px;
+}
+
+.tiktok-icon {
+  background-color: #000000; /* Fondo negro */
+  color: #69C9D0; /* Color de TikTok */
+  border-radius: 5px;
+}
+
+.telegram-icon {
+  background-color: #0088cc; /* Azul de Telegram */
+  color: white; /* Avión blanco */
+  border-radius: 5px;
+}
+
+.whatsapp-icon {
+  background-color: #25D366; /* Verde de WhatsApp */
+  color: white; /* Logo blanco */
+  border-radius: 5px;
+}
+
+.youtube-icon {
+  background-color: #FF0000; /* Rojo de YouTube */
+  color: white; /* Triángulo blanco */
+  border-radius: 5px;
 }
 
 .stars {
   display: flex;
+  justify-content: center;
   gap: 5px;
 }
 
 .star {
-  font-size: 24px;
+  font-size: 25px;
   color: #f0c419;
 }
 
-.bottom-section {
+.rating {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1000px;
-  border-top: 1px solid #444;
-  padding-top: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.container {
-  flex: 1;
-  margin: 0 50px;
-  text-align: left;
+.rating-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.rating-text p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.bottom-section h4 {
+  margin-bottom: 10px;
+}
+
+.bottom-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.bottom-section li {
+  margin-bottom: 5px;
+}
+
+.social-icons {
+  display: flex; /* Asegura que los íconos se dispongan en fila */
+  flex-direction: row; /* Disposición en fila (horizontal) */
+  justify-content: center; /* Centra los íconos */
+  align-items: center; /* Centra verticalmente los íconos */
+  gap: 10px; /* Espacio entre los íconos */
+  margin-bottom: 20px; /* Espacio inferior para separación */
+}
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
+  }
+
+  .section {
+    text-align: center;
+  }
+
+  .social-icons {
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+  }
 }

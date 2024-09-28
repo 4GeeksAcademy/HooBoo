@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../component/Navbar.jsx';
-import Footer from '../component/Footer.jsx';
+import Navbar from '../component/Navbar.jsx'; // Importar el Navbar
+import Footer from '../component/Footer.jsx'; // Importar el Footer
+import HoobooBanner from '../component/hooboo_banner.jsx'; // Importar el Banner
 import '../../styles/Principal.css';
 
 const genres = {
@@ -75,38 +76,41 @@ const Principal = () => {
 
     return (
         <div>
-            <Navbar />
-            <div className="principal-container">
-                <div className="header-text">
-                    <h1>
-                        Encuentra tu próxima lectura de
-                        <div>{' '}</div>
-                        <span className="dynamic-genre">
-                            {currentGenre === 'fantasia' && 'FANTASÍA'}
-                            {currentGenre === 'romance' && 'ROMANCE'}
-                            {currentGenre === 'drama' && 'DRAMA'}
-                            {currentGenre === 'thriller' && 'THRILLER'}
-                        </span>
-                    </h1>
-                </div>
-                <div className="genre-indicators">
-                    {Object.keys(genres).map((genre) => (
-                        <span
-                            key={genre}
-                            className={`indicator ${currentGenre === genre ? 'active' : ''}`}
-                            onClick={() => handleGenreChange(genre)}
-                        ></span>
-                    ))}
-                </div>
-                <div className={`image-grid ${isVisible ? 'fade-in' : 'fade-out'}`}>
-                    {genres[currentGenre].map((book) => (
-                        <img
-                            key={book.id}
-                            src={book.src}
-                            alt={book.alt}
-                            className="book-image"
-                        />
-                    ))}
+            <HoobooBanner />
+            <Navbar /> {/* Navbar debajo del Banner */}
+            <div className="main-content">
+                <div className="principal-container">
+                    <div className="header-text">
+                        <h1>
+                            Encuentra tu próxima lectura de
+                            <div>{' '}</div>
+                            <span className="dynamic-genre">
+                                {currentGenre === 'fantasia' && 'FANTASÍA'}
+                                {currentGenre === 'romance' && 'ROMANCE'}
+                                {currentGenre === 'drama' && 'DRAMA'}
+                                {currentGenre === 'thriller' && 'THRILLER'}
+                            </span>
+                        </h1>
+                    </div>
+                    <div className="genre-indicators">
+                        {Object.keys(genres).map((genre) => (
+                            <span
+                                key={genre}
+                                className={`indicator ${currentGenre === genre ? 'active' : ''}`}
+                                onClick={() => handleGenreChange(genre)}
+                            ></span>
+                        ))}
+                    </div>
+                    <div className={`image-grid ${isVisible ? 'fade-in' : 'fade-out'}`}>
+                        {genres[currentGenre].map((book) => (
+                            <img
+                                key={book.id}
+                                src={book.src}
+                                alt={book.alt}
+                                className="book-image"
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
             < Footer />
