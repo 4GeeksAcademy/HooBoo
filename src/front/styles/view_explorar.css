@@ -1,0 +1,46 @@
+/* Contenedor principal de la cuadrícula tipo Pinterest */
+.pinterest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px; 
+  justify-content: center; 
+  margin-top: 140px;
+  margin-left: 300px;
+}
+
+/* Estilo para cada item en la cuadrícula */
+.pinterest-item {
+  background-color: #fff; 
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease; 
+  gap:20px;
+  display: flex;
+
+}
+
+/* Efecto hover para los items */
+.pinterest-item:hover {
+  transform: translateY(-10px); 
+}
+
+/* Ajustes específicos para diferentes tamaños de libros */
+.pinterest-item:nth-child(1) {
+  grid-row-end: span 2; 
+}
+
+.pinterest-item:nth-child(2) {
+  grid-row-end: span 3; 
+}
+
+.pinterest-item:nth-child(3) {
+  grid-row-end: span 1; 
+}
+
+.pinterest-item:nth-child(4) {
+  grid-row-end: span 2; 
+}
+
+

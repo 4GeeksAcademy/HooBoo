@@ -1,39 +1,57 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { BackendURL } from "./component/backendURL";
-
-import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
+import { VistaExplorar } from "./component/vista_EXPLORAR.js";
+import Login from "./pages/Login";
+import Principal from "./pages/Principal";
+import Registro from "./pages/Registro";
+import Home from "./pages/Home";
+import Editarperfil from "./pages/Editarperfil";
 import injectContext from "./store/appContext";
+import HoobooBanner from './component/hooboo_banner.jsx';
+import Footer from './component/Footer.jsx';
+import FooterCollapsed from './component/FooterCollapsed.jsx';
+import ChatCollapsed from './component/ChatCollapsed.jsx';
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
-
-//create your first component
-const Layout = () => {
-    //the basename is used when your project is published in a subdirectory and not in the root of the domain
-    // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
-    const basename = process.env.BASENAME || "";
-
-    if(!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL/ >;
+const AppContent = () => {
+    const location = useLocation(); // Utilizamos useLocation dentro de un componente envuelto por BrowserRouter
+    
+    const isHomePage = location.pathname === "/";
 
     return (
         <div>
-            <BrowserRouter basename={basename}>
-                <ScrollToTop>
-                    <Navbar />
-                    <Routes>
-                        <Route element={<Home />} path="/" />
-                        <Route element={<Demo />} path="/demo" />
-                        <Route element={<Single />} path="/single/:theid" />
-                        <Route element={<h1>Not found!</h1>} />
-                    </Routes>
-                    <Footer />
-                </ScrollToTop>
-            </BrowserRouter>
+            <HoobooBanner />
+            <Routes>
+                <Route element={<Principal />} path="/" />
+                <Route element={<Login />} path="/Login" />
+                <Route element={<Registro />} path="/Registro" />
+                <Route element={<Home />} path="/Home" />
+                <Route element={<VistaExplorar />} path="/vistaexplorar" />
+                <Route element={<Editarperfil />} path="/Editarperfil" />
+                <Route element={<h1>Not found!</h1>} />
+            </Routes>
+            {/* Mostrar el Footer y Chat correspondientes dependiendo de la ruta */}
+            {isHomePage ? (
+                <Footer />
+            ) : (
+                <>
+                    <FooterCollapsed />
+                    <ChatCollapsed /> {/* Muestra el chat colapsado */}
+                </>
+            )}
         </div>
+    );
+};
+
+const Layout = () => {
+    const basename = process.env.BASENAME || "";
+
+    if (!process.env.BACKEND_URL || process.env.BACKEND_URL === "") return <BackendURL />;
+
+    return (
+        <BrowserRouter basename={basename}>
+            <AppContent />
+        </BrowserRouter>
     );
 };
 

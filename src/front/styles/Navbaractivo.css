@@ -1,0 +1,110 @@
+.navbar-activo {
+    width: 13%;
+    background-color: #000;
+    color: #fff;
+    position: fixed;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-activo {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    box-shadow: 0 0 10px #4fd1c5;
+    color: #4fd1c5;
+}
+
+.profile {
+    position: relative;
+}
+
+.profile-menu {
+    position: absolute;
+    background-color: #333;
+    padding: 2vw;
+    border-radius: 2vw;
+    top: 3%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.profile-picture {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.edit-profile-btn {
+    background-color: #444;
+    color: #fff;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logout {
+    text-align: center;
+}
+
+.logout-btn {
+    background-color: red;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.logout-btn:hover {
+    background-color: darkred;
+    color: #fff;
+    text-decoration: none;
+}
+
+.perfil_correo {
+    font-size: 12px;
+    margin-top: 0; /* Elimina el espacio inferior */
+    padding-top: 0; 
+}
+
+.perfil_nombre {
+    font-size: 22px;
+    margin-bottom: 0; /* Elimina el espacio inferior */
+    padding-bottom: 0; 
+}
+
+
