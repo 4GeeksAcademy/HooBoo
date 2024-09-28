@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../styles/ChatCollapsed.css"; // Asegúrate de que el archivo esté en el lugar correcto
+import "../../styles/ChatCollapsed.css";
 
 const ChatCollapsed = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,16 +12,20 @@ const ChatCollapsed = () => {
         <div className="chat-container">
             <div className={`chat-window ${isOpen ? "open" : "closed"}`}>
                 <div className="chat-header">
-                    <h4>Chat con IA</h4>
-                    <button onClick={toggleChat} style={{ color: '#fff', background: 'transparent', border: 'none' }}>X</button>
+                    <h5>Chat con IA</h5>
+                    
                 </div>
                 <div className="chat-body">
-                    <p>¡Hola! ¿En qué puedo ayudarte hoy?</p>
-                    {/* Aquí puedes agregar más funcionalidad del chat */}
+                    <p>¡Hola! ¿Qué te apetece leer hoy?</p>
+                    {/*funcionalidades del chat? */}
                 </div>
+                <div className="chat-x">
+             <button className="chat-fa-regular" onClick={toggleChat}><i class="fa-regular fa-circle-xmark"></i></button>
+               </div>
             </div>
+            
             <button className="chat-toggle-button" onClick={toggleChat}>
-                {isOpen ? "Cerrar Chat" : "Chat"}
+          <i class="fa-regular fa-comment"></i>
             </button>
         </div>
     );

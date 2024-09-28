@@ -8,8 +8,7 @@ export const OneBookThriller = ({ tituloThriller, id }) => {
 
 	// const imgReserva = "https://www.worten.es/i/d46971b652a8ef7d7702aea130b6378978c748dc"
 	// const imgURL = id ? `https://m.media-amazon.com/images/I/614y6qyQLGL._SL1053_.jpg` : imgReserva
-    const imgURL = `https://m.media-amazon.com/images/I/71UilMg9WPL._SL1500_.jpg`
-
+	const imgURL = `https://m.media-amazon.com/images/I/71UilMg9WPL._SL1500_.jpg`
 	const esFavorito = store.favorito.some(f => f.libro === tituloThriller && f.categoria === 'libroThriller')
 
 	const handleFavoriteToggle = () => {
@@ -17,58 +16,28 @@ export const OneBookThriller = ({ tituloThriller, id }) => {
 	};
 
 	return (
-		<div>
-			<div className="onebook">
-				<div className="card">
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloThriller}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloThriller}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloThriller}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloThriller}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloThriller}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<div className="card-body">
-						<h5 className="card-title">{tituloThriller}</h5>
+		<div className="onebook">
+			<img
+				src={imgURL}
+				className="card-img-top"
+				alt={`foto personaje ${tituloThriller}`}
+				onError={(e) => e.target.src = imgReserva}
+			/>
+			<div className="card-body">
+				<h5 className="card-title">{tituloThriller}</h5>
 
-						<div className="botonesinfoyfav">
-							<Link to={`/libroThriller/${id}`} className="btn btn-dark text-warning"> Más Info </Link>
-							<button
-								onClick={handleFavoriteToggle}
-								className="btn"
-								aria-label={esFavorito ? `Eliminar ${tituloThriller} de favoritos` : `Añadir ${tituloThriller} a favoritos`}
-							>
-								<i className={`fa-star ${esFavorito ? 'fa-solid' : 'fa-regular'}`}></i>
-							</button>
-							{/* //necesito que lo agregue al panel de libros favoritos añadidos*/}
-						</div>
-					</div>
+				<div className="botonesinfoyfav">
+					<Link to={`/libroThriller/${id}`} className="boton-info"> <i class="fa-solid fa-plus"></i> </Link>
+					<button
+						onClick={handleFavoriteToggle}
+						className="btn"
+						aria-label={esFavorito ? `Eliminar ${tituloThriller} de favoritos` : `Añadir ${tituloThriller} a favoritos`}
+					>
+						<i className={`fa-star ${esFavorito ? 'fa-solid' : 'fa-regular'}`}></i>
+					</button>
+					{/* //necesito que lo agregue al panel de libros favoritos añadidos*/}
 				</div>
 			</div>
-
-
 		</div>
 	);
 };

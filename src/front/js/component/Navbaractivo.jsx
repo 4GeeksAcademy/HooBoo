@@ -16,7 +16,7 @@ const Navbaractivo = () => {
                 <Link to="/main" className="logo-activo">
                     <h4>Logo</h4>
                 </Link>
-                <Link to="/explorar" className="menu-item">
+                <Link to="/vistaexplorar" className="menu-item">
                     <FaCompass /> <span>Explorar</span>
                 </Link>
                 <Link to="/crear" className="menu-item">
@@ -37,7 +37,7 @@ const Navbaractivo = () => {
                             <p className="perfil_nombre">Chloe Castilla</p>
                             <p className="perfil_correo">Chloe_Castilla0776@gmail.com</p>
                             <Link to="/Editarperfil" className="edit-profile-btn">
-                                <FaCog /> Editar perfil
+                                <FaCog />
                             </Link>
                         </div>
                     )}
@@ -46,7 +46,7 @@ const Navbaractivo = () => {
 
             <div className="logout">
                 <Link to="/" className="logout-btn">
-                        <FaSignOutAlt /> Cerrar sesión
+                    <FaSignOutAlt /> Cerrar sesión
                 </Link>
             </div>
         </nav>

@@ -1,40 +1,16 @@
 /* Estilos de una tarjeta individual */
-.onebook {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 16px;
-  gap:20px;
-  
-}
 
-.card {
+.onebook {
   width: 100%;
   max-width: 200px; /* Ajustamos el tamaño máximo de la tarjeta */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #E6F7E9; /* Color de fondo */
+  background-color: #bc82eb; /* Color de fondo */
   text-align: center;
-}
-
-/* Ajustamos la imagen */
-.card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px 8px 0 0;
-  object-fit: cover;
-}
-
-.card-body {
-  padding: 10px;
 }
 
 .botonesinfoyfav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.botonesinfoyfav {
-  margin: 5px;
-  border-radius: 20%;
 }

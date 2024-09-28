@@ -12,8 +12,6 @@ export const OneBookAccion = ({ tituloAccion, id }) => {
 	// const imgReserva = "https://m.media-amazon.com/images/I/51lwhVas6SL._SY445_SX342_.jpg"
 	// const imgURL = id ? `https://m.media-amazon.com/images/I/81cfqUl4EiL._SL1500_.jpg` : imgReserva
 	const imgURL = `https://m.media-amazon.com/images/I/81cfqUl4EiL._SL1500_.jpg` 
-
-
 	const esFavorito = store.favorito.some(f => f.libro === tituloAccion && f.categoria === 'libroAccion')
 
 	const handleFavoriteToggle = () => {
@@ -21,33 +19,7 @@ export const OneBookAccion = ({ tituloAccion, id }) => {
 	};
 
 	return (
-		<div>
 			<div className="onebook">
-				<div className="card">
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloAccion}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloAccion}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloAccion}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloAccion}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
 					<img
 						src={imgURL}
 						className="card-img-top"
@@ -58,7 +30,7 @@ export const OneBookAccion = ({ tituloAccion, id }) => {
 						<h5 className="card-title">{tituloAccion}</h5>
 
 						<div className="botonesinfoyfav">
-							<Link to={`/libroAccion/${id}`} className="btn btn-dark text-warning"> Más Info </Link>
+							<Link to={`/libroAccion/${id}`} className="boton-info"> <i class="fa-solid fa-plus"></i> </Link>
 							<button
 								onClick={handleFavoriteToggle}
 								className="btn "
@@ -70,10 +42,6 @@ export const OneBookAccion = ({ tituloAccion, id }) => {
 						</div>
 					</div>
 				</div>
-			</div>
-
-
-		</div>
 	);
 };
 

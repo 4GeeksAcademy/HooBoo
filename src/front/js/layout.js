@@ -10,7 +10,6 @@ import Editarperfil from "./pages/Editarperfil";
 import injectContext from "./store/appContext";
 import HoobooBanner from './component/hooboo_banner.jsx';
 import Footer from './component/Footer.jsx';
-import FooterCollapsed from './component/FooterCollapsed.jsx';
 import ChatCollapsed from './component/ChatCollapsed.jsx';
 
 const AppContent = () => {
@@ -35,7 +34,6 @@ const AppContent = () => {
                 <Footer />
             ) : (
                 <>
-                    <FooterCollapsed />
                     <ChatCollapsed /> {/* Muestra el chat colapsado */}
                 </>
             )}
