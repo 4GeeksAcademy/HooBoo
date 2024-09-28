@@ -11,12 +11,11 @@ import injectContext from "./store/appContext";
 import HoobooBanner from './component/hooboo_banner.jsx';
 import Footer from './component/Footer.jsx';
 import FooterCollapsed from './component/FooterCollapsed.jsx';
+import ChatCollapsed from './component/ChatCollapsed.jsx';
 
-// Componente para manejar el enrutamiento y la lógica de footers
 const AppContent = () => {
     const location = useLocation(); // Utilizamos useLocation dentro de un componente envuelto por BrowserRouter
     
-    // Verificamos si estamos en la página principal
     const isHomePage = location.pathname === "/";
 
     return (
@@ -31,8 +30,15 @@ const AppContent = () => {
                 <Route element={<Editarperfil />} path="/Editarperfil" />
                 <Route element={<h1>Not found!</h1>} />
             </Routes>
-            {/* Mostrar el Footer correspondiente dependiendo de la ruta */}
-            {isHomePage ? <Footer /> : <FooterCollapsed />}
+            {/* Mostrar el Footer y Chat correspondientes dependiendo de la ruta */}
+            {isHomePage ? (
+                <Footer />
+            ) : (
+                <>
+                    <FooterCollapsed />
+                    <ChatCollapsed /> {/* Muestra el chat colapsado */}
+                </>
+            )}
         </div>
     );
 };
