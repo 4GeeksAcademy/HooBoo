@@ -13,11 +13,9 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-
         const response = await actions.iniciarSesion(email, password);
-
         if (response.success) {
-            navigate('/vistaexplorar');
+            navigate('/Home');
         } else {
             setError(`${response.error}`);
         }
