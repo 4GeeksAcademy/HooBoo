@@ -4,8 +4,21 @@ const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
             token: localStorage.getItem("jwt-token") || null,
-            libros: [],
-            favorito: []
+            books: [
+                { image: "https://m.media-amazon.com/images/I/71eodkfaQmL._AC_UL320_.jpg", title: "Pride and Prejudice" },
+                { image: "https://m.media-amazon.com/images/I/41IpwC2TMWL._SY445_SX342_.jpg", title: "Me Before You" },
+                { image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQa7MrAxsinuHd0lnonL5TruTmF1d78wEAf0D9vcbRwuDirmG_Cs2ucZOfTAB9-xjTimz61fHUiepSg375_6Ls0-HzodFlF7OnmiG5rKPo&usqp=CAc", title: "The Notebook" },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Jane_Eyre_title_page.jpg/200px-Jane_Eyre_title_page.jpg", title: "Jane Eyre" },
+                { image: "https://upload.wikimedia.org/wikipedia/en/0/0b/Outlander-1991_1st_Edition_cover.jpg", title: "Outlander" },
+                { image: "https://m.media-amazon.com/images/I/817iFfLhJ+L._SY466_.jpg", title: "The Time Traveler's Wife" },
+                { image: "https://m.media-amazon.com/images/I/41RDgCHpGTL._SY445_SX342_.jpg", title: "The Fault in Our Stars" },
+                { image: "https://m.media-amazon.com/images/I/31HeDw9gMzL._SY445_SX342_.jpg", title: "Twilight" },
+                { image: "https://m.media-amazon.com/images/I/815UM9D+lKL._SY466_.jpg", title: "Beautiful Disaster" },
+                { image: "https://m.media-amazon.com/images/I/813aV273-rL._SY466_.jpg", title: "It Ends with Us" },
+                { image: "https://m.media-amazon.com/images/I/41kGNyUXkbL._SY445_SX342_.jpg", title: "The Hating Game" },
+                { image: "https://m.media-amazon.com/images/I/41hv25yqOCL._SY445_SX342_.jpg", title: "Red, White & Royal Blue" },
+            ],
+			favorito: []
         },
         actions: {
             crear_usuario: async (email, password) => {

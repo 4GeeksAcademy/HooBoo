@@ -146,3 +146,17 @@ h1 {
         opacity: 0;
     }
 }
+
+.main-content {
+    margin-top: 10vh; /* Margen superior para evitar que el contenido quede debajo del navbar */
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20vh;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .main-content {
+        margin-top: 25vh;
+    }
+}
