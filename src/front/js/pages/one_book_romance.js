@@ -26,30 +26,7 @@ export const OneBookRomance = ({ tituloRomance, id }) => {
 						alt={`foto personaje ${tituloRomance}`}
 						onError={(e) => e.target.src = imgReserva}
 					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloRomance}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloRomance}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloRomance}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloRomance}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
+
 					<div className="card-body">
 						<h5 className="card-title">{tituloRomance}</h5>
 

@@ -30,30 +30,7 @@ export const OneBookAccion = ({ tituloAccion, id }) => {
 						alt={`foto personaje ${tituloAccion}`}
 						onError={(e) => e.target.src = imgReserva}
 					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloAccion}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloAccion}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloAccion}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
-					<img
-						src={imgURL}
-						className="card-img-top"
-						alt={`foto personaje ${tituloAccion}`}
-						onError={(e) => e.target.src = imgReserva}
-					/>
+
 					<div className="card-body">
 						<h5 className="card-title">{tituloAccion}</h5>
 
