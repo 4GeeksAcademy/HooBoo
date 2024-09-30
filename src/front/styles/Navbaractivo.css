@@ -1,110 +1,134 @@
+/* EFECTO 1: Sidebar (NavBar) con colores lila y blanco */
 .navbar-activo {
-    width: 13%;
-    background-color: #000;
-    color: #fff;
+    width: 15vw; /* 15% del ancho de la ventana */
+    background-color: #E6E6FA; /* Color lila claro */
+    color: #6A5ACD; /* Color lila oscuro para el texto */
     position: fixed;
-    height: 90%;
+    height: 90vh; /* 90% del alto de la ventana */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    border-left: 0.5vw dashed #6A5ACD; /* Simulación de los agujeros de la libreta */
+    border-right: 0.5vw dashed #6A5ACD;
+    padding: 2vh; /* Espaciado vertical relativo al alto de la pantalla */
+    box-shadow: 0.5vw 0.5vw 1vw rgba(106, 90, 205, 0.2); /* Sombra adaptativa */
 }
 
+/* Logo en el sidebar */
 .logo-activo {
-    font-size: 24px;
+    font-size: 2rem; /* Tamaño relativo al texto base */
     font-weight: bold;
     text-align: center;
-    color: #fff;
+    color: #6A5ACD; /* Color lila oscuro */
     text-decoration: none;
 }
 
+/* Menú de navegación */
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 1vw;
+    gap: 2vh; /* Espacio entre los ítems relativo al alto de la pantalla */
 }
 
 .menu-item {
     display: flex;
     align-items: center;
-    gap: 1vw;
-    color: #fff;
+    gap: 1vw; /* Espacio entre ítems relativo al ancho de la pantalla */
+    color: #6A5ACD;
     text-decoration: none;
-    font-size: 18px;
-    padding: 10px;
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
+    font-size: 1.5rem; /* Tamaño relativo al texto base */
+    padding: 1.5vh; /* Padding vertical relativo */
+    border-radius: 1vh; /* Bordes redondeados relativos */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 0.2vh solid #D8BFD8; /* Líneas de separación entre elementos */
 }
 
+/* Efecto hover en los ítems del menú */
 .menu-item:hover {
-    box-shadow: 0 0 10px #4fd1c5;
-    color: #4fd1c5;
+    background-color: #F8F8FF; /* Fondo lila suave */
+    box-shadow: 0 0 1vw #6A5ACD; /* Sombra adaptativa */
+    color: #483D8B; /* Color más oscuro al hacer hover */
 }
 
+/* Perfil de usuario en el sidebar */
 .profile {
     position: relative;
 }
 
+/* Menú desplegable del perfil */
 .profile-menu {
     position: absolute;
-    background-color: #333;
-    padding: 2vw;
-    border-radius: 2vw;
-    top: 3%;
+    background-color: #E6E6FA;
+    padding: 3vh; /* Padding adaptativo relativo al alto de la pantalla */
+    border-radius: 2vw; /* Bordes redondeados relativos al ancho de la pantalla */
+    top: 3vh;
     left: 0;
     width: 100%;
     z-index: 10;
+    box-shadow: 0.2vw 0.2vw 1vw rgba(106, 90, 205, 0.3); /* Sombra adaptativa */
 }
 
+/* Foto de perfil */
 .profile-picture {
-    width: 60px;
-    height: 60px;
+    width: 6vw; /* Tamaño relativo al ancho de la pantalla */
+    height: 6vw;
     border-radius: 50%;
-    margin-bottom: 10px;
+    margin-bottom: 1vh; /* Margen relativo al alto de la pantalla */
+    border: 0.2vw solid #6A5ACD; /* Añadimos borde lila */
 }
 
+/* Botón para editar el perfil */
 .edit-profile-btn {
-    background-color: #444;
+    background-color: #6A5ACD;
     color: #fff;
-    padding: 8px;
+    padding: 1vh 2vw; /* Padding adaptativo horizontal y vertical */
     border: none;
-    border-radius: 5px;
+    border-radius: 0.5vw;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 1vw;
+    transition: background-color 0.3s ease;
 }
 
+.edit-profile-btn:hover {
+    background-color: #483D8B;
+}
+
+/* Logout */
 .logout {
     text-align: center;
 }
 
 .logout-btn {
-    background-color: red;
+    background-color: #D8BFD8; /* Color lila suave */
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 1vh 2vw; /* Padding adaptativo */
+    border-radius: 1vw;
     cursor: pointer;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 .logout-btn:hover {
-    background-color: darkred;
+    background-color: #6A5ACD; /* Lila más oscuro */
     color: #fff;
     text-decoration: none;
 }
 
+/* Estilo de los textos de perfil */
 .perfil_correo {
-    font-size: 12px;
-    margin-top: 0; /* Elimina el espacio inferior */
+    font-size: 1rem; /* Texto relativo */
+    margin-top: 0;
     padding-top: 0; 
+    color: #6A5ACD; /* Color lila oscuro */
 }
 
 .perfil_nombre {
-    font-size: 22px;
-    margin-bottom: 0; /* Elimina el espacio inferior */
+    font-size: 2rem; /* Texto relativo */
+    margin-bottom: 0;
     padding-bottom: 0; 
+    color: #6A5ACD; /* Color lila oscuro */
 }
-
-

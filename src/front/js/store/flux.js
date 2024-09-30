@@ -57,10 +57,11 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             traerLibros: async () => {
                 try {
-                    const res = await fetch(`${process.env.BACKEND_URL}/api/books`, {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:romance&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
+                            "Authorization": '55948_25703fc2113e4aece39188c265f17591'
                         }
                     });
 
