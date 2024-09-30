@@ -11,6 +11,7 @@
     left: 0; /* Fijado a la izquierda */
     top: 0; /* Fijado en la parte superior */
     /* z-index: 1000; */
+    min-width: 10%;
 }
 
 .logo-activo {
@@ -40,8 +41,8 @@
 }
 
 .menu-item:hover {
-    box-shadow: 0 0 10px #4fd1c5;
-    color: #4fd1c5;
+    box-shadow: 0 0 10px #7029ab;
+    color: #a75df2;
 }
 
 .profile {

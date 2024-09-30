@@ -1,11 +1,10 @@
-/* src/styles/BookCard.css */
 .book-card {
     position: relative;
-    margin: 10px;
+    margin: 0.625rem; /* Convertido desde 10px */
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 0.625rem; /* Convertido desde 10px */
     background-color: #f0f0f0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* Convertido desde 4px 8px */
     transition: transform 0.3s;
 }
 
@@ -13,26 +12,31 @@
     transform: scale(1.05);
 }
 
-.book-image {
+.book-image-card {
     width: 100%;
     height: auto;
     display: block;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 0.0625rem solid #ddd; /* Convertido desde 1px */
+    border-radius: 10px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
+    border: 2px solid #a75df267;
 }
 
 .icons-container {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0.625rem; /* Convertido desde 10px */
+    right: 0.625rem; /* Convertido desde 10px */
     display: flex;
-    gap: 10px;
+    gap: 0.625rem; /* Convertido desde 10px */
 }
 
 .icon-book {
     color: #fff;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 50%;
-    padding: 5px;
+    padding: 0.3125rem; /* Convertido desde 5px */
     cursor: pointer;
 }
 
@@ -45,8 +49,23 @@
 }
 
 .book-title {
-    padding: 10px;
-    font-size: 14px;
+
+    font-size: 0.875rem; /* Convertido desde 14px */
     font-weight: bold;
+    text-align: center;
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr)); /* Convertido desde 200px a 12.5rem */
+    gap: 1.25rem; /* Convertido desde 20px */
+    padding: 1.25rem; /* Convertido desde 20px */
+    margin-left: 15vw; /* Convertido a 15% de ancho de la ventana */
+    margin-top: 5%;
+}
+
+.onebook {
+    max-width: 12.5rem; /* Convertido desde 200px a 12.5rem */
+    margin: 0 auto;
     text-align: center;
 }

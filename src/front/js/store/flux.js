@@ -1,4 +1,4 @@
-import BookList from "../pages/book_list";
+import BookList from "/workspaces/HooBoo/src/front/js/component/BookCard.jsx";
 
 const getState = ({ getStore, getActions, setStore }) => {
     return {
