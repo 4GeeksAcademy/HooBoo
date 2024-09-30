@@ -57,11 +57,21 @@ const Editarperfil = () => {
                             required
                         />
                     </div>
-                    <Link to="/Home" >
-                        <button type="submit" className="edit-save-button">
-                            Guardar cambios
-                        </button>
-                    </Link>
+
+                    <div className="button-group">
+                        <Link to="/Home">
+                            <button type="submit" className="edit-save-button">
+                                Guardar cambios
+                            </button>
+                        </Link>
+
+                        {/* Botón Cancelar */}
+                        <Link to="/vistaexplorar">
+                            <button type="button" className="edit-cancel-button">
+                                Cancelar
+                            </button>
+                        </Link>
+                    </div>
                 </form>
             </div>
         </div>

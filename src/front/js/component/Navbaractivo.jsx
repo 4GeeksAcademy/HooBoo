@@ -25,7 +25,7 @@ const Navbaractivo = () => {
                 <Link to="/notificaciones" className="menu-item">
                     <FaBell /> <span>Notificaciones</span>
                 </Link>
-                <Link to="/favoritos" className="menu-item">
+                <Link to="/Favoritos" className="menu-item">
                     <FaRegStar /> <span>Favoritos</span>
                 </Link>
 

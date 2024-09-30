@@ -1,0 +1,143 @@
+/* Estilos generales para la vista de Favoritos */
+.vista-favoritos {
+    align-items: center;
+    background-color: #f8f8f8;
+    margin-left: 15vw; /* Alineado a la izquierda similar a VistaExplorar */
+    padding-top: 7rem; /* Espacio extra en la parte superior */
+}
+
+/* Título personalizado para la página de Favoritos */
+.favoritos-titulo {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem; /* Espacio debajo del título */
+    color: #000000; /* Color del título similar a VistaExplorar */
+}
+
+/* Contenedor de la lista de favoritos, similar al de VistaExplorar */
+.favoritos-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr)); /* Adaptable al tamaño del contenedor */
+    gap: 1.25rem; /* Espacio entre las tarjetas */
+    padding: 1.25rem; /* Padding interno del contenedor */
+}
+
+/* Estilo para cada tarjeta de favorito */
+.favorito-card {
+    position: relative;
+    margin: 0; /* Convertido desde 10px */
+    overflow: hidden;
+    border-radius: 8px; /* Convertido desde 10px */
+    background-color: #f0f0f0;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* Convertido desde 4px 8px */
+    transition: transform 0.3s;/* Sombra suave */
+}
+
+.favorito-card:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la tarjeta al pasar el mouse */
+}
+
+.favorito-image {
+    width: 100%;
+    object-fit: cover; /* Ajusta la imagen sin distorsionar */
+}
+
+/* Overlay al pasar el mouse por encima de la tarjeta */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(12, 11, 12, 0.747); /* Fondo semitransparente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Oculta la superposición inicialmente */
+    transition: opacity 0.3s;
+}
+
+.favorito-card:hover .overlay {
+    opacity: 1; /* Muestra la superposición al pasar el mouse */
+}
+
+.favorito-title {
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    font-family: 'Special Elite', cursive;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Contenedor para los botones de acción */
+.favorito-buttons {
+    display: flex; /* Asegura que los botones estén en línea */
+    gap: 20px; /* Espacio entre los botones */
+}
+
+/* Botones de información y eliminar */
+.info-button,
+.trash {
+    border: none;
+    background-color: #C76AF1;
+    padding: 8px 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.info-button:hover,
+.trash:hover {
+    background-color: #C124FF; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilo de alerta cuando no hay favoritos */
+.sin-favoritos {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #e74c3c; /* Color de alerta cuando no hay favoritos */
+    margin-top: 2rem;
+}
+
+.favorite-active {
+    color: #e74c3c;/* Rojo para indicar que es favorito */
+}
+
+.trash-iicon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #e74c3c;
+    font-size: 1.5rem;
+}
+
+.info-iicon {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #3498db;
+    font-size: 1.5rem;
+}
+
+.info-iicon:hover, .trash-iicon:hover {
+    color: #000000; /* Color al pasar el mouse */
+}
+
+.derecha{
+    padding: 0;
+    margin: 0;
+    width: 2rem;
+}
+
+.derecha:hover{
+    background-color: white;
+}

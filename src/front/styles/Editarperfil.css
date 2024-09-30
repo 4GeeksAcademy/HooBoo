@@ -54,19 +54,44 @@
     border-radius: 4px;
   }
   
-  .edit-save-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 200px;
-    margin-left: 20px;
-  }
+  /* Botón Guardar Cambios */
+.edit-save-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 200px;
+}
   
-  .edit-save-button:hover {
-    background-color: #218838;
-  }
+.edit-save-button:hover {
+  background-color: #218838;
+}
+
+  /* Posiciona el contenedor de los botones en la parte inferior */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Estilo del botón Cancelar */
+.edit-cancel-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #dc3545; /* Color rojo */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 200px;
+  margin-left: 20px;
+}
+
+.edit-cancel-button:hover {
+  background-color: #c82333;
+}

@@ -18,7 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 { image: "https://m.media-amazon.com/images/I/41kGNyUXkbL._SY445_SX342_.jpg", title: "The Hating Game" },
                 { image: "https://m.media-amazon.com/images/I/41hv25yqOCL._SY445_SX342_.jpg", title: "Red, White & Royal Blue" },
             ],
-			favorito: []
+			favorites: []
         },
         actions: {
             crear_usuario: async (email, password) => {
@@ -97,29 +97,23 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore({ token: null });
                 console.log("Usuario deslogueado");
             },
-            añadirFavorito: (categoria, libroFavorito) => {
+            addFavoritos: (book) => {
                 const store = getStore();
-                const favorito = { categoria, libro: libroFavorito }
-
-                if (store.favorito.some(f => f.libro === libroFavorito && f.categoria === categoria)) {
-                    setStore({
-                        favorito: store.favorito.filter(f => f.libro !== libroFavorito || f.categoria !== categoria)
-                    });
-
+                if (!store.favorites.some((fav) => fav.title === book.title)) {
+                    setStore({ favorites: [...store.favorites, book] });
+                    console.log("Libro agregado a favoritos:", book.title);
                 } else {
-                    setStore({
-                        favorito: [...store.favorito, favorito]
-                    })
+                    console.log("El libro ya está en tus favoritos");
                 }
-
             },
-            deleteFavorito: (categoria, libroFavorito) => {
+
+            removeFavoritos: (book) => {
                 const store = getStore();
                 setStore({
-                    favorito: store.favorito.filter(f => f.libro !== libroFavorito || f.categoria !== categoria)
-                })
-
-            }
+                    favorites: store.favorites.filter((fav) => fav.title !== book.title),
+                });
+                console.log("Libro eliminado de favoritos:", book.title);
+            },
         }
     };
 };
