@@ -13,10 +13,10 @@ const Navbaractivo = () => {
     return (
         <nav className="navbar-activo">
             <div className="menu">
-                <Link to="/main" className="logo-activo">
+                <Link to="/" className="logo-activo">
                     <h4>Logo</h4>
                 </Link>
-                <Link to="/explorar" className="menu-item">
+                <Link to="/vistaexplorar" className="menu-item">
                     <FaCompass /> <span>Explorar</span>
                 </Link>
                 <Link to="/crear" className="menu-item">
