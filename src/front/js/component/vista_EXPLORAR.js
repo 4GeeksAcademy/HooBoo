@@ -22,7 +22,6 @@ export const VistaExplorar = () => {
                 </div>
 
             </div>
-            <Footercolapsado />
         </>
     );
 }
