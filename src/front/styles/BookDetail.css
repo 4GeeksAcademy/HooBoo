@@ -17,11 +17,16 @@
 }
 
 .imagenTarjetaLibroMar {
-    width: 40%; /* Ancho de la imagen */
+    width: 42%; /* Ancho de la imagen */
     height: 100%; /* Altura completa de la tarjeta */
     object-fit: cover; /* Asegura que la imagen cubra el área */
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    padding: 1rem;
+    border: solid 1px;
+    border-radius: 25px;
+    border-color: #cca1f7;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .cuerpoDetalleTarjetaLibroMar {
