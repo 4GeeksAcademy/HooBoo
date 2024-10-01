@@ -9,7 +9,7 @@ import Registro from "./pages/Registro";
 import Editarperfil from "./pages/Editarperfil";
 import injectContext from "./store/appContext";
 import HoobooBanner from './component/hooboo_banner.jsx';
-import Footer from './component/Footer.jsx';
+import Favoritos from './pages/Favoritos.js';
 
 
 const AppContent = () => {
@@ -26,6 +26,7 @@ const AppContent = () => {
                 {/* <Route element={<Home />} path="/Home" /> */}
                 <Route element={<VistaExplorar />} path="/vistaexplorar" />
                 <Route element={<Editarperfil />} path="/Editarperfil" />
+                <Route element={<Favoritos />} path="/Favoritos" />
                 <Route element={<h1>Not found!</h1>} />
             </Routes>
 
