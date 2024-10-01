@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Context } from '../store/appContext';
 import { Card, Container, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faArrowUpFromBracket, fabrandswhatsapp, fabrandsfainstagram } from '@fortawesome/free-solid-svg-icons';
 import Navbaractivo from "./Navbaractivo.jsx";
 import '../../styles/BookDetail.css';
 
@@ -59,10 +59,11 @@ const BookDetail = () => {
             <div className="content flex-grow-1 d-flex justify-content-center align-items-center">
                 <Card className="tarjetaDeLibroMar">
                     <Card.Img variant="top" src={book.image} className="imagenTarjetaLibroMar" alt={book.title} />
+
                     <Card.Body className="cuerpoDetalleTarjetaLibroMar">
                         <div className="contenedorBotonesMar">
                             <div className="iconosContenedorMar" onClick={handleAddToFavorites}>
-                                <FontAwesomeIcon icon={faHeart} className="icon-book favorite-icon" title="Agregar a Favoritos" />
+                                <FontAwesomeIcon icon={faHeart} className="favoritoIconoMar" title="Agregar a Favoritos" />
                             </div>
                             <div className="iconosContenedorMar" onClick={handleShare}>
                                 <FontAwesomeIcon icon={faArrowUpFromBracket} className="shareIconMar" title="Compartir" />
