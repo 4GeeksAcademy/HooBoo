@@ -7,7 +7,7 @@ import "../../styles/BookCard.css";
 const BookCard = ({ book }) => {
     const { store, actions } = useContext(Context);
     const [isFavorite, setIsFavorite] = useState(
-        store.favorites.some((fav) => fav.title === book.title)
+        store.favorites.some((fav) => fav.volumeInfo.title === book.volumeInfo.title)
     );
 
     const handleFavoriteClick = () => {
@@ -16,11 +16,13 @@ const BookCard = ({ book }) => {
         } else {
             actions.addFavoritos(book); // Si no es favorito, lo añadimos
         }
-        setIsFavorite(!isFavorite); // Cambiamos el estado del ícono
+        setIsFavorite(!isFavorite); // Cambiamos el estado del ícono imageLinks volumeInfo 
+
+
     };
 
-    const imageUrl = book.image || "https://via.placeholder.com/150";
-    const title = book.title || "Título no disponible";
+    const imageUrl = book.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/150";
+    const title = book.volumeInfo.title || "Título no disponible";
 
     return (
         <div className="book-card">

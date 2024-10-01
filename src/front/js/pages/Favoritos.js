@@ -30,13 +30,13 @@ const Favoritos = () => {
 
                             {/* Imagen del libro */}
                             <img
-                                src={book.image}
-                                alt={book.title}
+                                src={book.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/150"}
+                                alt={book.volumeInfo.title}
                                 className="favorito-image"
                             />
 
                             {/* Título del libro debajo de la imagen */}
-                            <h2 className="favorito-title">{book.title}</h2>
+                            <h2 className="favorito-title">{book.volumeInfo.title}</h2>
 
                             {/* Icono de información en la parte inferior derecha */}
                             <Link to={`/book/${index}`}>
