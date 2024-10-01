@@ -9,13 +9,16 @@ const injectContext = PassedComponent => {
 			getState({
 				getStore: () => state.store,
 				getActions: () => state.actions,
-				setStore: updatedStore =>
-					setState({
-						store: Object.assign(state.store, updatedStore),
-						actions: { ...state.actions }
-					})
-			})
-		);
+				setStore: (updatedStore) =>
+					setState(prevState => ({
+						store: {
+							...prevState.store,
+							...updatedStore,
+						},
+						actions: { ...prevState.actions }
+					}))
+		})
+	); 
 
 		useEffect(() => {
 			state.actions.traerLibros();

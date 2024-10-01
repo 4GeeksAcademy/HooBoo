@@ -1,5 +1,5 @@
-.book-detail-card {
-    width: 75%; /* Ajusta el ancho de la card */
+.tarjetaDeLibroMar {
+    width: 50%; /* Ajusta el ancho de la card */
     height: 100%; /* Permite que la altura se ajuste automáticamente */
     margin: 20px auto; /* Centra la card */
     border-radius: 20px; 
@@ -7,65 +7,184 @@
     display: flex;
     flex-direction: row; /* Hace que la card esté en horizontal */
     overflow: hidden; 
+    margin-left: 32%;
+    margin-top: 10%;
 }
 
-.book-detail-card:hover {
+.tarjetaDeLibroMar:hover {
     transform: scale(1.03); 
     transition: transform 0.3s ease-in-out; 
 }
 
-.book-detail-image {
-    width: 43%; /* Ancho de la imagen */
+.imagenTarjetaLibroMar {
+    width: 40%; /* Ancho de la imagen */
     height: 100%; /* Altura completa de la tarjeta */
     object-fit: cover; /* Asegura que la imagen cubra el área */
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
 }
 
-.card-body {
-    width: 50%; /* Ancho del cuerpo de la tarjeta */
+.cuerpoDetalleTarjetaLibroMar {
+    width: 60%; /* Ancho del cuerpo de la tarjeta */
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra el contenido verticalmente */
-    align-items: flex-start; /* Alinea el contenido a la izquierda */
-    height: 100%; /* Asegura que el cuerpo de la tarjeta ocupe toda la altura */
+    justify-content: flex-start; /* Justifica el contenido en la parte superior */
+    align-items: flex-start; 
+    position: relative; /* Permite posicionamiento absoluto */
     overflow-y: auto; /* Scroll en caso de ser necesario */
 }
 
-.book-detail-title {
+.detalleLibroTituloMar {
     font-size: 1.25rem; /* Tamaño aumentado para mejor legibilidad */
+    font-family: 'Special Elite', cursive;
     font-weight: bold;
-    text-align: left; /* Alineación a la izquierda */
-    margin: 10px 0; /* Espaciado */
+    text-align: left; 
+    margin: 10px 0; 
 }
 
-.book-detail-description {
+.detalleLibroDescripcionMar {
     flex: 1; /* Toma el espacio restante */
-    margin: 10px 0; /* Espaciado entre título y descripción */
-    text-align: left; /* Alineación a la izquierda */
+    margin: 10px 0; 
+    text-align: left;
+    font-family: "IBM Plex Mono", monospace;
 }
 
-.book-detail-author {
-    margin: 10px 0; /* Espaciado entre descripción y autor */
-    text-align: left; /* Alineación a la izquierda */
+.detalleLibroAutorMar {
+    flex: 1;
+    margin: 10px 0; /* Espacio entre descripción y autor */
+    text-align: left; 
+    font-family: "IBM Plex Mono", monospace;
 }
 
-.button-container {
-    display: flex; /* Uso de flexbox para alineación de botones */
-    justify-content: flex-start; /* Alinea los botones al inicio */
-    padding: 10px 0; /* Añade espaciado */
+.contenedorBotonesMar {
+    position: absolute; /* Posiciona los botones en la esquina superior derecha */
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    right: 10px; /* Ajusta la distancia desde la parte derecha */
+    display: flex;
+    gap: 10px; /* Espacio entre los iconos */
 }
 
-.button-container .icons-container {
+.iconosContenedorMar {
     display: flex;
     align-items: center;
     cursor: pointer;
+    margin-left: 10px; /* Espacio entre los iconos */
+}
+
+.shareIconMar{
+    background-color:  #a75df2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+/* COMENTARIOS */
+.comment-container {
+    width: 100%;;
+    margin-top: 20px;
+    font-family: "IBM Plex Mono", monospace;
+}
+
+.comment-input {
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    margin-bottom: 10px; /* Espacio entre el input y el botón */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.comment-icon {
+    width: 50px; /* Ajusta el tamaño del icono usuario */
+    height: 50px; /* Ajusta el tamaño del icono usuario */
+    border-radius: 50%;
+    margin-right: 10px; /* Espacio entre el icono y la caja de texto */
+}
+
+.comment-container textarea {
+    flex: 1; /* Permite que la caja de texto ocupe el espacio disponible */
+    height: 50px; /* Altura de la caja de texto */
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    resize: none;
+    font-family: "IBM Plex Mono", monospace;
+}
+
+/* ESTILO BOTÓN DE PUBLICAR */
+
+.button-container {
+    display: flex; 
+    justify-content: flex-end; 
+    margin-top: 10px; /* Espaciado entre el input y el botón */
+}
+
+.comment-container button {
+    cursor: pointer;
+    background-color: #a75df2;
+    color: #fff;
+    border-radius: 35px;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-left: 10px; /* Espacio a la izquierda del botón */
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    border: 0.25rem solid #7029ab; 
+    width: 5vw; 
+    height: 5vh; 
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;    
+}
+
+.comment-container button:hover {
+    background-color: #8c3bc4; /* Color de fondo al pasar el mouse */
+}
+
+/* ESTILO PARA COMENTARIOS PUBLICADOS */
+
+.comments-list {
+    margin-top: 10px; 
+    max-height: 190px; 
+    overflow-y: auto; /* Habilita el scroll vertical si es necesario */
+    border: 1px solid white;
+    padding: 10px; /* Espaciado interno del contenedor */
+    background-color: white; /* Fondo claro para el contenedor de comentarios */
+}
+
+.comment {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 10px; /* Espaciado entre comentarios */
+}
+
+.profile-picture {
+    width: 50px; 
+    height: 50px; /* Asegúrate de que sea un cuadrado */
+    border-radius: 50%; 
+    margin-right: 10px; 
+}
+
+.comment-text {
+    width: 100%; /* Ancho fijo para el contenedor del comentario */
+    background-color: #cca1f7; /* Fondo para el texto del comentario */
+    color: #fff;
+    font-family: "IBM Plex Mono", monospace;
+    border-radius: 8px;
+    padding: 8px 12px; 
+    overflow-y: auto; /* Scroll en caso de ser necesario */
+}
+
+.comment-text span {
+        max-width: 70%; /* Evita que el comentario se extienda demasiado */
 }
 
 /* Media queries para la responsividad */
 @media (max-width: 768px) {
-    .book-detail-card {
+    .tarjetaDeLibroMar {
         width: 90%;
         height: 100%;
         flex-direction: column;
@@ -74,24 +193,22 @@
         overflow: hidden;
     }
 
-    .book-detail-image {
+    .imagenTarjetaLibroMar {
         width: 100%;
         border-radius: 15px 15px 0 0;
     }
 
-    .card-body {
+    .cuerpoDetalleTarjetaLibroMar {
         width: 100%;
         padding: 10px;
         overflow-y: auto;
     }
 
-    .book-detail-title {
-        font-size: 1rem;
-        /* Ajusta el tamaño de fuente para pantallas pequeñas */
+    .detalleLibroTituloMar {
+        font-size: 1rem; /* Ajusta el tamaño de fuente para pantallas pequeñas */
     }
 
-    .book-detail-description {
-        margin: 10px 0;
-        /* Ajusta el espaciado para pantallas pequeñas */
+    .detalleLibroDescripcionMar {
+        margin: 10px 0; /* Ajusta el espaciado para pantallas pequeñas */
     }
 }

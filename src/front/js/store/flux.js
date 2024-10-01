@@ -20,6 +20,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorito: []
         },
         actions: {
+            traerLibros: () => {
+                // Aquí se reemplaza la llamada a la API con tus libros predefinidos
+                const libros = getStore().books; // Usa tus datos manuales
+                setStore({ books: libros }); // Guardar libros en el store
+                console.log("Libros obtenidos:", libros);
+                return libros;
+            },
             crear_usuario: async (email, password) => {
                 try {
                     const res = await fetch(`${process.env.BACKEND_URL}/api/Registro`, {
@@ -67,7 +74,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { success: false, error: error.message };
                 }
             },
-            traerLibros: async () => {
+            // Puedes descomentar esto cuando quieras hacer la llamada a la API real
+            /* traerLibros: async () => {
                 try {
                     const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:romance&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
@@ -97,7 +105,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     console.error("Error al obtener los libros:", error);
                     return { error: error.message };
                 }
-            },
+            }, */
 
             cerrarSesion: () => {
                 localStorage.removeItem("jwt-token");
@@ -106,26 +114,23 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             añadirFavorito: (categoria, libroFavorito) => {
                 const store = getStore();
-                const favorito = { categoria, libro: libroFavorito }
+                const favorito = { categoria, libro: libroFavorito };
 
                 if (store.favorito.some(f => f.libro === libroFavorito && f.categoria === categoria)) {
                     setStore({
                         favorito: store.favorito.filter(f => f.libro !== libroFavorito || f.categoria !== categoria)
                     });
-
                 } else {
                     setStore({
                         favorito: [...store.favorito, favorito]
-                    })
+                    });
                 }
-
             },
             deleteFavorito: (categoria, libroFavorito) => {
                 const store = getStore();
                 setStore({
                     favorito: store.favorito.filter(f => f.libro !== libroFavorito || f.categoria !== categoria)
-                })
-
+                });
             }
         }
     };
