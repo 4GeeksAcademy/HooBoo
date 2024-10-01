@@ -1,0 +1,97 @@
+.book-detail-card {
+    width: 75%; /* Ajusta el ancho de la card */
+    height: 100%; /* Permite que la altura se ajuste automáticamente */
+    margin: 20px auto; /* Centra la card */
+    border-radius: 20px; 
+    box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
+    display: flex;
+    flex-direction: row; /* Hace que la card esté en horizontal */
+    overflow: hidden; 
+}
+
+.book-detail-card:hover {
+    transform: scale(1.03); 
+    transition: transform 0.3s ease-in-out; 
+}
+
+.book-detail-image {
+    width: 43%; /* Ancho de la imagen */
+    height: 100%; /* Altura completa de la tarjeta */
+    object-fit: cover; /* Asegura que la imagen cubra el área */
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.card-body {
+    width: 50%; /* Ancho del cuerpo de la tarjeta */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: flex-start; /* Alinea el contenido a la izquierda */
+    height: 100%; /* Asegura que el cuerpo de la tarjeta ocupe toda la altura */
+    overflow-y: auto; /* Scroll en caso de ser necesario */
+}
+
+.book-detail-title {
+    font-size: 1.25rem; /* Tamaño aumentado para mejor legibilidad */
+    font-weight: bold;
+    text-align: left; /* Alineación a la izquierda */
+    margin: 10px 0; /* Espaciado */
+}
+
+.book-detail-description {
+    flex: 1; /* Toma el espacio restante */
+    margin: 10px 0; /* Espaciado entre título y descripción */
+    text-align: left; /* Alineación a la izquierda */
+}
+
+.book-detail-author {
+    margin: 10px 0; /* Espaciado entre descripción y autor */
+    text-align: left; /* Alineación a la izquierda */
+}
+
+.button-container {
+    display: flex; /* Uso de flexbox para alineación de botones */
+    justify-content: flex-start; /* Alinea los botones al inicio */
+    padding: 10px 0; /* Añade espaciado */
+}
+
+.button-container .icons-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Media queries para la responsividad */
+@media (max-width: 768px) {
+    .book-detail-card {
+        width: 90%;
+        height: 100%;
+        flex-direction: column;
+        border-radius: 20px;
+        box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
+        overflow: hidden;
+    }
+
+    .book-detail-image {
+        width: 100%;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .card-body {
+        width: 100%;
+        padding: 10px;
+        overflow-y: auto;
+    }
+
+    .book-detail-title {
+        font-size: 1rem;
+        /* Ajusta el tamaño de fuente para pantallas pequeñas */
+    }
+
+    .book-detail-description {
+        margin: 10px 0;
+        /* Ajusta el espaciado para pantallas pequeñas */
+    }
+}

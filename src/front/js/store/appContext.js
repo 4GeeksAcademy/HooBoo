@@ -18,7 +18,7 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			console.log(state.actions.traerLibros());
+			state.actions.traerLibros();
 		}, []);
 
 		return (
