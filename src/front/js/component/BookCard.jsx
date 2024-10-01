@@ -1,10 +1,17 @@
 import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext"; // Importamos el contexto global
 import "../../styles/BookCard.css";
 
+
 const BookCard = ({ book }) => {
+    const navigate = useNavigate();
+
+    const handleInfoClick = () => {
+        navigate(`/book/${book.id}`);
+    };
     const { store, actions } = useContext(Context);
     const [isFavorite, setIsFavorite] = useState(
         store.favorites.some((fav) => fav.volumeInfo.title === book.volumeInfo.title)
@@ -34,11 +41,7 @@ const BookCard = ({ book }) => {
                     title="Agregar a Favoritos"
                     onClick={handleFavoriteClick}
                 />
-                <FontAwesomeIcon
-                    icon={faInfoCircle}
-                    className="icon-book info-icon"
-                    title="Más Información"
-                />
+                <FontAwesomeIcon icon={faInfoCircle} className="icon-book info-icon" title="Más Información" onClick={handleInfoClick} />
             </div>
             <div className="book-title">{title}</div>
         </div>
