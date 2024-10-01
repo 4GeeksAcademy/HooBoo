@@ -7,7 +7,6 @@
     max-width: 1000px;
     border: solid 1px rgb(194, 194, 194);
     margin: auto;
-    margin-top: 120px;
   }
   
   .profile-pic-section {
@@ -94,4 +93,10 @@
 
 .edit-cancel-button:hover {
   background-color: #c82333;
+}
+
+.nombre-editar-perfil{
+  margin-top: 18vh;
+  font-size: 2rem;
+  font-weight: bold;
 }
