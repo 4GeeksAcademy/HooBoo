@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaBell, FaRegStar, FaUserCircle, FaCompass, FaPlus, FaSignOutAlt, FaCog } from 'react-icons/fa';
+import { Context } from "../store/appContext";
 import "../../styles/Navbaractivo.css";
 
 const Navbaractivo = () => {
     const [showProfileMenu, setShowProfileMenu] = useState(false);
+    const { store } = useContext(Context); // Obtenemos el estado global usando useContext
+    const [favoriteCount, setFavoriteCount] = useState(0); // Estado local para el contador
+
+    // Actualizamos el contador cada vez que cambien los favoritos en el store
+    useEffect(() => {
+        setFavoriteCount(store.favorites.length);
+    }, [store.favorites]);
 
     const handleProfileClick = () => {
         setShowProfileMenu(!showProfileMenu);
@@ -25,8 +33,14 @@ const Navbaractivo = () => {
                 <Link to="/notificaciones" className="menu-item">
                     <FaBell /> <span>Notificaciones</span>
                 </Link>
-                <Link to="/Favoritos" className="menu-item">
-                    <FaRegStar /> <span>Favoritos</span>
+                <Link to="/Favoritos" className="menu-item favoritos">
+                    <FaRegStar /> 
+                    <span>Favoritos</span>
+                    {favoriteCount > 0 && (
+                        <div className="favorite-count">
+                            {favoriteCount}
+                        </div>
+                    )}
                 </Link>
 
                 <div className="menu-item profile" onClick={handleProfileClick}>
