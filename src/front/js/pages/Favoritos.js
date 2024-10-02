@@ -9,7 +9,8 @@ const Favoritos = () => {
     const { store, actions } = useContext(Context);
 
     const handleRemoveFavorito = (book) => {
-        actions.removeFavoritos(book); // Usamos la acción para eliminar
+        console.log(book); // Verifica qué libro se está intentando eliminar
+        actions.removeFavoritos(book);
     };
 
     return (
@@ -39,11 +40,13 @@ const Favoritos = () => {
                             <h2 className="favorito-title">{book.volumeInfo.title}</h2>
 
                             {/* Icono de información en la parte inferior derecha */}
-                            <Link to={`/book/${index}`}>
+                            {/* Icono de información en la parte inferior derecha */}
+                            <Link to={`/book/${book.id}`}>
                                 <button className="info-iicon derecha">
                                     <i className="fa fa-info-circle"></i>
                                 </button>
                             </Link>
+
                         </div>
                     ))
                 ) : (

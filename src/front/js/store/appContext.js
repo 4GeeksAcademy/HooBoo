@@ -21,7 +21,11 @@ const injectContext = PassedComponent => {
 	); 
 
 		useEffect(() => {
-			state.actions.traerLibros();
+			state.actions.traerLibrosAccion();
+			state.actions.traerLibrosFantasia();
+			state.actions.traerLibrosThriller();
+			state.actions.traerLibrosRomance();
+
 		}, []);
 
 		return (
