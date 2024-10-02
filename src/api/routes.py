@@ -9,7 +9,7 @@ from api.models import db, User, Book
 from api.utils import generate_sitemap, APIException
 
 api = Blueprint('api', __name__)
-CORS(api)
+CORS(api, resources={r"/api/*": {"origins": "https://scaling-adventure-9769qq4xgrp92xrww-3000.app.github.dev"}})
 
 # Configuración de Flask-Mail
 mail = Mail()
@@ -18,8 +18,8 @@ def configure_mail(app):
     app.config['MAIL_SERVER'] = 'smtp.gmail.com'
     app.config['MAIL_PORT'] = 587
     app.config['MAIL_USE_TLS'] = True
-    app.config['MAIL_USERNAME'] = 'tucorreo@gmail.com'  # Cambia esto por tu correo
-    app.config['MAIL_PASSWORD'] = 'tucontraseña'  # Cambia esto por la contraseña de tu correo
+    app.config['MAIL_USERNAME'] = 'luiscax18@outlook.com'
+    app.config['MAIL_PASSWORD'] = 'lfcv.18A'
     mail.init_app(app)
 
 # Endpoint para solicitar recuperación de contraseña
@@ -40,7 +40,7 @@ def reset_password_request():
     reset_url = url_for('api.reset_password_token', token=reset_token, _external=True)
 
     # Enviar el correo con el enlace de recuperación
-    msg = Message("Restablecer contraseña", sender="tucorreo@gmail.com", recipients=[user.email])
+    msg = Message("Restablecer contraseña", sender="tucorreo@gmail.com", recipients=[user.email])  # Usar tu correo aquí para el remitente
     msg.body = f"Hola, {user.email}. Para restablecer tu contraseña, haz clic en el siguiente enlace: {reset_url}\nEste enlace expirará en 15 minutos."
     mail.send(msg)
 
