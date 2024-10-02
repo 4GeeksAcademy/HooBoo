@@ -1,95 +1,95 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faTwitter, faInstagram, faFacebook, faTiktok, faTelegram, faYoutube, faWhatsapp
-} from '@fortawesome/free-brands-svg-icons';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faTwitter, faInstagram, faFacebook, faYoutube, faSpotify, faTiktok, faPinterest } from '@fortawesome/free-brands-svg-icons';
+import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
+// import AcercaDeNosotros from './AcercaDeNosotros.jsx';
 import "../../styles/Footer.css";
 
 const Footer = () => {
+  const rating = 4.5;
+  const [showEmail, setShowEmail] = useState(false);
+  const [showTeamPage, setShowTeamPage] = useState(false);
+
+  const renderStars = () => {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 !== 0;
+    const totalStars = 5;
+    const stars = [];
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<FontAwesomeIcon key={i} icon={faStar} />);
+    }
+    if (halfStar) {
+      stars.push(<FontAwesomeIcon key="half" icon={faStarHalfAlt} />);
+    }
+    while (stars.length < totalStars) {
+      stars.push(<FontAwesomeIcon key={stars.length} icon={faStar} />);
+    }
+    return stars;
+  };
+
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        {/* Sección de Iconos Sociales */}
-        <div className="section social-icons">
-          {/* Icono de Twitter */}
-          <div className="icon twitter-icon">
-            <FontAwesomeIcon icon={faTwitter} />
-          </div>
-          {/* Icono de Instagram */}
-          <div className="icon instagram-icon">
-            <FontAwesomeIcon icon={faInstagram} />
-          </div>
-          {/* Icono de Facebook */}
-          <div className="icon facebook-icon">
-            <FontAwesomeIcon icon={faFacebook} />
-          </div>
-          {/* Icono de TikTok */}
-          <div className="icon tiktok-icon">
-            <FontAwesomeIcon icon={faTiktok} />
-          </div>
-          {/* Icono de Telegram */}
-          <div className="icon telegram-icon">
-            <FontAwesomeIcon icon={faTelegram} />
-          </div>
-          {/* Icono de WhatsApp */}
-          <div className="icon whatsapp-icon">
-            <FontAwesomeIcon icon={faWhatsapp} />
-          </div>
-          {/* Icono de YouTube */}
-          <div className="icon youtube-icon">
-            <FontAwesomeIcon icon={faYoutube} />
-          </div>
-        </div>
+    <>
+      {/* <AcercaDeNosotros isActive={showTeamPage} /> */}
 
-        {/* Sección de Información */}
-        <div className="section">
-          <h4>Acerca de Nosotros</h4>
-          <ul>
-            <li>Información</li>
-            <li>Ubicación</li>
-            <li>Años de Experiencia</li>
-            <li>Nuestros Objetivos</li>
-            <li>Qué Queremos</li>
-          </ul>
-        </div>
-
-        {/* Sección de Contacto */}
-        <div className="section">
-          <h4>Contacto</h4>
-          <ul>
-            <li>WhatsApp: 641 25 18</li>
-            <li>WhatsApp: 642 78 16</li>
-            <li>Fijo: 888 88 888</li>
-            <li>Local: 320 458 15 922</li>
-          </ul>
-        </div>
-
-        {/* Sección de Servicios */}
-        <div className="section">
-          <h4>Servicios</h4>
-          <ul>
-            <li>Libros</li>
-            <li>Experiencia</li>
-            <li>Información</li>
-            <li>Comunidad</li>
-          </ul>
-        </div>
-
-        {/* Sección de Rating */}
-        <div className="section rating">
-          <div className="stars">
-            {Array(5).fill(0).map((_, index) => (
-              <FontAwesomeIcon key={index} icon={faStar} className="star" />
-            ))}
+      <footer className="footer">
+        <div className="footer-content">
+          {/* Sección de íconos sociales */}
+          <div className="section social-icons">
+            <a href="https://x.com/HookedonBookish" target="_blank" rel="noopener noreferrer" className="icon twitter-icon">
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+            <a href="https://www.instagram.com/hookedonbookish/" target="_blank" rel="noopener noreferrer" className="icon instagram-icon">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61566675358683" target="_blank" rel="noopener noreferrer" className="icon facebook-icon">
+              <FontAwesomeIcon icon={faFacebook} />
+            </a>
+            <a href="https://www.tiktok.com/@hooked_on_bookish" target="_blank" rel="noopener noreferrer" className="icon tiktok-icon">
+              <FontAwesomeIcon icon={faTiktok} />
+            </a>
+            <a href="https://open.spotify.com/user/31hbexieokicgypcsfkwcno3im34" target="_blank" rel="noopener noreferrer" className="icon spotify-icon">
+              <FontAwesomeIcon icon={faSpotify} />
+            </a>
+            <a href="https://es.pinterest.com/HookedonBookish/" target="_blank" rel="noopener noreferrer" className="icon pinterest-icon">
+              <FontAwesomeIcon icon={faPinterest} />
+            </a>
+            <a href="https://www.youtube.com/@HookedonBookish" target="_blank" rel="noopener noreferrer" className="icon youtube-icon">
+              <FontAwesomeIcon icon={faYoutube} />
+            </a>
           </div>
-          <div className="rating-text">
-            <p>4.5</p>
-            <p>Excelente</p>
+
+          {/* Sección de acerca de nosotros */}
+          <div className="section">
+            <h4 onClick={() => setShowTeamPage(!showTeamPage)}>
+              Acerca de Nosotros
+            </h4>
+          </div>
+
+          {/* Sección de contacto */}
+          <div className="section">
+            <h4 onClick={() => setShowEmail(!showEmail)}>
+              Contacto
+            </h4>
+            {showEmail && <p>hooboocontacto@gmail.com</p>}
+          </div>
+
+          {/* Sección de servicios */}
+          <div className="section">
+            <h4>Servicios</h4>
+          </div>
+
+          {/* Sección de rating */}
+          <div className="section rating">
+            <div className="stars">
+              {renderStars()}
+            </div>
+            <div className="rating-text">
+              <p>{rating} Excelente</p>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 
