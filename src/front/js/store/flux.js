@@ -5,7 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         store: {
             token: localStorage.getItem("jwt-token") || null,
             books: [],
-			favorites: []
+			favorites: [],
         },
         actions: {
             crear_usuario: async (email, password) => {
@@ -85,10 +85,14 @@ const getState = ({ getStore, getActions, setStore }) => {
                 console.log("Usuario deslogueado");
             },
             addFavoritos: (book) => {
+                console.log(book)
                 const store = getStore();
-                if (!store.favorites.some((fav) => fav.volumeInfo.title === book.volumeInfo.title)) {
-                    setStore({ favorites: [...store.favorites, book] });
+                if (!store.favorites.some((fav) => fav.id === book.id)) {
+                    console.log([...store.favorites, book])
+                    store.favorites.push(book)
+                    setStore({ favorites: [...store.favorites] });
                     console.log("Libro agregado a favoritos:", book.volumeInfo.title);
+                    console.log(store.favorites)
                 } else {
                     console.log("El libro ya está en tus favoritos");
                 }
@@ -96,7 +100,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             removeFavoritos: (book) => {
                 const store = getStore();
                 setStore({
-                    favorites: store.favorites.filter((fav) => fav.volumeInfo.title !== book.volumeInfo.title),
+                    favorites: store.favorites.filter((fav) => fav.id !== book.id),
                 });
                 console.log("Libro eliminado de favoritos:", book.volumeInfo.title);
             },

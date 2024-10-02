@@ -4,29 +4,33 @@ import { Context } from '../store/appContext';
 import { Card, Container, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
-import { faWhatsapp, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import Navbaractivo from "./Navbaractivo.jsx";
 import '../../styles/BookDetail.css';
+
 const BookDetail = () => {
-    const { store, actions } = useContext(Context);
-    const { bookId } = useParams();
-    const [isFavorite, setIsFavorite] = useState(false);
+    const [profilePicture] = useState('https://via.placeholder.com/50');
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
-    const [profilePicture] = useState('https://via.placeholder.com/50');
-    const book = store.books.find((b) => b.id === bookId);
+    const { store, actions } = useContext(Context);
+    const { bookId } = useParams();
+    const [isFavorite, setIsFavorite] = useState(false);  //verificar
+    const book = store.books.find(b => b.id === bookId);
+
     useEffect(() => {
         // Verificar si el libro ya está en favoritos
         if (book && store.favorites.some((fav) => fav.id === book.id)) {
-            setIsFavorite(true);
+            setIsFavorite(!isFavorite);
         }
     }, [book, store.favorites]);
+
     if (!book) {
         return <div>Libro no encontrado. ID buscado: {bookId}</div>;
     }
+
     const handleCommentChange = (e) => {
         setComment(e.target.value);
     };
+
     const handleCommentSubmit = (e) => {
         e.preventDefault();
         if (comment.trim()) {
@@ -38,6 +42,7 @@ const BookDetail = () => {
             setComment('');
         }
     };
+
     const handleAddToFavorites = () => {
         if (!isFavorite) {
             actions.addFavoritos(book); // Agregar libro a favoritos
@@ -46,6 +51,7 @@ const BookDetail = () => {
             console.log("El libro ya está en favoritos");
         }
     };
+
     const handleShare = () => {
         const url = window.location.href;
         const message = `Echa un vistazo a este libro: ${book.volumeInfo.title}\n${url}`;
@@ -61,6 +67,7 @@ const BookDetail = () => {
                 .catch(err => console.error('Error al copiar: ', err));
         }
     };
+
     return (
         <Container fluid className="d-flex flex-column">
             <div className="navbar">
