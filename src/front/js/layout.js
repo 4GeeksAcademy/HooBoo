@@ -1,12 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
-import { BackendURL } from "./component/backendURL";
+import BackendURL from "./component/backendURL.jsx";
 import VistaExplorar from "./component/vista_EXPLORAR.js";
 import BookDetail from "./component/BookDetail.jsx";
 import Login from "./pages/Login";
 import Principal from "./pages/Principal";
 import Registro from "./pages/Registro";
-// import Home from "./pages/Home";
 import Editarperfil from "./pages/Editarperfil";
 import injectContext from "./store/appContext";
 import HoobooBanner from './component/hooboo_banner.jsx';
@@ -24,7 +23,6 @@ const AppContent = () => {
                 <Route element={<Principal />} path="/" />
                 <Route element={<Login />} path="/Login" />
                 <Route element={<Registro />} path="/Registro" />
-                {/* <Route element={<Home />} path="/Home" /> */}
                 <Route element={<VistaExplorar />} path="/vistaexplorar" />
                 <Route element={<BookDetail />} path="/book/:bookId" />
                 <Route element={<Editarperfil />} path="/Editarperfil" />

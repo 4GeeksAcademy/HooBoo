@@ -1,35 +1,37 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import { Context } from "../store/appContext"; // Importamos el contexto global
+import { Context } from "../store/appContext";
 import "../../styles/BookCard.css";
 
 
 const BookCard = ({ book }) => {
     const navigate = useNavigate();
+    const { store, actions } = useContext(Context);
+    const imageUrl = book.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/150";
+    const title = book.volumeInfo.title || "Título no disponible";
+    const [isFavorite, setIsFavorite] = useState(store.favorites.some(fav => fav.id === book.id));
+
+    const handleFavoriteClick = () => {
+        if (isFavorite) {
+            actions.removeFavoritos(book); 
+        } else {
+            actions.addFavoritos(book); 
+        }
+        setIsFavorite(!isFavorite); // Cambiamos el estado del ícono imageLinks volumeInfo 
+        // console.log(store.favorites)
+    };
+
+    // useEffect(() => {
+    //     store.favorites
+    // },[store.favorites])
+    // console.log(store.favorites)
+
 
     const handleInfoClick = () => {
         navigate(`/book/${book.id}`);
     };
-    const { store, actions } = useContext(Context);
-    const [isFavorite, setIsFavorite] = useState(
-        store.favorites.some((fav) => fav.volumeInfo.title === book.volumeInfo.title)
-    );
-
-    const handleFavoriteClick = () => {
-        if (isFavorite) {
-            actions.removeFavoritos(book); // Si ya es favorito, lo removemos
-        } else {
-            actions.addFavoritos(book); // Si no es favorito, lo añadimos
-        }
-        setIsFavorite(!isFavorite); // Cambiamos el estado del ícono imageLinks volumeInfo 
-
-
-    };
-
-    const imageUrl = book.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/150";
-    const title = book.volumeInfo.title || "Título no disponible";
 
     return (
         <div className="book-card">
