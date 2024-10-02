@@ -11,6 +11,7 @@ from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
 from flask_jwt_extended import JWTManager
+from flask_mail import Mail
 
 # from models import Person
 
@@ -22,6 +23,21 @@ app.url_map.strict_slashes = False
 
 app.config["JWT_SECRET_KEY"] = "HooBoo"
 jwt = JWTManager(app)
+
+# Configuración del correo (Flask-Mail)
+def configure_mail(app):
+    app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+    app.config['MAIL_PORT'] = 587
+    app.config['MAIL_USE_TLS'] = True
+    app.config['MAIL_USE_SSL'] = False
+    app.config['MAIL_USERNAME'] = 'tu_correo@gmail.com'  # Cambia esto por tu correo
+    app.config['MAIL_PASSWORD'] = 'tu_contraseña'        # Cambia esto por la contraseña de tu correo
+    app.config['MAIL_DEFAULT_SENDER'] = 'tu_correo@gmail.com'
+    app.config['MAIL_MAX_EMAILS'] = None
+    app.config['MAIL_ASCII_ATTACHMENTS'] = False
+
+configure_mail(app)  # Llamar la función para configurar el correo
+mail = Mail(app)
 
 # database condiguration
 db_url = os.getenv("DATABASE_URL")

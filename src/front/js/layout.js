@@ -10,6 +10,7 @@ import Editarperfil from "./pages/Editarperfil";
 import injectContext from "./store/appContext";
 import HoobooBanner from './component/hooboo_banner.jsx';
 import Favoritos from './pages/Favoritos.js';
+import RecuperarContraseña from "./component/recuperarcontraseña.jsx";
 
 
 const AppContent = () => {
@@ -27,6 +28,7 @@ const AppContent = () => {
                 <Route element={<BookDetail />} path="/book/:bookId" />
                 <Route element={<Editarperfil />} path="/Editarperfil" />
                 <Route element={<Favoritos />} path="/Favoritos" />
+                <Route element={<RecuperarContraseña />} path="/RecuperarContraseña" />
                 <Route element={<h1>Not found!</h1>} />
             </Routes>
 
