@@ -10,11 +10,11 @@
     margin-top: 5vw;
 }
 
-h1 {
+.titulo_principalproyecto {
     font-size: 3vw;
     font-weight: bold;
     color: #333;
-    margin-top: 14vw;
+    margin-top: 12vw;
 }
 
 /* Grid de imágenes */

@@ -1,0 +1,63 @@
+.teamPage {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    height: 200px;
+}
+
+.teamContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Añade un espacio uniforme entre tarjetas */
+    height: 200px;
+}
+
+.memberCard {
+    width: 280px; /* Tamaño más adecuado para una tarjeta */
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    height: auto; /* Altura automática */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.3s ease, height 0.8s ease-in-out;
+    overflow: hidden;
+    height: 200px;
+}
+
+.memberCard:hover {
+    transform: scale(1.05); /* Agranda la tarjeta cuando se hace hover */
+}
+
+.memberImage {
+    width: 100%;
+    height: 400px; /* Altura fija para la imagen */
+    object-fit: cover; /* Mantiene las proporciones de la imagen */
+    border-radius: 10px;
+}
+
+h3 {
+    margin: 15px 0 5px 0; /* Ajuste de márgenes para los títulos */
+    font-size: 20px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Responsivo para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .teamContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .memberCard {
+        width: 100%; /* Tarjetas ocupan todo el ancho en pantallas pequeñas */
+        max-width: 400px;
+    }
+}
