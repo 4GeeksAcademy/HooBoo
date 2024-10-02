@@ -1,6 +1,6 @@
 
 import React, { useContext } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.js";
 import BookCard from "./BookCard.jsx";  // Asegúrate de importar correctamente el componente BookCard
 import "../../styles/BookCard.css";
 import Footercolapsado from "./Footercolapsado.jsx"

@@ -19,14 +19,32 @@ const injectContext = PassedComponent => {
 					}))
 		})
 	); 
+		// USE EFFECT ORIGINAL
+		// useEffect(() => {
+		// 	state.actions.traerLibrosAccion();
+		// 	state.actions.traerLibrosFantasia();
+		// 	state.actions.traerLibrosThriller();
+		// 	state.actions.traerLibrosRomance();
+
+		// }, []);
 
 		useEffect(() => {
-			state.actions.traerLibrosAccion();
-			state.actions.traerLibrosFantasia();
-			state.actions.traerLibrosThriller();
-			state.actions.traerLibrosRomance();
-
-		}, []);
+			const { traerLibrosAccion, traerLibrosFantasia, traerLibrosThriller, traerLibrosRomance } = state.actions;
+		
+			const cargarLibros = async () => {
+				try {
+					await traerLibrosAccion();
+					await traerLibrosFantasia();
+					await traerLibrosThriller();
+					await traerLibrosRomance();
+				} catch (error) {
+					console.error("Error al cargar los libros:", error);
+				}
+			};
+		
+			cargarLibros();
+		}, [state.actions]);
+		
 
 		return (
 			<Context.Provider value={state}>

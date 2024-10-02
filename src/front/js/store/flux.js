@@ -200,11 +200,33 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             removeFavoritos: (book) => {
                 const store = getStore();
-                const newFavorites = store.favorites.filter((fav) => fav.id !== book.id);
-                setStore({ favorites: newFavorites });
-                console.log("Libro eliminado de favoritos:", book.volumeInfo.title);
-                console.log("Nuevos favoritos:", newFavorites);
-            },
+                
+                // Encontrar el índice del libro en la lista de favoritos
+                const favoriteIndex = store.favorites.findIndex((fav) => fav.id === book.id);
+                
+                // Si el libro está en la lista de favoritos
+                if (favoriteIndex !== -1) {
+                    console.log("Eliminando el libro de favoritos:", book.volumeInfo.title);
+            
+                    // Modificar directamente el array de favoritos usando splice
+                    store.favorites.splice(favoriteIndex, 1);  // Elimina 1 elemento en la posición encontrada
+                    
+                    // Actualizar el store para reflejar el cambio en los favoritos
+                    setStore({
+                        ...store,
+                        favorites: store.favorites  // Usar el mismo array modificado
+                    });
+            
+                    console.log("Favoritos después de eliminar:", store.favorites.map(f => f.id));
+                } else {
+                    console.log("El libro ya está eliminado o no está en la lista de favoritos");
+                }
+            }
+            
+            
+            
+            
+            
         }
     };
 };

@@ -9,7 +9,6 @@ const Favoritos = () => {
     const { store, actions } = useContext(Context);
 
     const handleRemoveFavorito = (book) => {
-        console.log(book); // Verifica qué libro se está intentando eliminar
         actions.removeFavoritos(book);
     };
 
@@ -19,8 +18,8 @@ const Favoritos = () => {
             <h2 className="favoritos-titulo">Mis Libros Favoritos</h2>
             <div className="favoritos-list">
                 {store.favorites.length > 0 ? (
-                    store.favorites.map((book, index) => (
-                        <div key={index} className="favorito-card">
+                    store.favorites.map((book) => (
+                        <div key={book.id} className="favorito-card">
                             {/* Icono de la basurita en la parte superior derecha */}
                             <button
                                 className="trash-iicon derecha"
@@ -40,13 +39,11 @@ const Favoritos = () => {
                             <h2 className="favorito-title">{book.volumeInfo.title}</h2>
 
                             {/* Icono de información en la parte inferior derecha */}
-                            {/* Icono de información en la parte inferior derecha */}
                             <Link to={`/book/${book.id}`}>
                                 <button className="info-iicon derecha">
                                     <i className="fa fa-info-circle"></i>
                                 </button>
                             </Link>
-
                         </div>
                     ))
                 ) : (
