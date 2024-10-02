@@ -6,6 +6,18 @@ const getState = ({ getStore, getActions, setStore }) => {
             token: localStorage.getItem("jwt-token") || null,
             books: [],
             favorites: [],
+            books: [
+                { 
+                    romance:[]
+                },{
+                    thriller:[]
+                },{
+                    fantasia:[]
+                },{
+                    accion:[]
+                }
+            ],
+			favorites: [],
         },
         actions: {
             crear_usuario: async (email, password) => {
@@ -221,12 +233,29 @@ const getState = ({ getStore, getActions, setStore }) => {
                 } else {
                     console.log("El libro ya está eliminado o no está en la lista de favoritos");
                 }
-            }
+            },
             
-            
-            
-            
-            
+            recuperarContraseña: async (email) => {
+                try {
+                    const res = await fetch(`${process.env.BACKEND_URL}/api/reset-password`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ email }),
+                    });
+                    if (!res.ok) {
+                        const errorData = await res.json();
+                        throw new Error(errorData.msg || "Error al solicitar el restablecimiento de contraseña");
+                    }
+                    const data = await res.json();
+                    console.log("Email de restablecimiento enviado:", data.msg);
+                    return { success: true };
+                } catch (error) {
+                    console.error("Error al solicitar el restablecimiento de contraseña:", error);
+                    return { success: false, error: error.message };
+                }
+            },
         }
     };
 };
