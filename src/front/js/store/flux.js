@@ -123,12 +123,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                         },
                         body: JSON.stringify({ email }),
                     });
-            
                     if (!res.ok) {
                         const errorData = await res.json();
                         throw new Error(errorData.msg || "Error al solicitar el restablecimiento de contraseña");
                     }
-            
                     const data = await res.json();
                     console.log("Email de restablecimiento enviado:", data.msg);
                     return { success: true };

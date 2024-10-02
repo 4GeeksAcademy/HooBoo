@@ -6,15 +6,17 @@ import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import "../../styles/Footer.css";
 
 const Footer = () => {
-  const rating = 4.5;
   const [showEmail, setShowEmail] = useState(false);
   const [showTeamPage, setShowTeamPage] = useState(false);
+
+  const rating = 4.5;
 
   const renderStars = () => {
     const fullStars = Math.floor(rating);
     const halfStar = rating % 1 !== 0;
     const totalStars = 5;
     const stars = [];
+    
     for (let i = 0; i < fullStars; i++) {
       stars.push(<FontAwesomeIcon key={i} icon={faStar} />);
     }
