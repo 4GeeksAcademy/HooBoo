@@ -9,8 +9,8 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [isModalOpen, setIsModalOpen] = useState(false); // Estado para abrir/cerrar modal de contraseña
-    const [recoveryEmail, setRecoveryEmail] = useState(''); // Para el email de recuperación
+    const [isModalOpen, setIsModalOpen] = useState(false); 
+    const [recoveryEmail, setRecoveryEmail] = useState(''); 
     const { actions } = useContext(Context);
     const navigate = useNavigate();
 

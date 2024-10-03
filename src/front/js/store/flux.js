@@ -6,6 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
             token: localStorage.getItem("jwt-token") || null,
             books: [],
             favorites: [],
+
+			favorites: [],
         },
         actions: {
             crear_usuario: async (email, password) => {
@@ -207,23 +209,22 @@ const getState = ({ getStore, getActions, setStore }) => {
                 // Si el libro está en la lista de favoritos
                 if (favoriteIndex !== -1) {
                     console.log("Eliminando el libro de favoritos:", book.volumeInfo.title);
-            
+                    
                     // Modificar directamente el array de favoritos usando splice
                     store.favorites.splice(favoriteIndex, 1);  // Elimina 1 elemento en la posición encontrada
                     
-                    // Actualizar el store para reflejar el cambio en los favoritos
+                    // Actualizar el store con una copia del array modificado para que React detecte el cambio
                     setStore({
                         ...store,
-                        favorites: store.favorites  // Usar el mismo array modificado
+                        favorites: [...store.favorites]  // Clon del array modificado
                     });
-            
+                    
                     console.log("Favoritos después de eliminar:", store.favorites.map(f => f.id));
                 } else {
                     console.log("El libro ya está eliminado o no está en la lista de favoritos");
                 }
             },
-            
-            
+
             recuperarContraseña: async (email) => {
                 try {
                     const res = await fetch(`${process.env.BACKEND_URL}/api/reset-password`, {
