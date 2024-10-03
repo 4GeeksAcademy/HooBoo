@@ -19,15 +19,8 @@ const BookCard = ({ book }) => {
         } else {
             actions.addFavoritos(book); 
         }
-        setIsFavorite(!isFavorite); // Cambiamos el estado del ícono imageLinks volumeInfo 
-        // console.log(store.favorites)
+        setIsFavorite(!isFavorite);
     };
-
-    // useEffect(() => {
-    //     store.favorites
-    // },[store.favorites])
-    // console.log(store.favorites)
-
 
     const handleInfoClick = () => {
         navigate(`/book/${book.id}`);

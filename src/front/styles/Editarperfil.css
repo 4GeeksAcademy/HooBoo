@@ -1,59 +1,58 @@
 .edit-form-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px;
-    gap: 40px;
-    max-width: 1000px;
-    border: solid 1px rgb(194, 194, 194);
-    margin: auto;
-  }
-  
-  .profile-pic-section {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .profile-pic-box {
-    width: 300px;
-    height: 300px;
-    border: 2px solid #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    cursor: pointer;
-    font-size: 18px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-  }
-  
-  .profile-edit-section {
-    flex: 2;
-  }
-  
-  .dit-form-group {
-    margin-bottom: 20px;
-  }
-  
-  .dit-form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 16px;
-  }
-  
-  .dit-form-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  /* Botón Guardar Cambios */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+  gap: 40px;
+  max-width: 1000px;
+  border: solid 1px rgb(194, 194, 194);
+  margin: auto;
+}
+
+.profile-pic-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-pic-box {
+  width: 300px;
+  height: 300px;
+  border: 2px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.profile-edit-section {
+  flex: 2;
+}
+
+.dit-form-group {
+  margin-bottom: 20px;
+}
+
+.dit-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.dit-form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 .edit-save-button {
   display: inline-block;
   padding: 10px 20px;
@@ -65,23 +64,21 @@
   font-size: 16px;
   width: 200px;
 }
-  
+
 .edit-save-button:hover {
   background-color: #218838;
 }
 
-  /* Posiciona el contenedor de los botones en la parte inferior */
 .button-group {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-/* Estilo del botón Cancelar */
 .edit-cancel-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #dc3545; /* Color rojo */
+  background-color: #dc3545;
   color: white;
   border: none;
   border-radius: 4px;
@@ -95,7 +92,7 @@
   background-color: #c82333;
 }
 
-.nombre-editar-perfil{
+.nombre-editar-perfil {
   margin-top: 18vh;
   font-size: 2rem;
   font-weight: bold;

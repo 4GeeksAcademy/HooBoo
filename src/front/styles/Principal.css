@@ -1,4 +1,3 @@
-/* Contenedor principal */
 .principal-container {
     text-align: center;
     margin-top: 5vw;
@@ -17,65 +16,59 @@
     margin-top: 12vw;
 }
 
-/* Grid de imágenes */
 .image-grid {
-    display: grid; /* Usamos grid layout */
-    grid-template-columns: repeat(7, 1fr); /* 7 columnas, una para cada imagen */
-    justify-items: center; /* Centra las imágenes dentro de sus celdas */
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
     position: relative;
     opacity: 1;
-    transition: opacity 1s ease-in-out; /* Suave transición de opacidad */
+    transition: opacity 1s ease-in-out;
 }
 
-/* Estilo de las imágenes */
 .image-grid img {
-    width: 12vw; /* Ajusta el tamaño de las imágenes */
-    height: auto; /* Mantiene la proporción de las imágenes */
-    object-fit: cover; /* Ajusta la imagen sin distorsión */
-    border-radius: 10px; /* Bordes redondeados */
+    width: 12vw;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
     opacity: 1;
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out; 
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
     box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
     border: 2px solid #a75df267;
-    position: relative; /* Necesario para desplazar cada imagen */
+    position: relative;
 }
 
-/* Efecto hover en las imágenes */
 .image-grid img:hover {
-    transform: scale(1.1); /* Aumenta el tamaño de la imagen en hover */
+    transform: scale(1.1);
 }
 
-/* Posición personalizada de cada imagen */
 .image-grid img:nth-child(1) {
-    top: -4vw; /* Primera imagen más alta */
+    top: -4vw;
 }
 
 .image-grid img:nth-child(2) {
-    top: 1vw; /* Segunda imagen un poco más baja */
+    top: 1vw;
 }
 
 .image-grid img:nth-child(3) {
-    top: 5vw; /* Tercera imagen (nivel base) */
+    top: 5vw;
 }
 
 .image-grid img:nth-child(4) {
-    top: 9vw; /* Cuarta imagen un poco más baja */
+    top: 9vw;
 }
 
 .image-grid img:nth-child(5) {
-    top: 5vw; /* Quinta imagen más baja */
+    top: 5vw;
 }
 
 .image-grid img:nth-child(6) {
-    top: 1vw; /* Sexta imagen un poco más baja que la primera */
+    top: 1vw;
 }
 
 .image-grid img:nth-child(7) {
-    top: -4vw; /* Séptima imagen más alta */
+    top: -4vw;
 }
 
-
-/* Estilo de las imágenes de los libros */
 .book-image {
     width: 15vw;
     height: auto;
@@ -116,15 +109,12 @@
     border: 4px solid #bc82eb;
 }
 
-/* Animación de desvanecimiento */
 .fade-in {
     animation: fadeIn 1s forwards;
-    /* Aumenta el tiempo de la animación para una transición más suave */
 }
 
 .fade-out {
     animation: fadeOut 1s forwards;
-    /* Añade fade-out para que desaparezca suavemente */
 }
 
 @keyframes fadeIn {
@@ -148,13 +138,12 @@
 }
 
 .main-content {
-    margin-top: 10vh; /* Margen superior para evitar que el contenido quede debajo del navbar */
+    margin-top: 10vh;
     padding: 20px;
     text-align: center;
     margin-bottom: 20vh;
 }
 
-/* Estilos responsivos */
 @media (max-width: 768px) {
     .main-content {
         margin-top: 25vh;

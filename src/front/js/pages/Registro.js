@@ -52,9 +52,9 @@ const Registro = () => {
                                 required
                             />
                         </div>
-                        <div className="registro-button-group"> {/* Agrupa los botones */}
+                        <div className="registro-button-group">
                             <button type="submit" className="registro-form-button">Registrarse</button>
-                            <button type="button" className="registro-volver-button" onClick={handleVolver}>Volver</button> {/* Botón "Volver" */}
+                            <button type="button" className="registro-volver-button" onClick={handleVolver}>Volver</button>
                         </div>
                     </form>
                 </div>

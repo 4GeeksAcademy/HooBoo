@@ -55,18 +55,18 @@
 .login-volver-button {
     width: 100%;
     padding: 12px;
-    background-color: red; /* Color rojo para el botón "Volver" */
+    background-color: red;
     color: white;
     font-size: 16px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 10px; /* Margen superior para separación */
+    margin-top: 10px;
 }
 
 .login-volver-button:hover {
-    background-color: darkred; /* Cambio de color al pasar el mouse */
+    background-color: darkred;
 }
 
 .login-signup-redirect p {
@@ -105,16 +105,14 @@
     text-decoration: underline;
 }
 
-/* Centrado vertical */
 .login-page-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #fff; /* Fondo blanco */
+    background-color: #fff;
 }
 
-/* Responsivo para pantallas pequeñas */
 @media (max-width: 600px) {
     .login-form-container {
         width: 90%;

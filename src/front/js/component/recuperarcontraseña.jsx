@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react';
 import HoobooBanner from '../component/hooboo_banner.jsx';
 import { Context } from '../store/appContext';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate } from 'react-router-dom';
 import '../../styles/RecuperarContraseña.css';
 
 const RecuperarContraseña = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const { actions } = useContext(Context);
-    const navigate = useNavigate(); // Inicializa el hook useNavigate
+    const navigate = useNavigate();
 
     const handlePasswordReset = async (e) => {
         e.preventDefault();
@@ -21,7 +21,7 @@ const RecuperarContraseña = () => {
     };
 
     const handleCancel = () => {
-        navigate("/Login"); // Redirige a la ruta de Login
+        navigate("/Login");
     };
 
     return (

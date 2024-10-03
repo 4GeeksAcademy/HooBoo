@@ -35,7 +35,6 @@ const Footer = () => {
 
       <footer className="footer">
         <div className="footer-content">
-          {/* Sección de íconos sociales */}
           <div className="section social-icons">
             <a href="https://x.com/HookedonBookish" target="_blank" rel="noopener noreferrer" className="icon twitter-icon">
               <FontAwesomeIcon icon={faTwitter} />
@@ -60,14 +59,12 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Sección de acerca de nosotros */}
           <div className="section">
             <h4 onClick={() => setShowTeamPage(!showTeamPage)}>
               Acerca de Nosotros
             </h4>
           </div>
 
-          {/* Sección de contacto */}
           <div className="section">
             <h4 onClick={() => setShowEmail(!showEmail)}>
               Contacto
@@ -75,12 +72,10 @@ const Footer = () => {
             {showEmail && <p>hooboocontacto@gmail.com</p>}
           </div>
 
-          {/* Sección de servicios */}
           <div className="section">
             <h4>Servicios</h4>
           </div>
 
-          {/* Sección de rating */}
           <div className="section rating">
             <div className="stars">
               {renderStars()}

@@ -8,7 +8,7 @@ const ResetPassword = () => {
     const [newPassword, setNewPassword] = useState('');
     const [message, setMessage] = useState('');
     const { actions } = useContext(Context);
-    const { id } = useParams(); // Para obtener el token de la URL
+    const { id } = useParams();
 
     const handlePasswordChange = async (e) => {
         e.preventDefault();
