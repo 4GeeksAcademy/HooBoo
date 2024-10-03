@@ -81,7 +81,7 @@ const Principal = () => {
             <div className="main-content">
                 <div className="principal-container">
                     <div className="header-text">
-                        <h1>
+                        <h1 className='titulo_principalproyecto'>
                             Encuentra tu próxima lectura de
                             <div>{' '}</div>
                             <span className="dynamic-genre">
