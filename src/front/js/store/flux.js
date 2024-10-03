@@ -116,7 +116,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             recuperarContraseña: async (email) => {
                 try {
-                    const res = await fetch(`${process.env.BACKEND_URL}/reset-password`, {
+                    const res = await fetch(`${process.env.BACKEND_URL}/api/reset-password`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -132,6 +132,27 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { success: true };
                 } catch (error) {
                     console.error("Error al solicitar el restablecimiento de contraseña:", error);
+                    return { success: false, error: error.message };
+                }
+            },
+            cambiarcontraseña:  async (id, newPassword) => {
+                try {
+                    const res = await fetch(`${process.env.BACKEND_URL}/api/reset-password/${id}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ new_password: newPassword }),
+                    });
+                    if (!res.ok) {
+                        const errorData = await res.json();
+                        throw new Error(errorData.msg || "Error al restablecer la contraseña");
+                    }
+                    const data = await res.json();
+                    console.log("Contraseña restablecida con éxito:", data.msg);
+                    return { success: true, message: data.msg };
+                } catch (error) {
+                    console.error("Error al restablecer la contraseña:", error);
                     return { success: false, error: error.message };
                 }
             },

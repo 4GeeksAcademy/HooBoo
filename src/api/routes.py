@@ -24,29 +24,21 @@ def reset_password_request():
     if not user:
         return jsonify({"msg": "No existe un usuario con ese correo"}), 404
 
-    # Generar un token de recuperación
-    reset_token = create_access_token(identity={"email": user.email}, expires_delta=timedelta(minutes=15))
-
-    # Construir el enlace de recuperación
-    reset_url = "https://scaling-adventure-9769qq4xgrp92xrww-3000.app.github.dev/reset-password/"+"12345"
-
-    # Enviar el correo con el enlace de recuperación
+    reset_url = f"https://musical-space-acorn-pj7rggq6554vh64w-3000.app.github.dev/reset-password/{user.id}"
     
-    msg = Message(subject="Restablecer contraseña", sender="hooboo4geeks@gmail.com", recipients=[user.email])  # Usar tu correo aquí para el remitente
+    msg = Message(subject="Restablecer contraseña", sender="hooboo4geeks@gmail.com", recipients=[user.email])
     msg.body = f"Hola, {user.email}. Para restablecer tu contraseña, haz clic en el siguiente enlace:{reset_url}\nEste enlace expirará en 15 minutos."
     mail.send(msg)
 
     return jsonify({"msg": "Correo de recuperación enviado. Revisa tu bandeja de entrada."}), 200
 
 # Endpoint para cambiar la contraseña usando el token de recuperación
-@api.route('/reset-password/<token>', methods=['POST'])
-def reset_password_token(token):
-    try:
-        # Decodificar el token
-        decoded_token = decode_token(token)
-        email = decoded_token['identity']['email']
-    except:
-        return jsonify({"msg": "Token inválido o expirado"}), 400
+@api.route('/reset-password/<int:user_id>', methods=['POST'])
+def reset_password_user_id(user_id):
+    # Buscar al usuario por el ID
+    user = User.query.get(user_id)
+    if not user:
+        return jsonify({"msg": "Usuario no encontrado"}), 404
 
     data = request.get_json()
     new_password = data.get('new_password')
@@ -54,15 +46,11 @@ def reset_password_token(token):
     if not new_password:
         return jsonify({"msg": "Nueva contraseña requerida"}), 400
 
-    # Buscar al usuario y cambiar la contraseña
-    user = User.query.filter_by(email=email).first()
-    if not user:
-        return jsonify({"msg": "Usuario no encontrado"}), 404
-
+    # Cambiar la contraseña del usuario
     hashed_password = generate_password_hash(new_password)
     user.password = hashed_password
 
-    # Guardar cambios en la base de datos
+    # Guardar los cambios en la base de datos
     try:
         db.session.commit()
         return jsonify({"msg": "Contraseña actualizada con éxito"}), 200
