@@ -116,7 +116,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             recuperarContraseña: async (email) => {
                 try {
-                    const res = await fetch(`${process.env.BACKEND_URL}/api/reset-password`, {
+                    const res = await fetch(`${process.env.BACKEND_URL}/reset-password`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

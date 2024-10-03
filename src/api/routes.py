@@ -2,29 +2,20 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from flask_cors import CORS
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, decode_token
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_mail import Mail, Message  # Importar Flask-Mail para enviar correos
-from datetime import timedelta
 
+from flask_mail import Message
+from datetime import timedelta
 from api.models import db, User, Book
 from api.utils import generate_sitemap, APIException
 
 api = Blueprint('api', __name__)
-CORS(api, resources={r"/api/*": {"origins": "https://scaling-adventure-9769qq4xgrp92xrww-3000.app.github.dev"}})
-
-# Configuración de Flask-Mail
-mail = Mail()
-
-def configure_mail(app):
-    app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-    app.config['MAIL_PORT'] = 587
-    app.config['MAIL_USE_TLS'] = True
-    app.config['MAIL_USERNAME'] = 'luiscax18@outlook.com'
-    app.config['MAIL_PASSWORD'] = 'lfcv.18A'
-    mail.init_app(app)
+# CORS(api, resources={r"/api/*": {"origins": "https://scaling-adventure-9769qq4xgrp92xrww-3000.app.github.dev"}})
+CORS(api, resources={r"/api/*": {"origins": "*"}})
 
 # Endpoint para solicitar recuperación de contraseña
 @api.route('/reset-password', methods=['POST'])
 def reset_password_request():
+    from app import mail
     data = request.get_json()
     email = data.get('email')
 
@@ -37,11 +28,12 @@ def reset_password_request():
     reset_token = create_access_token(identity={"email": user.email}, expires_delta=timedelta(minutes=15))
 
     # Construir el enlace de recuperación
-    reset_url = url_for('api.reset_password_token', token=reset_token, _external=True)
+    reset_url = "https://scaling-adventure-9769qq4xgrp92xrww-3000.app.github.dev/reset-password/"+"12345"
 
     # Enviar el correo con el enlace de recuperación
-    msg = Message("Restablecer contraseña", sender="tucorreo@gmail.com", recipients=[user.email])  # Usar tu correo aquí para el remitente
-    msg.body = f"Hola, {user.email}. Para restablecer tu contraseña, haz clic en el siguiente enlace: {reset_url}\nEste enlace expirará en 15 minutos."
+    
+    msg = Message(subject="Restablecer contraseña", sender="hooboo4geeks@gmail.com", recipients=[user.email])  # Usar tu correo aquí para el remitente
+    msg.body = f"Hola, {user.email}. Para restablecer tu contraseña, haz clic en el siguiente enlace:{reset_url}\nEste enlace expirará en 15 minutos."
     mail.send(msg)
 
     return jsonify({"msg": "Correo de recuperación enviado. Revisa tu bandeja de entrada."}), 200
