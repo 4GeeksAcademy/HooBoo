@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Context } from "../store/appContext";
-import HoobooBanner from '../component/hooboo_banner.jsx'; // Importar el banner
+import HoobooBanner from '../component/hooboo_banner.jsx'; 
 import '../../styles/Registro.css';
 
 const Registro = () => {
@@ -17,39 +17,44 @@ const Registro = () => {
         });
     };
 
+    const handleVolver = () => {
+        navigate('/');
+    };
+
     return (
         <div>
-            <HoobooBanner /> {/* Banner en la parte superior */}
-            <div className="form-page-container"> {/* Contenedor para centrar el formulario verticalmente */}
-                <div className="form-container">
-                    <h2>Crear Usuario</h2>
+            <HoobooBanner />
+            <div className="registro-page-container">
+                <div className="registro-form-container">
+                    <h2 className='supertituloxm'>Crear Usuario</h2>
                     <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="correo" className="form-label">Correo Electrónico:</label>
+                        <div className="registro-form-group">
+                            <label htmlFor="correo" className="registro-form-label">Correo Electrónico:</label>
                             <input
                                 type="email"
                                 id="correo"
-                                className="form-input"
+                                className="registro-form-input"
                                 value={correo}
                                 onChange={(e) => setCorreo(e.target.value)}
                                 placeholder="Ingresa tu correo"
                                 required
                             />
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="contrasena" className="form-label">Contraseña:</label>
+                        <div className="registro-form-group">
+                            <label htmlFor="contrasena" className="registro-form-label">Contraseña:</label>
                             <input
                                 type="password"
                                 id="contrasena"
-                                className="form-input"
+                                className="registro-form-input"
                                 value={contrasena}
                                 onChange={(e) => setContrasena(e.target.value)}
                                 placeholder="Ingresa tu contraseña"
                                 required
                             />
                         </div>
-                        <div className="form-group">
-                            <button type="submit" className="form-button">Registrarse</button>
+                        <div className="registro-button-group"> {/* Agrupa los botones */}
+                            <button type="submit" className="registro-form-button">Registrarse</button>
+                            <button type="button" className="registro-volver-button" onClick={handleVolver}>Volver</button> {/* Botón "Volver" */}
                         </div>
                     </form>
                 </div>

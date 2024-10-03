@@ -2,7 +2,7 @@
     background-color: #1A1A1A;
     border-radius: 12px;
     padding: 20px;
-    width: 320px;
+    width: 450px;
     margin: 200px auto;
     color: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
@@ -35,8 +35,15 @@
     color: #aaa;
 }
 
-.recuperar-container button {
-    width: 100%;
+/* Grupo de botones */
+.button-group200 {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Botón de recuperar contraseña */
+.recuperar-btn {
+    width: 48%;
     padding: 12px;
     background-color: #4CAF50;
     color: white;
@@ -47,8 +54,25 @@
     transition: background-color 0.3s ease;
 }
 
-.recuperar-container button:hover {
+.recuperar-btn:hover {
     background-color: #45a049;
+}
+
+/* Botón de cancelar */
+.cancel-btn {
+    width: 48%;
+    padding: 12px;
+    background-color: #f44336; /* Rojo */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #d32f2f;
 }
 
 .recuperar-message {

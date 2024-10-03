@@ -1,4 +1,4 @@
-.form-container {
+.registro-form-container {
     background-color: #1A1A1A;
     border-radius: 12px;
     padding: 20px;
@@ -8,19 +8,27 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
-h2 {
+.registro-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-color: #fffafa; /* Color de fondo */
+}
+
+.supertituloxm {
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
 }
 
-.form-label {
+.registro-form-label {
     display: block;
     margin-bottom: 8px;
     font-size: 14px;
 }
 
-.form-input {
+.registro-form-input {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -31,11 +39,11 @@ h2 {
     font-size: 14px;
 }
 
-.form-input::placeholder {
+.registro-form-input::placeholder {
     color: #aaa;
 }
 
-.form-button {
+.registro-form-button {
     width: 100%;
     padding: 12px;
     margin-bottom: 12px;
@@ -48,33 +56,30 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
-.form-button:hover {
+.registro-form-button:hover {
     background-color: #45a049;
 }
 
-/* Estilo para centrar el formulario verticalmente */
-.form-page-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-    background-color: #fffafa; /* Color de fondo */
+.registro-volver-button {
+    width: 100%;
+    padding: 12px;
+    background-color: red; /* Color rojo para el botón "Volver" */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Margen superior para separación */
 }
 
-/* Estilos previos */
-.form-container {
-    background-color: #1A1A1A;
-    border-radius: 12px;
-    padding: 20px;
-    width: 320px;
-    margin: auto; /* Quitar el margen superior */
-    color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+.registro-volver-button:hover {
+    background-color: darkred; /* Cambio de color al pasar el mouse */
 }
 
 /* Responsivo para pantallas pequeñas */
 @media (max-width: 600px) {
-    .form-container {
+    .registro-form-container {
         width: 90%; /* Ajustar el tamaño en dispositivos móviles */
     }
 }
