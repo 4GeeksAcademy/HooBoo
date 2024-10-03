@@ -6,18 +6,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             token: localStorage.getItem("jwt-token") || null,
             books: [],
             favorites: [],
-            books: [
-                { 
-                    romance:[]
-                },{
-                    thriller:[]
-                },{
-                    fantasia:[]
-                },{
-                    accion:[]
-                }
-            ],
-			favorites: [],
         },
         actions: {
             crear_usuario: async (email, password) => {
@@ -234,6 +222,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     console.log("El libro ya está eliminado o no está en la lista de favoritos");
                 }
             },
+            
             
             recuperarContraseña: async (email) => {
                 try {
