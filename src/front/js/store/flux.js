@@ -215,7 +215,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     
                     // Actualizar el store con una copia del array modificado para que React detecte el cambio
                     setStore({
-                        ...store,
                         favorites: [...store.favorites]  // Clon del array modificado
                     });
                     
