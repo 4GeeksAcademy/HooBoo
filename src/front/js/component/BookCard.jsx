@@ -9,6 +9,7 @@ import "../../styles/BookCard.css";
 const BookCard = ({ book }) => {
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
+    console.log(book, "----------")
     const imageUrl = book.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/150";
     const title = book.volumeInfo.title || "Título no disponible";
     const [isFavorite, setIsFavorite] = useState(store.favorites.some(fav => fav.id === book.id));

@@ -8,6 +8,11 @@ import Navbaractivo from "./Navbaractivo.jsx";
 
 const VistaExplorar = () => {
     const { store } = useContext(Context);
+    // const [searchBox, setSearchBox] = useState("");
+
+    // const handleSearch = (event) => {
+    //     setSearchBox(event.target.value);
+    // };
 
     return (
         <>

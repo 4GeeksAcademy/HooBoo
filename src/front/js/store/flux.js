@@ -5,15 +5,15 @@ const getState = ({ getStore, getActions, setStore }) => {
         store: {
             token: localStorage.getItem("jwt-token") || null,
             books: [
-                { 
-                    romance:[]
-                },{
-                    thriller:[]
-                },{
-                    fantasia:[]
-                },{
-                    accion:[]
-                }
+                // { 
+                //     romance:[]
+                // },{
+                //     thriller:[]
+                // },{
+                //     fantasia:[]
+                // },{
+                //     accion:[]
+                // }
             ],
 			favorites: [],
         },
@@ -105,13 +105,13 @@ const getState = ({ getStore, getActions, setStore }) => {
                     console.log("El libro ya está en tus favoritos");
                 }
             },
-            removeFavoritos: (book) => {
-                const store = getStore();
-                setStore({
-                    favorites: store.favorites.filter((fav) => fav.id !== book.id),
-                });
-                console.log("Libro eliminado de favoritos:", book.volumeInfo.title);
-            },
+            // removeFavoritos: (book) => {
+            //     const store = getStore();
+            //     setStore({
+            //         favorites: store.favorites.filter((fav) => fav.id !== book.id),
+            //     });
+            //     console.log("Libro eliminado de favoritos:", book.volumeInfo.title);
+            // },
             recuperarContraseña: async (email) => {
                 try {
                     const res = await fetch(`${process.env.BACKEND_URL}/api/reset-password`, {
@@ -256,25 +256,22 @@ const getState = ({ getStore, getActions, setStore }) => {
             //         return { error: error.message };
             //     }
             // },
-            //   removeFavoritos: (book) => {
-            //     const store = getStore();
-            //     // Encontrar el índice del libro en la lista de favoritos
-            //     const favoriteIndex = store.favorites.findIndex((fav) => fav.id === book.id);
-            //     // Si el libro está en la lista de favoritos
-            //     if (favoriteIndex !== -1) {
-            //         console.log("Eliminando el libro de favoritos:", book.volumeInfo.title);
-            //         // Modificar directamente el array de favoritos usando splice
-            //         store.favorites.splice(favoriteIndex, 1);  // Elimina 1 elemento en la posición encontrada
-            //         // Actualizar el store para reflejar el cambio en los favoritos
-            //         setStore({
-            //             ...store,
-            //             favorites: store.favorites  // Usar el mismo array modificado
-            //         });
-            //         console.log("Favoritos después de eliminar:", store.favorites.map(f => f.id));
-            //     } else {
-            //         console.log("El libro ya está eliminado o no está en la lista de favoritos");
-            //     }
-            // },
+            removeFavoritos: (book) => {
+                const store = getStore();
+                // Encontrar el índice del libro en la lista de favoritos
+                const favoriteIndex = store.favorites.findIndex((fav) => fav.id === book.id);
+                // Si el libro está en la lista de favoritos
+                if (favoriteIndex !== -1) {
+                    console.log("Eliminando el libro de favoritos:", book.volumeInfo.title);
+                    // Modificar directamente el array de favoritos usando splice
+                    store.favorites.splice(favoriteIndex, 1);  // Elimina 1 elemento en la posición encontrada
+                    // Actualizar el store para reflejar el cambio en los favoritos
+                    setStore({ favorites: store.favorites });
+                    console.log("Favoritos después de eliminar:", store.favorites.map(f => f.id));
+                } else {
+                    console.log("El libro ya está eliminado o no está en la lista de favoritos");
+                }
+            },
 
         }
     };
