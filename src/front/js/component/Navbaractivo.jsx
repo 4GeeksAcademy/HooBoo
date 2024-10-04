@@ -13,6 +13,12 @@ const Navbaractivo = () => {
         actions.obtenerDatosUsuario(); // Cargar los datos del usuario al montar el componente
     }, []); // Elimina 'store.favorites' de las dependencias
 
+    useEffect(() => {
+        if (store.favorites) {
+            setFavoriteCount(store.favorites.length); // Suponiendo que store.favorites es un array
+        }
+    }, [store.favorites]); 
+
     const handleProfileClick = () => {
         setShowProfileMenu(!showProfileMenu);
     };
