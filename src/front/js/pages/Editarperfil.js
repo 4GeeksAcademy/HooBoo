@@ -69,8 +69,6 @@ const Editarperfil = () => {
                                     Guardar cambios
                                 </button>
                             </Link>
-
-                            {/* Botón Cancelar */}
                             <Link to="/vistaexplorar">
                                 <button type="button" className="edit-cancel-button">
                                     Cancelar

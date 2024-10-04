@@ -9,7 +9,7 @@ const Favoritos = () => {
     const { store, actions } = useContext(Context);
 
     const handleRemoveFavorito = (book) => {
-        actions.removeFavoritos(book); // Usamos la acción para eliminar
+        actions.removeFavoritos(book);
     };
 
     return (
@@ -18,28 +18,21 @@ const Favoritos = () => {
             <h2 className="favoritos-titulo">Mis Libros Favoritos</h2>
             <div className="favoritos-list">
                 {store.favorites.length > 0 ? (
-                    store.favorites.map((book, index) => (
-                        <div key={index} className="favorito-card">
-                            {/* Icono de la basurita en la parte superior derecha */}
+                    store.favorites.map((book) => (
+                        <div key={book.id} className="favorito-card">
                             <button
                                 className="trash-iicon derecha"
                                 onClick={() => handleRemoveFavorito(book)}
                             >
                                 <i className="fa fa-trash"></i>
                             </button>
-
-                            {/* Imagen del libro */}
                             <img
                                 src={book.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/150"}
                                 alt={book.volumeInfo.title}
                                 className="favorito-image"
                             />
-
-                            {/* Título del libro debajo de la imagen */}
                             <h2 className="favorito-title">{book.volumeInfo.title}</h2>
-
-                            {/* Icono de información en la parte inferior derecha */}
-                            <Link to={`/book/${index}`}>
+                            <Link to={`/book/${book.id}`}>
                                 <button className="info-iicon derecha">
                                     <i className="fa fa-info-circle"></i>
                                 </button>
