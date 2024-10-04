@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
-import Footer from "./Footer.jsx"; 
+import Footer from "./Footer.jsx";
 import "../../styles/Footercolapsado.css";
 
 const Footercolapsado = () => {

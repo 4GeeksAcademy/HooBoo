@@ -4,18 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
             token: localStorage.getItem("jwt-token") || null,
-            books: [
-                // { 
-                //     romance:[]
-                // },{
-                //     thriller:[]
-                // },{
-                //     fantasia:[]
-                // },{
-                //     accion:[]
-                // }
-            ],
-			favorites: [],
+            books: [],
+            favorites: [],
         },
         actions: {
             crear_usuario: async (email, password) => {
@@ -65,7 +55,9 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { success: false, error: error.message };
                 }
             },
-            traerLibros: async () => {
+
+            // API libros ROMANCE
+            traerLibrosRomance: async () => {
                 try {
                     const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:romance&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
@@ -81,14 +73,111 @@ const getState = ({ getStore, getActions, setStore }) => {
                     }
 
                     const data = await res.json();
-                    setStore({ books: data.items });
-                    console.log("Libros obtenidos:", data.items);
-                    return data.items;
+
+                    // Filtrar libros que tienen portada (imageLinks.thumbnail)
+                    const librosConPortada = data.items.filter(item =>
+                        item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
+                    );
+
+                    setStore({ books: librosConPortada });
+                    return librosConPortada;
                 } catch (error) {
-                    console.error("Error al obtener los libros:", error);
+                    console.error("Error al obtener los libros de romance:", error);
                     return { error: error.message };
                 }
-            }, 
+            },
+
+            // API libros ACCION
+            traerLibrosAccion: async () => {
+                try {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:accion&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            "Authorization": '55948_25703fc2113e4aece39188c265f17591'
+                        }
+                    });
+
+                    if (!res.ok) {
+                        const errorData = await res.json();
+                        throw new Error(errorData.msg || "Error al obtener los libros");
+                    }
+
+                    const data = await res.json();
+
+                    // Filtrar libros que tienen portada (imageLinks.thumbnail)
+                    const librosConPortada = data.items.filter(item =>
+                        item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
+                    );
+
+                    setStore({ books: librosConPortada });
+                    return librosConPortada;
+                } catch (error) {
+                    console.error("Error al obtener los libros de acción:", error);
+                    return { error: error.message };
+                }
+            },
+
+            // API libros FANTASIA
+            traerLibrosFantasia: async () => {
+                try {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:fantasy&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+
+                    if (!res.ok) {
+                        const errorData = await res.json();
+                        throw new Error(errorData.error.message || "Error al obtener los libros");
+                    }
+
+                    const data = await res.json();
+
+                    // Filtrar libros que tienen portada (imageLinks.thumbnail)
+                    const librosConPortada = data.items.filter(item =>
+                        item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
+                    );
+
+                    setStore({ books: librosConPortada });
+                    return librosConPortada;
+                } catch (error) {
+                    console.error("Error al obtener los libros de fantasía:", error.message);
+                    return { error: error.message };
+                }
+            },
+
+            // API libros THRILLER
+            traerLibrosThriller: async () => {
+                try {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:thriller&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            "Authorization": '55948_25703fc2113e4aece39188c265f17591'
+                        }
+                    });
+
+                    if (!res.ok) {
+                        const errorData = await res.json();
+                        throw new Error(errorData.msg || "Error al obtener los libros");
+                    }
+
+                    const data = await res.json();
+
+                    // Filtrar libros que tienen portada (imageLinks.thumbnail)
+                    const librosConPortada = data.items.filter(item =>
+                        item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
+                    );
+
+                    setStore({ books: librosConPortada });
+                    return librosConPortada;
+                } catch (error) {
+                    console.error("Error al obtener los libros de thriller:", error.message);
+                    return { error: error.message };
+                }
+            },
             cerrarSesion: () => {
                 localStorage.removeItem("jwt-token");
                 setStore({ token: null });
@@ -105,13 +194,29 @@ const getState = ({ getStore, getActions, setStore }) => {
                     console.log("El libro ya está en tus favoritos");
                 }
             },
-            // removeFavoritos: (book) => {
-            //     const store = getStore();
-            //     setStore({
-            //         favorites: store.favorites.filter((fav) => fav.id !== book.id),
-            //     });
-            //     console.log("Libro eliminado de favoritos:", book.volumeInfo.title);
-            // },
+            removeFavoritos: (book) => {
+                const store = getStore();
+                
+                // Encontrar el índice del libro en la lista de favoritos
+                const favoriteIndex = store.favorites.findIndex((fav) => fav.id === book.id);
+                
+                // Si el libro está en la lista de favoritos
+                if (favoriteIndex !== -1) {
+                    console.log("Eliminando el libro de favoritos:", book.volumeInfo.title);
+                    
+                    // Modificar directamente el array de favoritos usando splice
+                    store.favorites.splice(favoriteIndex, 1);  // Elimina 1 elemento en la posición encontrada
+                    
+                    // Actualizar el store con una copia del array modificado para que React detecte el cambio
+                    setStore({
+                        favorites: [...store.favorites]  // Clon del array modificado
+                    });
+                    
+                    console.log("Favoritos después de eliminar:", store.favorites.map(f => f.id));
+                } else {
+                    console.log("El libro ya está eliminado o no está en la lista de favoritos");
+                }
+            },
             recuperarContraseña: async (email) => {
                 try {
                     const res = await fetch(`${process.env.BACKEND_URL}/api/reset-password`, {
@@ -154,125 +259,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { success: false, error: error.message };
                 }
             },
-            // traerLibrosRomance: async () => {
-            //     try {
-            //         const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:romance&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
-            //             method: 'GET',
-            //             headers: {
-            //                 'Content-Type': 'application/json',
-            //                 "Authorization": '55948_25703fc2113e4aece39188c265f17591'
-            //             }
-            //         });
-            //         if (!res.ok) {
-            //             const errorData = await res.json();
-            //             throw new Error(errorData.msg || "Error al obtener los libros");
-            //         }
-            //         const data = await res.json();
-            //         // Filtrar libros que tienen portada (imageLinks.thumbnail)
-            //         const librosConPortada = data.items.filter(item =>
-            //             item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
-            //         );
-            //         setStore({ books: librosConPortada });
-            //         return librosConPortada;
-            //     } catch (error) {
-            //         console.error("Error al obtener los libros de romance:", error);
-            //         return { error: error.message };
-            //     }
-            // },
-            // API libros ACCION
-            // traerLibrosAccion: async () => {
-            //     try {
-            //         const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:accion&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
-            //             method: 'GET',
-            //             headers: {
-            //                 'Content-Type': 'application/json',
-            //                 "Authorization": '55948_25703fc2113e4aece39188c265f17591'
-            //             }
-            //         });
-            //         if (!res.ok) {
-            //             const errorData = await res.json();
-            //             throw new Error(errorData.msg || "Error al obtener los libros");
-            //         }
-            //         const data = await res.json();
-            //         // Filtrar libros que tienen portada (imageLinks.thumbnail)
-            //         const librosConPortada = data.items.filter(item =>
-            //             item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
-            //         );
-            //         setStore({ books: librosConPortada });
-            //         return librosConPortada;
-            //     } catch (error) {
-            //         console.error("Error al obtener los libros de acción:", error);
-            //         return { error: error.message };
-            //     }
-            // },
-            // API libros FANTASIA
-            // traerLibrosFantasia: async () => {
-            //     try {
-            //         const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:fantasy&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
-            //             method: 'GET',
-            //             headers: {
-            //                 'Content-Type': 'application/json',
-            //             }
-            //         });
-            //         if (!res.ok) {
-            //             const errorData = await res.json();
-            //             throw new Error(errorData.error.message || "Error al obtener los libros");
-            //         }
-            //         const data = await res.json();
-            //         // Filtrar libros que tienen portada (imageLinks.thumbnail)
-            //         const librosConPortada = data.items.filter(item =>
-            //             item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
-            //         );
-            //         setStore({ books: librosConPortada });
-            //         return librosConPortada;
-            //     } catch (error) {
-            //         console.error("Error al obtener los libros de fantasía:", error.message);
-            //         return { error: error.message };
-            //     }
-            // },
-            // // API libros THRILLER
-            // traerLibrosThriller: async () => {
-            //     try {
-            //         const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:thriller&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
-            //             method: 'GET',
-            //             headers: {
-            //                 'Content-Type': 'application/json',
-            //                 "Authorization": '55948_25703fc2113e4aece39188c265f17591'
-            //             }
-            //         });
-            //         if (!res.ok) {
-            //             const errorData = await res.json();
-            //             throw new Error(errorData.msg || "Error al obtener los libros");
-            //         }
-            //         const data = await res.json();
-            //         // Filtrar libros que tienen portada (imageLinks.thumbnail)
-            //         const librosConPortada = data.items.filter(item =>
-            //             item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
-            //         );
-            //         setStore({ books: librosConPortada });
-            //         return librosConPortada;
-            //     } catch (error) {
-            //         console.error("Error al obtener los libros de thriller:", error.message);
-            //         return { error: error.message };
-            //     }
-            // },
-            removeFavoritos: (book) => {
-                const store = getStore();
-                // Encontrar el índice del libro en la lista de favoritos
-                const favoriteIndex = store.favorites.findIndex((fav) => fav.id === book.id);
-                // Si el libro está en la lista de favoritos
-                if (favoriteIndex !== -1) {
-                    console.log("Eliminando el libro de favoritos:", book.volumeInfo.title);
-                    // Modificar directamente el array de favoritos usando splice
-                    store.favorites.splice(favoriteIndex, 1);  // Elimina 1 elemento en la posición encontrada
-                    // Actualizar el store para reflejar el cambio en los favoritos
-                    setStore({ favorites: store.favorites });
-                    console.log("Favoritos después de eliminar:", store.favorites.map(f => f.id));
-                } else {
-                    console.log("El libro ya está eliminado o no está en la lista de favoritos");
-                }
-            },
-
         }
     };
 };

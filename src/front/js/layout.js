@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import BackendURL from "./component/backendURL.jsx";
-import VistaExplorar from "./component/vista_EXPLORAR.js";
+import VistaExplorar from "./component/vista_EXPLORAR.jsx";
 import BookDetail from "./component/BookDetail.jsx";
 import Login from "./pages/Login";
 import Principal from "./pages/Principal";

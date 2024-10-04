@@ -1,3 +1,11 @@
+.team-container {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
 .footer {
   background-color: #222;
   color: #fff;
@@ -9,6 +17,13 @@
   width: 100%;
   box-sizing: border-box;
   font-size: 12px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.footer-fixed {
+  position: static;
 }
 
 .footer-content {
@@ -21,6 +36,15 @@
 
 .section {
   text-align: left;
+}
+
+.social-icons {
+  display: flex; /* Asegura que los íconos se dispongan en fila */
+  flex-direction: row; /* Alinea los íconos en fila horizontal */
+  justify-content: center; /* Centra los íconos horizontalmente */
+  align-items: center; /* Centra verticalmente los íconos */
+  gap: 15px; /* Espacio uniforme entre los íconos */
+  margin-bottom: 20px; /* Espacio inferior para separación */
 }
 
 .icon {
@@ -135,8 +159,8 @@
   }
 
   .social-icons {
-    flex-direction: row;
-    justify-content: center;
-    gap: 15px;
+    flex-direction: row; /* Sigue alineando en fila horizontal en pantallas pequeñas */
+    justify-content: center; /* Centra los íconos en pantallas pequeñas */
+    gap: 10px; /* Ajuste de espacio entre los íconos */
   }
 }

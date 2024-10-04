@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faInstagram, faFacebook, faYoutube, faSpotify, faTiktok, faPinterest } from '@fortawesome/free-brands-svg-icons';
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
-// import AcercaDeNosotros from './AcercaDeNosotros.jsx';
+import AcercaDeNosotros from './AcercaDeNosotros.jsx';
 import "../../styles/Footer.css";
 
 const Footer = () => {
@@ -31,9 +31,15 @@ const Footer = () => {
 
   return (
     <>
-      {/* <AcercaDeNosotros isActive={showTeamPage} /> */}
+      {/* Mostramos "Acerca de Nosotros" si el estado es true */}
+      {showTeamPage && (
+        <div className="team-container">
+          <AcercaDeNosotros isActive={showTeamPage} />
+        </div>
+      )}
 
-      <footer className="footer">
+      {/* Footer siempre al final */}
+      <footer className={`footer ${showTeamPage ? 'footer-fixed' : ''}`}>
         <div className="footer-content">
           <div className="section social-icons">
             <a href="https://x.com/HookedonBookish" target="_blank" rel="noopener noreferrer" className="icon twitter-icon">

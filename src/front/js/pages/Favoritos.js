@@ -26,16 +26,13 @@ const Favoritos = () => {
                             >
                                 <i className="fa fa-trash"></i>
                             </button>
-
                             <img
                                 src={book.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/150"}
                                 alt={book.volumeInfo.title}
                                 className="favorito-image"
                             />
-
                             <h2 className="favorito-title">{book.volumeInfo.title}</h2>
-
-                            <Link to={`/book/${index}`}>
+                            <Link to={`/book/${book.id}`}>
                                 <button className="info-iicon derecha">
                                     <i className="fa fa-info-circle"></i>
                                 </button>
