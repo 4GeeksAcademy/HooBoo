@@ -63,17 +63,23 @@ def Registro():
     data = request.get_json()
     email = data.get('email')
     password = data.get('password')
+    username = data.get('username')
 
-    if not email or not password:
-        return jsonify({"msg": "Email y contraseña son requeridos"}), 400
+    if not email or not password or not username:
+        return jsonify({"msg": "Email, nombre de usuario y contraseña son requeridos"}), 400
 
     user = User.query.filter_by(email=email).first()
     if user:
         return jsonify({"msg": "El usuario ya está registrado"}), 400
+    
+    user_by_username = User.query.filter_by(username=username).first()
+    if user_by_username:
+        return jsonify({"msg": "El nombre de usuario ya está en uso"}), 400
 
     hashed_password = generate_password_hash(password)
+
     try:
-        new_user = User(email=email, password=hashed_password, is_active=True)
+        new_user = User(email=email, password=hashed_password, username=username, is_active=True)
         db.session.add(new_user)
         db.session.commit()
     except Exception as e:
@@ -101,6 +107,55 @@ def Login():
 def Home():
     current_user = get_jwt_identity()
     return jsonify({"msg": f"Bienvenido {current_user['email']}, estás en una página privada"}), 200
+
+@api.route('/perfil', methods=['GET'])
+@jwt_required()
+def get_user_profile():
+    current_user_identity = get_jwt_identity()
+    user = User.query.filter_by(email=current_user_identity["email"]).first()
+
+    if user:
+        user_data = {
+            "username": user.username,
+            "email": user.email,
+            "profile_pic": user.profile_pic
+        }
+        return jsonify(user_data), 200
+    else:
+        return jsonify({"msg": "Usuario no encontrado"}), 404
+    
+@api.route('/perfil', methods=['PUT'])
+@jwt_required()
+def update_user_profile():
+    current_user_identity = get_jwt_identity()
+    user = User.query.filter_by(email=current_user_identity["email"]).first()
+
+    if not user:
+        return jsonify({"msg": "Usuario no encontrado"}), 404
+
+    data = request.get_json()
+    new_username = data.get('username')
+    new_email = data.get('email')
+    new_password = data.get('password')
+
+    # Actualiza los campos solo si están presentes en el request
+    if new_username:
+        user.username = new_username
+
+    if new_email:
+        user.email = new_email
+
+    if new_password:
+        # Hash la nueva contraseña antes de guardar
+        hashed_password = generate_password_hash(new_password)
+        user.password = hashed_password
+
+    try:
+        db.session.commit()  # Guarda los cambios en la base de datos
+        return jsonify({"msg": "Perfil actualizado con éxito"}), 200
+    except Exception as e:
+        db.session.rollback()  # Revierta los cambios en caso de error
+        return jsonify({"msg": "Error al actualizar el perfil", "error": str(e)}), 500
 
 @api.route('/books', methods=['GET'])
 def get_books():
