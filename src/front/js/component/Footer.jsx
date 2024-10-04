@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faInstagram, faFacebook, faYoutube, faSpotify, faTiktok, faPinterest } from '@fortawesome/free-brands-svg-icons';
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
-// import AcercaDeNosotros from './AcercaDeNosotros.jsx';
+import AcercaDeNosotros from './AcercaDeNosotros.jsx';
 import "../../styles/Footer.css";
 
 const Footer = () => {
@@ -31,11 +31,16 @@ const Footer = () => {
 
   return (
     <>
-      {/* <AcercaDeNosotros isActive={showTeamPage} /> */}
+      {/* Mostramos "Acerca de Nosotros" si el estado es true */}
+      {showTeamPage && (
+        <div className="team-container">
+          <AcercaDeNosotros isActive={showTeamPage} />
+        </div>
+      )}
 
-      <footer className="footer">
+      {/* Footer siempre al final */}
+      <footer className={`footer ${showTeamPage ? 'footer-fixed' : ''}`}>
         <div className="footer-content">
-          {/* Sección de íconos sociales */}
           <div className="section social-icons">
             <a href="https://x.com/HookedonBookish" target="_blank" rel="noopener noreferrer" className="icon twitter-icon">
               <FontAwesomeIcon icon={faTwitter} />
@@ -60,14 +65,12 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Sección de acerca de nosotros */}
           <div className="section">
             <h4 onClick={() => setShowTeamPage(!showTeamPage)}>
               Acerca de Nosotros
             </h4>
           </div>
 
-          {/* Sección de contacto */}
           <div className="section">
             <h4 onClick={() => setShowEmail(!showEmail)}>
               Contacto
@@ -75,12 +78,10 @@ const Footer = () => {
             {showEmail && <p>hooboocontacto@gmail.com</p>}
           </div>
 
-          {/* Sección de servicios */}
           <div className="section">
             <h4>Servicios</h4>
           </div>
 
-          {/* Sección de rating */}
           <div className="section rating">
             <div className="stars">
               {renderStars()}
