@@ -1,34 +1,26 @@
-.registro-form-container {
+.recuperar-container {
     background-color: #1A1A1A;
     border-radius: 12px;
     padding: 20px;
-    width: 320px;
-    margin: 50px auto;
+    width: 450px;
+    margin: 200px auto;
     color: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
-.registro-page-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #fffafa;
-}
-
-.supertituloxm {
+.recuperar-container h2 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
 }
 
-.registro-form-label {
+.recuperar-container label {
     display: block;
     margin-bottom: 8px;
     font-size: 14px;
 }
 
-.registro-form-input {
+.recuperar-container input[type="email"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -39,14 +31,18 @@
     font-size: 14px;
 }
 
-.registro-form-input::placeholder {
+.recuperar-container input::placeholder {
     color: #aaa;
 }
 
-.registro-form-button {
-    width: 100%;
+.button-group200 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.recuperar-btn {
+    width: 48%;
     padding: 12px;
-    margin-bottom: 12px;
     background-color: #4CAF50;
     color: white;
     font-size: 16px;
@@ -56,29 +52,29 @@
     transition: background-color 0.3s ease;
 }
 
-.registro-form-button:hover {
+.recuperar-btn:hover {
     background-color: #45a049;
 }
 
-.registro-volver-button {
-    width: 100%;
+.cancel-btn {
+    width: 48%;
     padding: 12px;
-    background-color: red; 
+    background-color: #f44336;
     color: white;
     font-size: 16px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 10px;
 }
 
-.registro-volver-button:hover {
-    background-color: darkred;
+.cancel-btn:hover {
+    background-color: #d32f2f;
 }
 
-@media (max-width: 600px) {
-    .registro-form-container {
-        width: 90%; 
-    }
+.recuperar-message {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4CAF50;
+    font-size: 14px;
 }

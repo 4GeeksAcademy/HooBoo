@@ -6,10 +6,9 @@ import "../../styles/Navbaractivo.css";
 
 const Navbaractivo = () => {
     const [showProfileMenu, setShowProfileMenu] = useState(false);
-    const { store } = useContext(Context); // Obtenemos el estado global usando useContext
-    const [favoriteCount, setFavoriteCount] = useState(0); // Estado local para el contador
+    const { store } = useContext(Context);
+    const [favoriteCount, setFavoriteCount] = useState(0);
 
-    // Actualizamos el contador cada vez que cambien los favoritos en el store
     useEffect(() => {
         setFavoriteCount(store.favorites.length);
     }, [store.favorites]);

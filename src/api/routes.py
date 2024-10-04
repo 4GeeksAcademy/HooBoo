@@ -1,12 +1,62 @@
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Book
-from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
-from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, decode_token
 from werkzeug.security import generate_password_hash, check_password_hash
 
+from flask_mail import Message
+from datetime import timedelta
+from api.models import db, User, Book
+from api.utils import generate_sitemap, APIException
+
 api = Blueprint('api', __name__)
-CORS(api)
+# CORS(api, resources={r"/api/*": {"origins": "https://scaling-adventure-9769qq4xgrp92xrww-3000.app.github.dev"}})
+CORS(api, resources={r"/api/*": {"origins": "*"}})
+
+# Endpoint para solicitar recuperación de contraseña
+@api.route('/reset-password', methods=['POST'])
+def reset_password_request():
+    from app import mail
+    data = request.get_json()
+    email = data.get('email')
+
+    # Verificar si el email está registrado
+    user = User.query.filter_by(email=email).first()
+    if not user:
+        return jsonify({"msg": "No existe un usuario con ese correo"}), 404
+
+    reset_url = f"https://musical-space-acorn-pj7rggq6554vh64w-3000.app.github.dev/reset-password/{user.id}"
+    
+    msg = Message(subject="Restablecer contraseña", sender="hooboo4geeks@gmail.com", recipients=[user.email])
+    msg.body = f"Hola, {user.email}. Para restablecer tu contraseña, haz clic en el siguiente enlace:{reset_url}\nEste enlace expirará en 15 minutos."
+    mail.send(msg)
+
+    return jsonify({"msg": "Correo de recuperación enviado. Revisa tu bandeja de entrada."}), 200
+
+# Endpoint para cambiar la contraseña usando el token de recuperación
+@api.route('/reset-password/<int:user_id>', methods=['POST'])
+def reset_password_user_id(user_id):
+    # Buscar al usuario por el ID
+    user = User.query.get(user_id)
+    if not user:
+        return jsonify({"msg": "Usuario no encontrado"}), 404
+
+    data = request.get_json()
+    new_password = data.get('new_password')
+
+    if not new_password:
+        return jsonify({"msg": "Nueva contraseña requerida"}), 400
+
+    # Cambiar la contraseña del usuario
+    hashed_password = generate_password_hash(new_password)
+    user.password = hashed_password
+
+    # Guardar los cambios en la base de datos
+    try:
+        db.session.commit()
+        return jsonify({"msg": "Contraseña actualizada con éxito"}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"msg": "Error al actualizar la contraseña", "error": str(e)}), 500
 
 @api.route('/Registro', methods=['POST'])
 def Registro():

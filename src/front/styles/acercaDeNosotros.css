@@ -9,17 +9,17 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px; /* Añade un espacio uniforme entre tarjetas */
+    gap: 20px;
     height: 200px;
 }
 
 .memberCard {
-    width: 280px; /* Tamaño más adecuado para una tarjeta */
+    width: 280px;
     text-align: center;
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 15px;
-    height: auto; /* Altura automática */
+    height: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white;
     transition: transform 0.3s ease, height 0.8s ease-in-out;
@@ -28,18 +28,18 @@
 }
 
 .memberCard:hover {
-    transform: scale(1.05); /* Agranda la tarjeta cuando se hace hover */
+    transform: scale(1.05);
 }
 
 .memberImage {
     width: 100%;
-    height: 400px; /* Altura fija para la imagen */
-    object-fit: cover; /* Mantiene las proporciones de la imagen */
+    height: 400px;
+    object-fit: cover;
     border-radius: 10px;
 }
 
 h3 {
-    margin: 15px 0 5px 0; /* Ajuste de márgenes para los títulos */
+    margin: 15px 0 5px 0;
     font-size: 20px;
 }
 
@@ -49,7 +49,6 @@ p {
     color: #555;
 }
 
-/* Responsivo para pantallas más pequeñas */
 @media (max-width: 768px) {
     .teamContainer {
         flex-direction: column;
@@ -57,7 +56,7 @@ p {
     }
 
     .memberCard {
-        width: 100%; /* Tarjetas ocupan todo el ancho en pantallas pequeñas */
+        width: 100%;
         max-width: 400px;
     }
 }

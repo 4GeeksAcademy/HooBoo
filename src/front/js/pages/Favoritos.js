@@ -18,8 +18,8 @@ const Favoritos = () => {
             <h2 className="favoritos-titulo">Mis Libros Favoritos</h2>
             <div className="favoritos-list">
                 {store.favorites.length > 0 ? (
-                    store.favorites.map((book) => (
-                        <div key={book.id} className="favorito-card">
+                    store.favorites.map((book, index) => (
+                        <div key={index} className="favorito-card">
                             <button
                                 className="trash-iicon derecha"
                                 onClick={() => handleRemoveFavorito(book)}

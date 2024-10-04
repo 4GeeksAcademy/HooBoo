@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../component/Navbar.jsx'; // Importar el Navbar
-import Footer from '../component/Footer.jsx'; // Importar el Footer
-import HoobooBanner from '../component/hooboo_banner.jsx'; // Importar el Banner
+import Navbar from '../component/Navbar.jsx';
+import Footer from '../component/Footer.jsx';
+import HoobooBanner from '../component/hooboo_banner.jsx';
 import '../../styles/Principal.css';
 
 const genres = {
@@ -77,7 +77,7 @@ const Principal = () => {
     return (
         <div>
             <HoobooBanner />
-            <Navbar /> {/* Navbar debajo del Banner */}
+            <Navbar />
             <div className="main-content">
                 <div className="principal-container">
                     <div className="header-text">

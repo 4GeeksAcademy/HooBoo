@@ -1,10 +1,10 @@
 .book-card {
     position: relative;
-    margin: 0.625rem; /* Convertido desde 10px */
+    margin: 0.625rem;
     overflow: hidden;
-    border-radius: 0.625rem; /* Convertido desde 10px */
+    border-radius: 0.625rem;
     background-color: #f0f0f0;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* Convertido desde 4px 8px */
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
 }
 
@@ -16,7 +16,7 @@
     width: 100%;
     height: auto;
     display: block;
-    border-bottom: 0.0625rem solid #ddd; /* Convertido desde 1px */
+    border-bottom: 0.0625rem solid #ddd;
     border-radius: 10px;
     opacity: 1;
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
@@ -26,17 +26,17 @@
 
 .icons-container {
     position: absolute;
-    top: 0.625rem; /* Convertido desde 10px */
-    right: 0.625rem; /* Convertido desde 10px */
+    top: 0.625rem;
+    right: 0.625rem;
     display: flex;
-    gap: 0.625rem; /* Convertido desde 10px */
+    gap: 0.625rem;
 }
 
 .icon-book {
     color: #fff;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 50%;
-    padding: 0.3125rem; /* Convertido desde 5px */
+    padding: 0.3125rem;
     cursor: pointer;
 }
 
@@ -49,22 +49,22 @@
 }
 
 .book-title {
-    font-size: 0.875rem; /* Convertido desde 14px */
+    font-size: 0.875rem;
     font-weight: bold;
     text-align: center;
 }
 
 .book-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr)); /* Convertido desde 200px a 12.5rem */
-    gap: 1.25rem; /* Convertido desde 20px */
-    padding: 1.25rem; /* Convertido desde 20px */
-    margin-left: 15vw; /* Convertido a 15% de ancho de la ventana */
+    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+    gap: 1.25rem;
+    padding: 1.25rem;
+    margin-left: 15vw;
     margin-top: 6%;
 }
 
 .onebook {
-    max-width: 12.5rem; /* Convertido desde 200px a 12.5rem */
+    max-width: 12.5rem;
     margin: 0 auto;
     text-align: center;
 }

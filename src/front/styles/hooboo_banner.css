@@ -1,4 +1,3 @@
-/* Estilo del contenedor del banner */
 .header-container {
     display: flex;
     justify-content: center;
@@ -22,16 +21,14 @@
     box-sizing: border-box;
 }
 
-/* Ajuste del tamaño de la fuente del banner */
 .header-text {
     font-family: 'Special Elite', cursive;
-    font-size: 2.5vw; /* Se usa una unidad relativa para ajustarse al ancho de la pantalla */
+    font-size: 2.5vw;
     font-weight: bold;
     color: #2c2c2c;
     margin: 0 20px;
 }
 
-/* Estilo del contenedor del navbar */
 .navbar-container {
     display: flex;
     justify-content: space-between;
@@ -41,22 +38,21 @@
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     position: relative;
     width: 100%;
-    top: 6em; /* Se ajusta la posición para evitar el colapso con el banner */
+    top: 6em;
     z-index: 100;
     font-family: "IBM Plex Mono", monospace;
     margin-top: 0;
     position: fixed;
-    background: white; /* Agregamos un fondo blanco para que no se superponga el contenido */
+    background: white;
 }
 
-/* Ajustes para pantallas medianas */
 @media (max-width: 768px) {
     .header-text {
-        font-size: 5vw; /* Ajustar la fuente para pantallas medianas */
+        font-size: 5vw;
     }
 
     .navbar-container {
-        top: 8em; /* Ajuste para el navbar */
+        top: 8em;
         padding: 0.5rem;
     }
 
@@ -72,14 +68,13 @@
     }
 }
 
-/* Ajustes para pantallas pequeñas */
 @media (max-width: 480px) {
     .header-text {
-        font-size: 7vw; /* Tamaño mayor para la fuente en pantallas pequeñas */
+        font-size: 7vw;
     }
 
     .navbar-container {
-        top: 9em; /* Ajuste adicional para el navbar en pantallas pequeñas */
+        top: 9em;
         flex-direction: column;
         align-items: flex-start;
         padding: 0.5rem 1rem;
@@ -99,7 +94,8 @@
 .headerfondo {
     background-color: rgb(255, 255, 255);
     width: 100%;
-    position: fixed;width: 100%;
+    position: fixed;
+    width: 100%;
     height: 7em;
     position: fixed;
     top: 0;

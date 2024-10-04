@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Context } from '../store/appContext';
-import { Card, Container, Button } from 'react-bootstrap';
+import { Card, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
 import Navbaractivo from "./Navbaractivo.jsx";
@@ -13,11 +13,10 @@ const BookDetail = () => {
     const [comments, setComments] = useState([]);
     const { store, actions } = useContext(Context);
     const { bookId } = useParams();
-    const [isFavorite, setIsFavorite] = useState(false);  //verificar
+    const [isFavorite, setIsFavorite] = useState(false);
     const book = store.books.find(b => b.id === bookId);
 
     useEffect(() => {
-        // Verificar si el libro ya está en favoritos
         if (book && store.favorites.some((fav) => fav.id === book.id)) {
             setIsFavorite(!isFavorite);
         }
@@ -45,7 +44,7 @@ const BookDetail = () => {
 
     const handleAddToFavorites = () => {
         if (!isFavorite) {
-            actions.addFavoritos(book); // Agregar libro a favoritos
+            actions.addFavoritos(book);
             setIsFavorite(true);
         } else {
             console.log("El libro ya está en favoritos");

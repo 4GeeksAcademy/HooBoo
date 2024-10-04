@@ -3,14 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { Context } from "../store/appContext";
 import HoobooBanner from '../component/hooboo_banner.jsx';
 import '../../styles/Login.css';
-import Modal from 'react-modal'; // Paquete para modales (puedes usar otro si prefieres)
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [isModalOpen, setIsModalOpen] = useState(false); 
-    const [recoveryEmail, setRecoveryEmail] = useState(''); 
     const { actions } = useContext(Context);
     const navigate = useNavigate();
 
@@ -27,31 +24,19 @@ const Login = () => {
         }
     };
 
-    const handleSignupRedirect = () => {
-        navigate('/Registro');
-    };
-
-    // Lógica para manejar la recuperación de contraseña
-    const handlePasswordReset = async (e) => {
-        e.preventDefault();
-        const response = await actions.recuperarContraseña(recoveryEmail);
-        if (response.success) {
-            alert("Correo de recuperación enviado. Por favor, revisa tu bandeja de entrada.");
-            setIsModalOpen(false); // Cerrar el modal después de enviar
-        } else {
-            alert("Error al enviar el correo de recuperación: " + response.error);
-        }
+    const handleVolver = () => {
+        navigate('/');
     };
 
     return (
         <div>
             <HoobooBanner />
-            <div className="form-page-container">
-                <div className="form-container">
+            <div className="login-page-container">
+                <div className="login-form-container">
                     <form onSubmit={handleSubmit}>
-                        <h2>Iniciar Sesión</h2>
-                        {error && <div className="error-message">{error}</div>}
-                        <label htmlFor="email">Correo electrónico:</label>
+                        <h2 className='megaipertitulito'>Iniciar Sesión</h2>
+                        {error && <div className="login-error-message">{error}</div>}
+                        <label htmlFor="email" className="login-form-label">Correo electrónico:</label>
                         <input
                             type="email"
                             id="email"
@@ -59,8 +44,9 @@ const Login = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Ingresa tu correo"
                             required
+                            className="login-form-input" 
                         />
-                        <label htmlFor="password">Contraseña:</label>
+                        <label htmlFor="password" className="login-form-label">Contraseña:</label>
                         <input
                             type="password"
                             id="password"
@@ -68,41 +54,20 @@ const Login = () => {
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Ingresa tu contraseña"
                             required
+                            className="login-form-input" 
                         />
-                        <button type="submit">Ingresar</button>
-                        <div className="forgot-password">
-                            <a href="#" onClick={() => setIsModalOpen(true)}>¿Has olvidado tu contraseña?</a>
+                        <button type="submit" className="login-form-button">Ingresar</button>
+                        <button type="button" className="login-volver-button" onClick={handleVolver}>Volver</button>
+                        <div className="login-forgot-password">
+                            <a href="/RecuperarContraseña">¿Has olvidado tu contraseña?</a>
                         </div>
-                        <div className="signup-redirect">
+                        <div className="login-signup-redirect">
                             <p>¿No tienes una cuenta?</p>
-                            <button onClick={handleSignupRedirect} className="cancel-button">Registrarse</button>
+                            <button onClick={() => navigate('/Registro')} className="login-cancel-button">Registrarse</button>
                         </div>
                     </form>
                 </div>
             </div>
-
-            {/* Modal para recuperación de contraseña */}
-            <Modal
-                isOpen={isModalOpen}
-                onRequestClose={() => setIsModalOpen(false)}
-                className="modal"
-                overlayClassName="modal-overlay"
-            >
-                <h2>Recuperar Contraseña</h2>
-                <form onSubmit={handlePasswordReset}>
-                    <label htmlFor="recoveryEmail">Ingresa tu correo electrónico:</label>
-                    <input
-                        type="email"
-                        id="recoveryEmail"
-                        value={recoveryEmail}
-                        onChange={(e) => setRecoveryEmail(e.target.value)}
-                        placeholder="Correo de recuperación"
-                        required
-                    />
-                    <button type="submit">Enviar</button>
-                    <button onClick={() => setIsModalOpen(false)}>Cancelar</button>
-                </form>
-            </Modal>
         </div>
     );
 };

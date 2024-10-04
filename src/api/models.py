@@ -28,7 +28,7 @@ class Book(db.Model):
     author = db.Column(db.String(120), unique=True, nullable=False)
     # isbn = db.Column(db.String(120), unique=True, nullable=False)
     
-    def _repr_(self):
+    def __repr__(self):
         return f'<Book {self.title}>'
     
     def serialize(self):

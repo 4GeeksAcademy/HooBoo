@@ -6,8 +6,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             token: localStorage.getItem("jwt-token") || null,
             books: [],
             favorites: [],
-
-			favorites: [],
         },
         actions: {
             crear_usuario: async (email, password) => {
@@ -180,18 +178,14 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { error: error.message };
                 }
             },
-
-
             cerrarSesion: () => {
                 localStorage.removeItem("jwt-token");
                 setStore({ token: null });
                 console.log("Usuario deslogueado");
             },
             addFavoritos: (book) => {
-                console.log(book)
                 const store = getStore();
                 if (!store.favorites.some((fav) => fav.id === book.id)) {
-                    console.log([...store.favorites, book])
                     store.favorites.push(book)
                     setStore({ favorites: [...store.favorites] });
                     console.log("Libro agregado a favoritos:", book.volumeInfo.title);
@@ -223,7 +217,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     console.log("El libro ya está eliminado o no está en la lista de favoritos");
                 }
             },
-
             recuperarContraseña: async (email) => {
                 try {
                     const res = await fetch(`${process.env.BACKEND_URL}/api/reset-password`, {
@@ -242,6 +235,27 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { success: true };
                 } catch (error) {
                     console.error("Error al solicitar el restablecimiento de contraseña:", error);
+                    return { success: false, error: error.message };
+                }
+            },
+            cambiarcontraseña:  async (id, newPassword) => {
+                try {
+                    const res = await fetch(`${process.env.BACKEND_URL}/api/reset-password/${id}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ new_password: newPassword }),
+                    });
+                    if (!res.ok) {
+                        const errorData = await res.json();
+                        throw new Error(errorData.msg || "Error al restablecer la contraseña");
+                    }
+                    const data = await res.json();
+                    console.log("Contraseña restablecida con éxito:", data.msg);
+                    return { success: true, message: data.msg };
+                } catch (error) {
+                    console.error("Error al restablecer la contraseña:", error);
                     return { success: false, error: error.message };
                 }
             },

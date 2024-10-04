@@ -1,7 +1,7 @@
 .footer-colapsado {
     position: fixed;
     bottom: 10px;
-    right: 10px; 
+    right: 10px;
     z-index: 100;
 }
 
@@ -24,14 +24,14 @@
 .footer-container {
     position: fixed;
     bottom: 0;
-    right: 0; /* Alinea el contenedor del footer a la izquierda */
-    width: 0; /* Inicialmente colapsado */
-    background-color: #f00d0d; /* Color de fondo del footer */
-    z-index: 99; /* Debajo del icono */
-    transition: width 0.5s ease; /* Transición para efecto de despliegue */
-    overflow: hidden; /* Oculta el contenido sobrante */
+    right: 0;
+    width: 0;
+    background-color: #f00d0d;
+    z-index: 99;
+    transition: width 0.5s ease;
+    overflow: hidden;
 }
 
 .footer-container.visible {
-    width: 85%; /* Se expande hacia la izquierda */
+    width: 85%;
 }

@@ -54,7 +54,48 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none; /* Elimina subrayado en los enlaces */
+}
+
+.twitter-icon {
+  background-color: #1DA1F2;
+  color: white;
+  border-radius: 5px;
+}
+
+.instagram-icon {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+  border-radius: 5px;
+}
+
+.facebook-icon {
+  background-color: #1877F2;
+  color: white;
+  border-radius: 5px;
+}
+
+.tiktok-icon {
+  background-color: #000000;
+  color: #69C9D0;
+  border-radius: 5px;
+}
+
+.telegram-icon {
+  background-color: #0088cc;
+  color: white;
+  border-radius: 5px;
+}
+
+.whatsapp-icon {
+  background-color: #25D366;
+  color: white;
+  border-radius: 5px;
+}
+
+.youtube-icon {
+  background-color: #FF0000;
+  color: white;
+  border-radius: 5px;
 }
 
 .stars {
@@ -84,7 +125,28 @@
   font-weight: bold;
 }
 
-/* Ajustes para pantallas pequeñas */
+.bottom-section h4 {
+  margin-bottom: 10px;
+}
+
+.bottom-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.bottom-section li {
+  margin-bottom: 5px;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
