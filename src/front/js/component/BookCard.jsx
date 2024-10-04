@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,6 @@ import "../../styles/BookCard.css";
 const BookCard = ({ book }) => {
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
-    console.log(book, "----------")
     const imageUrl = book.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/150";
     const title = book.volumeInfo.title || "Título no disponible";
     const [isFavorite, setIsFavorite] = useState(store.favorites.some(fav => fav.id === book.id));

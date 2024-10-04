@@ -4,7 +4,6 @@
     right: 10px;
     z-index: 100;
 }
-
 .question-icon {
     cursor: pointer;
     color: #fff;
@@ -16,22 +15,19 @@
     justify-content: center;
     transition: background-color 0.3s;
 }
-
 .question-icon:hover {
     background-color: #555;
 }
-
 .footer-container {
     position: fixed;
     bottom: 0;
-    right: 0;
-    width: 0;
-    background-color: #f00d0d;
-    z-index: 99;
-    transition: width 0.5s ease;
-    overflow: hidden;
+    right: 0; /* Alinea el contenedor del footer a la izquierda */
+    width: 0; /* Inicialmente colapsado */
+    background-color: #F00D0D; /* Color de fondo del footer */
+    z-index: 99; /* Debajo del icono */
+    transition: width 0.5s ease; /* Transición para efecto de despliegue */
+    overflow: hidden; /* Oculta el contenido sobrante */
 }
-
 .footer-container.visible {
-    width: 85%;
+    width: 85%; /* Se expande hacia la izquierda */
 }
