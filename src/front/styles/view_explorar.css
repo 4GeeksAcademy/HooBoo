@@ -1,29 +1,9 @@
-.vista-explorar {
-  align-items: center;
-  background-color: #f8f8f8;
-  margin-left: 15vw;
-}
-
-.hooboobaner {
-  background-color: #7f94b0;
-  color: #fff;
-  font-size: 1.5rem;
-  padding: 0.625rem 1.25rem;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
-  margin-bottom: 1.25rem;
-}
-
-.book-list {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 1.875rem 0rem 1.25rem 0rem;
-  width: 100%;
-}
-
-@media (min-width: 48rem) {
-  .book-list {
-    justify-content: flex-start;
-  }
+.welcome-message {
+  font-size: 1rem; /* Más pequeño que el tamaño por defecto */
+  font-weight: bold; /* Negrita */
+  margin-top: 20px; /* Espacio hacia abajo */
+  text-align: center; /* Centrar el texto si quieres */
+  margin-bottom: 30px; /* Bajarlo un poco más */
+  color: #333; /* Cambia el color si prefieres algo diferente */
+  margin-left: 16%;
 }

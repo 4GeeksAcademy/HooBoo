@@ -9,6 +9,7 @@ const Editarperfil = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [profilePic, setProfilePic] = useState("");
+    const [selectedFile, setSelectedFile] = useState(null); // Para almacenar la imagen seleccionada
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -44,38 +45,42 @@ const Editarperfil = () => {
         };
 
         loadUserData();
-    }, []); 
+    }, []);
+
+    // Manejar la selección de imagen
+    const handleFileChange = (e) => {
+        setSelectedFile(e.target.files[0]);
+    };
 
     const handleSaveChanges = async (e) => {
         e.preventDefault();
-
+    
         const token = localStorage.getItem("jwt-token");
         if (!token) {
             console.error("Token no encontrado. No se pueden guardar los cambios.");
             return;
         }
-
-        // Preparar los datos que se enviarán al backend
-        const userData = {
-            username,
-            email,
-            password // Puedes enviar la contraseña si es necesario, o puedes manejarlo por separado
-        };
-
+    
+        // Usamos FormData para enviar tanto los datos como la imagen
+        const formData = new FormData();
+        formData.append('username', username);
+        formData.append('email', email);
+        if (password) formData.append('password', password); // Solo enviamos si el usuario ha cambiado la contraseña
+        if (selectedFile) formData.append('profile_pic', selectedFile); // Adjuntamos la imagen si se seleccionó
+    
         try {
             const res = await fetch(`${process.env.BACKEND_URL}/api/perfil`, {
-                method: 'PUT', // Asegúrate de que este método sea el correcto en tu backend
+                method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json', // Indica que se envían datos en formato JSON
+                    // No ponemos 'Content-Type', el navegador lo hará automáticamente con `FormData`
                 },
-                body: JSON.stringify(userData), // Convierte el objeto a JSON
+                body: formData,
             });
-
+    
             if (res.ok) {
-                console.log("Cambios guardados:", userData);
-                // Redirigir al usuario a la página de inicio de sesión
-                navigate("/login");
+                console.log("Cambios guardados");
+                navigate("/login"); // Navegar o recargar para ver los cambios
             } else {
                 const errorText = await res.text();
                 console.error("Error al guardar los cambios:", res.status, errorText);
@@ -93,9 +98,24 @@ const Editarperfil = () => {
                 <div className="profile-pic-section">
                 <div className="profile-pic-box">
                         {profilePic ? (
-                            <img src={profilePic} alt="Foto de perfil" className="profile-pic" />
+                            console.log(profilePic),
+                            <img 
+                                src={`https://glorious-zebra-jjr544wgv59whj7rg-3000.app.github.dev/static/profile_pics/${profilePic}`} 
+                                alt="Foto de perfil" 
+                                className="profile-pic" 
+                            />
                         ) : (
-                            <p>Editar foto de perfil</p>
+                            <div>
+                                <div className="dit-form-group">
+                                    <label htmlFor="profilePic">Subir nueva foto de perfil</label>
+                                    <input
+                                        type="file"
+                                        id="profilePic"
+                                        onChange={handleFileChange}
+                                        accept="image/*"
+                                    />
+                                </div>
+                            </div>
                         )}
                     </div>
                 </div>
@@ -137,6 +157,8 @@ const Editarperfil = () => {
                                 required
                             />
                         </div>
+
+
 
                         <div className="button-group">
                             <button type="submit" className="edit-save-button">

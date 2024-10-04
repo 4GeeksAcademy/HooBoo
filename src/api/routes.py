@@ -1,16 +1,20 @@
-from flask import Flask, request, jsonify, url_for, Blueprint
+import os
+from flask import request, jsonify, Blueprint
 from flask_cors import CORS
-from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, decode_token
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from werkzeug.utils import secure_filename
 from flask_mail import Message
-from datetime import timedelta
 from api.models import db, User, Book
-from api.utils import generate_sitemap, APIException
 
 api = Blueprint('api', __name__)
 # CORS(api, resources={r"/api/*": {"origins": "https://scaling-adventure-9769qq4xgrp92xrww-3000.app.github.dev"}})
 CORS(api, resources={r"/api/*": {"origins": "*"}})
+
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @api.route('/reset-password', methods=['POST'])
 def reset_password_request():
@@ -121,25 +125,35 @@ def get_user_profile():
 @api.route('/perfil', methods=['PUT'])
 @jwt_required()
 def update_user_profile():
+    from flask import current_app  # Importar current_app
+
     current_user_identity = get_jwt_identity()
     user = User.query.filter_by(email=current_user_identity["email"]).first()
 
     if not user:
         return jsonify({"msg": "Usuario no encontrado"}), 404
 
-    data = request.get_json()
-    new_username = data.get('username')
-    new_email = data.get('email')
-    new_password = data.get('password')
+    # Usar current_app para acceder a la configuración
+    upload_folder = current_app.config['UPLOAD_FOLDER']
 
-    if new_username:
-        user.username = new_username
+    # Verificar si se envió una imagen en la solicitud
+    if 'profile_pic' in request.files:
+        file = request.files['profile_pic']
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file_path = os.path.join(upload_folder, filename)  # Usar la carpeta de carga
+            file.save(file_path)  # Guardar el archivo
+            user.profile_pic = filename  # Guardar el nombre en la base de datos
 
-    if new_email:
-        user.email = new_email
+    # Actualizar los datos de texto del formulario
+    if 'username' in request.form:
+        user.username = request.form['username']
 
-    if new_password:
-        hashed_password = generate_password_hash(new_password)
+    if 'email' in request.form:
+        user.email = request.form['email']
+
+    if 'password' in request.form:
+        hashed_password = generate_password_hash(request.form['password'])
         user.password = hashed_password
 
     try:
@@ -158,3 +172,4 @@ def get_books():
         return jsonify(books_list), 200
     except Exception as e:
         return jsonify({"msg": "Error al obtener los libros", "error": str(e)}), 500
+    

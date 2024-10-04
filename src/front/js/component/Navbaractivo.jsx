@@ -1,8 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaBell, FaRegStar, FaUserCircle, FaCompass, FaPlus, FaSignOutAlt, FaCog } from 'react-icons/fa';
+import { FaBell, FaRegStar, FaUserCircle, FaCompass, FaSignOutAlt, FaCog } from 'react-icons/fa';
 import { Context } from "../store/appContext";
 import "../../styles/Navbaractivo.css";
+import logoHooBoo from "/workspaces/HooBoo/src/front/img/logoHooBoo.png";
 
 const Navbaractivo = () => {
     const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -10,12 +11,12 @@ const Navbaractivo = () => {
     const [favoriteCount, setFavoriteCount] = useState(0);
 
     useEffect(() => {
-        actions.obtenerDatosUsuario(); // Cargar los datos del usuario al montar el componente
-    }, []); // Elimina 'store.favorites' de las dependencias
+        actions.obtenerDatosUsuario();
+    }, []);
 
     useEffect(() => {
         if (store.favorites) {
-            setFavoriteCount(store.favorites.length); // Suponiendo que store.favorites es un array
+            setFavoriteCount(store.favorites.length);
         }
     }, [store.favorites]); 
 
@@ -27,13 +28,10 @@ const Navbaractivo = () => {
         <nav className="navbar-activo">
             <div className="menu">
                 <Link to="/" className="logo-activo">
-                    <h4>Logo</h4>
+                <img src={logoHooBoo} alt="Logo" className="logo-img-explorar" />
                 </Link>
                 <Link to="/vistaexplorar" className="menu-item">
                     <FaCompass /> <span>Explorar</span>
-                </Link>
-                <Link to="/crear" className="menu-item">
-                    <FaPlus /> <span>Crear</span>
                 </Link>
                 <Link to="/notificaciones" className="menu-item">
                     <FaBell /> <span>Notificaciones</span>

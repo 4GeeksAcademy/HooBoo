@@ -134,3 +134,11 @@
     font-size: 12px;
     font-weight: bold;
 }
+
+.logo-img-explorar {
+    filter: brightness(0) invert(1); 
+    width: 11vw; 
+    height: auto;
+    margin: 0 auto; 
+    display: block;
+}
