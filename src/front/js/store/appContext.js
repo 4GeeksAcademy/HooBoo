@@ -25,7 +25,6 @@ const injectContext = PassedComponent => {
 			state.actions.traerLibrosFantasia();
 			state.actions.traerLibrosThriller();
 			state.actions.traerLibrosRomance();
-
 		}, []);
 
 		return (

@@ -1,5 +1,3 @@
-import BookList from "/workspaces/HooBoo/src/front/js/component/BookCard.jsx";
-
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
@@ -55,8 +53,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { success: false, error: error.message };
                 }
             },
-
-            // API libros ROMANCE
             traerLibrosRomance: async () => {
                 try {
                     const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:romance&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
@@ -86,8 +82,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { error: error.message };
                 }
             },
-
-            // API libros ACCION
             traerLibrosAccion: async () => {
                 try {
                     const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:accion&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
@@ -117,8 +111,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { error: error.message };
                 }
             },
-
-            // API libros FANTASIA
             traerLibrosFantasia: async () => {
                 try {
                     const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:fantasy&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
@@ -147,8 +139,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { error: error.message };
                 }
             },
-
-            // API libros THRILLER
             traerLibrosThriller: async () => {
                 try {
                     const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:thriller&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
@@ -196,20 +186,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             removeFavoritos: (book) => {
                 const store = getStore();
-                
-                // Encontrar el índice del libro en la lista de favoritos
                 const favoriteIndex = store.favorites.findIndex((fav) => fav.id === book.id);
-                
-                // Si el libro está en la lista de favoritos
                 if (favoriteIndex !== -1) {
                     console.log("Eliminando el libro de favoritos:", book.volumeInfo.title);
-                    
-                    // Modificar directamente el array de favoritos usando splice
-                    store.favorites.splice(favoriteIndex, 1);  // Elimina 1 elemento en la posición encontrada
-                    
-                    // Actualizar el store con una copia del array modificado para que React detecte el cambio
+                    store.favorites.splice(favoriteIndex, 1);
                     setStore({
-                        favorites: [...store.favorites]  // Clon del array modificado
+                        favorites: [...store.favorites]
                     });
                     
                     console.log("Favoritos después de eliminar:", store.favorites.map(f => f.id));

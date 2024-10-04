@@ -2,21 +2,17 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faInstagram, faFacebook, faYoutube, faSpotify, faTiktok, faPinterest } from '@fortawesome/free-brands-svg-icons';
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
-import AcercaDeNosotros from './AcercaDeNosotros.jsx';
+// import AcercaDeNosotros from './AcercaDeNosotros.jsx';
 import "../../styles/Footer.css";
-
 const Footer = () => {
   const [showEmail, setShowEmail] = useState(false);
   const [showTeamPage, setShowTeamPage] = useState(false);
-
   const rating = 4.5;
-
   const renderStars = () => {
     const fullStars = Math.floor(rating);
     const halfStar = rating % 1 !== 0;
     const totalStars = 5;
     const stars = [];
-    
     for (let i = 0; i < fullStars; i++) {
       stars.push(<FontAwesomeIcon key={i} icon={faStar} />);
     }
@@ -28,19 +24,12 @@ const Footer = () => {
     }
     return stars;
   };
-
   return (
     <>
-      {/* Mostramos "Acerca de Nosotros" si el estado es true */}
-      {showTeamPage && (
-        <div className="team-container">
-          <AcercaDeNosotros isActive={showTeamPage} />
-        </div>
-      )}
-
-      {/* Footer siempre al final */}
-      <footer className={`footer ${showTeamPage ? 'footer-fixed' : ''}`}>
+      {/* <AcercaDeNosotros isActive={showTeamPage} /> */}
+      <footer className="footer">
         <div className="footer-content">
+          {/* Sección de íconos sociales */}
           <div className="section social-icons">
             <a href="https://x.com/HookedonBookish" target="_blank" rel="noopener noreferrer" className="icon twitter-icon">
               <FontAwesomeIcon icon={faTwitter} />
@@ -64,24 +53,24 @@ const Footer = () => {
               <FontAwesomeIcon icon={faYoutube} />
             </a>
           </div>
-
+          {/* Sección de acerca de nosotros */}
           <div className="section">
             <h4 onClick={() => setShowTeamPage(!showTeamPage)}>
               Acerca de Nosotros
             </h4>
           </div>
-
+          {/* Sección de contacto */}
           <div className="section">
             <h4 onClick={() => setShowEmail(!showEmail)}>
               Contacto
             </h4>
             {showEmail && <p>hooboocontacto@gmail.com</p>}
           </div>
-
+          {/* Sección de servicios */}
           <div className="section">
             <h4>Servicios</h4>
           </div>
-
+          {/* Sección de rating */}
           <div className="section rating">
             <div className="stars">
               {renderStars()}
@@ -95,5 +84,4 @@ const Footer = () => {
     </>
   );
 };
-
 export default Footer;
