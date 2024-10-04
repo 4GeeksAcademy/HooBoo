@@ -1,3 +1,11 @@
+.team-container {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
 .footer {
   background-color: #222;
   color: #fff;
@@ -9,6 +17,13 @@
   width: 100%;
   box-sizing: border-box;
   font-size: 12px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.footer-fixed {
+  position: static;
 }
 
 .footer-content {
@@ -23,6 +38,15 @@
   text-align: left;
 }
 
+.social-icons {
+  display: flex; /* Asegura que los íconos se dispongan en fila */
+  flex-direction: row; /* Alinea los íconos en fila horizontal */
+  justify-content: center; /* Centra los íconos horizontalmente */
+  align-items: center; /* Centra verticalmente los íconos */
+  gap: 15px; /* Espacio uniforme entre los íconos */
+  margin-bottom: 20px; /* Espacio inferior para separación */
+}
+
 .icon {
   font-size: 24px;
   cursor: pointer;
@@ -30,49 +54,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* Estilo para cada red social con su color específico */
-.twitter-icon {
-  background-color: #1DA1F2; /* Azul de Twitter */
-  color: white; /* Pájaro blanco */
-  border-radius: 5px;
-}
-
-.instagram-icon {
-  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-  color: white;
-  border-radius: 5px;
-}
-
-.facebook-icon {
-  background-color: #1877F2; /* Azul de Facebook */
-  color: white; /* Letra F blanca */
-  border-radius: 5px;
-}
-
-.tiktok-icon {
-  background-color: #000000; /* Fondo negro */
-  color: #69C9D0; /* Color de TikTok */
-  border-radius: 5px;
-}
-
-.telegram-icon {
-  background-color: #0088cc; /* Azul de Telegram */
-  color: white; /* Avión blanco */
-  border-radius: 5px;
-}
-
-.whatsapp-icon {
-  background-color: #25D366; /* Verde de WhatsApp */
-  color: white; /* Logo blanco */
-  border-radius: 5px;
-}
-
-.youtube-icon {
-  background-color: #FF0000; /* Rojo de YouTube */
-  color: white; /* Triángulo blanco */
-  border-radius: 5px;
+  text-decoration: none; /* Elimina subrayado en los enlaces */
 }
 
 .stars {
@@ -102,28 +84,7 @@
   font-weight: bold;
 }
 
-.bottom-section h4 {
-  margin-bottom: 10px;
-}
-
-.bottom-section ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.bottom-section li {
-  margin-bottom: 5px;
-}
-
-.social-icons {
-  display: flex; /* Asegura que los íconos se dispongan en fila */
-  flex-direction: row; /* Disposición en fila (horizontal) */
-  justify-content: center; /* Centra los íconos */
-  align-items: center; /* Centra verticalmente los íconos */
-  gap: 10px; /* Espacio entre los íconos */
-  margin-bottom: 20px; /* Espacio inferior para separación */
-}
-/* Responsivo para pantallas pequeñas */
+/* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
@@ -136,8 +97,8 @@
   }
 
   .social-icons {
-    flex-direction: row;
-    justify-content: center;
-    gap: 15px;
+    flex-direction: row; /* Sigue alineando en fila horizontal en pantallas pequeñas */
+    justify-content: center; /* Centra los íconos en pantallas pequeñas */
+    gap: 10px; /* Ajuste de espacio entre los íconos */
   }
 }
