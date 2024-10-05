@@ -7,13 +7,12 @@
   max-width: 1000px;
   border: solid 1px rgb(194, 194, 194);
   margin: auto;
+  flex-wrap: wrap;
 }
 
 .profile-pic-section {
   flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center; 
 }
 
 .profile-pic-box {
@@ -29,6 +28,7 @@
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
+  overflow: hidden; /* Evita que el contenido sobresalga */
 }
 
 .profile-edit-section {
@@ -96,4 +96,40 @@
   margin-top: 18vh;
   font-size: 2rem;
   font-weight: bold;
+}
+
+.avatar-selection {
+  display: flex; /* Utiliza flexbox para una distribución en fila */
+  justify-content: center; /* Centra los avatares horizontalmente */
+  margin-top: 10px; /* Espacio entre el título y los avatares */
+}
+
+.avatar-option {
+  margin: 10px; /* Espacio entre cada avatar */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el avatar */
+}
+
+.avatar-image {
+  width: 80px; /* Ancho de las imágenes */
+  height: 80px; /* Altura de las imágenes */
+  border-radius: 50%; /* Hace que las imágenes sean circulares */
+  border: 2px solid transparent; /* Borde por defecto, transparente */
+  transition: border-color 0.3s; /* Animación suave para el borde */
+  object-fit: cover; /* Mantiene la proporción de la imagen */
+}
+
+.avatar-image.selected {
+  border-color: #28a745; /* Color de borde cuando está seleccionado */
+}
+
+.titulito-avataress {
+  display: block; /* Hace que el título se comporte como un bloque */
+  text-align: center; /* Centra el texto del título */
+  margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+.selected-avatar {
+  width: 220px; /* Ajusta el tamaño del avatar seleccionado */
+  height: 200px; /* Mantén el aspecto cuadrado */
+  border-radius: 50%; /* Mantiene el avatar como círculo */
 }

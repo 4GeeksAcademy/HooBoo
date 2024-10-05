@@ -7,14 +7,14 @@ const getState = ({ getStore, getActions, setStore }) => {
             favorites: [],
         },
         actions: {
-            crear_usuario: async (email, password) => {
+            crear_usuario: async (email, password, username) => {
                 try {
                     const res = await fetch(`${process.env.BACKEND_URL}/api/Registro`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({ email, password }),
+                        body: JSON.stringify({ email, password, username }),
                     });
                     if (!res.ok) {
                         const errorData = await res.json();
@@ -263,6 +263,27 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { success: false, error: error.message };
                 }
             },
+            obtenerDatosUsuario: async () => {
+                const token = localStorage.getItem("jwt-token");
+                try {
+                    const res = await fetch(`${process.env.BACKEND_URL}/api/perfil`, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                        }
+                    });
+                    if (!res.ok) {
+                        const errorData = await res.json();
+                        throw new Error(errorData.msg || "Error al obtener los datos del usuario");
+                    }
+                    const data = await res.json();
+                    setStore({ user: data }); 
+                    return data; 
+                } catch (error) {
+                    console.error("Error al obtener los datos del usuario:", error);
+                    return { error: error.message };
+                }
+            }
         }
     };
 };

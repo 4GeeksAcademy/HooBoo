@@ -7,12 +7,13 @@ import '../../styles/Registro.css';
 const Registro = () => {
     const [correo, setCorreo] = useState('');
     const [contrasena, setContrasena] = useState('');
+    const [username, setUsername] = useState('');
     const { actions } = useContext(Context);
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        actions.crear_usuario(correo, contrasena).then(() => {
+        actions.crear_usuario(correo, contrasena, username).then(() => {
             navigate('/Login');
         });
     };
@@ -28,6 +29,18 @@ const Registro = () => {
                 <div className="registro-form-container">
                     <h2 className='supertituloxm'>Crear Usuario</h2>
                     <form onSubmit={handleSubmit}>
+                        <div className="registro-form-group">
+                            <label htmlFor="username" className="registro-form-label">Nombre de Usuario:</label>
+                            <input
+                                type="text"
+                                id="username"
+                                className="registro-form-input"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                placeholder="Ingresa tu nombre"
+                                required
+                            />
+                        </div>
                         <div className="registro-form-group">
                             <label htmlFor="correo" className="registro-form-label">Correo Electrónico:</label>
                             <input

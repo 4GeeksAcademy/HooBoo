@@ -59,7 +59,7 @@
     top: 3%;
     left: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 1000;
     margin-top: 55px;
 }
 
@@ -135,4 +135,12 @@
     padding: 2px 6px;
     font-size: 12px;
     font-weight: bold;
+}
+
+.logo-img-explorar {
+    filter: brightness(0) invert(1); 
+    width: 11vw; 
+    height: auto;
+    margin: 0 auto; 
+    display: block;
 }

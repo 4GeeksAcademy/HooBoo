@@ -58,9 +58,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
     gap: 1.25rem;
-    padding: 1.25rem;
     margin-left: 15vw;
-    margin-top: 6%;
 }
 
 .onebook {

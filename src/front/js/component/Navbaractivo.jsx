@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaBell, FaRegStar, FaUserCircle, FaCompass, FaPlus, FaSignOutAlt, FaCog } from 'react-icons/fa';
 import { Context } from "../store/appContext";
 import "../../styles/Navbaractivo.css";
+import logoHooBoo from "/workspaces/HooBoo/src/front/img/logoHooBoo.png";
 
 const Navbaractivo = () => {
     const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -11,8 +12,14 @@ const Navbaractivo = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        setFavoriteCount(store.favorites.length);
-    }, [store.favorites]);
+        actions.obtenerDatosUsuario();
+    }, []);
+
+    useEffect(() => {
+        if (store.favorites) {
+            setFavoriteCount(store.favorites.length);
+        }
+    }, [store.favorites]); 
 
     const handleProfileClick = () => {
         setShowProfileMenu(!showProfileMenu);
@@ -27,7 +34,7 @@ const Navbaractivo = () => {
         <nav className="navbar-activo">
             <div className="menu">
                 <Link to="/" className="logo-activo">
-                    <h4>Logo</h4>
+                <img src={logoHooBoo} alt="Logo" className="logo-img-explorar" />
                 </Link>
                 <button className="menu-item" onClick={handleExplorarClick}>
                     <FaCompass /> <span>Explorar</span>
@@ -52,9 +59,9 @@ const Navbaractivo = () => {
                     <FaUserCircle /> <span>Mi Perfil</span>
                     {showProfileMenu && (
                         <div className="profile-menu">
-                            <img src="data:image/jpeg;base64,..." alt="Perfil" className="profile-picture" />
-                            <p className="perfil_nombre">Chloe Castilla</p>
-                            <p className="perfil_correo">Chloe_Castilla0776@gmail.com</p>
+                            <img src={store.user?.profile_pic || "default_profile_pic_url"} alt="Foto" className="profile-picture" />
+                            <p className="perfil_nombre">{store.user?.username || "Nombre de usuario"}</p>
+                            <p className="perfil_correo">{store.user?.email || "Correo"}</p>
                             <Link to="/Editarperfil" className="edit-profile-btn">
                                 <FaCog /> Editar perfil
                             </Link>

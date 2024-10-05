@@ -7,6 +7,7 @@ import Navbaractivo from "./Navbaractivo.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/buscador_explorar.css";
+import "../../styles/view_explorar.css";
 
 const VistaExplorar = () => {
     const { store } = useContext(Context);
@@ -25,10 +26,13 @@ const VistaExplorar = () => {
             description.includes(searchBox.toLowerCase());
     });
 
+    const nombreUsuario = store.user?.username || "usuario";
+
     return (
         <>
             <Navbaractivo />
             <div className="searchBoxMar">
+            <h3 className="welcome-message">Bienvenido a tu back office, {nombreUsuario}!</h3>
                 <div className="searchContainer">
                     <input
                         type="text"
@@ -43,7 +47,6 @@ const VistaExplorar = () => {
             {store.loading ? (
                 <div className="loading-container">
                     <p>Cargando libros...</p>
-                    {/* Puedes agregar un boton que indique de carga aquí??? */}
                 </div>
             ) : (
                 <div className="book-list">
