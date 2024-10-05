@@ -3,7 +3,42 @@
   font-weight: bold;
   margin-top: 20px;
   text-align: center;
-  margin-bottom: 30px;
   color: #333;
   margin-left: 16%;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.25rem;
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.875rem 0rem 1.25rem 0rem;
+  width: 100%;
+}
+
+@media (min-width: 48rem) {
+  .book-list {
+    justify-content: flex-start;
+  }
+}
+
+
+.no-results {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 20px;
+}
+
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Ajusta según tus necesidades */
+}
+
+.loading-container p {
+  font-size: 1.5rem;
+  color: #555;
 }

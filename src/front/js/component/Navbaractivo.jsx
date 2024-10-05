@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaBell, FaRegStar, FaUserCircle, FaCompass, FaSignOutAlt, FaCog } from 'react-icons/fa';
+import { Link, useNavigate } from "react-router-dom";
+import { FaBell, FaRegStar, FaUserCircle, FaCompass, FaPlus, FaSignOutAlt, FaCog } from 'react-icons/fa';
 import { Context } from "../store/appContext";
 import "../../styles/Navbaractivo.css";
 import logoHooBoo from "/workspaces/HooBoo/src/front/img/logoHooBoo.png";
@@ -9,6 +9,7 @@ const Navbaractivo = () => {
     const [showProfileMenu, setShowProfileMenu] = useState(false);
     const { store, actions } = useContext(Context);
     const [favoriteCount, setFavoriteCount] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
         actions.obtenerDatosUsuario();
@@ -24,20 +25,28 @@ const Navbaractivo = () => {
         setShowProfileMenu(!showProfileMenu);
     };
 
+    const handleExplorarClick = () => {
+        actions.traerTodosLosLibros();
+        navigate("/vistaexplorar");
+    };
+
     return (
         <nav className="navbar-activo">
             <div className="menu">
                 <Link to="/" className="logo-activo">
                 <img src={logoHooBoo} alt="Logo" className="logo-img-explorar" />
                 </Link>
-                <Link to="/vistaexplorar" className="menu-item">
+                <button className="menu-item" onClick={handleExplorarClick}>
                     <FaCompass /> <span>Explorar</span>
+                </button>
+                <Link to="/crear" className="menu-item">
+                    <FaPlus /> <span>Crear</span>
                 </Link>
                 <Link to="/notificaciones" className="menu-item">
                     <FaBell /> <span>Notificaciones</span>
                 </Link>
                 <Link to="/Favoritos" className="menu-item favoritos">
-                    <FaRegStar /> 
+                    <FaRegStar />
                     <span>Favoritos</span>
                     {favoriteCount > 0 && (
                         <div className="favorite-count">
@@ -63,7 +72,7 @@ const Navbaractivo = () => {
 
             <div className="logout">
                 <Link to="/" className="logout-btn">
-                        <FaSignOutAlt /> Cerrar sesión
+                    <FaSignOutAlt /> Cerrar sesión
                 </Link>
             </div>
         </nav>

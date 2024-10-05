@@ -1,21 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "../store/appContext";
 import "../../styles/Navbar.css";
 import logoHooBoo from "/workspaces/HooBoo/src/front/img/logoHooBoo.png";
 
 const Navbar = () => {
+    const { actions } = useContext(Context);
+    const navigate = useNavigate();
+
+    const handleExplorarClick = () => {
+        actions.traerTodosLosLibros();
+        navigate("/vistaexplorar");
+    };
+
     return (
         <>
             <nav className="navbar-container">
                 <div className="navbar-left">
-                    <Link to="/" className="btn-logo">
+                    <button className="btn-logo" onClick={() => navigate("/")}>
                         <img src={logoHooBoo} alt="Logo" className="logo-img" />
-                    </Link>
-                    <Link to="/vistaexplorar" className="btn-explorar">Explorar</Link>
+                    </button>
+                    <button className="btn-explorar" onClick={handleExplorarClick}>
+                        Explorar
+                    </button>
                 </div>
                 <div className="navbar-right">
-                    <Link to="/Login" className="btn-login">Inicio Sesión</Link>
-                    <Link to="/Registro" className="btn-signup">Registro</Link>
+                    <button className="btn-login" onClick={() => navigate("/Login")}>Inicio Sesión</button>
+                    <button className="btn-signup" onClick={() => navigate("/Registro")}>Registro</button>
                 </div>
             </nav>
         </>
