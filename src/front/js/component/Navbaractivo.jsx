@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBell, FaRegStar, FaUserCircle, FaCompass, FaPlus, FaSignOutAlt, FaCog } from 'react-icons/fa';
 import { Context } from "../store/appContext";
@@ -7,12 +7,7 @@ import "../../styles/Navbaractivo.css";
 const Navbaractivo = () => {
     const [showProfileMenu, setShowProfileMenu] = useState(false);
     const { store, actions } = useContext(Context);
-    const [favoriteCount, setFavoriteCount] = useState(0);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        setFavoriteCount(store.favorites.length);
-    }, [store.favorites]);
 
     const handleProfileClick = () => {
         setShowProfileMenu(!showProfileMenu);
@@ -41,9 +36,9 @@ const Navbaractivo = () => {
                 <Link to="/Favoritos" className="menu-item favoritos">
                     <FaRegStar />
                     <span>Favoritos</span>
-                    {favoriteCount > 0 && (
+                    {store.favorites.length > 0 && (  // Usar directamente store.favorites.length
                         <div className="favorite-count">
-                            {favoriteCount}
+                            {store.favorites.length} {/* Mostrar la cantidad de favoritos */}
                         </div>
                     )}
                 </Link>

@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             token: localStorage.getItem("jwt-token") || null,
             books: [],
             loading: false,
-            favorites: [],
+            favorites: JSON.parse(localStorage.getItem("favorites")) || [], // Cargar favoritos desde LocalStorage
         },
         actions: {
             crear_usuario: async (email, password) => {
@@ -197,26 +197,40 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             addFavoritos: (book) => {
                 const store = getStore();
+
+                // Comprobar si el libro ya está en favoritos
                 if (!store.favorites.some((fav) => fav.id === book.id)) {
-                    store.favorites.push(book)
-                    setStore({ favorites: [...store.favorites] });
+                    // Modificar directamente el array de favoritos
+                    store.favorites.push(book);
+
+                    // Actualizar el store
+                    setStore({ favorites: store.favorites });
+
+                    // Guardar los favoritos en LocalStorage
+                    localStorage.setItem("favorites", JSON.stringify(store.favorites));
+
                     console.log("Libro agregado a favoritos:", book.volumeInfo.title);
-                    console.log(store.favorites)
                 } else {
                     console.log("El libro ya está en tus favoritos");
                 }
             },
             removeFavoritos: (book) => {
                 const store = getStore();
+
+                // Buscar el índice del libro en favoritos
                 const favoriteIndex = store.favorites.findIndex((fav) => fav.id === book.id);
+
                 if (favoriteIndex !== -1) {
-                    console.log("Eliminando el libro de favoritos:", book.volumeInfo.title);
+                    // Eliminar el libro del array de favoritos (modificando directamente)
                     store.favorites.splice(favoriteIndex, 1);
-                    setStore({
-                        favorites: [...store.favorites]
-                    });
-                    
-                    console.log("Favoritos después de eliminar:", store.favorites.map(f => f.id));
+
+                    // Actualizar el store
+                    setStore({ favorites: store.favorites });
+
+                    // Guardar los favoritos actualizados en LocalStorage
+                    localStorage.setItem("favorites", JSON.stringify(store.favorites));
+
+                    console.log("Libro eliminado de favoritos:", book.volumeInfo.title);
                 } else {
                     console.log("El libro ya está eliminado o no está en la lista de favoritos");
                 }
