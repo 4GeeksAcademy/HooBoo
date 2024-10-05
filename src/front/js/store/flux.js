@@ -56,7 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             traerLibrosRomance: async () => {
                 try {
-                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:romance&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:romance&maxResults=60&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -70,8 +70,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     }
 
                     const data = await res.json();
-
-                    // Filtrar libros que tienen portada (imageLinks.thumbnail)
                     const librosConPortada = data.items.filter(item =>
                         item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
                     );
@@ -85,7 +83,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             traerLibrosAccion: async () => {
                 try {
-                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:accion&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:accion&maxResults=60&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -99,8 +97,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     }
 
                     const data = await res.json();
-
-                    // Filtrar libros que tienen portada (imageLinks.thumbnail)
                     const librosConPortada = data.items.filter(item =>
                         item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
                     );
@@ -114,7 +110,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             traerLibrosFantasia: async () => {
                 try {
-                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:fantasy&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:fantasy&maxResults=60&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -127,8 +123,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     }
 
                     const data = await res.json();
-
-                    // Filtrar libros que tienen portada (imageLinks.thumbnail)
                     const librosConPortada = data.items.filter(item =>
                         item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
                     );
@@ -142,7 +136,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             traerLibrosThriller: async () => {
                 try {
-                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:thriller&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:thriller&maxResults=60&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -156,8 +150,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     }
 
                     const data = await res.json();
-
-                    // Filtrar libros que tienen portada (imageLinks.thumbnail)
                     const librosConPortada = data.items.filter(item =>
                         item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
                     );
@@ -170,7 +162,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             },
             traerTodosLosLibros: async () => {
-                setStore({ loading: true }); // Activar el estado de carga
+                setStore({ loading: true });
 
                 try {
                     const [librosAccion, librosRomance, librosFantasia, librosThriller] = await Promise.all([
@@ -181,13 +173,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     ]);
 
                     const todosLosLibros = [...librosAccion, ...librosRomance, ...librosFantasia, ...librosThriller];
-
                     const librosMezclados = todosLosLibros.sort(() => Math.random() - 0.5);
 
-                    setStore({ books: librosMezclados, loading: false }); // Cargar los libros y desactivar el estado de carga
+                    setStore({ books: librosMezclados, loading: false });
                 } catch (error) {
                     console.error("Error al obtener todos los libros:", error);
-                    setStore({ loading: false }); // Desactivar el estado de carga incluso si falla
+                    setStore({ loading: false });
                 }
             },
             cerrarSesion: () => {
@@ -197,18 +188,10 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             addFavoritos: (book) => {
                 const store = getStore();
-
-                // Comprobar si el libro ya está en favoritos
                 if (!store.favorites.some((fav) => fav.id === book.id)) {
-                    // Modificar directamente el array de favoritos
                     store.favorites.push(book);
-
-                    // Actualizar el store
                     setStore({ favorites: store.favorites });
-
-                    // Guardar los favoritos en LocalStorage
                     localStorage.setItem("favorites", JSON.stringify(store.favorites));
-
                     console.log("Libro agregado a favoritos:", book.volumeInfo.title);
                 } else {
                     console.log("El libro ya está en tus favoritos");
@@ -216,20 +199,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             removeFavoritos: (book) => {
                 const store = getStore();
-
-                // Buscar el índice del libro en favoritos
                 const favoriteIndex = store.favorites.findIndex((fav) => fav.id === book.id);
 
                 if (favoriteIndex !== -1) {
-                    // Eliminar el libro del array de favoritos (modificando directamente)
                     store.favorites.splice(favoriteIndex, 1);
-
-                    // Actualizar el store
                     setStore({ favorites: store.favorites });
-
-                    // Guardar los favoritos actualizados en LocalStorage
                     localStorage.setItem("favorites", JSON.stringify(store.favorites));
-
                     console.log("Libro eliminado de favoritos:", book.volumeInfo.title);
                 } else {
                     console.log("El libro ya está eliminado o no está en la lista de favoritos");
