@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         store: {
             token: localStorage.getItem("jwt-token") || null,
             books: [],
+            loading: false,
             favorites: [],
         },
         actions: {
@@ -169,8 +170,9 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             },
             traerTodosLosLibros: async () => {
+                setStore({ loading: true }); // Activar el estado de carga
+
                 try {
-                    // Ejecutamos todas las acciones a la vez usando Promise.all
                     const [librosAccion, librosRomance, librosFantasia, librosThriller] = await Promise.all([
                         getActions().traerLibrosAccion(),
                         getActions().traerLibrosRomance(),
@@ -178,16 +180,14 @@ const getState = ({ getStore, getActions, setStore }) => {
                         getActions().traerLibrosThriller(),
                     ]);
 
-                    // Combinamos todos los libros en un solo arreglo
                     const todosLosLibros = [...librosAccion, ...librosRomance, ...librosFantasia, ...librosThriller];
 
-                    // Mezclamos los libros de manera aleatoria
                     const librosMezclados = todosLosLibros.sort(() => Math.random() - 0.5);
 
-                    // Actualizamos el store con los libros mezclados
-                    setStore({ books: librosMezclados });
+                    setStore({ books: librosMezclados, loading: false }); // Cargar los libros y desactivar el estado de carga
                 } catch (error) {
                     console.error("Error al obtener todos los libros:", error);
+                    setStore({ loading: false }); // Desactivar el estado de carga incluso si falla
                 }
             },
             cerrarSesion: () => {

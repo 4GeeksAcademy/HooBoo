@@ -27,3 +27,24 @@
     justify-content: flex-start;
   }
 }
+
+
+.no-results {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 20px;
+}
+
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Ajusta según tus necesidades */
+}
+
+.loading-container p {
+  font-size: 1.5rem;
+  color: #555;
+}
