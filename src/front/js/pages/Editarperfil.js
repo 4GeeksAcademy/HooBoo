@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import Navbaractivo from '../component/Navbaractivo.jsx';
 import Footercolapsado from '../component/Footercolapsado.jsx';
-import "../../styles/Editarperfil.css";
+import avatar1 from '../../img/avatar1.png'; // Cambia la ruta a la correcta
+import avatar2 from '../../img/avatar2.png'; // Cambia la ruta a la correcta
+import avatar3 from '../../img/avatar3.png'; // Cambia la ruta a la correcta
+import avatar4 from '../../img/avatar4.png'; // Cambia la ruta a la correcta
+import "../../styles/Editarperfil.css"; // Asegúrate de que esta ruta sea correcta
 
 const Editarperfil = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [profilePic, setProfilePic] = useState("");
-    const [selectedFile, setSelectedFile] = useState(null); // Para almacenar la imagen seleccionada
+    const [selectedAvatar, setSelectedAvatar] = useState(""); // Para almacenar el avatar seleccionado
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -29,15 +32,14 @@ const Editarperfil = () => {
 
                 if (res.ok) {
                     const data = await res.json();
+                    console.log(data);
                     setUsername(data.username);
                     setEmail(data.email);
-                    setProfilePic(data.profile_pic);
+                    setSelectedAvatar(data.profile_pic || avatar1);
+                    // Aquí podrías cargar el avatar actual del usuario si tienes ese dato
                 } else {
                     const errorText = await res.text();
                     console.error("Error al obtener los datos del usuario:", res.status, errorText);
-                    if (res.status === 401) {
-                        console.error("Token expirado. Por favor, inicia sesión de nuevo.");
-                    }
                 }
             } catch (error) {
                 console.error("Error en la solicitud:", error);
@@ -47,40 +49,37 @@ const Editarperfil = () => {
         loadUserData();
     }, []);
 
-    // Manejar la selección de imagen
-    const handleFileChange = (e) => {
-        setSelectedFile(e.target.files[0]);
+    const handleAvatarSelect = (avatar) => {
+        setSelectedAvatar(avatar); // Cambia el avatar seleccionado
     };
 
     const handleSaveChanges = async (e) => {
         e.preventDefault();
-    
+
         const token = localStorage.getItem("jwt-token");
         if (!token) {
             console.error("Token no encontrado. No se pueden guardar los cambios.");
             return;
         }
-    
-        // Usamos FormData para enviar tanto los datos como la imagen
+
         const formData = new FormData();
         formData.append('username', username);
         formData.append('email', email);
-        if (password) formData.append('password', password); // Solo enviamos si el usuario ha cambiado la contraseña
-        if (selectedFile) formData.append('profile_pic', selectedFile); // Adjuntamos la imagen si se seleccionó
-    
+        formData.append('profile_pic', selectedAvatar);
+        if (password) formData.append('password', password);
+
         try {
             const res = await fetch(`${process.env.BACKEND_URL}/api/perfil`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
-                    // No ponemos 'Content-Type', el navegador lo hará automáticamente con `FormData`
                 },
                 body: formData,
             });
-    
+
             if (res.ok) {
                 console.log("Cambios guardados");
-                navigate("/login"); // Navegar o recargar para ver los cambios
+                navigate("/login");
             } else {
                 const errorText = await res.text();
                 console.error("Error al guardar los cambios:", res.status, errorText);
@@ -92,31 +91,24 @@ const Editarperfil = () => {
 
     return (
         <div>
-            < Navbaractivo />
+            <Navbaractivo />
             <h2 className="nombre-editar-perfil">Editar Perfil</h2>
             <div className="edit-form-container">
-                <div className="profile-pic-section">
-                <div className="profile-pic-box">
-                        {profilePic ? (
-                            console.log(profilePic),
-                            <img 
-                                src={`https://glorious-zebra-jjr544wgv59whj7rg-3000.app.github.dev/static/profile_pics/${profilePic}`} 
-                                alt="Foto de perfil" 
-                                className="profile-pic" 
-                            />
-                        ) : (
-                            <div>
-                                <div className="dit-form-group">
-                                    <label htmlFor="profilePic">Subir nueva foto de perfil</label>
-                                    <input
-                                        type="file"
-                                        id="profilePic"
-                                        onChange={handleFileChange}
-                                        accept="image/*"
-                                    />
-                                </div>
+            <div className="profile-pic-section">
+                    <h3 className="titulito-avataress">Selecciona tu Avatar</h3>
+                    {selectedAvatar && (
+                        <img src={selectedAvatar} alt="Avatar Seleccionado" className="selected-avatar" />
+                    )}
+                    <div className="avatar-selection">
+                        {[avatar1, avatar2, avatar3, avatar4].map((avatar, index) => (
+                            <div key={index} className="avatar-option" onClick={() => handleAvatarSelect(avatar)}>
+                                <img
+                                    src={avatar}
+                                    alt={`Avatar ${index + 1}`}
+                                    className={`avatar-image ${selectedAvatar === avatar ? "selected" : ""}`} // Añade clase seleccionada
+                                />
                             </div>
-                        )}
+                        ))}
                     </div>
                 </div>
 
@@ -157,8 +149,6 @@ const Editarperfil = () => {
                                 required
                             />
                         </div>
-
-
 
                         <div className="button-group">
                             <button type="submit" className="edit-save-button">

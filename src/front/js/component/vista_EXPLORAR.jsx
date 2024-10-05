@@ -27,7 +27,7 @@ const VistaExplorar = () => {
             description.includes(searchBox.toLowerCase());
     });
 
-    const nombreUsuario = store.user?.username || "usuario"; // Usa "usuario" como valor predeterminado si no hay nombre aún
+    const nombreUsuario = store.user?.username || "usuario";
 
     return (
         <>

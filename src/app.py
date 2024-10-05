@@ -9,6 +9,7 @@ from api.admin import setup_admin
 from api.commands import setup_commands
 from flask_jwt_extended import JWTManager
 from flask_mail import Mail, Message
+import cloudinary
 
 ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../public/')
@@ -42,6 +43,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(app, db, compare_type=True)
 db.init_app(app)
 
+# Configure Cloudinary
+cloudinary.config(
+    cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
+    api_key=os.getenv('CLOUDINARY_API_KEY'),
+    api_secret=os.getenv('CLOUDINARY_API_SECRET')
+)
+
 # Configuración para cargar imágenes
 UPLOAD_FOLDER = 'static/profile_pics'  # Carpeta donde se almacenarán las imágenes
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -49,17 +57,6 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # Crea la carpeta si no existe
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
-
-# Configuración de la base de datos
-db_url = os.getenv("DATABASE_URL")
-if db_url is not None:
-    app.config['SQLALCHEMY_DATABASE_URI'] = db_url.replace("postgres://", "postgresql://")
-else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////tmp/test.db"
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# MIGRATE = Migrate(app, db, compare_type=True)
-# db.init_app(app)
 
 # Configura la carpeta de subida
 app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static/profile_pics')

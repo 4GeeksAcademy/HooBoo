@@ -6,6 +6,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from flask_mail import Message
 from api.models import db, User, Book
+import cloudinary
+import cloudinary.uploader
+
 
 api = Blueprint('api', __name__)
 # CORS(api, resources={r"/api/*": {"origins": "https://scaling-adventure-9769qq4xgrp92xrww-3000.app.github.dev"}})
@@ -116,43 +119,27 @@ def get_user_profile():
         user_data = {
             "username": user.username,
             "email": user.email,
-            "profile_pic": user.profile_pic
+            "profile_pic": user.profile_pic  # Asegúrate de que este campo sea el que almacena la URL del avatar
         }
         return jsonify(user_data), 200
     else:
         return jsonify({"msg": "Usuario no encontrado"}), 404
-    
+
 @api.route('/perfil', methods=['PUT'])
 @jwt_required()
 def update_user_profile():
-    from flask import current_app  # Importar current_app
-
     current_user_identity = get_jwt_identity()
     user = User.query.filter_by(email=current_user_identity["email"]).first()
 
     if not user:
         return jsonify({"msg": "Usuario no encontrado"}), 404
 
-    # Usar current_app para acceder a la configuración
-    upload_folder = current_app.config['UPLOAD_FOLDER']
-
-    # Verificar si se envió una imagen en la solicitud
-    if 'profile_pic' in request.files:
-        file = request.files['profile_pic']
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(upload_folder, filename)  # Usar la carpeta de carga
-            file.save(file_path)  # Guardar el archivo
-            user.profile_pic = filename  # Guardar el nombre en la base de datos
-
     # Actualizar los datos de texto del formulario
-    if 'username' in request.form:
-        user.username = request.form['username']
+    user.username = request.form.get('username', user.username)
+    user.email = request.form.get('email', user.email)
+    user.profile_pic = request.form.get('profile_pic', user.profile_pic)
 
-    if 'email' in request.form:
-        user.email = request.form['email']
-
-    if 'password' in request.form:
+    if 'password' in request.form and request.form['password']:
         hashed_password = generate_password_hash(request.form['password'])
         user.password = hashed_password
 

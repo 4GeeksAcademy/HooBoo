@@ -1,9 +1,9 @@
 .welcome-message {
-  font-size: 1rem; /* Más pequeño que el tamaño por defecto */
-  font-weight: bold; /* Negrita */
-  margin-top: 20px; /* Espacio hacia abajo */
-  text-align: center; /* Centrar el texto si quieres */
-  margin-bottom: 30px; /* Bajarlo un poco más */
-  color: #333; /* Cambia el color si prefieres algo diferente */
+  font-size: 1rem; 
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
   margin-left: 16%;
 }
