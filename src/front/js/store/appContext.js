@@ -20,12 +20,9 @@ const injectContext = PassedComponent => {
 		})
 	); 
 
-		useEffect(() => {
-			state.actions.traerLibrosAccion();
-			state.actions.traerLibrosFantasia();
-			state.actions.traerLibrosThriller();
-			state.actions.traerLibrosRomance();
-		}, []);
+	useEffect(() => {
+		state.actions.traerTodosLosLibros();
+	}, []);
 
 		return (
 			<Context.Provider value={state}>

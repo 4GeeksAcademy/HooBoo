@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         store: {
             token: localStorage.getItem("jwt-token") || null,
             books: [],
+            loading: false,
             favorites: [],
         },
         actions: {
@@ -166,6 +167,27 @@ const getState = ({ getStore, getActions, setStore }) => {
                 } catch (error) {
                     console.error("Error al obtener los libros de thriller:", error.message);
                     return { error: error.message };
+                }
+            },
+            traerTodosLosLibros: async () => {
+                setStore({ loading: true }); // Activar el estado de carga
+
+                try {
+                    const [librosAccion, librosRomance, librosFantasia, librosThriller] = await Promise.all([
+                        getActions().traerLibrosAccion(),
+                        getActions().traerLibrosRomance(),
+                        getActions().traerLibrosFantasia(),
+                        getActions().traerLibrosThriller(),
+                    ]);
+
+                    const todosLosLibros = [...librosAccion, ...librosRomance, ...librosFantasia, ...librosThriller];
+
+                    const librosMezclados = todosLosLibros.sort(() => Math.random() - 0.5);
+
+                    setStore({ books: librosMezclados, loading: false }); // Cargar los libros y desactivar el estado de carga
+                } catch (error) {
+                    console.error("Error al obtener todos los libros:", error);
+                    setStore({ loading: false }); // Desactivar el estado de carga incluso si falla
                 }
             },
             cerrarSesion: () => {
