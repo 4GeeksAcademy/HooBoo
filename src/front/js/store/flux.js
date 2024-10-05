@@ -168,6 +168,28 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { error: error.message };
                 }
             },
+            traerTodosLosLibros: async () => {
+                try {
+                    // Ejecutamos todas las acciones a la vez usando Promise.all
+                    const [librosAccion, librosRomance, librosFantasia, librosThriller] = await Promise.all([
+                        getActions().traerLibrosAccion(),
+                        getActions().traerLibrosRomance(),
+                        getActions().traerLibrosFantasia(),
+                        getActions().traerLibrosThriller(),
+                    ]);
+
+                    // Combinamos todos los libros en un solo arreglo
+                    const todosLosLibros = [...librosAccion, ...librosRomance, ...librosFantasia, ...librosThriller];
+
+                    // Mezclamos los libros de manera aleatoria
+                    const librosMezclados = todosLosLibros.sort(() => Math.random() - 0.5);
+
+                    // Actualizamos el store con los libros mezclados
+                    setStore({ books: librosMezclados });
+                } catch (error) {
+                    console.error("Error al obtener todos los libros:", error);
+                }
+            },
             cerrarSesion: () => {
                 localStorage.removeItem("jwt-token");
                 setStore({ token: null });
