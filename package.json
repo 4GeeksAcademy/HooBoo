@@ -73,11 +73,12 @@
 		]
 	},
 	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^6.6.0",
 		"@fortawesome/free-brands-svg-icons": "^6.6.0",
 		"@fortawesome/free-solid-svg-icons": "^6.6.0",
 		"@fortawesome/react-fontawesome": "^0.2.2",
 		"bootstrap": "^5.3.3",
-		"prop-types": "^15.6.1",
+		"prop-types": "^15.8.1",
 		"react": "^16.8.4",
 		"react-bootstrap": "^2.10.5",
 		"react-dom": "^16.8.4",
