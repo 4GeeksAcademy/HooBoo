@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
+import "../../styles/EstrellasValoracion.css";
 
 const EstrellasValoracion = ({ rating, onRate, isAuthenticated }) => {
   const [hoveredRating, setHoveredRating] = useState(null);
@@ -16,6 +17,15 @@ const EstrellasValoracion = ({ rating, onRate, isAuthenticated }) => {
     }
   };
 
+  const getRatingText = () => {
+    if (selectedRating === 5) return "Excelente";
+    if (selectedRating === 4) return "Muy buena";
+    if (selectedRating === 3) return "Buena";
+    if (selectedRating === 2) return "Regular";
+    if (selectedRating === 1) return "Mala";
+    return "";
+  };
+
   return (
     <div className="star-rating">
       {[1, 2, 3, 4, 5].map((star) => (
@@ -28,6 +38,7 @@ const EstrellasValoracion = ({ rating, onRate, isAuthenticated }) => {
           onClick={() => handleRating(star)}
         />
       ))}
+      <p className="rating-text">{getRatingText()}</p>
     </div>
   );
 };

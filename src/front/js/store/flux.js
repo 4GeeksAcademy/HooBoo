@@ -215,7 +215,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     setStore({
                         favorites: [...store.favorites]
                     });
-                    
+
                     console.log("Favoritos después de eliminar:", store.favorites.map(f => f.id));
                 } else {
                     console.log("El libro ya está eliminado o no está en la lista de favoritos");
@@ -242,7 +242,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { success: false, error: error.message };
                 }
             },
-            cambiarcontraseña:  async (id, newPassword) => {
+            cambiarcontraseña: async (id, newPassword) => {
                 try {
                     const res = await fetch(`${process.env.BACKEND_URL}/api/reset-password/${id}`, {
                         method: 'POST',
@@ -277,13 +277,40 @@ const getState = ({ getStore, getActions, setStore }) => {
                         throw new Error(errorData.msg || "Error al obtener los datos del usuario");
                     }
                     const data = await res.json();
-                    setStore({ user: data }); 
-                    return data; 
+                    setStore({ user: data });
+                    return data;
                 } catch (error) {
                     console.error("Error al obtener los datos del usuario:", error);
                     return { error: error.message };
                 }
-            }
+            },
+            obtenerCalificacion: async (rating) => {
+                const token = localStorage.getItem("jwt-token");
+                if (!token) {
+                    console.error("No estás autenticado");
+                    return;
+                }
+
+                try {
+                    const res = await fetch(`${process.env.BACKEND_URL}/api/rating`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${token}`,
+                        },
+                        body: JSON.stringify({ rating }),
+                    });
+
+                    if (!res.ok) {
+                        throw new Error("Error al enviar la calificación");
+                    }
+
+                    const data = await res.json();
+                    console.log("Calificación enviada con éxito:", data);
+                } catch (error) {
+                    console.error("Error al enviar la calificación:", error);
+                }
+            },
         }
     };
 };

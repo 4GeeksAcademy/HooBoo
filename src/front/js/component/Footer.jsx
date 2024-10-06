@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import EstrellasValoracion from './EstrellasValoracion.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faInstagram, faFacebook, faYoutube, faSpotify, faTiktok, faPinterest } from '@fortawesome/free-brands-svg-icons';
 // import AcercaDeNosotros from './AcercaDeNosotros.jsx';
 import "../../styles/Footer.css";
+
 const Footer = () => {
   const [showEmail, setShowEmail] = useState(false);
   const [showTeamPage, setShowTeamPage] = useState(false);
@@ -55,8 +56,7 @@ const Footer = () => {
             <h4>Servicios</h4>
           </div>
           <div className="section rating">
-          <h4>Calificación</h4>
-          <StarRating
+          <EstrellasValoracion
             rating={rating}
             onRate={handleRating}
             isAuthenticated={!!store.token}
