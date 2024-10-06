@@ -1,7 +1,7 @@
 .searchBoxMar {
     padding-top: 7rem; 
     display: flex;
-    justify-content: flex-end; 
+    justify-content: space-between; 
     padding-right: 20px; 
     }
 
@@ -13,8 +13,9 @@
 
 .searchInput {
     padding: 10px 40px 10px 15px; 
+    margin-left: 30px;
     font-size: 16px;
-    width: 100%;
+    width: 40vw;
     max-width: 500px;
     border-radius: 25px;
     border: 1px solid  #a75df2;
