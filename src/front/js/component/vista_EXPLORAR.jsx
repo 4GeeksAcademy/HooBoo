@@ -10,11 +10,10 @@ import "../../styles/buscador_explorar.css";
 import "../../styles/view_explorar.css";
 
 const VistaExplorar = () => {
-    const { store, actions } = useContext(Context); // Agregamos actions
+    const { store, actions } = useContext(Context); 
     const [searchBox, setSearchBox] = useState("");
 
     useEffect(() => {
-        // Verifica si ya hay un usuario cargado
         if (!store.user || Object.keys(store.user).length === 0) {
             actions.obtenerDatosUsuario();
         }
@@ -24,7 +23,13 @@ const VistaExplorar = () => {
         setSearchBox(event.target.value);
     };
 
-    const filteredBooks = store.books.filter((book) => {
+    const flattenBaseRespaldo = (baseRespaldo) => {
+        return Object.values(baseRespaldo).flat();
+    };
+
+    const booksToDisplay = store.books && store.books.length > 0 ? store.books : flattenBaseRespaldo(store.base_respaldo);
+
+    const filteredBooks = booksToDisplay.filter((book) => {
         const title = book.volumeInfo.title.toLowerCase();
         const authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(" ").toLowerCase() : "";
         const description = book.volumeInfo.description ? book.volumeInfo.description.toLowerCase() : "";
