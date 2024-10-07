@@ -1,9 +1,9 @@
 .vista-explorar {
   align-items: center;
   background-color: #f8f8f8;
-  margin-left: 15vw; 
+  margin-left: 15vw; /* Ajuste inicial para pantallas grandes */
+  padding: 0 1rem; /* Asegura que haya algo de margen en pantallas pequeñas */
 }
-
 
 .hooboobaner {
   background-color: #7f94b0;
@@ -11,6 +11,8 @@
   font-size: 1.5rem;
   padding: 0.625rem 1.25rem;
   width: 100%;
+}
+
 .welcome-message {
   font-size: 1rem; 
   font-weight: bold;
@@ -32,7 +34,7 @@
 
 @media (min-width: 48rem) {
   .book-list {
-    justify-content: flex-start; 
+    justify-content: flex-start; /* Ajuste para pantallas medianas en adelante */
   }
 }
 
@@ -72,6 +74,11 @@
     padding: 1rem 0; 
   }
 
+  .welcome-message {
+    margin-left: 0; /* Centra el mensaje en móviles */
+    font-size: 0.9rem;
+  }
+
   .no-results {
     font-size: 1rem;
   }
@@ -97,6 +104,11 @@
     justify-content: center;
   }
 
+  .welcome-message {
+    margin-left: 8%; /* Ajuste para tabletas */
+    font-size: 1rem;
+  }
+
   .no-results {
     font-size: 1.1rem; 
   }
@@ -106,7 +118,7 @@
   }
 }
 
-
+/* Ajustes para pantallas grandes (escritorio) */
 @media (min-width: 1200px) {
   .vista-explorar {
     margin-left: 10vw; 
@@ -120,6 +132,10 @@
     font-size: 1.75rem; 
   }
 
+  .welcome-message {
+    margin-left: 16%; /* Mantiene el mensaje alineado */
+  }
+
   .no-results {
     font-size: 1.3rem; 
   }
@@ -128,8 +144,3 @@
     font-size: 1.6rem; 
   }
 }
-}
-
-
-
-
