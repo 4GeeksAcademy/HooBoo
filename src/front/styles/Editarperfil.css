@@ -1,13 +1,16 @@
 .edit-form-container {
   display: flex;
+  flex-direction: row; 
   justify-content: center;
   align-items: flex-start;
   padding: 40px;
   gap: 40px;
   max-width: 1000px;
-  border: solid 1px rgb(194, 194, 194);
+  border: 1px solid #cca1f7; 
   margin: auto;
-  flex-wrap: wrap;
+  background-color: #f0f0f0; 
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445); 
 }
 
 .profile-pic-section {
@@ -18,7 +21,7 @@
 .profile-pic-box {
   width: 300px;
   height: 300px;
-  border: 2px solid #ccc;
+  border: 2px solid #cca1f7; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,30 +46,37 @@
   display: block;
   margin-bottom: 8px;
   font-size: 16px;
+  color: #555; 
+  font-family: "IBM Plex Mono", monospace; 
 }
 
 .dit-form-group input {
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #cca1f7; 
+  border-radius: 6px;
+  background-color: #fff; 
+  color: #333;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .edit-save-button {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #28a745;
+  padding: 12px 20px;
+  background-color: #a75df2; 
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
   width: 200px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 .edit-save-button:hover {
-  background-color: #218838;
+  background-color: #8c3bc4; 
 }
 
 .button-group {
@@ -77,26 +87,75 @@
 
 .edit-cancel-button {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #dc3545;
+  padding: 12px 20px;
+  background-color: #cca1f7;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
   width: 200px;
-  margin-left: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .edit-cancel-button:hover {
-  background-color: #c82333;
+  background-color: #851be9; 
 }
 
 .nombre-editar-perfil {
   margin-top: 18vh;
   font-size: 2rem;
   font-weight: bold;
+  color: #7029ab; 
+  text-align: center;
 }
+
+
+@media (max-width: 768px) {
+  .edit-form-container {
+    flex-direction: column; 
+    padding: 20px;
+    gap: 20px;
+    max-width: 90%;
+  }
+
+  .profile-pic-box {
+    width: 200px; 
+    height: 200px;
+  }
+
+  .edit-save-button, .edit-cancel-button {
+    width: 100%; 
+    font-size: 14px; 
+  }
+
+  .nombre-editar-perfil {
+    margin-top: 10vh;
+    font-size: 1.5rem; 
+  }
+}
+
+@media (max-width: 1024px) {
+  .edit-form-container {
+    max-width: 100%; 
+    padding: 30px;
+    gap: 30px;
+  }
+
+  .profile-pic-box {
+    width: 250px;
+    height: 250px;
+  }
+
+  .edit-save-button, .edit-cancel-button {
+    width: 50%; 
+  }
+
+  .nombre-editar-perfil {
+    font-size: 1.75rem; 
+  }
+}
+
 
 .avatar-selection {
   display: flex; /* Utiliza flexbox para una distribución en fila */

@@ -91,12 +91,12 @@
 .sin-favoritos {
     text-align: center;
     font-size: 1.5rem;
-    color: #e74c3c;
+    color: #8c3bc4;
     margin-top: 2rem;
 }
 
 .favorite-active {
-    color: #e74c3c;
+    color: #8c3bc4;
 }
 
 .trash-iicon {
@@ -106,7 +106,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: #e74c3c;
+    color: #8c3bc4;
     font-size: 1.5rem;
 }
 

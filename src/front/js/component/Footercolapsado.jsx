@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer.jsx";
 import "../../styles/Footercolapsado.css";
 
@@ -14,10 +14,10 @@ const Footercolapsado = () => {
     
     return (
         <div>
-            {/* Icono de signo de pregunta en la parte inferior derecha */}
+            {/* Icono de chevron en la parte inferior derecha */}
             <div className="footer-colapsado">
-                <div className="question-icon" onClick={toggleFooter}>
-                    <FontAwesomeIcon icon={faQuestionCircle} size="2x" />
+                <div className="toggle-icon" onClick={toggleFooter}>
+                    <FontAwesomeIcon icon={isFooterVisible ? faChevronDown : faChevronUp} size="2x" />
                 </div>
             </div>
             {/* Footer que se despliega al hacer clic */}

@@ -661,6 +661,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             //                     }
             //                 ]              
             // ],
+            favorites: JSON.parse(localStorage.getItem("favorites")) || [], // Cargar favoritos desde LocalStorage
         },
         actions: {
             crear_usuario: async (email, password, username) => {
@@ -726,8 +727,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     }
 
                     const data = await res.json();
-
-                    // Filtrar libros que tienen portada (imageLinks.thumbnail)
                     const librosConPortada = data.items.filter(item =>
                         item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
                     );
@@ -755,8 +754,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     }
 
                     const data = await res.json();
-
-                    // Filtrar libros que tienen portada (imageLinks.thumbnail)
                     const librosConPortada = data.items.filter(item =>
                         item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
                     );
@@ -783,8 +780,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     }
 
                     const data = await res.json();
-
-                    // Filtrar libros que tienen portada (imageLinks.thumbnail)
                     const librosConPortada = data.items.filter(item =>
                         item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
                     );
@@ -812,8 +807,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                     }
 
                     const data = await res.json();
-
-                    // Filtrar libros que tienen portada (imageLinks.thumbnail)
                     const librosConPortada = data.items.filter(item =>
                         item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail
                     );
@@ -826,7 +819,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             },
             traerTodosLosLibros: async () => {
-                setStore({ loading: true }); // Activar el estado de carga
+                setStore({ loading: true });
 
                 try {
                     const [librosAccion, librosRomance, librosFantasia, librosThriller] = await Promise.all([
@@ -837,13 +830,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     ]);
 
                     const todosLosLibros = [...librosAccion, ...librosRomance, ...librosFantasia, ...librosThriller];
-
                     const librosMezclados = todosLosLibros.sort(() => Math.random() - 0.5);
 
-                    setStore({ books: librosMezclados, loading: false }); // Cargar los libros y desactivar el estado de carga
+                    setStore({ books: librosMezclados, loading: false });
                 } catch (error) {
                     console.error("Error al obtener todos los libros:", error);
-                    setStore({ loading: false }); // Desactivar el estado de carga incluso si falla
+                    setStore({ loading: false });
                 }
             },
             cerrarSesion: () => {
@@ -854,10 +846,10 @@ const getState = ({ getStore, getActions, setStore }) => {
             addFavoritos: (book) => {
                 const store = getStore();
                 if (!store.favorites.some((fav) => fav.id === book.id)) {
-                    store.favorites.push(book)
-                    setStore({ favorites: [...store.favorites] });
+                    store.favorites.push(book);
+                    setStore({ favorites: store.favorites });
+                    localStorage.setItem("favorites", JSON.stringify(store.favorites));
                     console.log("Libro agregado a favoritos:", book.volumeInfo.title);
-                    console.log(store.favorites)
                 } else {
                     console.log("El libro ya está en tus favoritos");
                 }
@@ -865,14 +857,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             removeFavoritos: (book) => {
                 const store = getStore();
                 const favoriteIndex = store.favorites.findIndex((fav) => fav.id === book.id);
+
                 if (favoriteIndex !== -1) {
-                    console.log("Eliminando el libro de favoritos:", book.volumeInfo.title);
                     store.favorites.splice(favoriteIndex, 1);
-                    setStore({
-                        favorites: [...store.favorites]
-                    });
-                    
-                    console.log("Favoritos después de eliminar:", store.favorites.map(f => f.id));
+                    setStore({ favorites: store.favorites });
+                    localStorage.setItem("favorites", JSON.stringify(store.favorites));
+                    console.log("Libro eliminado de favoritos:", book.volumeInfo.title);
                 } else {
                     console.log("El libro ya está eliminado o no está en la lista de favoritos");
                 }

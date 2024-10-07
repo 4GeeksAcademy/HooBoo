@@ -9,8 +9,6 @@ import '../../styles/BookDetail.css';
 
 const BookDetail = () => {
     const [profilePicture] = useState('https://via.placeholder.com/50');
-    const [comment, setComment] = useState('');
-    const [comments, setComments] = useState([]);
     const { store, actions } = useContext(Context);
     const { bookId } = useParams();
     const [isFavorite, setIsFavorite] = useState(false);
@@ -18,29 +16,23 @@ const BookDetail = () => {
 
     useEffect(() => {
         if (book && store.favorites.some((fav) => fav.id === book.id)) {
-            setIsFavorite(!isFavorite);
+            setIsFavorite(true);
         }
+
+        // Integración de Commento
+        const script = document.createElement('script');
+        script.src = "https://cdn.commento.io/js/commento.js";
+        script.async = true;
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        };
     }, [book, store.favorites]);
 
     if (!book) {
         return <div>Libro no encontrado. ID buscado: {bookId}</div>;
     }
-
-    const handleCommentChange = (e) => {
-        setComment(e.target.value);
-    };
-
-    const handleCommentSubmit = (e) => {
-        e.preventDefault();
-        if (comment.trim()) {
-            const newComment = {
-                text: comment,
-                userProfilePic: profilePicture,
-            };
-            setComments([...comments, newComment]);
-            setComment('');
-        }
-    };
 
     const handleAddToFavorites = () => {
         if (!isFavorite) {
@@ -95,33 +87,14 @@ const BookDetail = () => {
                         <Card.Text className="detalleLibroAutorMar">
                             <strong>Autor:</strong> {book.volumeInfo.authors}
                         </Card.Text>
-                        <div className="comment-container">
-                            <div className="comment-input">
-                                <img src="ruta/a/tu/icono.png" alt="Icono" className="comment-icon" />
-                                <textarea
-                                    value={comment}
-                                    onChange={handleCommentChange}
-                                    placeholder="Escribe tu comentario aquí...">
-                                </textarea>
-                            </div>
-                            <div className="button-container">
-                                <button className="send-button" onClick={handleCommentSubmit}>Publicar</button>
-                            </div>
-                            <div className="comments-list">
-                                {comments.map((comment, index) => (
-                                    <div className="comment" key={index}>
-                                        <img src={profilePicture} alt="Perfil" className="profile-picture" />
-                                        <div className="comment-text">
-                                            <span>{comment.text}</span>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                        
+                        {/* Contenedor de comentarios */}
+                        <div id="commento"></div>
                     </Card.Body>
                 </Card>
             </div>
         </Container>
     );
 };
+
 export default BookDetail;

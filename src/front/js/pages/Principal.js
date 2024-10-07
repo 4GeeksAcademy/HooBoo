@@ -9,7 +9,6 @@ const Principal = () => {
     const [isVisible, setIsVisible] = useState(true);
     const [books, setBooks] = useState({ fantasia: [], romance: [], drama: [], thriller: [] });
 
-
     const API_KEY = 'AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg';
     const genres = ['fantasia', 'romance', 'drama', 'thriller'];
     const GENRE_SUBJECTS = {
@@ -84,6 +83,7 @@ const Principal = () => {
             setIsVisible(true);
         }, 500);
     };
+
     return (
         <div>
             <HoobooBanner />
@@ -113,7 +113,7 @@ const Principal = () => {
                     </div>
                     <div className={`image-grid ${isVisible ? 'fade-in' : 'fade-out'}`}>
                         {books[currentGenre] && books[currentGenre].length > 0 ? (
-                            books[currentGenre].map((book) => (
+                            books[currentGenre].slice(0, 7).map((book) => (
                                 <img
                                     key={book.id}
                                     src={book.src}

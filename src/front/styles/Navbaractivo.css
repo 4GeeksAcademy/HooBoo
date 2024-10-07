@@ -3,14 +3,15 @@
     background-color: #000;
     color: #fff;
     position: fixed;
-    height: 103%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin-top: 60px;
     left: 0;
     top: 0;
-    min-width: 10%;
+    min-width: 200px; 
+    transition: width 0.3s ease;
 }
 
 .logo-activo {
@@ -94,7 +95,7 @@
 }
 
 .logout-btn {
-    background-color: red;
+    background-color: #a75df2;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -104,7 +105,7 @@
 }
 
 .logout-btn:hover {
-    background-color: darkred;
+    background-color: #7029ab;
     color: #fff;
     text-decoration: none;
 }
@@ -137,6 +138,92 @@
     font-weight: bold;
 }
 
+
+
+/* Pantallas medianas (tablets) */
+@media (max-width: 1024px) {
+    .navbar-activo {
+        width: 20%; 
+        min-width: 180px;
+    }
+
+    .menu-item {
+        font-size: 16px;
+        padding: 8px 8px 8px 30px;
+    }
+
+    .profile-menu {
+        padding: 3vw;
+    }
+
+    .profile-picture {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .navbar-activo {
+        width: 60px; 
+        min-width: 60px;
+    }
+
+    .menu-item {
+        justify-content: center; 
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .menu-item span {
+        display: none; 
+    }
+
+    .profile-menu {
+        width: 80%; 
+        padding: 5vw;
+    }
+
+    .profile-picture {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logout-btn {
+        width: 100%; 
+    }
+
+    .favorite-count {
+        left: 80px; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .navbar-activo {
+        width: 50px; 
+        min-width: 50px;
+    }
+
+    .menu-item {
+        font-size: 12px; 
+        padding: 5px;
+    }
+
+    .profile-picture {
+        width: 30px;
+        height: 30px;
+    }
+
+    .profile-menu {
+        width: 100%;
+    }
+
+    .edit-profile-btn, .logout-btn {
+        font-size: 12px; 
+    }
+}
 .logo-img-explorar {
     filter: brightness(0) invert(1); 
     width: 11vw; 
