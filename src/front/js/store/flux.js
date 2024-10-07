@@ -56,7 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             traerLibrosRomance: async () => {
                 try {
-                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:romance&maxResults=60&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:romance&maxResults=20&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             traerLibrosAccion: async () => {
                 try {
-                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:accion&maxResults=60&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:accion&maxResults=20&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             traerLibrosFantasia: async () => {
                 try {
-                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:fantasy&maxResults=60&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:fantasy&maxResults=20&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -136,7 +136,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             traerLibrosThriller: async () => {
                 try {
-                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:thriller&maxResults=60&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:thriller&maxResults=20&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
