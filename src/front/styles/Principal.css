@@ -13,7 +13,8 @@
     font-size: 3vw;
     font-weight: bold;
     color: #333;
-    margin-top: 12vw;
+    margin-top: 7vw;
+    margin-bottom: 0;
 }
 
 .image-grid {
@@ -23,11 +24,12 @@
     position: relative;
     opacity: 1;
     transition: opacity 1s ease-in-out;
+    gap: 2vh;
 }
 
 .image-grid img {
     width: 12vw;
-    height: auto;
+    height: 40vh;
     object-fit: cover;
     border-radius: 10px;
     opacity: 1;
@@ -41,32 +43,32 @@
     transform: scale(1.1);
 }
 
-.image-grid img:nth-child(1) {
-    top: -4vw;
+.image-grid img:nth-child(7n+1) {
+    transform: translateY(-4vw);
 }
 
-.image-grid img:nth-child(2) {
-    top: 1vw;
+.image-grid img:nth-child(7n+2) {
+    transform: translateY(1vw);
 }
 
-.image-grid img:nth-child(3) {
-    top: 5vw;
+.image-grid img:nth-child(7n+3) {
+    transform: translateY(5vw);
 }
 
-.image-grid img:nth-child(4) {
-    top: 9vw;
+.image-grid img:nth-child(7n+4) {
+    transform: translateY(9vw);
 }
 
-.image-grid img:nth-child(5) {
-    top: 5vw;
+.image-grid img:nth-child(7n+5) {
+    transform: translateY(5vw);
 }
 
-.image-grid img:nth-child(6) {
-    top: 1vw;
+.image-grid img:nth-child(7n+6) {
+    transform: translateY(1vw);
 }
 
-.image-grid img:nth-child(7) {
-    top: -4vw;
+.image-grid img:nth-child(7n+7) {
+    transform: translateY(-4vw);
 }
 
 .book-image {
@@ -82,10 +84,6 @@
 
 .book-image:hover {
     transform: scale(1.1);
-}
-
-.genre-indicators {
-    margin-top: 20px;
 }
 
 .indicator {
