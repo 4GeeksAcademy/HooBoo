@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react"; // Importa useEffect
 import { Context } from "../store/appContext";
 import BookCard from "./BookCard.jsx";
 import "../../styles/BookCard.css";
@@ -10,8 +10,15 @@ import "../../styles/buscador_explorar.css";
 import "../../styles/view_explorar.css";
 
 const VistaExplorar = () => {
-    const { store } = useContext(Context);
+    const { store, actions } = useContext(Context); // Agregamos actions
     const [searchBox, setSearchBox] = useState("");
+
+    useEffect(() => {
+        // Verifica si ya hay un usuario cargado
+        if (!store.user || Object.keys(store.user).length === 0) {
+            actions.obtenerDatosUsuario();
+        }
+    }, []); 
 
     const handleSearch = (event) => {
         setSearchBox(event.target.value);
@@ -32,7 +39,7 @@ const VistaExplorar = () => {
         <>
             <Navbaractivo />
             <div className="searchBoxMar">
-            <h3 className="welcome-message">Bienvenido a tu back office, {nombreUsuario}!</h3>
+                <h3 className="welcome-message">Bienvenido a tu back office, {nombreUsuario}!</h3>
                 <div className="searchContainer">
                     <input
                         type="text"

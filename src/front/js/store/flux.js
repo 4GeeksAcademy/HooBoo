@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
+            user:[],
             token: localStorage.getItem("jwt-token") || null,
             books: [],
             loading: false,
