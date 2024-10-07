@@ -12,14 +12,19 @@ const BookDetail = () => {
     const { store, actions } = useContext(Context);
     const { bookId } = useParams();
     const [isFavorite, setIsFavorite] = useState(false);
-    const book = store.books.find(b => b.id === bookId);
+
+    const flattenBaseRespaldo = (baseRespaldo) => {
+        return Object.values(baseRespaldo).flat();
+    };
+
+    const book = store.books.find(b => b.id === bookId) || 
+    flattenBaseRespaldo(store.base_respaldo).find(b => b.id === bookId);
 
     useEffect(() => {
         if (book && store.favorites.some((fav) => fav.id === book.id)) {
             setIsFavorite(true);
         }
 
-        // Integración de Commento
         const script = document.createElement('script');
         script.src = "https://cdn.commento.io/js/commento.js";
         script.async = true;
