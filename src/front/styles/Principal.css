@@ -28,6 +28,7 @@
     opacity: 1;
     transition: opacity 1s ease-in-out;
     gap: 2vh;
+    z-index: -1;
 }
 
 .image-grid img {

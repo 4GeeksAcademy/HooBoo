@@ -149,7 +149,6 @@ const Editarperfil = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Nueva contraseña"
-                                required
                             />
                         </div>
 
