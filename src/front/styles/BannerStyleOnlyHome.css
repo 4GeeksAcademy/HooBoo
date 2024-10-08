@@ -1,0 +1,73 @@
+.container {
+    position: relative; 
+    width: 100%; 
+    overflow: hidden;
+}
+
+.banner-image-only-home {
+    width: 100%; 
+    height:auto; 
+    margin-top: -46%;
+    display: block; 
+    position: fixed;
+    z-index: 500; 
+    object-fit: cover;
+    }
+
+.bannerHome-text {
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    color: black;
+    text-align: center;
+    font-family: 'Special Elite', cursive;
+    z-index: 1000; 
+}
+
+h2 {
+    margin: 15;
+    font-size: 7vw;
+}
+
+.slogan{
+    margin: 0;
+    font-size: 3vw; 
+    margin-top: -3vw;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Adjustments for tablets */
+@media (max-width: 768px) {
+    .bannerHome-text {
+        top: 25%;
+        font-size: 4rem;
+    }
+    
+    h2 {
+        font-size: 7vw;
+    }
+    
+    .slogan {
+        font-size: 4vw;
+        margin-top: 1vw;
+    }
+}
+
+/* Adjustments for mobile phones */
+@media (max-width: 480px) {
+    .bannerHome-text {
+        top: 30%;
+        font-size: 3rem;
+    }
+    
+    h2 {
+        font-size: 8vw;
+    }
+    
+    .slogan {
+        font-size: 5vw;
+        margin-top: 2vw;
+    }
+}

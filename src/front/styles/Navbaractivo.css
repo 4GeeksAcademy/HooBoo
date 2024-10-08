@@ -1,25 +1,60 @@
+/* Estilos para el sidebar en pantallas grandes */
 .navbar-activo {
     width: 15%;
     background-color: #000;
     color: #fff;
     position: fixed;
-    height: 103%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-top: 60px;
     left: 0;
     top: 0;
-    min-width: 10%;
+    min-width: 15rem; 
+    transform: translateX(0); 
+    transition: width 0.3s ease, transform 0.3s ease;
+    align-items: center;
+    z-index: 1000;
 }
 
+
+.navbar-activo.active {
+    transform: translateX(0); 
+}
+
+
+@media (max-width: 768px) {
+    .navbar-activo {
+        width: 15vw;
+        min-width: 4rem; 
+        transform: translateX(-100%); 
+    }
+}
+
+
 .logo-activo {
-    font-size: 24px;
+    font-size: 1.5rem; 
     font-weight: bold;
     text-align: center;
     color: #fff;
     text-decoration: none;
 }
+
+
+/* Estilo del logo en el sidebar */
+.logo-img-explorar {
+    display: block;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 50%; /* Hace que el fondo sea un círculo */
+    padding: 10px; /* Espacio interno entre el logo y el borde circular */
+    width: 20vh;
+    height: auto;
+    margin: 0 auto; /* Centra el logo dentro del sidebar */
+    border: 5px solid #7029ab; /* Borde sólido de color púrpura */
+}
+
+
+
 
 .menu {
     display: flex;
@@ -27,22 +62,23 @@
     gap: 1vw;
 }
 
+
 .menu-item {
     display: flex;
     align-items: center;
     gap: 1vw;
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
-    padding: 10px 10px 10px 40px;
-    border-radius: 8px;
+    font-size: 1rem; 
+    padding: 0.5rem 0.5rem 0.5rem 2rem; 
+    border-radius: 0.5rem;
     transition: box-shadow 0.3s ease;
     background: black;
-    border: 0px;
+    border: 0;
 }
 
 .menu-item:hover {
-    box-shadow: 0 0 10px #7029ab;
+    box-shadow: 0 0 0.625rem #7029ab;
     color: #a75df2;
 }
 
@@ -54,93 +90,158 @@
 .profile-menu {
     position: absolute;
     background-color: #333;
-    padding: 2vw;
+    padding: 2vw; 
     border-radius: 2vw;
     top: 3%;
     left: 0;
     width: 100%;
     z-index: 1000;
-    margin-top: 55px;
+    margin-top: 3vh; 
 }
 
 .profile-picture {
-    width: 60px;
-    height: 60px;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem;
 }
 
 .edit-profile-btn {
     background-color: #1f1e1e;
     color: #fff;
-    padding: 8px;
+    padding: 0.5rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.3rem;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     text-decoration: none;
-    box-shadow: 0 0 10px #7029ab;
+    box-shadow: 0 0 0.625rem #7029ab;
 }
 
 .edit-profile-btn:hover {
     color: white;
-    box-shadow: 0 0 10px #7029ab;
+    box-shadow: 0 0 0.625rem #7029ab;
 }
 
-.logout {
-    text-align: center;
-}
 
 .logout-btn {
-    background-color: red;
+    background-color: #a75df2;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.5rem;
     cursor: pointer;
     text-decoration: none;
+    margin: 2em;
 }
 
 .logout-btn:hover {
-    background-color: darkred;
+    background-color: #7029ab;
     color: #fff;
     text-decoration: none;
 }
 
-.perfil_correo {
-    font-size: 12px;
-    margin-top: 0;
-    padding-top: 0;
-}
-
-.perfil_nombre {
-    font-size: 22px;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
 
 .menu-item.favoritos {
     position: relative;
 }
 
 .favorite-count {
-    position: absolute;
-    top: 5px;
-    left: 150px;
-    background-color: red;
+    top: 0.3rem;
+    left: 10vw; 
+    background-color: #7029ab;
     color: white;
     border-radius: 50%;
-    padding: 2px 6px;
-    font-size: 12px;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.75rem; 
     font-weight: bold;
 }
 
-.logo-img-explorar {
-    filter: brightness(0) invert(1); 
-    width: 11vw; 
-    height: auto;
-    margin: 0 auto; 
-    display: block;
+
+.menu-toggle {
+    display: none; 
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001; 
 }
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; 
+    }
+
+    .menu-item {
+        justify-content: center; 
+        padding: 0.5rem;
+        font-size: 0.875rem; 
+        text-align: center;
+    }
+
+    .menu-item span {
+        display: none;
+    }
+
+    .profile-menu {
+        width: 80%; 
+        padding: 5vw;
+    }
+
+    .profile-picture {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .logout-btn {
+        width: 100%; 
+    }
+
+    .favorite-count {
+        left: 5rem; 
+    } 
+       .logo-img-explorar {
+        max-width: 70%; /* Reduce el tamaño máximo del logo en pantallas pequeñas */
+        max-height: 100px; /* Ajusta la altura máxima para dispositivos móviles */
+    }
+}
+
+
+@media (max-width: 480px) {
+    .navbar-activo {
+        width: 12vw; 
+        min-width: 3rem; 
+        transform: translateX(-100%); 
+    }
+
+    .menu-item {
+        font-size: 0.75rem; 
+        padding: 0.3rem;
+    }
+
+    .profile-picture {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .profile-menu {
+        width: 100%;
+    }
+
+    .edit-profile-btn, .logout-btn {
+        font-size: 0.75rem; 
+    }
+    .logo-img-explorar {
+        max-width: 60%; /* Reduce aún más el tamaño máximo del logo en pantallas muy pequeñas */
+        max-height: 80px; /* Ajuste de la altura máxima para pantallas muy pequeñas */
+    }
+
+}
+
+
+

@@ -2,7 +2,7 @@
     padding: 20px;
     text-align: center;
     background-color: #f9f9f9;
-    height: 200px;
+    min-height: 200px;
 }
 
 .teamContainer {
@@ -10,7 +10,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    height: 200px;
+    min-height: 200px;
 }
 
 .memberCard {
@@ -19,12 +19,11 @@
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 15px;
-    height: auto;
+    min-height: auto; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: white;
     transition: transform 0.3s ease, height 0.8s ease-in-out;
     overflow: hidden;
-    height: 200px;
 }
 
 .memberCard:hover {
@@ -33,7 +32,7 @@
 
 .memberImage {
     width: 100%;
-    height: 400px;
+    height: auto;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -49,6 +48,7 @@ p {
     color: #555;
 }
 
+/* Ajustes para pantallas pequeñas (tabletas y móviles) */
 @media (max-width: 768px) {
     .teamContainer {
         flex-direction: column;
@@ -58,5 +58,37 @@ p {
     .memberCard {
         width: 100%;
         max-width: 400px;
+    }
+
+    .memberImage {
+        height: 300px;
+    }
+}
+
+/* Breakpoint para pantallas medianas (tabletas horizontales) */
+@media (max-width: 1024px) {
+    .memberCard {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .memberImage {
+        height: 350px; 
+    }
+}
+
+/* Breakpoint para pantallas grandes (escritorios grandes) */
+@media (min-width: 1200px) {
+    .teamContainer {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .memberCard {
+        width: calc(33.33% - 20px);
+    }
+
+    .memberImage {
+        height: 400px;
     }
 }
