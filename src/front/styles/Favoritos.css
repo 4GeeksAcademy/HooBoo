@@ -1,8 +1,9 @@
 .vista-favoritos {
-    align-items: center;
+
     background-color: #f8f8f8;
-    margin-left: 15vw;
-    padding-top: 7rem;
+    margin-left: 18%; 
+    padding: 7rem 2rem; 
+    transition: margin-left 0.3s ease;
 }
 
 .favoritos-titulo {
@@ -134,4 +135,27 @@
 
 .derecha:hover {
     background-color: white;
+}
+
+
+@media (max-width: 1024px) {
+    .vista-favoritos {
+        margin-left: 20%; 
+    }
+}
+
+
+@media (max-width: 768px) {
+    .vista-favoritos {
+        margin-left: 15vw; 
+        padding: 6rem 1rem; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .vista-favoritos {
+        margin-left: 12vw; 
+        padding: 5rem 1rem; 
+    }
 }

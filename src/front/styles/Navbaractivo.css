@@ -41,13 +41,19 @@
 }
 
 
+/* Estilo del logo en el sidebar */
 .logo-img-explorar {
-    filter: brightness(0) invert(1); 
-    width: 11vw; 
-    height: auto;
-    margin: 0 auto; 
     display: block;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 50%; /* Hace que el fondo sea un círculo */
+    padding: 10px; /* Espacio interno entre el logo y el borde circular */
+    width: 20vh;
+    height: auto;
+    margin: 0 auto; /* Centra el logo dentro del sidebar */
+    border: 5px solid #7029ab; /* Borde sólido de color púrpura */
 }
+
+
 
 
 .menu {
@@ -198,6 +204,10 @@
 
     .favorite-count {
         left: 5rem; 
+    } 
+       .logo-img-explorar {
+        max-width: 70%; /* Reduce el tamaño máximo del logo en pantallas pequeñas */
+        max-height: 100px; /* Ajusta la altura máxima para dispositivos móviles */
     }
 }
 
@@ -226,4 +236,12 @@
     .edit-profile-btn, .logout-btn {
         font-size: 0.75rem; 
     }
+    .logo-img-explorar {
+        max-width: 60%; /* Reduce aún más el tamaño máximo del logo en pantallas muy pequeñas */
+        max-height: 80px; /* Ajuste de la altura máxima para pantallas muy pequeñas */
+    }
+
 }
+
+
+
