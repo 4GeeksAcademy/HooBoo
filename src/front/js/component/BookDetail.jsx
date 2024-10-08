@@ -5,6 +5,7 @@ import { Card, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
 import Navbaractivo from "./Navbaractivo.jsx";
+import HoobooBanner from '../component/hooboo_banner.jsx';
 import '../../styles/BookDetail.css';
 
 const BookDetail = () => {
@@ -61,6 +62,7 @@ const BookDetail = () => {
 
     return (
         <Container fluid className="d-flex flex-column">
+            <HoobooBanner/>
             <div className="navbar">
                 <Navbaractivo />
             </div>

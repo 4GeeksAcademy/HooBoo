@@ -4,6 +4,7 @@ import BookCard from "./BookCard.jsx";
 import "../../styles/BookCard.css";
 import Footercolapsado from "./Footercolapsado.jsx";
 import Navbaractivo from "./Navbaractivo.jsx";
+import HoobooBanner from '../component/hooboo_banner.jsx';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/buscador_explorar.css";
@@ -42,6 +43,7 @@ const VistaExplorar = () => {
 
     return (
         <>
+        <HoobooBanner />
             <Navbaractivo />
             <div className="searchBoxMar">
                 <h3 className="welcome-message">Bienvenido a tu back office, {nombreUsuario}!</h3>
