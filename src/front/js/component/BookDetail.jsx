@@ -12,7 +12,24 @@ const BookDetail = () => {
     const { store, actions } = useContext(Context);
     const { bookId } = useParams();
     const [isFavorite, setIsFavorite] = useState(false);
-    const book = store.books.find(b => b.id === bookId);
+
+    // Función para buscar el libro por ID
+    const getBookById = (id) => {
+        // Buscar en store.books
+        let book = store.books.find(b => b.id === id);
+        if (!book) {
+            // Si no se encuentra, buscar en store.base_respaldo
+            const flattenedBooks = flattenBaseRespaldo(store.base_respaldo);
+            book = flattenedBooks.find(b => b.id === id);
+        }
+        return book;
+    };
+
+    const flattenBaseRespaldo = (baseRespaldo) => {
+        return Object.values(baseRespaldo).flat();
+    };
+
+    const book = getBookById(bookId);
 
     useEffect(() => {
         if (book && store.favorites.some((fav) => fav.id === book.id)) {
