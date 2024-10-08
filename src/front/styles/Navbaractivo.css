@@ -8,7 +8,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-top: 12vh; 
     left: 0;
     top: 0;
     min-width: 15rem; 

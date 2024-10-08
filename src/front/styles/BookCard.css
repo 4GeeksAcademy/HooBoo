@@ -14,7 +14,7 @@
 
 .book-image-card {
     width: 100%;
-    height: auto;
+    height: 30vh;
     display: block;
     border-bottom: 0.0625rem solid #ddd;
     border-radius: 10px;
