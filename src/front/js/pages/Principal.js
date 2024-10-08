@@ -130,7 +130,7 @@ const Principal = () => {
                                 />
                             ))
                         ) : (
-                            <p>No hay libros disponibles para este género.</p>
+                            <p>Agradecemos tu tiempo de espera...</p>
                         )}
                     </div>
                 </div>

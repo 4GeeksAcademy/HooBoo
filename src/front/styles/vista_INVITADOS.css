@@ -1,0 +1,226 @@
+.vista-invitados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 0 1rem;
+    overflow: hidden;
+}
+
+.welcome-messageINVITADOS {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.25rem;
+    font-family: 'Special Elite', cursive;
+    margin-top: 3vw;
+    padding-bottom: 0vw;
+
+}
+
+.no-resultsINVITADOS {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 20px;
+}
+
+.loading-containerINVITADOS {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.loading-containerINVITADOS p {
+    font-size: 1.5rem;
+    color: #555;
+}
+
+/* Animaciones para las filas */
+.book-listINVITADOS {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+    gap: 1.25rem;
+    padding: 1rem 0;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    width: 100%;
+}
+
+/* Clase para animación de aparición */
+.book-cardINVITADOS {
+    position: relative;
+    margin: 0.625rem;
+    overflow: hidden;
+    border-radius: 0.625rem;
+    background-color: #f0f0f0;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.book-cardINVITADOS:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.book-image-cardINVITADOS {
+    width: 100%;
+    height: 30vh;
+    display: block;
+    border-bottom: 0.0625rem solid #ddd;
+    border-radius: 10px;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
+    border: 2px solid #a75df267;
+}
+
+.icons-containerINVITADOS {
+    position: absolute;
+    top: 0.625rem;
+    right: 0.625rem;
+    display: flex;
+    gap: 0.625rem;
+}
+
+.icon-bookINVITADOS {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 0.3125rem;
+    cursor: pointer;
+}
+
+.favorite-iconINVITADOS:hover {
+    color: #e74c3c;
+}
+
+.info-iconINVITADOS:hover {
+    color: #3498db;
+}
+
+.book-titleINVITADOS {
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Cuadro de búsqueda */
+.searchBoxMarINVITADOS {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    padding-bottom: 2rem;
+    width: 100%; 
+    text-align: center;
+}
+
+.searchContainerINVITADOS {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: -1rem; /* Espacio entre el mensaje de bienvenida y el cuadro de búsqueda */
+}
+
+.searchInputINVITADOS {
+    padding: 10px 40px 10px 15px;
+    font-size: 16px;
+    width: 40vw;
+    max-width: 500px;
+    border-radius: 25px;
+    border: 1px solid #a75df2;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.searchIconINVITADOS {
+    position: absolute;
+    right: 20px;
+    color: #ccc;
+    pointer-events: none;
+    font-size: 18px;
+}
+
+.searchIconINVITADOS:hover {
+    color: #a75df2;
+}
+
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .vista-invitados {
+        padding: 0 1rem;
+    }
+
+    .hooboobaner {
+        font-size: 1.25rem;
+        padding: 0.625rem;
+    }
+
+    .welcome-messageINVITADOS {
+        font-size: 0.9rem;
+    }
+
+    .no-resultsINVITADOS {
+        font-size: 1rem;
+    }
+
+    .loading-containerINVITADOS p {
+        font-size: 1.25rem;
+    }
+}
+
+/* Ajustes para pantallas medianas (tabletas) */
+@media (max-width: 1024px) {
+    .vista-invitados {
+        padding: 0 2rem;
+    }
+
+    .hooboobaner {
+        font-size: 1.4rem;
+        padding: 0.75rem;
+    }
+
+    .welcome-messageINVITADOS {
+        font-size: 1rem;
+    }
+
+    .no-resultsINVITADOS {
+        font-size: 1.1rem;
+    }
+
+    .loading-containerINVITADOS p {
+        font-size: 1.4rem;
+    }
+}
+
+/* Ajustes para pantallas grandes (escritorio) */
+@media (min-width: 1200px) {
+    .vista-invitados {
+        padding: 0;
+    }
+
+    .hooboobaner {
+        font-size: 1.75rem;
+    }
+
+    .welcome-messageINVITADOS {
+        margin-left: 0;
+    }
+
+    .no-resultsINVITADOS {
+        font-size: 1.3rem;
+    }
+
+    .loading-containerINVITADOS p {
+        font-size: 1.6rem;
+    }
+}
