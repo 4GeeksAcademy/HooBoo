@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react"; // Importa useEffect
 import { Context } from "../store/appContext";
 import BookCard from "./BookCard.jsx";
 import "../../styles/BookCard.css";
@@ -10,14 +10,26 @@ import "../../styles/buscador_explorar.css";
 import "../../styles/view_explorar.css";
 
 const VistaExplorar = () => {
-    const { store } = useContext(Context);
+    const { store, actions } = useContext(Context); 
     const [searchBox, setSearchBox] = useState("");
+
+    useEffect(() => {
+        if (!store.user || Object.keys(store.user).length === 0) {
+            actions.obtenerDatosUsuario();
+        }
+    }, []); 
 
     const handleSearch = (event) => {
         setSearchBox(event.target.value);
     };
 
-    const filteredBooks = store.books.filter((book) => {
+    const flattenBaseRespaldo = (baseRespaldo) => {
+        return Object.values(baseRespaldo).flat();
+    };
+
+    const booksToDisplay = store.books && store.books.length > 0 ? store.books : flattenBaseRespaldo(store.base_respaldo);
+
+    const filteredBooks = booksToDisplay.filter((book) => {
         const title = book.volumeInfo.title.toLowerCase();
         const authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(" ").toLowerCase() : "";
         const description = book.volumeInfo.description ? book.volumeInfo.description.toLowerCase() : "";
@@ -32,7 +44,7 @@ const VistaExplorar = () => {
         <>
             <Navbaractivo />
             <div className="searchBoxMar">
-            <h3 className="welcome-message">Bienvenido a tu back office, {nombreUsuario}!</h3>
+                <h3 className="welcome-message">Bienvenido a tu back office, {nombreUsuario}!</h3>
                 <div className="searchContainer">
                     <input
                         type="text"

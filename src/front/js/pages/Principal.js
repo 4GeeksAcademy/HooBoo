@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Navbar from '../component/Navbar.jsx';
 import Footer from '../component/Footer.jsx';
 // import HoobooBanner from '../component/hooboo_banner.jsx';
 import BannerOnlyHome from '../component/BannerOnlyHome.jsx';
 import '../../styles/Principal.css';
+import { Context } from "../store/appContext";
 
 const Principal = () => {
     const [currentGenre, setCurrentGenre] = useState('fantasia');
     const [isVisible, setIsVisible] = useState(true);
     const [books, setBooks] = useState({ fantasia: [], romance: [], drama: [], thriller: [] });
+    const { store, actions } = useContext(Context); 
 
     const API_KEY = 'AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg';
     const genres = ['fantasia', 'romance', 'drama', 'thriller'];
@@ -27,6 +29,12 @@ const Principal = () => {
         return mezcla;
     };
 
+    const flattenBaseRespaldo = (baseRespaldo) => {
+        return Object.values(baseRespaldo).flat();
+    };
+
+    const booksToDisplay = store.books && store.books.length > 0 ? store.books : flattenBaseRespaldo(store.base_respaldo);
+
     useEffect(() => {
         const getBooksFromApi = async () => {
             try {
@@ -39,7 +47,7 @@ const Principal = () => {
                     });
 
                     const data = await response.json();
-                    gotBooksFromApi[genre] = data.items
+                    gotBooksFromApi[genre] = booksToDisplay
                         .filter(item => item.volumeInfo.imageLinks?.thumbnail)
                         .map(item => ({
                             id: item.id,
