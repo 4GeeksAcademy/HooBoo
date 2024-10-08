@@ -160,3 +160,41 @@ def get_books():
     except Exception as e:
         return jsonify({"msg": "Error al obtener los libros", "error": str(e)}), 500
     
+@api.route('/rate', methods=['POST'])
+@jwt_required()
+def submit_rating():
+    current_user_identity = get_jwt_identity()
+    user = User.query.filter_by(email=current_user_identity["email"]).first()
+
+    if not user:
+        return jsonify({"msg": "Usuario no encontrado"}), 404
+
+    data = request.get_json()
+    rating = data.get('rating')
+
+    if not rating or not (1 <= rating <= 5):
+        return jsonify({"msg": "La calificación debe estar entre 1 y 5"}), 400
+
+    # Guardar la calificación del usuario
+    user.rating = rating
+
+    try:
+        db.session.commit()
+        return jsonify({"msg": "Calificación guardada con éxito", "rating": user.rating}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"msg": "Error al guardar la calificación", "error": str(e)}), 500
+
+@api.route('/average-rating', methods=['GET'])
+def get_average_rating():
+    try:
+        users_with_rating = User.query.filter(User.rating.isnot(None)).all()
+        if not users_with_rating:
+            return jsonify({"msg": "No hay calificaciones disponibles"}), 404
+        
+        total_ratings = len(users_with_rating)
+        average_rating = sum([user.rating for user in users_with_rating]) / total_ratings
+
+        return jsonify({"average_rating": round(average_rating, 2), "total_ratings": total_ratings}), 200
+    except Exception as e:
+        return jsonify({"msg": "Error al obtener la calificación promedio", "error": str(e)}), 500
