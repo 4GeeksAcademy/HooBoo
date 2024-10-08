@@ -3,16 +3,12 @@
     flex-direction: column;
     align-items: flex-end;
     padding: 1%; 
-    /* position: fixed;  */
     width: 100%; 
-    height: 15vw;
+    height: 20vw;
     top: 0; 
     z-index: 999; 
     font-family: "IBM Plex Mono", monospace;
-    /* background-color: transparent; */
-    /* background-color: rgba(249, 250, 252, 0.13);   */
     background-color: rgba(255, 255, 255, 0.309);  
-    padding-bottom:-20vw;
 }
 
 .navbar-left {
@@ -44,7 +40,6 @@
     font-size: 1rem;
     margin-right: 1vw;
     transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
-    /* border: 0.25rem solid #7029ab; */
     border: 0.2rem solid whitesmoke;
     height: 6vh;
     display: flex;
@@ -54,18 +49,6 @@
     padding: 10px;
 }
 
-/* .btn-logo{
-
-        display: block;
-        background-color: #ffffff; 
-        border-radius: 50%; 
-        padding: 10px; 
-        width: 15vh;
-        height: auto;
-        margin: 0 auto; 
-        border: 5px solid #7029ab;
-        margin: 1vh;
-    } */
     
 .btn-logo {
     display: block;
@@ -105,16 +88,16 @@
     .btn-signup,
     .btn-explorar,
     .btn-logo {
-        width: 20vw; 
-        height: 6vh;
-        font-size: 1rem; 
-        border: 0.2rem solid #7029ab;
-        margin-right: 1vw;
+        min-width: 8vw;  
+        height: 8vh;
+        font-size: 0.8rem;
+        border: 0.15rem solid #7029ab;
+        margin-right: 0.5vw;
     }
 
     .btn-logo {
-        width: 15vw; 
-        height: 15vw; 
+        width: 20vw; 
+        height: 20vw; 
     }
 }
 

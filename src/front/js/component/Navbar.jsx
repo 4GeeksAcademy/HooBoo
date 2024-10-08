@@ -11,7 +11,7 @@ const Navbar = () => {
 
     const handleExplorarClick = () => {
         actions.traerTodosLosLibros();
-        navigate("/vistaexplorar");
+        navigate("/vistainvitados");
     };
 
     return (

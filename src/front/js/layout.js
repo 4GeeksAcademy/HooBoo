@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import BackendURL from "./component/backendURL.jsx";
 import VistaExplorar from "./component/vista_EXPLORAR.jsx";
+import VistaInvitados from "./component/vista_INVITADOS.jsx"
 import BookDetail from "./component/BookDetail.jsx";
 import Login from "./pages/Login";
 import Principal from "./pages/Principal";
@@ -25,6 +26,7 @@ const AppContent = () => {
                 <Route element={<Login />} path="/Login" />
                 <Route element={<Registro />} path="/Registro" />
                 <Route element={<VistaExplorar />} path="/vistaexplorar" />
+                <Route element={<VistaInvitados />} path="/vistainvitados" />
                 <Route element={<BookDetail />} path="/book/:bookId" />
                 <Route element={<Editarperfil />} path="/Editarperfil" />
                 <Route element={<Favoritos />} path="/Favoritos" />
