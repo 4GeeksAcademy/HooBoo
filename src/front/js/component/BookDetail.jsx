@@ -35,12 +35,12 @@ const BookDetail = () => {
     }
 
     const handleAddToFavorites = () => {
-        if (!isFavorite) {
-            actions.addFavoritos(book);
-            setIsFavorite(true);
+        if (isFavorite) {
+            actions.removeFavoritos(book); 
         } else {
-            console.log("El libro ya está en favoritos");
+            actions.addFavoritos(book); 
         }
+        setIsFavorite(!isFavorite);
     };
 
     const handleShare = () => {
@@ -71,7 +71,11 @@ const BookDetail = () => {
                     <Card.Body className="cuerpoDetalleTarjetaLibroMar">
                         <div className="contenedorBotonesMar">
                             <div className="iconosContenedorMar" onClick={handleAddToFavorites}>
-                                <FontAwesomeIcon icon={faHeart} className={`favoritoIconoMar ${isFavorite ? 'active' : ''}`} />
+                                <FontAwesomeIcon
+                                    icon={faHeart}
+                                    className={`favoritoIconoMar ${isFavorite ? "favorite-active" : ''}`}
+                                    title="Agregar a Favoritos"
+                                />
                             </div>
                             <div className="iconosContenedorMar" onClick={handleShare}>
                                 <FontAwesomeIcon icon={faArrowUpFromBracket} className="shareIconMar" />

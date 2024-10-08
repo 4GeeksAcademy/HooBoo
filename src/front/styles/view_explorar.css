@@ -24,14 +24,6 @@
   margin-bottom: 1.25rem;
 }
 
-.book-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; 
-  padding: 1.875rem 0rem 1.25rem 0rem;
-  width: 100%;
-}
-
 @media (min-width: 48rem) {
   .book-list {
     justify-content: flex-start; /* Ajuste para pantallas medianas en adelante */
