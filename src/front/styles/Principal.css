@@ -1,15 +1,14 @@
-.bodyHome {
+/* .bodyHome {
     background-color: rgba(160, 177, 189, 0.219);
-}
+} */
 
 .principal-container {
     text-align: center;
-    margin-top: 17vw;
 }
 
 .header-text {
     margin-bottom: 5vw;
-    margin-top: 25vw;
+    margin-top: 5vw;
 
 }
 
@@ -41,6 +40,8 @@
     box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
     border: 2px solid #a75df267;
     position: relative;
+    transform: translateY(10vh);
+    animation: slideIn 0.20s forwards;
 }
 
 .image-grid img:hover {
@@ -48,31 +49,31 @@
 }
 
 .image-grid img:nth-child(7n+1) {
-    transform: translateY(-8vw);
+    transform: translateY(-10vw);
 }
 
 .image-grid img:nth-child(7n+2) {
-    transform: translateY(-4vw);
+    transform: translateY( -5vw);
 }
 
 .image-grid img:nth-child(7n+3) {
-    transform: translateY(1vw);
+    transform: translateY(-1vw);
 }
 
 .image-grid img:nth-child(7n+4) {
-    transform: translateY(5vw);
+    transform: translateY(3vw);
 }
 
 .image-grid img:nth-child(7n+5) {
-    transform: translateY(1vw);
+    transform: translateY(-1vw);
 }
 
 .image-grid img:nth-child(7n+6) {
-    transform: translateY(-4vw);
+    transform: translateY(-5vw);
 }
 
 .image-grid img:nth-child(7n+7) {
-    transform: translateY(-8vw);
+    transform: translateY(-10vw);
 }
 
 .book-image {
@@ -94,7 +95,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -4vw;
+    margin-top: -1vw;
 }
 
 .indicator {
