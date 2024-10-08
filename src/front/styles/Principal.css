@@ -1,5 +1,5 @@
-body{
-    background-color: rgba(160, 121, 172, 0.158);  
+.bodyHome {
+    background-color: rgba(160, 177, 189, 0.219);
 }
 
 .principal-container {
@@ -9,15 +9,15 @@ body{
 
 .header-text {
     margin-bottom: 5vw;
-    margin-top: 5vw;
-    
+    margin-top: 25vw;
+
 }
 
 .titulo_principalproyecto {
     font-size: 2.5vw;
     font-weight: bold;
     color: #333;
-    margin-top: 7vw;
+    margin-top: 15vw;
     margin-bottom: 0;
 }
 
@@ -48,31 +48,31 @@ body{
 }
 
 .image-grid img:nth-child(7n+1) {
-    transform: translateY(-4vw);
+    transform: translateY(-8vw);
 }
 
 .image-grid img:nth-child(7n+2) {
-    transform: translateY(1vw);
+    transform: translateY(-4vw);
 }
 
 .image-grid img:nth-child(7n+3) {
-    transform: translateY(5vw);
-}
-
-.image-grid img:nth-child(7n+4) {
-    transform: translateY(9vw);
-}
-
-.image-grid img:nth-child(7n+5) {
-    transform: translateY(5vw);
-}
-
-.image-grid img:nth-child(7n+6) {
     transform: translateY(1vw);
 }
 
-.image-grid img:nth-child(7n+7) {
+.image-grid img:nth-child(7n+4) {
+    transform: translateY(5vw);
+}
+
+.image-grid img:nth-child(7n+5) {
+    transform: translateY(1vw);
+}
+
+.image-grid img:nth-child(7n+6) {
     transform: translateY(-4vw);
+}
+
+.image-grid img:nth-child(7n+7) {
+    transform: translateY(-8vw);
 }
 
 .book-image {
@@ -90,17 +90,23 @@ body{
     transform: scale(1.1);
 }
 
+.genre-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -4vw;
+}
+
 .indicator {
     display: inline-block;
     width: 1vw;
     height: 1vw;
     background-color: #bc82eb;
     border-radius: 50%;
-    margin: 0 5px; 
+    margin: 0 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    padding: 0.5vw;
-    margin-top: -20vw;
+    padding: 0.5vw;  
 }
 
 .indicator.active {

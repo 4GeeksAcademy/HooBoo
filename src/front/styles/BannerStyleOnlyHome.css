@@ -6,21 +6,23 @@
 
 .banner-image-only-home {
     width: 100%; 
-    height: auto; 
-    margin-top: -20%;
+    height:80vh; 
+    margin-top: -15%;
     display: block; 
     position: fixed;
+    z-index: 500; 
 }
 
 .bannerHome-text {
     position: fixed;
-    top: 20%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: black;
     text-align: center;
     font-family: 'Special Elite', cursive;
     font-size: 5rem;
+    z-index: 1000; 
 }
 
 h2 {
