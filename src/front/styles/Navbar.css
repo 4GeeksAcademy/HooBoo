@@ -47,6 +47,7 @@
     align-content: center;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 .btn-logo {
