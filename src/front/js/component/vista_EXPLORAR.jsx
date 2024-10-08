@@ -17,7 +17,38 @@ const VistaExplorar = () => {
         if (!store.user || Object.keys(store.user).length === 0) {
             actions.obtenerDatosUsuario();
         }
+
+        const loadChatra = () => {
+            window.ChatraID = 't5fKP896w9NNZy7GZ';
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://call.chatra.io/chatra.js';
+            document.head.appendChild(script);
+
+            // Configuración adicional del chat
+            script.onload = () => {
+                if (window.Chatra) {
+                    // Ajusta las dimensiones de la ventana del chat
+                    window.Chatra('set', 'widgetSize', {
+                        width: '600px', // Cambia este valor a tu medida deseada
+                        height: '800px' // Cambia este valor a tu medida deseada
+                    });
+                }
+            };
+        };
+
+        loadChatra(); // Carga el script al montar el componente
+
+        return () => {
+            // Limpieza opcional: Remover el script si se desea
+            const chatraScript = document.querySelector('script[src="https://call.chatra.io/chatra.js"]');
+            if (chatraScript) {
+                document.head.removeChild(chatraScript);
+            }
+        };
     }, []); 
+
+    
 
     const handleSearch = (event) => {
         setSearchBox(event.target.value);
