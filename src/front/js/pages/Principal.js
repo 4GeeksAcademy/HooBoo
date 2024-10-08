@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../component/Navbar.jsx';
 import Footer from '../component/Footer.jsx';
-import HoobooBanner from '../component/hooboo_banner.jsx';
+// import HoobooBanner from '../component/hooboo_banner.jsx';
+import BannerOnlyHome from '../component/BannerOnlyHome.jsx';
 import '../../styles/Principal.css';
 
 const Principal = () => {
@@ -86,7 +87,7 @@ const Principal = () => {
 
     return (
         <div>
-            <HoobooBanner />
+            <BannerOnlyHome />
             <Navbar />
             <div className="main-content">
                 <div className="principal-container">

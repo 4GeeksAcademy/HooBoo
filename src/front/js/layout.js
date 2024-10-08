@@ -8,7 +8,7 @@ import Principal from "./pages/Principal";
 import Registro from "./pages/Registro";
 import Editarperfil from "./pages/Editarperfil";
 import injectContext from "./store/appContext";
-import HoobooBanner from './component/hooboo_banner.jsx';
+// import HoobooBanner from './component/hooboo_banner.jsx';
 import Favoritos from './pages/Favoritos.js';
 import RecuperarContraseña from "./component/recuperarcontraseña.jsx";
 import ResetPassword from "./pages/ResetPassword.js";
@@ -21,7 +21,8 @@ const AppContent = () => {
 
     return (
         <div>
-            <HoobooBanner />
+            
+            {/* <HoobooBanner /> */}
             <Routes>
                 <Route element={<Principal />} path="/" />
                 <Route element={<Login />} path="/Login" />

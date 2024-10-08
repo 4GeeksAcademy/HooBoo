@@ -21,13 +21,12 @@ const Navbar = () => {
                     <button className="btn-logo" onClick={() => navigate("/")}>
                         <img src={logoHooBoo} alt="Logo" className="logo-img" />
                     </button>
-                    <button className="btn-explorar" onClick={handleExplorarClick}>
-                        Explorar
-                    </button>
+                    
                 </div>
                 <div className="navbar-right">
                     <button className="btn-login" onClick={() => navigate("/Login")}>Inicio Sesión</button>
                     <button className="btn-signup" onClick={() => navigate("/Registro")}>Registro</button>
+                    <button className="btn-explorar" onClick={handleExplorarClick}>Explorar</button>
                 </div>
             </nav>
         </>
