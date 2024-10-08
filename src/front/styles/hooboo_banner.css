@@ -23,6 +23,7 @@
     background: white;
 }
 
+
 @media (max-width: 768px) {
     .header-text {
         font-size: 5vw;
