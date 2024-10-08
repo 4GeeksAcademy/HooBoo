@@ -46,7 +46,6 @@
     transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
     /* border: 0.25rem solid #7029ab; */
     border: 0.2rem solid whitesmoke;
-    width: 6vw;
     height: 6vh;
     display: flex;
     align-content: center;
