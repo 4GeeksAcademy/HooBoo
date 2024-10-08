@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from "react"; // Importa useEffect
+import { Context } from "../store/appContext";
 import { Link, useNavigate } from "react-router-dom";
 import Navbaractivo from '../component/Navbaractivo.jsx';
 import Footercolapsado from '../component/Footercolapsado.jsx';
@@ -10,6 +11,7 @@ import "../../styles/Editarperfil.css"; // Asegúrate de que esta ruta sea corre
 
 const Editarperfil = () => {
     const [username, setUsername] = useState("");
+    const { actions } = useContext(Context); // Agregamos actions
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [selectedAvatar, setSelectedAvatar] = useState(""); // Para almacenar el avatar seleccionado
@@ -32,7 +34,6 @@ const Editarperfil = () => {
 
                 if (res.ok) {
                     const data = await res.json();
-                    console.log(data);
                     setUsername(data.username);
                     setEmail(data.email);
                     setSelectedAvatar(data.profile_pic || avatar1);
@@ -79,6 +80,8 @@ const Editarperfil = () => {
 
             if (res.ok) {
                 console.log("Cambios guardados");
+                // Actualizar los datos del usuario en el store
+                await actions.obtenerDatosUsuario();
                 navigate("/login");
             } else {
                 const errorText = await res.text();
@@ -146,7 +149,6 @@ const Editarperfil = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Nueva contraseña"
-                                required
                             />
                         </div>
 

@@ -9,46 +9,55 @@ import '../../styles/BookDetail.css';
 
 const BookDetail = () => {
     const [profilePicture] = useState('https://via.placeholder.com/50');
-    const [comment, setComment] = useState('');
-    const [comments, setComments] = useState([]);
     const { store, actions } = useContext(Context);
     const { bookId } = useParams();
     const [isFavorite, setIsFavorite] = useState(false);
-    const book = store.books.find(b => b.id === bookId);
+
+    // Función para buscar el libro por ID
+    const getBookById = (id) => {
+        // Buscar en store.books
+        let book = store.books.find(b => b.id === id);
+        if (!book) {
+            // Si no se encuentra, buscar en store.base_respaldo
+            const flattenedBooks = flattenBaseRespaldo(store.base_respaldo);
+            book = flattenedBooks.find(b => b.id === id);
+        }
+        return book;
+    };
+
+    const flattenBaseRespaldo = (baseRespaldo) => {
+        return Object.values(baseRespaldo).flat();
+    };
+
+    const book = getBookById(bookId);
 
     useEffect(() => {
         if (book && store.favorites.some((fav) => fav.id === book.id)) {
-            setIsFavorite(!isFavorite);
+            setIsFavorite(true);
         }
+
+        // Integración de Commento en el contenedor específico
+        const script = document.createElement('script');
+        script.src = "https://cdn.commento.io/js/commento.js";
+        script.async = true;
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        };
     }, [book, store.favorites]);
 
     if (!book) {
         return <div>Libro no encontrado. ID buscado: {bookId}</div>;
     }
 
-    const handleCommentChange = (e) => {
-        setComment(e.target.value);
-    };
-
-    const handleCommentSubmit = (e) => {
-        e.preventDefault();
-        if (comment.trim()) {
-            const newComment = {
-                text: comment,
-                userProfilePic: profilePicture,
-            };
-            setComments([...comments, newComment]);
-            setComment('');
-        }
-    };
-
     const handleAddToFavorites = () => {
-        if (!isFavorite) {
-            actions.addFavoritos(book);
-            setIsFavorite(true);
+        if (isFavorite) {
+            actions.removeFavoritos(book); 
         } else {
-            console.log("El libro ya está en favoritos");
+            actions.addFavoritos(book); 
         }
+        setIsFavorite(!isFavorite);
     };
 
     const handleShare = () => {
@@ -72,56 +81,40 @@ const BookDetail = () => {
             <div className="navbar">
                 <Navbaractivo />
             </div>
-            <div className="content flex-grow-1 d-flex justify-content-center align-items-center">
-                <Card className="tarjetaDeLibroMar">
+            <div className="content flex-grow-1 d-flex justify-content-center align-items-center flex-column">
+                {/* Card de detalles del libro */}
+                <Card className="tarjetaDeLibroMar mb-4">
                     <Card.Img variant="top" src={book.volumeInfo.imageLinks?.thumbnail} className="imagenTarjetaLibroMar" alt={book.volumeInfo.title} />
                     <Card.Body className="cuerpoDetalleTarjetaLibroMar">
                         <div className="contenedorBotonesMar">
                             <div className="iconosContenedorMar" onClick={handleAddToFavorites}>
                                 <FontAwesomeIcon
                                     icon={faHeart}
-                                    className={`favoritoIconoMar ${isFavorite ? 'favorito-activo' : ''}`}
+                                    className={`favoritoIconoMar ${isFavorite ? "favorite-active" : ''}`}
                                     title="Agregar a Favoritos"
                                 />
                             </div>
                             <div className="iconosContenedorMar" onClick={handleShare}>
-                                <FontAwesomeIcon icon={faArrowUpFromBracket} className="shareIconMar" title="Compartir" />
+                                <FontAwesomeIcon icon={faArrowUpFromBracket} className="shareIconMar" />
                             </div>
                         </div>
-                        <Card.Title className="detalleLibroTituloMar">{book.volumeInfo.title}</Card.Title>
-                        <Card.Text className="detalleLibroDescriptionMar">
-                            {book.volumeInfo.description || 'Descripción no disponible.'}
-                        </Card.Text>
-                        <Card.Text className="detalleLibroAutorMar">
-                            <strong>Autor:</strong> {book.volumeInfo.authors}
-                        </Card.Text>
-                        <div className="comment-container">
-                            <div className="comment-input">
-                                <img src="ruta/a/tu/icono.png" alt="Icono" className="comment-icon" />
-                                <textarea
-                                    value={comment}
-                                    onChange={handleCommentChange}
-                                    placeholder="Escribe tu comentario aquí...">
-                                </textarea>
-                            </div>
-                            <div className="button-container">
-                                <button className="send-button" onClick={handleCommentSubmit}>Publicar</button>
-                            </div>
-                            <div className="comments-list">
-                                {comments.map((comment, index) => (
-                                    <div className="comment" key={index}>
-                                        <img src={profilePicture} alt="Perfil" className="profile-picture" />
-                                        <div className="comment-text">
-                                            <span>{comment.text}</span>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                        <h5 className="detalleLibroTituloMar">{book.volumeInfo.title}</h5>
+                        <p className="detalleLibroDescripcionMar">{book.volumeInfo.description}</p>
+                        <p className="detalleLibroAutorMar">Autor: {book.volumeInfo.authors?.join(', ')}</p>
+                    </Card.Body>
+                </Card>
+
+                {/* Nueva Card para los comentarios */}
+                <Card className="tarjetaDeLibroMar comment-card">
+                    <Card.Body className="cuerpoDetalleTarjetaLibroMar">
+                        <h5 className="detalleLibroTituloMar">Comentarios</h5>
+                        {/* Contenedor para el widget de Commento */}
+                        <div id="commento"></div>
                     </Card.Body>
                 </Card>
             </div>
         </Container>
     );
 };
+
 export default BookDetail;

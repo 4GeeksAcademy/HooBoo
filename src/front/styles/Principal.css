@@ -1,19 +1,23 @@
+/* .bodyHome {
+    background-color: rgba(160, 177, 189, 0.219);
+} */
+
 .principal-container {
     text-align: center;
-    margin-top: 5vw;
-
 }
 
 .header-text {
     margin-bottom: 5vw;
     margin-top: 5vw;
+
 }
 
 .titulo_principalproyecto {
-    font-size: 3vw;
+    font-size: 2.5vw;
     font-weight: bold;
     color: #333;
-    margin-top: 12vw;
+    margin-top: 15vw;
+    margin-bottom: 0;
 }
 
 .image-grid {
@@ -23,11 +27,13 @@
     position: relative;
     opacity: 1;
     transition: opacity 1s ease-in-out;
+    gap: 2vh;
+    z-index: -1;
 }
 
 .image-grid img {
     width: 12vw;
-    height: auto;
+    height: 40vh;
     object-fit: cover;
     border-radius: 10px;
     opacity: 1;
@@ -35,38 +41,40 @@
     box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
     border: 2px solid #a75df267;
     position: relative;
+    transform: translateY(10vh);
+    animation: slideIn 0.20s forwards;
 }
 
 .image-grid img:hover {
     transform: scale(1.1);
 }
 
-.image-grid img:nth-child(1) {
-    top: -4vw;
+.image-grid img:nth-child(7n+1) {
+    transform: translateY(-10vw);
 }
 
-.image-grid img:nth-child(2) {
-    top: 1vw;
+.image-grid img:nth-child(7n+2) {
+    transform: translateY( -5vw);
 }
 
-.image-grid img:nth-child(3) {
-    top: 5vw;
+.image-grid img:nth-child(7n+3) {
+    transform: translateY(-1vw);
 }
 
-.image-grid img:nth-child(4) {
-    top: 9vw;
+.image-grid img:nth-child(7n+4) {
+    transform: translateY(3vw);
 }
 
-.image-grid img:nth-child(5) {
-    top: 5vw;
+.image-grid img:nth-child(7n+5) {
+    transform: translateY(-1vw);
 }
 
-.image-grid img:nth-child(6) {
-    top: 1vw;
+.image-grid img:nth-child(7n+6) {
+    transform: translateY(-5vw);
 }
 
-.image-grid img:nth-child(7) {
-    top: -4vw;
+.image-grid img:nth-child(7n+7) {
+    transform: translateY(-10vw);
 }
 
 .book-image {
@@ -85,18 +93,22 @@
 }
 
 .genre-indicators {
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1vw;
 }
 
 .indicator {
     display: inline-block;
-    width: 1em;
-    height: 1em;
+    width: 1vw;
+    height: 1vw;
     background-color: #bc82eb;
     border-radius: 50%;
     margin: 0 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    padding: 0.5vw;  
 }
 
 .indicator.active {
