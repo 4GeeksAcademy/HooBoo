@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/BookCard.css";
 
-
 const BookCard = ({ book }) => {
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
@@ -23,7 +22,11 @@ const BookCard = ({ book }) => {
     };
 
     const handleInfoClick = () => {
-        navigate(`/book/${book.id}`);
+        if (!store.user || Object.keys(store.user).length === 0) {
+            alert("Para ver la información del libro, debes registrarte o iniciar sesión.");
+        } else {
+            navigate(`/book/${book.id}`);
+        }
     };
 
     return (
@@ -36,7 +39,12 @@ const BookCard = ({ book }) => {
                     title="Agregar a Favoritos"
                     onClick={handleFavoriteClick}
                 />
-                <FontAwesomeIcon icon={faInfoCircle} className="icon-book info-icon" title="Más Información" onClick={handleInfoClick} />
+                <FontAwesomeIcon
+                    icon={faInfoCircle}
+                    className="icon-book info-icon"
+                    title="Más Información"
+                    onClick={handleInfoClick}
+                />
             </div>
             <div className="book-title">{title}</div>
         </div>

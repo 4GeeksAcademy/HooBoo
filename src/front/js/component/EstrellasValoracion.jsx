@@ -13,7 +13,7 @@ const EstrellasValoracion = ({ rating, onRate, isAuthenticated }) => {
       setSelectedRating(rate);
       onRate(rate);
     } else {
-      alert("Debes iniciar sesión para poder calificar.");
+      alert("Debes resgistarte o iniciar sesión para poder calificar.");
     }
   };
 
