@@ -46,18 +46,22 @@ const EstrellasValoracion = ({ rating, onRate, isAuthenticated }) => {
   };
 
   return (
-    <div className="star-rating">
-      {[1, 2, 3, 4, 5].map((star) => (
-        <FontAwesomeIcon
-          key={star}
-          icon={faStar}
-          className={`star-icon ${star <= (hoveredRating || selectedRating) ? "filled" : ""}`}
-          onMouseEnter={() => setHoveredRating(star)}
-          onMouseLeave={() => setHoveredRating(null)}
-          onClick={() => handleRating(star)}
-        />
-      ))}
-      <p className="rating-text">{getRatingText()}</p>
+    <div>
+      <div>
+        <p className="rating-text">{getRatingText()}</p>
+      </div>
+      <div className="star-rating">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <FontAwesomeIcon
+            key={star}
+            icon={faStar}
+            className={`star-icon ${star <= (hoveredRating || selectedRating) ? "filled" : ""}`}
+            onMouseEnter={() => setHoveredRating(star)}
+            onMouseLeave={() => setHoveredRating(null)}
+            onClick={() => handleRating(star)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

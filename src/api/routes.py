@@ -6,8 +6,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from flask_mail import Message
 from api.models import db, User, Book
-import cloudinary
-import cloudinary.uploader
 
 
 api = Blueprint('api', __name__)

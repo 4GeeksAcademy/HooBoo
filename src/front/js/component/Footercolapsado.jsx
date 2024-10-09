@@ -14,10 +14,9 @@ const Footercolapsado = () => {
     
     return (
         <div>
-            {/* Icono de chevron en la parte inferior derecha */}
             <div className="footer-colapsado">
                 <div className="toggle-icon" onClick={toggleFooter}>
-                    <FontAwesomeIcon icon={isFooterVisible ? faChevronDown : faChevronUp} size="2x" />
+                    <FontAwesomeIcon icon={isFooterVisible ? faChevronDown : faChevronUp} size="2x" className={isFooterVisible ? 'icon-white' : ''} />
                 </div>
             </div>
             {/* Footer que se despliega al hacer clic */}
