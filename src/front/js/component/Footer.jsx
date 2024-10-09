@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import EstrellasValoracion from './EstrellasValoracion.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faInstagram, faFacebook, faYoutube, faSpotify, faTiktok, faPinterest } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter, faInstagram, faFacebook, faYoutube, faSpotify, faTiktok, faPinterest, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'; 
 // import AcercaDeNosotros from './AcercaDeNosotros.jsx';
 import "../../styles/Footer.css";
 
@@ -50,7 +51,22 @@ const Footer = () => {
             <h4 onClick={() => setShowEmail(!showEmail)}>
               Contacto
             </h4>
-            {showEmail && <p>hooboocontacto@gmail.com</p>}
+            {showEmail && 
+            <div className="quitar-espacios-footer">
+              <p>
+                <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '8px', color: 'white' }} /> {/* Icono de Mensaje */}
+                hooboocontacto@gmail.com
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '8px', color: 'white' }} /> {/* Icono de Mensaje */}
+                hooboo4geeks@gmail.com
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faWhatsapp} style={{ marginRight: '8px', color: 'green' }} /> {/* Icono de WhatsApp */}
+                +34 641 99 2406
+              </p>
+            </div>
+            }
           </div>
           <div className="section">
             <h4>Servicios</h4>
