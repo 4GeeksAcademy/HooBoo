@@ -1,23 +1,24 @@
-import React, { useContext, useState, useEffect } from "react"; 
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import BookCard from "./BookCard.jsx";
 import Footercolapsado from "./Footercolapsado.jsx";
-import Navbar from './Navbar.jsx'; 
+import Navbar from './Navbar.jsx';
 import BannerOnlyHome from "./BannerOnlyHome.jsx"; // Mantener el banner
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/buscador_explorar.css";
 import "../../styles/vista_INVITADOS.css";
+import "../../styles/Navbar.css";
 
 const VistaInvitados = () => {
-    const { store, actions } = useContext(Context); 
+    const { store, actions } = useContext(Context);
     const [searchBox, setSearchBox] = useState("");
 
     useEffect(() => {
         if (!store.user || Object.keys(store.user).length === 0) {
             actions.obtenerDatosUsuario();
         }
-    }, []); 
+    }, []);
 
     const handleSearch = (event) => {
         setSearchBox(event.target.value);
@@ -40,8 +41,10 @@ const VistaInvitados = () => {
 
     return (
         <>
-            <BannerOnlyHome />
-            <Navbar /> 
+            <div className='headerHome'>
+                <BannerOnlyHome />
+                <Navbar />
+            </div>
 
             <div className="searchBoxMarINVITADOS">
                 <h3 className="welcome-messageINVITADOS">Explora un mundo de historias infinitas...</h3>

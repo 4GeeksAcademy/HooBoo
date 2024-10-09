@@ -6,6 +6,7 @@ import Navbar from "./Navbar.jsx";
 const BannerOnlyHome = () => {
     return (
         <div className="banner-container">
+            <div className="banner-overlay"></div>
             <img src={LibrosMejor} alt="BannerOnlyHome" className="banner-image-only-home" />
             <div className="bannerHome-text">
                 <h2><strong>HooBoo</strong> </h2>
