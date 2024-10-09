@@ -713,7 +713,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             traerLibrosRomance: async () => {
                 try {
-                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:romance&maxResults=20&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:romance&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -740,7 +740,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             traerLibrosAccion: async () => {
                 try {
-                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:accion&maxResults=20&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:accion&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -767,7 +767,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             traerLibrosFantasia: async () => {
                 try {
-                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:fantasy&maxResults=20&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:fantasy&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -793,7 +793,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             traerLibrosThriller: async () => {
                 try {
-                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:thriller&maxResults=20&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
+                    const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:thriller&maxResults=40&key=AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg", {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -929,7 +929,34 @@ const getState = ({ getStore, getActions, setStore }) => {
                     console.error("Error al obtener los datos del usuario:", error);
                     return { error: error.message };
                 }
-            }
+            },
+            obtenerCalificacion: async (rating) => {
+                const token = localStorage.getItem("jwt-token");
+                if (!token) {
+                    console.error("No estás autenticado");
+                    return;
+                }
+
+                try {
+                    const res = await fetch(`${process.env.BACKEND_URL}/api/rating`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${token}`,
+                        },
+                        body: JSON.stringify({ rating }),
+                    });
+
+                    if (!res.ok) {
+                        throw new Error("Error al enviar la calificación");
+                    }
+
+                    const data = await res.json();
+                    console.log("Calificación enviada con éxito:", data);
+                } catch (error) {
+                    console.error("Error al enviar la calificación:", error);
+                }
+            },
         }
     };
 };

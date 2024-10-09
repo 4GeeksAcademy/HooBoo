@@ -19,6 +19,7 @@
 }
 .section {
   text-align: left;
+  margin-bottom: 15px;
 }
 .icon {
   font-size: 24px;
@@ -119,4 +120,9 @@
     justify-content: center;
     gap: 15px;
   }
+}
+
+.quitar-espacios-footer p {
+  margin: 0; /* Elimina los márgenes entre los párrafos */
+  padding: 0; /* Opcional: Elimina cualquier padding si es necesario */
 }

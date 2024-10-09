@@ -10,6 +10,7 @@ class User(db.Model):
     password = db.Column(db.String(250), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     profile_pic = db.Column(db.String(500), nullable=True)
+    rating = db.Column(db.Float, nullable=True)
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -20,6 +21,7 @@ class User(db.Model):
             "email": self.email,
             "username": self.username, 
             "profile_pic": self.profile_pic,
+            "rating": self.rating
         }
 
 class Book(db.Model):

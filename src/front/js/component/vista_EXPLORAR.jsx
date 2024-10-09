@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react"; // Importa useEffect
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import BookCard from "./BookCard.jsx";
 import "../../styles/BookCard.css";
@@ -31,8 +31,8 @@ const VistaExplorar = () => {
                 if (window.Chatra) {
                     // Ajusta las dimensiones de la ventana del chat
                     window.Chatra('set', 'widgetSize', {
-                        width: '600px', // Cambia este valor a tu medida deseada
-                        height: '800px' // Cambia este valor a tu medida deseada
+                        width: '200px', // Cambia este valor a tu medida deseada
+                        height: '400px' // Cambia este valor a tu medida deseada
                     });
                 }
             };
@@ -107,7 +107,6 @@ const VistaExplorar = () => {
                     )}
                 </div>
             )}
-
             <Footercolapsado />
         </>
     );
