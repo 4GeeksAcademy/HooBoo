@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
+import Swal from 'sweetalert2';
 import "../../styles/BookCard.css";
-
 
 const BookCard = ({ book }) => {
     const navigate = useNavigate();
@@ -13,17 +13,43 @@ const BookCard = ({ book }) => {
     const title = book.volumeInfo.title || "Título no disponible";
     const [isFavorite, setIsFavorite] = useState(store.favorites.some(fav => fav.id === book.id));
 
+    const showLoginAlert = () => {
+        Swal.fire({
+            title: 'Acceso requerido',
+            text: 'Para agregar a favoritos o ver la información del libro, debes registrarte o iniciar sesión.',
+            icon: 'error',
+            confirmButtonText: 'Iniciar sesión',
+            cancelButtonText: 'Cancelar',
+            showCancelButton: true,
+            confirmButtonColor: '#7029ab',
+            cancelButtonColor: '#7029ab',
+            background: 'whitesmoke',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                navigate('/login');
+            }
+        });
+    };
+
     const handleFavoriteClick = () => {
-        if (isFavorite) {
-            actions.removeFavoritos(book); 
+        if (!store.user || Object.keys(store.user).length === 0) {
+            showLoginAlert();
         } else {
-            actions.addFavoritos(book); 
+            if (isFavorite) {
+                actions.removeFavoritos(book);
+            } else {
+                actions.addFavoritos(book);
+            }
+            setIsFavorite(!isFavorite);
         }
-        setIsFavorite(!isFavorite);
     };
 
     const handleInfoClick = () => {
-        navigate(`/book/${book.id}`);
+        if (!store.user || Object.keys(store.user).length === 0) {
+            showLoginAlert();
+        } else {
+            navigate(`/book/${book.id}`);
+        }
     };
 
     return (
@@ -36,7 +62,12 @@ const BookCard = ({ book }) => {
                     title="Agregar a Favoritos"
                     onClick={handleFavoriteClick}
                 />
-                <FontAwesomeIcon icon={faInfoCircle} className="icon-book info-icon" title="Más Información" onClick={handleInfoClick} />
+                <FontAwesomeIcon
+                    icon={faInfoCircle}
+                    className="icon-book info-icon"
+                    title="Más Información"
+                    onClick={handleInfoClick}
+                />
             </div>
             <div className="book-title">{title}</div>
         </div>
