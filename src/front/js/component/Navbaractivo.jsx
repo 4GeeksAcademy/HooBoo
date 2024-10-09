@@ -20,6 +20,11 @@ const Navbaractivo = () => {
         navigate("/vistaexplorar");
     };
 
+    const handleLogout = () => {
+        actions.cerrarSesion();  // Llama a la función cerrarSesion del Flux
+        navigate("/");  // Redirige al usuario a la página de inicio
+    };
+
     const toggleSidebar = () => {
         setSidebarActive(!isSidebarActive); // Alterna el estado del sidebar
     };
@@ -70,9 +75,9 @@ const Navbaractivo = () => {
                 </div>
 
                 <div className="logout">
-                    <Link to="/" className="logout-btn">
+                    <button className="logout-btn" onClick={handleLogout}>
                         <FaSignOutAlt /> Cerrar sesión
-                    </Link>
+                    </button>
                 </div>
             </nav>
         </>
