@@ -96,16 +96,16 @@
     .btn-signup,
     .btn-explorar,
     .btn-logo {
-        min-width: 8vw;  
-        height: 8vh;
-        font-size: 0.8rem;
-        border: 0.15rem solid #7029ab;
-        margin-right: 0.5vw;
+        width: 20vw; 
+        height: 6vh;
+        font-size: 1rem; 
+        border: 0.2rem solid #7029ab;
+        margin-right: 1vw;
     }
 
     .btn-logo {
-        width: 20vw; 
-        height: 20vw; 
+        width: 15vw; 
+        height: 15vw; 
     }
 }
 

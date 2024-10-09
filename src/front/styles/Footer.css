@@ -1,7 +1,7 @@
 .footer {
   background-color: #222;
   color: #fff;
-  padding: 20px 40px 0 40px;
+  padding: 10px 40px 0 40px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -19,7 +19,9 @@
 }
 .section {
   text-align: left;
+  margin-bottom: 20px;
 }
+
 .icon {
   font-size: 24px;
   cursor: pointer;
@@ -80,7 +82,7 @@
 }
 .rating-text {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 0;
 }
 .rating-text p {
   margin: 0;
@@ -119,4 +121,10 @@
     justify-content: center;
     gap: 15px;
   }
+}
+
+.quitar-espacios-footer p {
+  margin: 0; /* Elimina los márgenes entre los párrafos */
+  padding: 0; /* Opcional: Elimina cualquier padding si es necesario */
+  color: white;
 }

@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import BookCard from "./BookCard.jsx";
-import Footercolapsado from "./Footercolapsado.jsx";
-import Navbar from './Navbar.jsx';
-import BannerOnlyHome from "./BannerOnlyHome.jsx"; // Mantener el banner
+import Footer from "../component/Footer.jsx";
+import Navbar from './Navbar.jsx'; 
+import BannerOnlyHome from "./BannerOnlyHome.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/buscador_explorar.css";
@@ -75,7 +75,7 @@ const VistaInvitados = () => {
                 </div>
             )}
 
-            <Footercolapsado />
+            <Footer />
         </>
     );
 };

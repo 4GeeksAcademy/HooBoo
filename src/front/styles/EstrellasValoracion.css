@@ -16,9 +16,9 @@
   }
   
   .rating-text {
-    margin-top: 5px;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: bold;
     color: #fff;
     text-align: center;
+    margin-left: 10px;
   }

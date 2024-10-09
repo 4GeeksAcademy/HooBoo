@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import Navbaractivo from "../component/Navbaractivo.jsx";
 import Footercolapsado from "../component/Footercolapsado.jsx";
@@ -7,6 +7,13 @@ import "../../styles/Favoritos.css";
 
 const Favoritos = () => {
     const { store, actions } = useContext(Context);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!store.token) {
+            navigate("/");
+        }
+    }, [store.token, navigate]);
 
     const handleRemoveFavorito = (book) => {
         actions.removeFavoritos(book);

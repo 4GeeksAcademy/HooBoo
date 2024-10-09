@@ -1,29 +1,39 @@
+:root {
+    --primary-color: #cca1f7; 
+    --secondary-color: #a75df2;
+    --background-color: #f0f0f0;
+    --text-color: #555;
+    --card-background: #ffffff;
+    --shadow-color: rgba(135, 15, 165, 0.445);
+}
+
 .teamPage {
-    padding: 20px;
+    padding: 5vh 5vw; /* Espacio adicional para el banner */
     text-align: center;
-    background-color: #f9f9f9;
-    min-height: 200px;
+    background-color: var(--background-color);
+    margin-top: 20%;
 }
 
 .teamContainer {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
-    min-height: 200px;
+    justify-content: center;
+    gap: 2rem; 
+    max-width: 70%;
+    margin: auto;
 }
 
 .memberCard {
-    width: 280px;
+    flex: 1 1 45%; /* Dos tarjetas por fila (ajustable) */
+    max-width: 45%;
+    min-width: 280px; /* Asegura un ancho mínimo razonable */
+    background-color: var(--card-background);
     text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    min-height: auto; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    transition: transform 0.3s ease, height 0.8s ease-in-out;
-    overflow: hidden;
+    border: 1px solid var(--primary-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    transition: transform 0.3s ease;
 }
 
 .memberCard:hover {
@@ -34,61 +44,52 @@
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 h3 {
-    margin: 15px 0 5px 0;
-    font-size: 20px;
+    margin: 0.5rem 0;
+    font-size: 1.5rem; /* Tamaño de fuente relativo */
+    color: var(--secondary-color);
 }
 
 p {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #555;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin: 0.5rem 0;
 }
 
-/* Ajustes para pantallas pequeñas (tabletas y móviles) */
+/* Breakpoint para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
     .teamContainer {
         flex-direction: column;
-        align-items: center;
     }
 
     .memberCard {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .memberImage {
-        height: 300px;
+        flex: 1 1 100%; /* Una tarjeta por fila */
+        max-width: 90%; /* Reduce el ancho en dispositivos pequeños */
+        margin: auto; /* Centra la tarjeta */
     }
 }
 
-/* Breakpoint para pantallas medianas (tabletas horizontales) */
-@media (max-width: 1024px) {
+/* Breakpoint para pantallas medianas (tabletas) */
+@media (min-width: 769px) and (max-width: 1024px) {
     .memberCard {
-        width: 100%;
-        max-width: 350px;
-    }
-
-    .memberImage {
-        height: 350px; 
+        flex: 1 1 45%; /* Mantiene dos tarjetas por fila */
+        max-width: 45%;
     }
 }
 
 /* Breakpoint para pantallas grandes (escritorios grandes) */
-@media (min-width: 1200px) {
+@media (min-width: 1025px) {
     .teamContainer {
-        max-width: 1200px;
+        max-width: 1200px; /* Limita el ancho máximo del contenedor */
         margin: 0 auto;
     }
 
     .memberCard {
-        width: calc(33.33% - 20px);
-    }
-
-    .memberImage {
-        height: 400px;
+        flex: 1 1 22%; /* Cuatro tarjetas por fila para pantallas grandes */
+        max-width: 22%;
     }
 }
