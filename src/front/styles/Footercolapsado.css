@@ -33,7 +33,7 @@
 }
 
 .footer-container.visible {
-    height: 14%; /* Se expande hacia arriba */
+    height: 16%; /* Se expande hacia arriba */
     bottom: 0; /* Mantiene el contenedor en la parte inferior */
 }
 
