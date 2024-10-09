@@ -841,6 +841,13 @@ const getState = ({ getStore, getActions, setStore }) => {
             cerrarSesion: () => {
                 localStorage.removeItem("jwt-token");
                 setStore({ token: null });
+                if (window.Chatra) {
+                    window.Chatra('shutdown');  // Apaga el widget de Chatra
+                    window.Chatra('hide');      // Oculta el widget visualmente
+                    console.log("Chatra apagado y ocultado");
+                } else {
+                    console.log("Chatra no está disponible");
+                }
                 console.log("Usuario deslogueado");
             },
             addFavoritos: (book) => {
