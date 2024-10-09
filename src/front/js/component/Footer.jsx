@@ -8,7 +8,6 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import "../../styles/Footer.css";
 
 const Footer = () => {
-  const [showEmail, setShowEmail] = useState(false);
   const [showTeamPage, setShowTeamPage] = useState(false);
   const { store, actions } = useContext(Context);
   const rating = 4.5;
@@ -48,10 +47,9 @@ const Footer = () => {
             </h4>
           </div>
           <div className="section">
-            <h4 onClick={() => setShowEmail(!showEmail)}>
+            <h4 >
               Contacto
             </h4>
-            {showEmail && 
             <div className="quitar-espacios-footer">
               <p>
                 <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '8px', color: 'white' }} /> {/* Icono de Mensaje */}
@@ -66,7 +64,6 @@ const Footer = () => {
                 +34 641 99 2406
               </p>
             </div>
-            }
           </div>
           <div className="section">
             <h4>Servicios</h4>

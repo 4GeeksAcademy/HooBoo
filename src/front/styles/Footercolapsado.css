@@ -1,8 +1,8 @@
 .footer-colapsado {
     position: fixed;
-    bottom: 10px;
-    right: 10px;
-    z-index: 100;
+    bottom: 1px;
+    left: 50%;
+    z-index: 10000;
 }
 .question-icon {
     cursor: pointer;
@@ -18,16 +18,25 @@
 .question-icon:hover {
     background-color: #555;
 }
+
 .footer-container {
     position: fixed;
     bottom: 0;
-    right: 0; /* Alinea el contenedor del footer a la izquierda */
-    width: 0; /* Inicialmente colapsado */
-    background-color: #F00D0D; /* Color de fondo del footer */
-    z-index: 99; /* Debajo del icono */
-    transition: width 0.5s ease; /* Transición para efecto de despliegue */
+    right: -44%;  /* Centra el contenedor horizontalmente */
+    transform: translateX(-50%); /* Alinea el contenedor al centro */
+    height: 0; /* Inicialmente colapsado */
+    background-color: #000000; /* Color de fondo del footer */
+    z-index: 9999; /* Debajo del icono */
+    transition: height 0.5s ease; /* Transición para efecto de despliegue */
     overflow: hidden; /* Oculta el contenido sobrante */
+    width: 86%;
 }
+
 .footer-container.visible {
-    width: 85%; /* Se expande hacia la izquierda */
+    height: 14%; /* Se expande hacia arriba */
+    bottom: 0; /* Mantiene el contenedor en la parte inferior */
+}
+
+.icon-white {
+    color: white; /* Establece el color blanco */
 }

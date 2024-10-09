@@ -107,7 +107,6 @@ const VistaExplorar = () => {
                     )}
                 </div>
             )}
-
             <Footercolapsado />
         </>
     );
