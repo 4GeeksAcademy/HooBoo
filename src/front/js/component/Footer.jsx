@@ -48,6 +48,14 @@ const Footer = () => {
             <h4 onClick={() => setShowTeamPage(!showTeamPage)}>
               Acerca de Nosotros
             </h4>
+            <div className="quitar-espacios-footer">
+              <p>
+                ~ Conoce a Nuestro Equipo.
+              </p>
+              <p>
+                ~ A que Nos Dedicamos.
+              </p>
+            </div>
             {showTeamPage && <AcercaDeNosotros isActive={showTeamPage} />}
           </div>
 
@@ -73,6 +81,17 @@ const Footer = () => {
 
           <div className="section">
             <h4>Servicios</h4>
+            <div className="quitar-espacios-footer">
+              <p>
+                ~ Recomendación De Libros.
+              </p>
+              <p>
+                ~ Soporte:
+              </p>
+              <p>
+                de Lunes a Viernes de 10:00 AM a 7:00 PM.
+              </p>
+            </div>
             {/* Aquí puedes añadir más detalles sobre los servicios */}
           </div>
 
