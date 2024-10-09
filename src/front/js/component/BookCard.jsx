@@ -13,12 +13,16 @@ const BookCard = ({ book }) => {
     const [isFavorite, setIsFavorite] = useState(store.favorites.some(fav => fav.id === book.id));
 
     const handleFavoriteClick = () => {
-        if (isFavorite) {
-            actions.removeFavoritos(book); 
+        if (!store.user || Object.keys(store.user).length === 0) {
+            alert("Para agregar libros a favoritos, debes registrarte o iniciar sesión.");
         } else {
-            actions.addFavoritos(book); 
+            if (isFavorite) {
+                actions.removeFavoritos(book);
+            } else {
+                actions.addFavoritos(book);
+            }
+            setIsFavorite(!isFavorite);
         }
-        setIsFavorite(!isFavorite);
     };
 
     const handleInfoClick = () => {
