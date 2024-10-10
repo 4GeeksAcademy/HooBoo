@@ -1,30 +1,35 @@
 import React from 'react';
 import '../../styles/acercaDeNosotros.css';
+import luisImage from '../../img/Luis.png';
+import marianaImage from '../../img/Mariana.png';
+import patriciaImage from '../../img/Patricia.png';
+import raulImage from '../../img/Raul.png';
+
 
 const AcercaDeNosotros = ({ isActive }) => {
   const teamMembers = [
     {
       name: 'Patricia',
       role: 'Project Manager',
-      image: 'https://via.placeholder.com/150',
+      image: patriciaImage,
       description: 'Patricia fue la que propuso la idea del proyecto de hacer esta librería online.',
     },
     {
       name: 'Mariana',
       role: 'Especialista en Frontend',
-      image: 'https://via.placeholder.com/150',
+      image: marianaImage,
       description: 'Mariana ha sido la encargada del backend.',
     },
     {
       name: 'Luis',
       role: 'Encargado de Backend y Frontend',
-      image: 'https://via.placeholder.com/150',
+      image: luisImage,
       description: 'Luis se ha encargado del backend y front.',
     },
     {
       name: 'Raúl',
       role: 'Encargado del Frontend',
-      image: 'https://via.placeholder.com/150',
+      image: raulImage,
       description: 'Raúl ha hecho el frontend.',
     },
   ];
