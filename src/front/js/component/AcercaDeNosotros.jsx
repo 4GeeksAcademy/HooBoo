@@ -35,7 +35,7 @@ const AcercaDeNosotros = ({ isActive }) => {
       name: 'Raúl',
       role: 'Encargado del Frontend',
       image: raulImage,
-      description: 'Nacido en Madrid, Raúl siempre ha sido un apasionado de la informática, ya desde pequeño ha estado trasteando con el ordenador ya sea para descubrir nuevos programas y aprender, como modear juegos como por ejemplo Skyrim. Todo esas horas al ordenador le ha llevado a aprender programación y a día de hoy se especializa en frontend aunque con el tiempo y práctica aprenderá sobre backend mucho más también.',
+      description: 'Nacido en Madrid, Raúl siempre ha sido un apasionado de la informática y de los videojuegos, ya desde pequeño ha estado trasteando con el ordenador ya sea para descubrir nuevos programas y aprender, como modear juegos como por ejemplo Skyrim. Todo esas horas al ordenador le ha llevado a aprender programación y a día de hoy se especializa en frontend aunque con el tiempo y práctica también amplíe sus conocimientos para el desarrollo de videojuegos.',
     },
   ];
 
