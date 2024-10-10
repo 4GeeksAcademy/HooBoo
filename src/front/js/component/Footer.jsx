@@ -77,6 +77,22 @@ const Footer = () => {
             </div>
           </div>
 
+          <div className="section">
+            <h4>Servicios</h4>
+            <div className="quitar-espacios-footer">
+              <p>
+                ~ Recomendación De Libros.
+              </p>
+              <p>
+                ~ Soporte:
+              </p>
+              <p>
+                de Lunes a Viernes de 10:00 AM a 7:00 PM.
+              </p>
+            </div>
+            {/* Aquí puedes añadir más detalles sobre los servicios */}
+          </div>
+
           <div className="section rating">
             <EstrellasValoracion
               rating={rating}
