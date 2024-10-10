@@ -35,13 +35,14 @@
     border: 1px solid var(--primary-color);
     border-radius: 1rem;
     padding: 1.5rem;
-    box-shadow: 0 4px 10px var(--shadow-color);
+    
     transition: transform 0.3s ease;
     margin-top: 1%;
+    font-family: 'Special Elite', cursive;
 }
 
 .memberCard:hover {
-    transform: scale(1.05);
+    box-shadow: 0 4px 10px var(--shadow-color);
 }
 
 .memberImage {
@@ -140,7 +141,7 @@ p {
 
   .diseño-deestetitulo {
     font-family: 'Special Elite', cursive;
-    color: #a75df2;
+    color: #7029ab;
     font-weight: bold;
   }
 

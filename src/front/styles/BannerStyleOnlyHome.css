@@ -16,7 +16,7 @@
     left: 15%;
     margin-left: 1vw;
     transform: translate(-50%, -50%);
-    color:  #a75df2;
+    color: black;
     /* color: rgba(0, 0, 0, 0.603); */
     text-align: center;
     font-family: 'Special Elite', cursive;
@@ -41,7 +41,7 @@ h2 {
     margin: 0;
     font-size: 3vw; 
     margin-top: -2vw;
-    color:  #a75df2;
+    color:  black;
 }
 
 

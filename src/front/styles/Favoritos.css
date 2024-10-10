@@ -94,8 +94,9 @@
 }
 
 .favorite-active {
-    color: red;
+    color: #d14fff;
 }
+
 
 .trash-iicon {
     position: absolute;
