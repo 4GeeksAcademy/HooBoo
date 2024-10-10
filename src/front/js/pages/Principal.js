@@ -48,7 +48,9 @@ const Principal = () => {
                         }
                     } else {
                         const booksData = await response.json();
-                        gotBooksFromApi[genre] = shuffleArray(booksData.items || []);
+                        const booksWithImages = booksData.items?.filter(book => book.volumeInfo.imageLinks?.thumbnail) || []
+                        gotBooksFromApi[genre] = shuffleArray(booksWithImages);
+                        
                     }
                 }
                 setBooks(gotBooksFromApi);
