@@ -10,7 +10,7 @@
 }
 
 .titulo_principalproyecto {
-    font-size: 3vw;
+    font-size: 2.7vw;
     font-weight: bold;
     color: #333;
     margin-top: 13vw;
@@ -110,7 +110,7 @@
 
 .indicator.active {
     background-color: #bc82eb;
-    border: 4px solid #8a48b7;
+    border: 3px solid #8a48b7;
 }
 
 .indicator:hover {
