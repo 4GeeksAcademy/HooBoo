@@ -35,7 +35,7 @@ const AcercaDeNosotros = ({ isActive }) => {
       name: 'Raúl Santana Castilla',
       role: 'Encargado del Frontend',
       image: raulImage,
-      description: "Aficionado a los videojuegos y la informática, Raúl es un miembro comprometido que escucha a sus compañeros, aportando siempre su actitud positiva y disposición para adaptarse a las decisiones del equipo. Cabe destacar su capacidad para amoldarse y seguir adelante. Raúl acepta cualquier tarea con entusiasmo, esforzándose siempre por dar lo mejor de sí mismo. Su mejora constante es evidente y refleja el gran empeño que pone en crecer y contribuir al proyecto.",
+      description: "Aficionado a los videojuegos y la informática, Raúl es un miembro comprometido que escucha a sus compañeros, aportando siempre su actitud positiva y disposición para adaptarse a las decisiones del equipo. En lo que se ha especializado en este proyecto ha sido en el frontend. Raúl acepta cualquier tarea con entusiasmo, esforzándose siempre por dar lo mejor de sí mismo. Su mejora constante es evidente y refleja el gran empeño que pone en crecer y contribuir al proyecto.",
     },
   ];
 
