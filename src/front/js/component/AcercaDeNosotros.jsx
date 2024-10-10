@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../../styles/acercaDeNosotros.css';
 import luisImage from '../../img/Luis.png';
 import marianaImage from '../../img/Mariana.png';
 import patriciaImage from '../../img/Patricia.png';
 import raulImage from '../../img/Raul.png';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Context } from "../store/appContext"; 
 
 
 const AcercaDeNosotros = ({ isActive }) => {
+  const { store } = useContext(Context);  // Usar el contexto para acceder al estado de autenticación
+  const navigate = useNavigate();  // Para redirigir programáticamente
+
   const teamMembers = [
     {
       name: 'Patricia',
@@ -25,7 +29,7 @@ const AcercaDeNosotros = ({ isActive }) => {
       name: 'Luis Castilla',
       role: 'Encargado de Backend y Frontend',
       image: luisImage,
-      description: 'Luis Castilla es un profesional colombiano de 30 años, actualmente residiendo en España. Con una pasión por la tecnología y el desarrollo de software, ha dedicado su carrera a la creación de soluciones innovadoras tanto en el ámbito del backend como en el frontend. Apasionado por aprender y adaptarse a nuevas tecnologías, su objetivo es seguir creciendo en el mundo de la programación mientras disfruta de la vida en un nuevo país. le encanta trabajar en equipo, compartir conocimientos y siempre busca nuevos retos que impulsen su desarrollo personal y profesional.',
+      description: 'Es un profesional colombiano de 30 años, actualmente residiendo en España. Con una pasión por la tecnología y el desarrollo de software, ha dedicado su carrera a la creación de soluciones innovadoras tanto en el ámbito del backend como en el frontend. Apasionado por aprender y adaptarse a nuevas tecnologías, su objetivo es seguir creciendo en el mundo de la programación mientras disfruta de la vida en un nuevo país. le encanta trabajar en equipo, compartir conocimientos y siempre busca nuevos retos que impulsen su desarrollo personal y profesional.',
     },
     {
       name: 'Raúl',
@@ -35,6 +39,13 @@ const AcercaDeNosotros = ({ isActive }) => {
     },
   ];
 
+  const handleBackClick = () => {
+    if (store.token) {  // Verificamos si el token existe en el store de Flux
+      navigate('/vistaexplorar');  // Si el token existe, redirigimos a /vistaexplorar
+    } else {
+      navigate('/');  // Si no hay token, redirigimos a la página de inicio
+    }
+  };
   return (
     <div className={`teamPage ${isActive ? 'active' : ''}`}>
       <h1 className='diseño-deestetitulo'>Conoce a Nuestro Equipo</h1>
@@ -49,7 +60,7 @@ const AcercaDeNosotros = ({ isActive }) => {
         ))}
       </div>
       <div className="backButtonContainer">
-        <Link to="/" className="backButton">Volver</Link>
+        <button onClick={handleBackClick} className="backButton">Volver</button> {/* Cambiamos Link por button */}
       </div>
     </div>
   );
