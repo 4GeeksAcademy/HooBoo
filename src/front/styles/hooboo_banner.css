@@ -5,78 +5,117 @@
     margin: 0 20px;
 }
 
-.navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1%;
-    background-size: 20px 20px;
-    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+.banner-containerHooBoo {
     position: relative;
     width: 100%;
-    top: 6em;
-    z-index: 100;
-    font-family: "IBM Plex Mono", monospace;
-    margin-top: 0;
-    position: fixed;
-    background: white;
+    height: 30vh; 
+    overflow: hidden;
 }
 
-
-@media (max-width: 768px) {
-    .header-text {
-        font-size: 5vw;
-    }
-
-    .navbar-container {
-        top: 8em;
-        padding: 0.5rem;
-    }
-
-    .btn-login,
-    .btn-signup,
-    .btn-explorar,
-    .btn-logo {
-        width: 30vw;
-        height: 5vh;
-        font-size: 0.9rem;
-        border: 0.2rem solid #7029ab;
-        margin-right: 2vw;
-    }
-}
-
-@media (max-width: 480px) {
-    .header-text {
-        font-size: 7vw;
-    }
-
-    .navbar-container {
-        top: 9em;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0.5rem 1rem;
-    }
-
-    .btn-login,
-    .btn-signup,
-    .btn-explorar,
-    .btn-logo {
-        width: 80vw;
-        height: 8vh;
-        font-size: 1rem;
-        margin-bottom: 10px;
-    }
-}
-
-/* .headerfondo {
-    background-color: rgb(255, 255, 255);
+.banner-containerHooBoo::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    position: fixed;
-    width: 100%;
-    height: 7em;
-    position: fixed;
+    height: 100%;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0)); 
+    z-index: 1;
+}
+
+.banner-overlay {
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 100;
-    box-sizing: border-box;
-} */
+    width: 100%;
+    height: 100%;
+    background: rgba(245, 244, 244, 0.486); 
+    z-index: 2;
+}
+
+.banner-image-HooBoo {
+    width: 100vw;
+    height: 30vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.bannerHooboo-text {
+    position: absolute;
+    top: 50%;
+    right: 5%; 
+    transform: translate(0, -50%); 
+    text-align: right; 
+    z-index: 3; 
+    font-family: 'Special Elite', cursive;
+    white-space: nowrap;
+}
+
+.textHooBOObanner {
+    font-size: 7vw;
+    font-family: 'Special Elite', cursive;
+    color:  #a75df2 !important; 
+  
+}
+
+.sloganTextHooboo {
+    font-size: 3vw;
+    margin-top: -4vw; 
+    color: #a75df2 !important; 
+   
+}
+
+.content-section {
+    background-color: white; 
+    padding: 20px; 
+    margin-top: -30px; 
+    z-index: 0; 
+    position: relative; 
+}
+
+body {
+    margin: 0; 
+}
+
+/* Ajustes para tabletas */
+@media (max-width: 768px) {
+    .bannerHooboo-text {
+        top: 50%;
+        right: 5%;
+        transform: translate(0, -50%);
+        font-size: 4rem;
+        text-align: right;
+    }
+    
+    .textHooBOObanner {
+        font-size: 7vw;
+    }
+    
+    .sloganTextHooboo {
+        font-size: 4vw;
+        margin-top: 1vw;
+    }
+}
+
+/* Ajustes para teléfonos móviles */
+@media (max-width: 480px) {
+    .bannerHooboo-text {
+        top: 50%;
+        right: 5%;
+        transform: translate(0, -50%);
+        font-size: 3rem;
+        text-align: right;
+    }
+    
+    .textHooBOObanner {
+        font-size: 8vw;
+    }
+    
+    .sloganTextHooboo {
+        font-size: 5vw;
+        margin-top: 2vw;
+    }
+}
