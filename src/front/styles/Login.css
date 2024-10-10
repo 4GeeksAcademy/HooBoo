@@ -121,8 +121,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #fffafa; /* Fondo claro */
+    height: 70vh;
+    /* background-color: #fffafa; */
+    background-color: #ebe8e80c;
 }
 
 @media (max-width: 600px) {

@@ -1,3 +1,8 @@
+body {
+    background-color: #ebe8e849;
+    z-index: 0;
+}
+
 .registro-form-container {
     background-color: #f0f0f0; /* Fondo gris claro que mantiene armonía */
     border-radius: 20px; /* Mismo redondeo de bordes que en otros componentes */
@@ -13,8 +18,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #fffafa; /* Mantener un fondo claro */
+    height: 70vh;
+    /* background-color: #fffafa;  */
+    background-color: #ebe8e80c;
 }
 
 .supertituloxm {
