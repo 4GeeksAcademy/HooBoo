@@ -10,7 +10,6 @@
 .teamPage {
     padding: 3vh 3vw; 
     text-align: center;
-    background-color: var(--background-color);
 }
 
 .teamPage.active {
@@ -56,7 +55,6 @@
 h3 {
     margin: 0.5rem 0;
     font-size: 1.5rem; 
-    color: var(--secondary-color);
 }
 
 p {

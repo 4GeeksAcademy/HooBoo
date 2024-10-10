@@ -12,14 +12,15 @@ import injectContext from "./store/appContext";
 import Favoritos from './pages/Favoritos.js';
 import RecuperarContraseña from "./component/recuperarcontraseña.jsx";
 import ResetPassword from "./pages/ResetPassword.js";
-import AcercaDeNosotros from "./component/AcercaDeNosotros.jsx"; // Importa el componente AcercaDeNosotros
+import AcercaDeNosotros from "./component/AcercaDeNosotros.jsx"; 
+import ColorFondo from "./component/Color_De_Fondo.jsx"; // Asegúrate de tener esta línea descomentada
 
 const AppContent = () => {
     const location = useLocation(); 
     const isHomePage = location.pathname === "/";
 
     return (
-        <div>
+        <ColorFondo> {/* Envuelve todo con ColorFondo */}
             <Routes>
                 <Route element={<Principal />} path="/" />
                 <Route element={<Login />} path="/Login" />
@@ -31,10 +32,10 @@ const AppContent = () => {
                 <Route element={<Favoritos />} path="/Favoritos" />
                 <Route element={<RecuperarContraseña />} path="/RecuperarContraseña" />
                 <Route element={<ResetPassword />} path="/reset-password/:id" />
-                <Route element={<AcercaDeNosotros />} path="/acerca-de-nosotros" /> {/* Nueva ruta para Acerca de Nosotros */}
-                <Route element={<h1>Not found!</h1>} path="*" /> {/* Ruta para manejar páginas no encontradas */}
+                <Route element={<AcercaDeNosotros />} path="/acerca-de-nosotros" />
+                <Route element={<h1>Not found!</h1>} path="*" />
             </Routes>
-        </div>
+        </ColorFondo>
     );
 };
 

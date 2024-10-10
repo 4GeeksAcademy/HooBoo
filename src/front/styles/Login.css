@@ -1,5 +1,5 @@
-.login-form-container {
-    background-color: #f0f0f0; 
+.login-form-container { 
+    background-color: #f0f0f0;
     border-radius: 20px; 
     padding: 20px;
     width: 320px;
@@ -122,7 +122,6 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #fffafa; /* Fondo claro */
 }
 
 @media (max-width: 600px) {

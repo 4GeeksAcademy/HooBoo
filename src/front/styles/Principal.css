@@ -1,5 +1,4 @@
 .bodyHome {
-    background-color: #f8f8f8; /* o el color que estés usando */
     z-index: 0; /* para que esté por debajo de todo el contenido */
 }
 
@@ -17,7 +16,6 @@
 
 .titulo_principalproyecto {
     font-size: 2vw;
-    color: #333;
     margin-top: 13vw;
     margin-bottom: 0;
 }

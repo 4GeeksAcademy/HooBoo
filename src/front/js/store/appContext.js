@@ -20,6 +20,12 @@ const injectContext = (PassedComponent) => {
       })
     );
 
+    const [backgroundColor, setBackgroundColor] = useState('#ffffff');
+
+    const toggleBackgroundColor = () => {
+      setBackgroundColor(prevColor => (prevColor === '#ffffff' ? '#000000' : '#ffffff'));
+    };
+
     useEffect(() => {
       state.actions.traerTodosLosLibros();
 
@@ -34,7 +40,7 @@ const injectContext = (PassedComponent) => {
     }, []);
 
     return (
-      <Context.Provider value={state}>
+      <Context.Provider value={{ ...state, backgroundColor, toggleBackgroundColor }}>
         <PassedComponent {...props} />
       </Context.Provider>
     );

@@ -13,8 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #fffafa; /* Mantener un fondo claro */
+    height: 100vh; /* Mantener un fondo claro */
 }
 
 .supertituloxm {

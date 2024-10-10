@@ -1,0 +1,36 @@
+/* colordefondo.css */
+
+.colorFondo {
+    min-height: 100vh; /* Altura mínima para el fondo */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para el color de fondo y el color del texto */
+    background-color: #ffffff; /* Color por defecto */
+    color: #000000; /* Color de texto por defecto (negro) */
+}
+
+.colorFondo.active {
+    background-color: #000000; /* Color negro cuando está activo */
+    color: #ffffff; /* Color blanco para el texto en fondo negro */
+}
+
+.colorSelector {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.colorButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100000;
+}
+
+.iconBlack {
+    color: #000000; /* Color negro para el icono del sol en fondo blanco */
+}
+
+.iconWhite {
+    color: #ffffff; /* Color blanco para el icono del sol en fondo negro */
+}

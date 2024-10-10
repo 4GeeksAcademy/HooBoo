@@ -1,6 +1,4 @@
 .vista-favoritos {
-
-    background-color: #f8f8f8;
     margin-left: 18%; 
     padding: 7rem 2rem; 
     transition: margin-left 0.3s ease;
@@ -12,7 +10,6 @@
     font-weight: bold;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    color: #000000;
 }
 
 .favoritos-list {
