@@ -32,10 +32,10 @@ const AcercaDeNosotros = ({ isActive }) => {
       description: 'Es un profesional colombiano de 30 años, actualmente residiendo en España. Con una pasión por la tecnología y el desarrollo de software, ha dedicado su carrera a la creación de soluciones innovadoras tanto en el ámbito del backend como en el frontend. Apasionado por aprender y adaptarse a nuevas tecnologías, su objetivo es seguir creciendo en el mundo de la programación mientras disfruta de la vida en un nuevo país. le encanta trabajar en equipo, compartir conocimientos y siempre busca nuevos retos que impulsen su desarrollo personal y profesional.',
     },
     {
-      name: 'Raúl',
+      name: 'Raúl Santana Castilla',
       role: 'Encargado del Frontend',
       image: raulImage,
-      description: "Raúl es un miembro comprometido que escucha a sus compañeros, aportando siempre su actitud positiva y disposición para adaptarse a las decisiones del equipo. Cabe destacar su capacidad para amoldarse y seguir adelante. Raúl acepta cualquier tarea con entusiasmo, esforzándose siempre por dar lo mejor de sí mismo. Su mejora constante es evidente y refleja el gran empeño que pone en crecer y contribuir al proyecto.",
+      description: "Aficionado a los videojuegos y la informática, Raúl es un miembro comprometido que escucha a sus compañeros, aportando siempre su actitud positiva y disposición para adaptarse a las decisiones del equipo. Cabe destacar su capacidad para amoldarse y seguir adelante. Raúl acepta cualquier tarea con entusiasmo, esforzándose siempre por dar lo mejor de sí mismo. Su mejora constante es evidente y refleja el gran empeño que pone en crecer y contribuir al proyecto.",
     },
   ];
 
