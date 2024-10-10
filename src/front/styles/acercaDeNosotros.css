@@ -126,7 +126,9 @@ p {
   }
   
   .backButton:hover {
-    background-color: #5a2387; /* Color de fondo al pasar el ratón */
+    background-color: #5a2387; 
+    color: white;
+    box-shadow: 0 4px 10px var(--shadow-color);
   }
 
   .negrita-paralosrole {
