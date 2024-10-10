@@ -5,12 +5,19 @@
   align-items: flex-start;
   padding: 40px;
   gap: 40px;
-  max-width: 1000px;
+  max-width: 1000px; /* Asegúrate de que este valor se ajuste a tu diseño */
   border: 1px solid #cca1f7; 
-  margin: auto;
   background-color: #f0f0f0; 
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445); 
+}
+
+.centradito_todo {
+  display: flex; /* Flex para centrar */
+  flex-direction: column; /* Coloca los elementos en columna */
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente si es posible */
+  height: 100vh; /* Para que ocupe toda la altura */
 }
 
 .profile-pic-section {
@@ -21,7 +28,7 @@
 .profile-pic-box {
   width: 300px;
   height: 300px;
-  border: 2px solid #cca1f7; 
+  border: 2px solid #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,8 +53,7 @@
   display: block;
   margin-bottom: 8px;
   font-size: 16px;
-  color: #555; 
-  font-family: "IBM Plex Mono", monospace; 
+  color: black;
 }
 
 .dit-form-group input {
@@ -96,6 +102,7 @@
   font-size: 16px;
   width: 200px;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-left: 20px;
 }
 
 .edit-cancel-button:hover {
@@ -103,11 +110,12 @@
 }
 
 .nombre-editar-perfil {
-  margin-top: 18vh;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   color: #7029ab; 
-  text-align: center;
+  text-align: center; /* Centra el texto */
+  margin-bottom: 20px; /* Espacio entre el título y el contenedor del formulario */
+  font-family: 'Special Elite', cursive;
 }
 
 
@@ -185,6 +193,7 @@
   display: block; /* Hace que el título se comporte como un bloque */
   text-align: center; /* Centra el texto del título */
   margin-bottom: 10px; /* Espacio debajo del título */
+  color: black;
 }
 
 .selected-avatar {

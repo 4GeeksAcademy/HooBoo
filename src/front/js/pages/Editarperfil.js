@@ -92,74 +92,76 @@ const Editarperfil = () => {
     return (
         <div>
             <Navbaractivo />
-            <h2 className="nombre-editar-perfil">Editar Perfil</h2>
-            <div className="edit-form-container">
-            <div className="profile-pic-section">
-                    <h3 className="titulito-avataress">Selecciona tu Avatar</h3>
-                    {selectedAvatar && (
-                        <img src={selectedAvatar} alt="Avatar Seleccionado" className="selected-avatar" />
-                    )}
-                    <div className="avatar-selection">
-                        {[avatar1, avatar2, avatar3, avatar4].map((avatar, index) => (
-                            <div key={index} className="avatar-option" onClick={() => handleAvatarSelect(avatar)}>
-                                <img
-                                    src={avatar}
-                                    alt={`Avatar ${index + 1}`}
-                                    className={`avatar-image ${selectedAvatar === avatar ? "selected" : ""}`} // Añade clase seleccionada
+            <div className='centradito_todo'>
+                <h2 className="nombre-editar-perfil">Editar Perfil</h2>
+                <div className="edit-form-container">
+                    <div className="profile-pic-section">
+                        <h3 className="titulito-avataress">Selecciona tu Avatar</h3>
+                        {selectedAvatar && (
+                            <img src={selectedAvatar} alt="Avatar Seleccionado" className="selected-avatar" />
+                        )}
+                        <div className="avatar-selection">
+                            {[avatar1, avatar2, avatar3, avatar4].map((avatar, index) => (
+                                <div key={index} className="avatar-option" onClick={() => handleAvatarSelect(avatar)}>
+                                    <img
+                                        src={avatar}
+                                        alt={`Avatar ${index + 1}`}
+                                        className={`avatar-image ${selectedAvatar === avatar ? "selected" : ""}`} // Añade clase seleccionada
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="profile-edit-section">
+                        <form onSubmit={handleSaveChanges}>
+                            <div className="dit-form-group">
+                                <label htmlFor="username">Editar nombre de usuario</label>
+                                <input
+                                    type="text"
+                                    id="username"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                    placeholder="Nombre de usuario"
+                                    required
                                 />
                             </div>
-                        ))}
-                    </div>
-                </div>
 
-                <div className="profile-edit-section">
-                    <form onSubmit={handleSaveChanges}>
-                        <div className="dit-form-group">
-                            <label htmlFor="username">Editar nombre de usuario</label>
-                            <input
-                                type="text"
-                                id="username"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                placeholder="Nombre de usuario"
-                                required
-                            />
-                        </div>
+                            <div className="dit-form-group">
+                                <label htmlFor="email">Editar correo electrónico</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Correo electrónico"
+                                    required
+                                />
+                            </div>
 
-                        <div className="dit-form-group">
-                            <label htmlFor="email">Editar correo electrónico</label>
-                            <input
-                                type="email"
-                                id="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Correo electrónico"
-                                required
-                            />
-                        </div>
+                            <div className="dit-form-group">
+                                <label htmlFor="password">Cambiar contraseña</label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    placeholder="Nueva contraseña"
+                                />
+                            </div>
 
-                        <div className="dit-form-group">
-                            <label htmlFor="password">Cambiar contraseña</label>
-                            <input
-                                type="password"
-                                id="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder="Nueva contraseña"
-                            />
-                        </div>
-
-                        <div className="button-group">
-                            <button type="submit" className="edit-save-button">
-                                Guardar cambios
-                            </button>
-                            <Link to="/vistaexplorar">
-                                <button type="button" className="edit-cancel-button">
-                                    Cancelar
+                            <div className="button-group">
+                                <button type="submit" className="edit-save-button">
+                                    Guardar cambios
                                 </button>
-                            </Link>
-                        </div>
-                    </form>
+                                <Link to="/vistaexplorar">
+                                    <button type="button" className="edit-cancel-button">
+                                        Cancelar
+                                    </button>
+                                </Link>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <Footercolapsado />

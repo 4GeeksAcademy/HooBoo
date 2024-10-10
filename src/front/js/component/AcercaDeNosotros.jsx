@@ -54,8 +54,8 @@ const AcercaDeNosotros = ({ isActive }) => {
           <div key={index} className='memberCard'>
             <img src={member.image} alt={member.name} className='memberImage' />
             <h3 className='negrita-paralosrole'>{member.name}</h3>
-            <p className='negrita-paralosrole'>{member.role}</p>
-            <p>{member.description}</p>
+            <p className='negrita-paralosroles'>{member.role}</p>
+            <p className='color-letra'>{member.description}</p>
           </div>
         ))}
       </div>

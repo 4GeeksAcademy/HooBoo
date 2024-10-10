@@ -59,7 +59,6 @@ h3 {
 
 p {
     font-size: 1rem;
-    color: var(--text-color);
     margin: 0.5rem 0;
 }
 
@@ -129,12 +128,22 @@ p {
     box-shadow: 0 4px 10px var(--shadow-color);
   }
 
+  .negrita-paralosroles {
+    font-weight: bold;
+    color: black;
+  }
+
   .negrita-paralosrole {
     font-weight: bold;
+    color: #a75df2;
   }
 
   .diseño-deestetitulo {
     font-family: 'Special Elite', cursive;
     color: #a75df2;
     font-weight: bold;
+  }
+
+  .color-letra{
+    color: black;
   }

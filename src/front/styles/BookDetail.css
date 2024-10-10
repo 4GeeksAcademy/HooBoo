@@ -36,6 +36,10 @@
     overflow-y: auto;
 }
 
+.cuerpoDetalleTarjetaLibroMar p{
+    color: black;
+}
+
 .detalleLibroTituloMar {
     font-size: 1.25rem;
     font-family: 'Special Elite', cursive;
