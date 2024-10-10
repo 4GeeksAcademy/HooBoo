@@ -9,8 +9,8 @@ import { Context } from "../store/appContext";
 
 
 const AcercaDeNosotros = ({ isActive }) => {
-  const { store } = useContext(Context);  // Usar el contexto para acceder al estado de autenticación
-  const navigate = useNavigate();  // Para redirigir programáticamente
+  const { store } = useContext(Context);
+  const navigate = useNavigate();
 
   const teamMembers = [
     {
@@ -21,7 +21,7 @@ const AcercaDeNosotros = ({ isActive }) => {
     },
     {
       name: 'Mariana',
-      role: 'Especialista en Frontend',
+      role: 'Especialista en Backend',
       image: marianaImage,
       description: 'Mariana ha sido la encargada del backend.',
     },
@@ -40,10 +40,10 @@ const AcercaDeNosotros = ({ isActive }) => {
   ];
 
   const handleBackClick = () => {
-    if (store.token) {  // Verificamos si el token existe en el store de Flux
-      navigate('/vistaexplorar');  // Si el token existe, redirigimos a /vistaexplorar
+    if (store.token) {
+      navigate('/vistaexplorar');
     } else {
-      navigate('/');  // Si no hay token, redirigimos a la página de inicio
+      navigate('/');
     }
   };
   return (
@@ -60,7 +60,7 @@ const AcercaDeNosotros = ({ isActive }) => {
         ))}
       </div>
       <div className="backButtonContainer">
-        <button onClick={handleBackClick} className="backButton">Volver</button> {/* Cambiamos Link por button */}
+        <button onClick={handleBackClick} className="backButton">Volver</button>
       </div>
     </div>
   );
