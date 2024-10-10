@@ -1,3 +1,9 @@
+body{
+    z-index: 1000;
+    background: rgba(221, 25, 25, 0.568);
+}
+
+
 .principal-container {
     text-align: center;
     margin-left: 2vw;

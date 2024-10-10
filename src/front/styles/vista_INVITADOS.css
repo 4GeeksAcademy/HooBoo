@@ -8,14 +8,13 @@
 }
 
 .welcome-messageINVITADOS {
-    font-size: 3vw;
-    font-weight: bold;
+    font-size: 2vw;
     text-align: center;
     color: #333;
     margin-bottom: 1.25rem;
     font-family: 'Special Elite', cursive;
     margin-top: 3vw;
-    padding-bottom: 0vw;
+    padding-bottom: 1vw;
 
 }
 
