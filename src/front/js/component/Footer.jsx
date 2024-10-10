@@ -1,14 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import EstrellasValoracion from './EstrellasValoracion.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faInstagram, faFacebook, faYoutube, faSpotify, faTiktok, faPinterest, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'; 
-import AcercaDeNosotros from './AcercaDeNosotros.jsx';
 import "../../styles/Footer.css";
 
 const Footer = () => {
-  const [showTeamPage, setShowTeamPage] = useState(false);
   const { store, actions } = useContext(Context);
   const rating = 4.5;
 
@@ -45,54 +44,37 @@ const Footer = () => {
           </div>
 
           <div className="section">
-            <h4 onClick={() => setShowTeamPage(!showTeamPage)}>
-              Acerca de Nosotros
-            </h4>
+            <Link to="/acerca-de-nosotros" style={{ textDecoration: 'none', color: 'white' }}>
+              <h4 style={{ cursor: 'pointer' }}>
+                Acerca de Nosotros
+              </h4>
+            </Link>
             <div className="quitar-espacios-footer">
               <p>
                 ~ Conoce a Nuestro Equipo.
               </p>
               <p>
-                ~ A que Nos Dedicamos.
+                ~ A qué Nos Dedicamos.
               </p>
             </div>
-            {showTeamPage && <AcercaDeNosotros isActive={showTeamPage} />}
           </div>
 
           <div className="section">
-            <h4 >
-              Contacto
-            </h4>
+            <h4>Contacto</h4>
             <div className="quitar-espacios-footer">
               <p>
-                <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '8px', color: 'white' }} /> {/* Icono de Mensaje */}
+                <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '8px', color: 'white' }} />
                 hooboocontacto@gmail.com
               </p>
               <p>
-                <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '8px', color: 'white' }} /> {/* Icono de Mensaje */}
+                <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '8px', color: 'white' }} />
                 hooboo4geeks@gmail.com
               </p>
               <p>
-                <FontAwesomeIcon icon={faWhatsapp} style={{ marginRight: '8px', color: 'green' }} /> {/* Icono de WhatsApp */}
+                <FontAwesomeIcon icon={faWhatsapp} style={{ marginRight: '8px', color: 'green' }} />
                 +34 641 99 2406
               </p>
             </div>
-          </div>
-
-          <div className="section">
-            <h4>Servicios</h4>
-            <div className="quitar-espacios-footer">
-              <p>
-                ~ Recomendación De Libros.
-              </p>
-              <p>
-                ~ Soporte:
-              </p>
-              <p>
-                de Lunes a Viernes de 10:00 AM a 7:00 PM.
-              </p>
-            </div>
-            {/* Aquí puedes añadir más detalles sobre los servicios */}
           </div>
 
           <div className="section rating">
