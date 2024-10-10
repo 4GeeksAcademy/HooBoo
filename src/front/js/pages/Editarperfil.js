@@ -1,43 +1,45 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { Context } from "../store/appContext";
 import Navbaractivo from '../component/Navbaractivo.jsx';
 import Footercolapsado from '../component/Footercolapsado.jsx';
-import avatar1 from '../../img/avatar1.png';
-import avatar2 from '../../img/avatar2.png';
-import avatar3 from '../../img/avatar3.png';
-import avatar4 from '../../img/avatar4.png';
-import "../../styles/Editarperfil.css";
+import avatar1 from '../../img/avatar1.png'; // Cambia la ruta a la correcta
+import avatar2 from '../../img/avatar2.png'; // Cambia la ruta a la correcta
+import avatar3 from '../../img/avatar3.png'; // Cambia la ruta a la correcta
+import avatar4 from '../../img/avatar4.png'; // Cambia la ruta a la correcta
+import "../../styles/Editarperfil.css"; // Asegúrate de que esta ruta sea correcta
 
 const Editarperfil = () => {
-    const { store } = useContext(Context);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [selectedAvatar, setSelectedAvatar] = useState("");
+    const [selectedAvatar, setSelectedAvatar] = useState(""); // Para almacenar el avatar seleccionado
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!store.token) {
-            navigate("/");
-        }
-
         const loadUserData = async () => {
+            const token = localStorage.getItem("jwt-token");
+            if (!token) {
+                console.error("Token no encontrado. Asegúrate de que el usuario haya iniciado sesión.");
+                return;
+            }
             try {
                 const res = await fetch(`${process.env.BACKEND_URL}/api/perfil`, {
                     method: 'GET',
                     headers: {
-                        'Authorization': `Bearer ${store.token}`,
+                        'Authorization': `Bearer ${token}`,
                     }
                 });
 
                 if (res.ok) {
                     const data = await res.json();
+                    console.log(data);
                     setUsername(data.username);
                     setEmail(data.email);
                     setSelectedAvatar(data.profile_pic || avatar1);
+                    // Aquí podrías cargar el avatar actual del usuario si tienes ese dato
                 } else {
-                    console.error("Error al obtener los datos del usuario:", res.status);
+                    const errorText = await res.text();
+                    console.error("Error al obtener los datos del usuario:", res.status, errorText);
                 }
             } catch (error) {
                 console.error("Error en la solicitud:", error);
@@ -45,14 +47,20 @@ const Editarperfil = () => {
         };
 
         loadUserData();
-    }, [store.token, navigate]); // Solo ejecutamos si el token cambia
+    }, []);
 
     const handleAvatarSelect = (avatar) => {
-        setSelectedAvatar(avatar);
+        setSelectedAvatar(avatar); // Cambia el avatar seleccionado
     };
 
     const handleSaveChanges = async (e) => {
         e.preventDefault();
+
+        const token = localStorage.getItem("jwt-token");
+        if (!token) {
+            console.error("Token no encontrado. No se pueden guardar los cambios.");
+            return;
+        }
 
         const formData = new FormData();
         formData.append('username', username);
@@ -64,7 +72,7 @@ const Editarperfil = () => {
             const res = await fetch(`${process.env.BACKEND_URL}/api/perfil`, {
                 method: 'PUT',
                 headers: {
-                    'Authorization': `Bearer ${store.token}`,
+                    'Authorization': `Bearer ${token}`,
                 },
                 body: formData,
             });
@@ -73,7 +81,8 @@ const Editarperfil = () => {
                 console.log("Cambios guardados");
                 navigate("/login");
             } else {
-                console.error("Error al guardar los cambios:", res.status);
+                const errorText = await res.text();
+                console.error("Error al guardar los cambios:", res.status, errorText);
             }
         } catch (error) {
             console.error("Error en la solicitud:", error);
@@ -85,7 +94,7 @@ const Editarperfil = () => {
             <Navbaractivo />
             <h2 className="nombre-editar-perfil">Editar Perfil</h2>
             <div className="edit-form-container">
-                <div className="profile-pic-section">
+            <div className="profile-pic-section">
                     <h3 className="titulito-avataress">Selecciona tu Avatar</h3>
                     {selectedAvatar && (
                         <img src={selectedAvatar} alt="Avatar Seleccionado" className="selected-avatar" />
@@ -96,7 +105,7 @@ const Editarperfil = () => {
                                 <img
                                     src={avatar}
                                     alt={`Avatar ${index + 1}`}
-                                    className={`avatar-image ${selectedAvatar === avatar ? "selected" : ""}`}
+                                    className={`avatar-image ${selectedAvatar === avatar ? "selected" : ""}`} // Añade clase seleccionada
                                 />
                             </div>
                         ))}

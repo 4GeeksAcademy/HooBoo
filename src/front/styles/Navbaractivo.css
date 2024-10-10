@@ -94,9 +94,13 @@
     border-radius: 2vw;
     top: 3%;
     left: 0;
-    width: 100%;
     z-index: 1000;
-    margin-top: 3vh; 
+    margin-top: 5vh; 
+}
+
+.profile-menu p {
+    color: #a75df2;
+    margin: 0;
 }
 
 .profile-picture {
@@ -118,6 +122,7 @@
     gap: 0.5rem;
     text-decoration: none;
     box-shadow: 0 0 0.625rem #7029ab;
+    margin-top: 1rem;
 }
 
 .edit-profile-btn:hover {
