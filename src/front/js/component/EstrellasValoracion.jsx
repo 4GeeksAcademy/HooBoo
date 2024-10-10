@@ -11,7 +11,7 @@ const EstrellasValoracion = ({ rating, onRate, isAuthenticated }) => {
 
   const showLoginAlert = () => {
     Swal.fire({
-      title: "Acceso requerido",
+      title: "Acceso denegado",
       text: "Debes registrarte o iniciar sesión para poder valorar la página.",
       icon: "error",
       confirmButtonText: "Iniciar sesión",
