@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBell, FaRegStar, FaUserCircle, FaCompass, FaPlus, FaSignOutAlt, FaCog, FaBars } from 'react-icons/fa';
 import { Context } from "../store/appContext";
@@ -7,9 +7,13 @@ import logoHooBoo from "/workspaces/HooBoo/src/front/img/logoHooBoo.png";
 
 const Navbaractivo = () => {
     const [showProfileMenu, setShowProfileMenu] = useState(false);
-    const [isSidebarActive, setSidebarActive] = useState(false); // Estado para el sidebar
+    const [isSidebarActive, setSidebarActive] = useState(false); 
     const { store, actions } = useContext(Context);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        actions.obtenerDatosUsuario();
+    }, []);
 
     const handleProfileClick = () => {
         setShowProfileMenu(!showProfileMenu);
@@ -21,40 +25,38 @@ const Navbaractivo = () => {
     };
 
     const handleLogout = () => {
-        actions.cerrarSesion();  // Llama a la función cerrarSesion del Flux
-        navigate("/");  // Redirige al usuario a la página de inicio
+        actions.cerrarSesion(); 
+        navigate("/");  
     };
 
     const toggleSidebar = () => {
-        setSidebarActive(!isSidebarActive); // Alterna el estado del sidebar
+        setSidebarActive(!isSidebarActive); 
     };
 
     return (
         <>
+            {/* Botón de menú hamburguesa visible solo en pantallas pequeñas */}
             <button className="menu-toggle" onClick={toggleSidebar}>
                 <FaBars /> {/* Ícono de menú hamburguesa */}
             </button>
 
+            {/* Sidebar que se activa o desactiva */}
             <nav className={`navbar-activo ${isSidebarActive ? 'active' : ''}`}>
                 <div className="menu">
                     <Link to="/" className="logo-activo">
                         <img src={logoHooBoo} alt="Logo" className="logo-img-explorar" />
                     </Link>
+
                     <button className="menu-item" onClick={handleExplorarClick}>
                         <FaCompass /> <span>Explorar</span>
                     </button>
-                    {/* <Link to="/crear" className="menu-item">
-                        <FaPlus /> <span>Crear</span>
-                    </Link>
-                    <Link to="/notificaciones" className="menu-item">
-                        <FaBell /> <span>Notificaciones</span>
-                    </Link> */}
+
                     <Link to="/Favoritos" className="menu-item favoritos">
                         <FaRegStar />
                         <span>Favoritos</span>
-                        {store.favorites.length > 0 && (  // Usar directamente store.favorites.length
+                        {store.favorites.length > 0 && (
                             <div className="favorite-count">
-                                {store.favorites.length} {/* Mostrar la cantidad de favoritos */}
+                                {store.favorites.length}
                             </div>
                         )}
                     </Link>
