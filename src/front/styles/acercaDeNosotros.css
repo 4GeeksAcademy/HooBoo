@@ -8,7 +8,7 @@
 }
 
 .teamPage {
-    padding: 5vh 5vw; 
+    padding: 3vh 3vw; 
     text-align: center;
     background-color: var(--background-color);
 }
@@ -38,7 +38,7 @@
     padding: 1.5rem;
     box-shadow: 0 4px 10px var(--shadow-color);
     transition: transform 0.3s ease;
-    margin-top: 5%;
+    margin-top: 1%;
 }
 
 .memberCard:hover {
@@ -108,3 +108,33 @@ p {
         max-width: 22%; /* Se asegura que se muestren 4 tarjetas por fila */
     }
 }
+
+.backButtonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem; /* Espacio superior */
+  }
+  
+  .backButton {
+    background-color: #7029ab; /* Color de fondo */
+    color: white; /* Color de texto */
+    padding: 0.75rem 1.5rem; /* Tamaño del botón */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    text-decoration: none; /* Elimina el subrayado */
+    font-size: 1.2rem; /* Tamaño del texto */
+    transition: background-color 0.3s ease;
+  }
+  
+  .backButton:hover {
+    background-color: #5a2387; /* Color de fondo al pasar el ratón */
+  }
+
+  .negrita-paralosrole {
+    font-weight: bold;
+  }
+
+  .diseño-deestetitulo {
+    font-family: 'Special Elite', cursive;
+    color: #a75df2;
+    font-weight: bold;
+  }
