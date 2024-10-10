@@ -9,8 +9,8 @@ import { Context } from "../store/appContext";
 
 
 const AcercaDeNosotros = ({ isActive }) => {
-  const { store } = useContext(Context); 
-  const navigate = useNavigate(); 
+  const { store } = useContext(Context);
+  const navigate = useNavigate();
 
   const teamMembers = [
     {
@@ -21,7 +21,7 @@ const AcercaDeNosotros = ({ isActive }) => {
     },
     {
       name: 'Mariana',
-      role: 'Especialista en Frontend',
+      role: 'Especialista en Backend',
       image: marianaImage,
       description: "Mariana, mexicana y amante de la buena comida, aporta esfuerzo y pasión en cada detalle de HooBoo. Siempre dispuesta a dar lo mejor de sí, ha contribuido en todos los aspectos posibles del proyecto, demostrando una actitud abierta y flexible para escuchar, aprender y hacer mejoras constantes. Su dedicación y entusiasmo son clave para el crecimiento de nuestro equipo.",
     },
@@ -40,10 +40,10 @@ const AcercaDeNosotros = ({ isActive }) => {
   ];
 
   const handleBackClick = () => {
-    if (store.token) {  
-      navigate('/vistaexplorar');  
+    if (store.token) {
+      navigate('/vistaexplorar');
     } else {
-      navigate('/');  
+      navigate('/');
     }
   };
   return (
@@ -60,7 +60,7 @@ const AcercaDeNosotros = ({ isActive }) => {
         ))}
       </div>
       <div className="backButtonContainer">
-        <button onClick={handleBackClick} className="backButton">Volver</button> 
+        <button onClick={handleBackClick} className="backButton">Volver</button>
       </div>
     </div>
   );
