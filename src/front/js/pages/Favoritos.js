@@ -16,6 +16,10 @@ const Favoritos = () => {
     }, [store.token, navigate]);
 
     const handleRemoveFavorito = (book) => {
+        if (!store.token) {
+            navigate("/");
+            return;
+        }
         actions.removeFavoritos(book);
     };
 
