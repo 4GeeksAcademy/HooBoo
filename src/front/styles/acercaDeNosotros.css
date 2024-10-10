@@ -8,25 +8,29 @@
 }
 
 .teamPage {
-    padding: 5vh 5vw; /* Espacio adicional para el banner */
+    padding: 5vh 5vw; 
     text-align: center;
     background-color: var(--background-color);
-    margin-top: 20%;
 }
+
+.teamPage.active {
+    display: block;
+    margin-top: 0; /* Asegura que no haya margen innecesario */
+}
+
 
 .teamContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem; 
-    max-width: 70%;
     margin: auto;
 }
 
 .memberCard {
-    flex: 1 1 45%; /* Dos tarjetas por fila (ajustable) */
+    flex: 1 1 45%;
     max-width: 45%;
-    min-width: 280px; /* Asegura un ancho mínimo razonable */
+    min-width: 280px; 
     background-color: var(--card-background);
     text-align: center;
     border: 1px solid var(--primary-color);
@@ -34,6 +38,7 @@
     padding: 1.5rem;
     box-shadow: 0 4px 10px var(--shadow-color);
     transition: transform 0.3s ease;
+    margin-top: 5%;
 }
 
 .memberCard:hover {
@@ -50,7 +55,7 @@
 
 h3 {
     margin: 0.5rem 0;
-    font-size: 1.5rem; /* Tamaño de fuente relativo */
+    font-size: 1.5rem; 
     color: var(--secondary-color);
 }
 
@@ -60,36 +65,46 @@ p {
     margin: 0.5rem 0;
 }
 
-/* Breakpoint para pantallas pequeñas (móviles) */
+
+/* Para pantallas pequeñas: se muestra una sola tarjeta por fila */
 @media (max-width: 768px) {
     .teamContainer {
         flex-direction: column;
     }
 
     .memberCard {
-        flex: 1 1 100%; /* Una tarjeta por fila */
-        max-width: 90%; /* Reduce el ancho en dispositivos pequeños */
-        margin: auto; /* Centra la tarjeta */
+        flex: 1 1 100%; 
+        max-width: 90%; 
+        margin: auto; 
     }
 }
 
-/* Breakpoint para pantallas medianas (tabletas) */
+/* Para pantallas medianas: se muestran 2 tarjetas por fila */
 @media (min-width: 769px) and (max-width: 1024px) {
+    .teamContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centra las tarjetas en el contenedor */
+        gap: 2rem; /* Espacio entre tarjetas */
+    }
+
     .memberCard {
-        flex: 1 1 45%; /* Mantiene dos tarjetas por fila */
-        max-width: 45%;
+        flex: 1 1 45%; /* Ocupa el 45% del ancho del contenedor */
+        max-width: 45%; /* Se asegura que sólo se muestren dos tarjetas por fila */
     }
 }
 
-/* Breakpoint para pantallas grandes (escritorios grandes) */
+/* Para pantallas grandes: se muestran 4 tarjetas por fila */
 @media (min-width: 1025px) {
     .teamContainer {
-        max-width: 1200px; /* Limita el ancho máximo del contenedor */
-        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centra las tarjetas en el contenedor */
+        gap: 2rem; /* Espacio entre tarjetas */
     }
 
     .memberCard {
-        flex: 1 1 22%; /* Cuatro tarjetas por fila para pantallas grandes */
-        max-width: 22%;
+        flex: 1 1 22%; /* Ocupa el 22% del ancho del contenedor para mostrar 4 tarjetas en una fila */
+        max-width: 22%; /* Se asegura que se muestren 4 tarjetas por fila */
     }
 }

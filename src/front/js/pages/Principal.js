@@ -9,9 +9,11 @@ const Principal = () => {
     const [currentGenre, setCurrentGenre] = useState('fantasia');
     const [isVisible, setIsVisible] = useState(true);
     const [books, setBooks] = useState({ fantasia: [], romance: [], drama: [], thriller: [] });
-    const { store, actions } = useContext(Context); 
-
-    const API_KEY = 'AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg';
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const { store } = useContext(Context);
+    
+    const API_KEY = 'AIzaSyDWeHrvToJGuNVbZjPWHcP6C_QDdGNBlbg'; 
     const genres = ['fantasia', 'romance', 'drama', 'thriller'];
     const GENRE_SUBJECTS = {
         fantasia: 'fantasy',
@@ -20,62 +22,61 @@ const Principal = () => {
         thriller: 'thriller'
     };
 
-    const mezclarLibrosPorCategoria = (mezcla) => {
-        for (let i = mezcla.length - 1; i > 0; i--) {
+    const shuffleArray = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [mezcla[i], mezcla[j]] = [mezcla[j], mezcla[i]];
+            [array[i], array[j]] = [array[j], array[i]];
         }
-        return mezcla;
+        return array;
     };
-
-    const flattenBaseRespaldo = (baseRespaldo) => {
-        return Object.values(baseRespaldo).flat();
-    };
-
-    const booksToDisplay = store.books && store.books.length > 0 ? store.books : flattenBaseRespaldo(store.base_respaldo);
 
     useEffect(() => {
         const getBooksFromApi = async () => {
+            setLoading(true);
+            setError(null);
+            const gotBooksFromApi = {};
             try {
-                const gotBooksFromApi = {};
                 for (const genre of genres) {
-                    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${GENRE_SUBJECTS[genre]}&maxResults=40&key=${API_KEY}`, {
-                        headers: {
-                            'Authorization': '55948_25703fc2113e4aece39188c265f17591'
+                    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${GENRE_SUBJECTS[genre]}&maxResults=40&key=${API_KEY}`);
+                    
+                    if (!response.ok) {
+                        if (response.status === 429) {
+                            console.error(`Error 429: Usando base de datos de respaldo para ${genre}.`);
+                            gotBooksFromApi[genre] = store.base_respaldo[genre] || []; // Uso de base_respaldo
+                        } else {
+                            throw new Error(`Error en la solicitud para ${genre}: ${response.status}`);
                         }
-                    });
-
-                    const data = await response.json();
-                    gotBooksFromApi[genre] = booksToDisplay
-                        .filter(item => item.volumeInfo.imageLinks?.thumbnail)
-                        .map(item => ({
-                            id: item.id,
-                            src: item.volumeInfo.imageLinks.thumbnail,
-                            alt: item.volumeInfo.title
-                        }));
-
-                    gotBooksFromApi[genre] = mezclarLibrosPorCategoria(gotBooksFromApi[genre]);
+                    } else {
+                        const booksData = await response.json();
+                        const booksWithImages = booksData.items?.filter(book => book.volumeInfo.imageLinks?.thumbnail) || []
+                        gotBooksFromApi[genre] = shuffleArray(booksWithImages);
+                        
+                    }
                 }
                 setBooks(gotBooksFromApi);
             } catch (error) {
-                console.error('Error fetching books:', error);
+                console.error('Error al obtener libros:', error);
+                setError(error.message);
+            } finally {
+                setLoading(false);
             }
         };
+
         getBooksFromApi();
-    }, []);
+    }, [API_KEY, store.base_respaldo]); 
 
     useEffect(() => {
         const genreInterval = setInterval(() => {
-            setIsVisible(false); // Inicia la animación de salida
+            setIsVisible(false); // Animación de salida
             setTimeout(() => {
                 setCurrentGenre((prevGenre) => {
                     const currentIndex = genres.indexOf(prevGenre);
                     const nextIndex = (currentIndex + 1) % genres.length;
                     return genres[nextIndex];
                 });
-                setIsVisible(true);
-            }, 500);
-        }, 5500);
+                setIsVisible(true); // Animación de entrada
+            }, 300); // Duración de la animación
+        }, 5500); // Intervalo para cambiar de género
 
         return () => clearInterval(genreInterval);
     }, []);
@@ -84,18 +85,16 @@ const Principal = () => {
         setIsVisible(false);
         setTimeout(() => {
             setCurrentGenre(genre);
-            setBooks(prevBooks => ({
-                ...prevBooks,
-                [genre]: mezclarLibrosPorCategoria([...prevBooks[genre]]) // Mezcla los libros del género actual
-            }));
             setIsVisible(true);
         }, 500);
     };
 
     return (
         <div className='bodyHome'>
-            <BannerOnlyHome />
-            <Navbar />
+            <div className='headerHome'>
+                <Navbar />
+                <BannerOnlyHome />
+            </div>
             <div className="main-content">
                 <div className="principal-container">
                     <div className="header-text">
@@ -103,10 +102,7 @@ const Principal = () => {
                             Encuentra tu próxima lectura de
                             <div>{' '}</div>
                             <span className="dynamic-genre">
-                                {currentGenre === 'fantasia' && 'FANTASÍA'}
-                                {currentGenre === 'romance' && 'ROMANCE'}
-                                {currentGenre === 'drama' && 'DRAMA'}
-                                {currentGenre === 'thriller' && 'THRILLER'}
+                                {currentGenre.toUpperCase()}
                             </span>
                         </h1>
                     </div>
@@ -120,22 +116,28 @@ const Principal = () => {
                         ))}
                     </div>
                     <div className={`image-grid ${isVisible ? 'fade-in' : 'fade-out'}`}>
-                        {books[currentGenre] && books[currentGenre].length > 0 ? (
-                            books[currentGenre].slice(0, 7).map((book) => (
-                                <img
-                                    key={book.id}
-                                    src={book.src}
-                                    alt={book.alt}
-                                    className="book-image"
-                                />
-                            ))
+                        {loading ? (
+                            <p>Cargando libros...</p>
+                        ) : error ? (
+                            <p>{error}</p>
                         ) : (
-                            <p>Agradecemos tu tiempo de espera...</p>
+                            books[currentGenre] && books[currentGenre].length > 0 ? (
+                                books[currentGenre].slice(0, 7).map((book) => (
+                                    <img
+                                        key={book.id}
+                                        src={book.volumeInfo.imageLinks?.thumbnail}
+                                        alt={book.volumeInfo.title}
+                                        className="book-image"
+                                    />
+                                ))
+                            ) : (
+                                <p>Agradecemos tu tiempo de espera.</p>
+                            )
                         )}
                     </div>
                 </div>
             </div>
-            < Footer />
+            <Footer />
         </div>
     );
 };

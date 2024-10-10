@@ -21,7 +21,6 @@ const Navbar = () => {
                     <button className="btn-logo" onClick={() => navigate("/")}>
                         <img src={logoHooBoo} alt="Logo" className="logo-img" />
                     </button>
-                    
                 </div>
                 <div className="navbar-right">
                     <button className="btn-login" onClick={() => navigate("/Login")}>Inicio Sesión</button>
