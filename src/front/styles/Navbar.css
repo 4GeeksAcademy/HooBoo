@@ -1,23 +1,25 @@
+.body, html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.headerHome{
+    position: relative;
+    width: 100%;
+}
+
 .navbar-container {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    padding: 1%; 
-    /* position: fixed;  */
-    width: 100%; 
-    height: 15vw;
-    top: 0; 
-    z-index: 999; 
-    font-family: "IBM Plex Mono", monospace;
-    /* background-color: transparent; */
-    /* background-color: rgba(249, 250, 252, 0.13);   */
-    background-color: rgba(255, 255, 255, 0.309);  
-    padding-bottom:-20vw;
-}
-
-.navbar-left {
-    display: flex;
-    align-items: center;
+    position: absolute;
+    top: 9vh;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0);
+    z-index: 1000;
 }
 
 .nav-link {
@@ -37,45 +39,34 @@
 .btn-login,
 .btn-signup,
 .btn-explorar {
-    background-color: white;
+    background-color: whitesmoke;
+    border: 5px solid #7029ab; 
     color: black;
     border-radius: 35px;
     text-decoration: none;
     font-size: 1rem;
     margin-right: 1vw;
     transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
-    /* border: 0.25rem solid #7029ab; */
-    border: 0.2rem solid whitesmoke;
+    /* border: 0.2rem solid whitesmoke; */
     height: 6vh;
     display: flex;
     align-content: center;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 25px;
 }
-
-/* .btn-logo{
-
-        display: block;
-        background-color: #ffffff; 
-        border-radius: 50%; 
-        padding: 10px; 
-        width: 15vh;
-        height: auto;
-        margin: 0 auto; 
-        border: 5px solid #7029ab;
-        margin: 1vh;
-    } */
     
 .btn-logo {
     display: block;
-    background-color: #ffffff; /* Fondo blanco */
-    border-radius: 50%; /* Hace que el fondo sea un círculo */
-    padding: 10px; /* Espacio interno entre el logo y el borde circular */
+    background-color: #ffffff; 
+    border-radius: 50%; 
+    padding: 10px; 
     width: 9vw;
     height: auto;
-    margin: 0 auto; /* Centra el logo dentro del sidebar */
-    border: 5px solid #7029ab; /* Borde sólido de color púrpura */
+    margin: auto;
+    border: 5px solid #7029ab; 
+    margin-bottom: 1rem;
+    margin-right: 1rem;
 }
 
 .logo-img {

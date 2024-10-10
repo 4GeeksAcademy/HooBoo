@@ -1,33 +1,36 @@
 .container {
     position: relative; 
     width: 100%; 
-    overflow: hidden;
+    height: 300%;
 }
 
 .banner-image-only-home {
     width: 100vw; 
-    height: 42vh;
-    display: block; 
-    position: fixed;
-    z-index: 500; 
-    position: relative;
+    height: 40vh;
     object-fit: cover;
-    
     }
 
 .bannerHome-text {
-    position: fixed;
-    top: 19%;
+    position: absolute;
+    top: 77%;
     left: 15%;
     transform: translate(-50%, -50%);
     color: black;
     text-align: center;
     font-family: 'Special Elite', cursive;
-    z-index: 1000; 
+}
+
+.banner-overlay{
+    position: absolute;
+    top:0;
+    left: 0%;
+    width: 100vw; 
+    height: 40vh;
+    background: rgba(255, 255, 255, 0.568);
 }
 
 h2 {
-    margin: 15px;
+    margin: 0;
     font-size: 7vw;
 }
 

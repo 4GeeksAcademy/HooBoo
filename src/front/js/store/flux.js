@@ -163,7 +163,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         }
                     }
                 ],
-                Accion: [
+                drama: [
                     {
                         id: '16',
                         volumeInfo: {
@@ -173,7 +173,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://m.media-amazon.com/images/I/71Hg019701L.SY466.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     },
                     {
@@ -185,7 +185,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://upload.wikimedia.org/wikipedia/en/d/dc/The_Hunger_Games.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     },
                     {
@@ -197,7 +197,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1500655149i/34879754.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     },
                     {
@@ -221,7 +221,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://m.media-amazon.com/images/I/51HMPg8mhLL.SY445_SX342.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     },
                     {
@@ -233,7 +233,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://m.media-amazon.com/images/I/51VSYjnv1rL.SY445_SX342.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     },
                     {
@@ -245,7 +245,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://m.media-amazon.com/images/I/41WAdPVpRaL.SY445_SX342.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     },
                     {
@@ -257,7 +257,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://pictures.abebooks.com/isbn/9781906814656-us-300.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     },
                     {
@@ -269,7 +269,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1701688704i/394535.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     },
                     {
@@ -281,7 +281,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://pictures.abebooks.com/isbn/9780140115604-us.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     },
                     {
@@ -293,7 +293,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://pictures.abebooks.com/inventory/31407005159_2.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     },
                     {
@@ -305,7 +305,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://m.media-amazon.com/images/I/41lU+52e2uL.SY445_SX342.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     },
                     {
@@ -317,7 +317,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://upload.wikimedia.org/wikipedia/en/4/46/Video_Game_Cover_-_The_Last_of_Us.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     },
                     {
@@ -329,7 +329,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://m.media-amazon.com/images/I/51kD6K4Bx9L.SY445_SX342.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     },
                     {
@@ -341,11 +341,11 @@ const getState = ({ getStore, getActions, setStore }) => {
                             imageLinks: {
                                 thumbnail: "https://m.media-amazon.com/images/I/51NXjr6l+GL.SY445_SX342.jpg"
                             },
-                            type_book: "acción"
+                            type_book: "drama"
                         }
                     }
                 ],
-                Thriller: [
+                thriller: [
                     {
                         id: '31',
                         volumeInfo: {
@@ -527,7 +527,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         }
                     }
                 ],
-                Ficcion: [
+                fantasia: [
                     {
                         "id": "46",
                         "volumeInfo": {
