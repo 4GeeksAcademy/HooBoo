@@ -44,3 +44,9 @@
 .icon-moradito {
     color: #a75df2;
 }
+
+.toggle-icon{
+    background: white;
+    border-radius: 50%;
+    padding: 3px;
+}
