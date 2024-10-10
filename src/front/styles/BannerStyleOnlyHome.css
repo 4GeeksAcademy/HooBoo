@@ -21,13 +21,13 @@
     font-family: 'Special Elite', cursive;
 }
 
-.banner-overlay{
+.banner-overlay {
     position: absolute;
-    top:0;
-    left: 0%;
+    top: 0;
+    left: 0;
     width: 100vw; 
     height: 30vh;
-    background: rgba(255, 255, 255, 0.568);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), #f8f8f8);
 }
 
 h2 {

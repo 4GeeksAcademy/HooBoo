@@ -1,3 +1,9 @@
+.bodyHome {
+    background-color: #f8f8f8; /* o el color que estés usando */
+    z-index: 0; /* para que esté por debajo de todo el contenido */
+}
+
+
 .principal-container {
     text-align: center;
     margin-left: 2vw;
@@ -10,8 +16,7 @@
 }
 
 .titulo_principalproyecto {
-    font-size: 2.7vw;
-    font-weight: bold;
+    font-size: 2vw;
     color: #333;
     margin-top: 13vw;
     margin-bottom: 0;
@@ -25,7 +30,7 @@
     opacity: 1;
     transition: opacity 1s ease-in-out;
     gap: 2vh;
-    z-index: -1;
+    z-index: 1; /* Cambia a un valor positivo */
 }
 
 .image-grid img {

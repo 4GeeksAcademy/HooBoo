@@ -47,7 +47,7 @@ const VistaInvitados = () => {
             </div>
 
             <div className="searchBoxMarINVITADOS">
-                <h3 className="welcome-messageINVITADOS">Explora un mundo de historias infinitas...</h3>
+                <h3 className="welcome-messageINVITADOS">Explora un mundo de historias infinitas</h3>
                 <div className="searchContainerINVITADOS">
                     <input
                         type="text"
