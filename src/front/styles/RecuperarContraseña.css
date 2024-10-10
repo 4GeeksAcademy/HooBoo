@@ -1,23 +1,36 @@
+/* RecuperarContraseña.css */
+
+.login-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .recuperar-container {
-    background-color: #1A1A1A;
-    border-radius: 12px;
+    background-color: #f0f0f0; /* Color de fondo adaptado */
+    border-radius: 20px; /* Radio de borde más grande */
     padding: 20px;
-    width: 450px;
-    margin: 200px auto;
-    color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    width: 450px; /* Mantener el ancho deseado */
+    color: #333; /* Color de texto ajustado */
+    box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445); /* Sombra ajustada */
+    border: 1px solid #cca1f7; /* Borde para mayor contraste */
 }
 
 .recuperar-container h2 {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 1.25rem; /* Tamaño de fuente adaptado */
+    font-family: 'Special Elite', cursive; /* Fuente específica */
+    color: #7029ab; /* Color de texto adaptado */
 }
 
 .recuperar-container label {
     display: block;
     margin-bottom: 8px;
     font-size: 14px;
+    color: #555;
+    font-family: "IBM Plex Mono", monospace; /* Fuente monoespaciada */
 }
 
 .recuperar-container input[type="email"] {
@@ -25,14 +38,14 @@
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 6px;
-    border: 1px solid #555;
-    background-color: #333;
-    color: #fff;
-    font-size: 14px;
+    border: 1px solid #cca1f7; /* Borde claro */
+    background-color: #fff; /* Fondo blanco */
+    color: #333; /* Color de texto */
+    font-family: "IBM Plex Mono", monospace; /* Fuente monoespaciada */
 }
 
 .recuperar-container input::placeholder {
-    color: #aaa;
+    color: #aaa; /* Color de texto del placeholder */
 }
 
 .button-group200 {
@@ -43,38 +56,40 @@
 .recuperar-btn {
     width: 48%;
     padding: 12px;
-    background-color: #4CAF50;
+    background-color: #a75df2; /* Color morado */
     color: white;
     font-size: 16px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 .recuperar-btn:hover {
-    background-color: #45a049;
+    background-color: #8c3bc4; /* Color más oscuro al pasar el ratón */
 }
 
 .cancel-btn {
     width: 48%;
     padding: 12px;
-    background-color: #f44336;
+    background-color: #cca1f7; /* Color de fondo para cancelar */
     color: white;
     font-size: 16px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 .cancel-btn:hover {
-    background-color: #d32f2f;
+    background-color: #851be9; /* Color más oscuro al pasar el ratón */
 }
 
 .recuperar-message {
     text-align: center;
     margin-bottom: 20px;
-    color: #4CAF50;
+    color: #4CAF50; /* Color verde para mensajes */
     font-size: 14px;
 }

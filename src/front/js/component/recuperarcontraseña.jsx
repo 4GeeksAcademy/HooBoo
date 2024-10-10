@@ -27,24 +27,27 @@ const RecuperarContraseña = () => {
     return (
         <div>
             <HoobooBanner />
-            <div className="recuperar-container">
-                <h2>Recuperar Contraseña</h2>
-                {message && <div className="recuperar-message">{message}</div>}
-                <form onSubmit={handlePasswordReset}>
-                    <label htmlFor="email">Correo electrónico:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Ingresa tu correo"
-                        required
-                    />
-                    <div className="button-group200">
-                        <button type="submit" className="recuperar-btn">Recuperar Contraseña</button>
-                        <button type="button" className="cancel-btn" onClick={handleCancel}>Cancelar</button>
-                    </div>
-                </form>
+            <div className='login-page-container'>
+                <div className="recuperar-container">
+                    <h2>Recuperar Contraseña</h2>
+                    {message && <div className="recuperar-message">{message}</div>}
+                    <form onSubmit={handlePasswordReset}>
+                        <label htmlFor="email">Correo electrónico:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Ingresa tu correo"
+                            required
+                        />
+                        <div className="button-group200">
+                            <button type="submit" className="recuperar-btn">Recuperar Contraseña</button>
+                            <button type="button" className="cancel-btn" onClick={handleCancel}>Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
     );
