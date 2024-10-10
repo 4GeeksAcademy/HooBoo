@@ -1,6 +1,6 @@
-body{
-    z-index: 1000;
-    background: rgba(221, 25, 25, 0.568);
+.bodyHome {
+    background-color: #f8f8f8; /* o el color que estés usando */
+    z-index: 0; /* para que esté por debajo de todo el contenido */
 }
 
 
@@ -30,7 +30,7 @@ body{
     opacity: 1;
     transition: opacity 1s ease-in-out;
     gap: 2vh;
-    z-index: -1;
+    z-index: 1; /* Cambia a un valor positivo */
 }
 
 .image-grid img {

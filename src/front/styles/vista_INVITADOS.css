@@ -5,7 +5,10 @@
     background-color: #f8f8f8;
     padding: 0 1rem;
     overflow: hidden;
+    position: relative; /* Añadimos posición relativa para usar z-index */
+    z-index: 1; /* Aseguramos que esté en una capa visible */
 }
+
 
 .welcome-messageINVITADOS {
     font-size: 2vw;
@@ -35,7 +38,6 @@
     color: #555;
 }
 
-/* Animaciones para las filas */
 .book-listINVITADOS {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
@@ -44,6 +46,8 @@
     padding-left: 10rem;
     padding-right: 10rem;
     width: 100%;
+    position: relative; /* Añadimos posición relativa para asegurar el control del z-index */
+    z-index: 2; /* Capa superior para estar sobre el fondo */
 }
 
 /* Clase para animación de aparición */
@@ -56,6 +60,7 @@
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
     animation: fadeInUp 0.5s ease forwards;
+    z-index: 3; /* Aseguramos que las tarjetas estén en la capa más visible */
 }
 
 .book-cardINVITADOS:hover {
