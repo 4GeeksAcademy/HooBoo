@@ -7,7 +7,7 @@ import logoHooBoo from "/workspaces/HooBoo/src/front/img/logoHooBoo.png";
 
 const Navbaractivo = () => {
     const [showProfileMenu, setShowProfileMenu] = useState(false);
-    const [isSidebarActive, setSidebarActive] = useState(false); 
+    const [isSidebarActive, setSidebarActive] = useState(false);
     const { store, actions } = useContext(Context);
     const navigate = useNavigate();
 
@@ -25,22 +25,19 @@ const Navbaractivo = () => {
     };
 
     const handleLogout = () => {
-        actions.cerrarSesion(); 
-        navigate("/");  
+        actions.cerrarSesion();
+        navigate("/");
     };
 
     const toggleSidebar = () => {
-        setSidebarActive(!isSidebarActive); 
+        setSidebarActive(!isSidebarActive);
     };
 
     return (
         <>
-            {/* Botón de menú hamburguesa visible solo en pantallas pequeñas */}
             <button className="menu-toggle" onClick={toggleSidebar}>
-                <FaBars /> {/* Ícono de menú hamburguesa */}
+                <FaBars />
             </button>
-
-            {/* Sidebar que se activa o desactiva */}
             <nav className={`navbar-activo ${isSidebarActive ? 'active' : ''}`}>
                 <div className="menu">
                     <Link to="/" className="logo-activo">
@@ -75,12 +72,13 @@ const Navbaractivo = () => {
                         )}
                     </div>
                 </div>
-
                 <div className="logout">
                     <button className="logout-btn" onClick={handleLogout}>
-                        <FaSignOutAlt /> Cerrar sesión
+                        <FaSignOutAlt className="logout-icon" />
+                        <span className="logout-text">Cerrar sesión</span>
                     </button>
                 </div>
+
             </nav>
         </>
     );

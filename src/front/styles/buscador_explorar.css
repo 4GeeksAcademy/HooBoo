@@ -14,9 +14,10 @@
     box-shadow: none !important; 
     padding: 0; 
     font-family: 'Special Elite', cursive;
-    font-size: 2vw;
+    font-size: clamp(1.5rem, 2vw, 3rem); /* Ajusta el tamaño del texto de forma responsiva */
     margin-left: 13%;
 }
+
 
 .searchContainer {
     position: relative; 
