@@ -96,6 +96,9 @@ const VistaExplorar = () => {
                         <FontAwesomeIcon icon={faMagnifyingGlass} className="searchIcon" />
                     )}
                 </div>
+                {filteredBooks.length === 0 && !store.loading && (
+                    <p className="no-results">No se encontraron resultados</p>
+                )}
             </div>
             {store.loading ? (
                 <div className="loading-container">
@@ -103,16 +106,12 @@ const VistaExplorar = () => {
                 </div>
             ) : (
                 <div className="book-list">
-                    {filteredBooks.length > 0 ? (
-                        filteredBooks.map((book, index) => (
-                            <BookCard
-                                key={index}
-                                book={book}
-                            />
-                        ))
-                    ) : (
-                        <p className="no-results">No se encontraron resultados</p>
-                    )}
+                    {filteredBooks.map((book, index) => (
+                        <BookCard
+                            key={index}
+                            book={book}
+                        />
+                    ))}
                 </div>
             )}
             <Footercolapsado />

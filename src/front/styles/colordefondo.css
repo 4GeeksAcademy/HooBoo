@@ -1,5 +1,3 @@
-/* colordefondo.css */
-
 .colorFondo {
     min-height: 100vh; /* Altura mínima para el fondo */
     transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para el color de fondo y el color del texto */
@@ -8,7 +6,7 @@
 }
 
 .colorFondo.active {
-    background-color: #000000; /* Color negro cuando está activo */
+    background-color: #3a3939; /* Color negro cuando está activo */
     color: #ffffff; /* Color blanco para el texto en fondo negro */
 }
 
@@ -32,5 +30,5 @@
 }
 
 .iconWhite {
-    color: #ffffff; /* Color blanco para el icono del sol en fondo negro */
+    color: #3a3939; /* Color blanco para el icono del sol en fondo negro */
 }

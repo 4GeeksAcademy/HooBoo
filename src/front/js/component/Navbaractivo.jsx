@@ -40,9 +40,9 @@ const Navbaractivo = () => {
             </button>
             <nav className={`navbar-activo ${isSidebarActive ? 'active' : ''}`}>
                 <div className="menu">
-                    <Link to="/" className="logo-activo">
+                    <div className="logo-activo">
                         <img src={logoHooBoo} alt="Logo" className="logo-img-explorar" />
-                    </Link>
+                    </div>
 
                     <button className="menu-item" onClick={handleExplorarClick}>
                         <FaCompass /> <span>Explorar</span>
