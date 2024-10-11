@@ -14,13 +14,13 @@ const AcercaDeNosotros = ({ isActive }) => {
 
   const teamMembers = [
     {
-      name: 'Patricia',
+      name: 'Patricia Alvarez',
       role: 'Project Manager',
       image: patriciaImage,
       description: "Apasionada de la lectura y creadora de la idea original de HooBoo, vi una oportunidad en el mercado para crear una plataforma innovadora para lectores. Mi enfoque se centra en el diseño visual y el desarrollo front-end del proyecto, asegurándome de que cada detalle brinde una experiencia atractiva y fácil de usar. Estoy comprometida con convertir nuestra visión en un espacio donde los amantes de los libros puedan conectar, descubrir y compartir su pasión por la lectura.",
     },
     {
-      name: 'Mariana',
+      name: 'Mariana Morales',
       role: 'Especialista en Backend',
       image: marianaImage,
       description: "Mariana, mexicana y amante de la buena comida, aporta esfuerzo y pasión en cada detalle de HooBoo. Siempre dispuesta a dar lo mejor de sí, ha contribuido en todos los aspectos posibles del proyecto, demostrando una actitud abierta y flexible para escuchar, aprender y hacer mejoras constantes. Su dedicación y entusiasmo son clave para el crecimiento de nuestro equipo.",
@@ -32,10 +32,10 @@ const AcercaDeNosotros = ({ isActive }) => {
       description: 'Es un profesional colombiano de 30 años, actualmente residiendo en España. Con una pasión por la tecnología y el desarrollo de software, ha dedicado su carrera a la creación de soluciones innovadoras tanto en el ámbito del backend como en el frontend. Apasionado por aprender y adaptarse a nuevas tecnologías, su objetivo es seguir creciendo en el mundo de la programación mientras disfruta de la vida en un nuevo país. le encanta trabajar en equipo, compartir conocimientos y siempre busca nuevos retos que impulsen su desarrollo personal y profesional.',
     },
     {
-      name: 'Raúl',
+      name: 'Raúl Santana Castilla',
       role: 'Encargado del Frontend',
       image: raulImage,
-      description: "Raúl es un miembro comprometido que escucha a sus compañeros, aportando siempre su actitud positiva y disposición para adaptarse a las decisiones del equipo. Cabe destacar su capacidad para amoldarse y seguir adelante. Raúl acepta cualquier tarea con entusiasmo, esforzándose siempre por dar lo mejor de sí mismo. Su mejora constante es evidente y refleja el gran empeño que pone en crecer y contribuir al proyecto.",
+      description: "Aficionado a los videojuegos y la informática, Raúl es un miembro comprometido que escucha a sus compañeros, aportando siempre su actitud positiva y disposición para adaptarse a las decisiones del equipo. En lo que se ha especializado en este proyecto ha sido en el frontend. Raúl acepta cualquier tarea con entusiasmo, esforzándose siempre por dar lo mejor de sí mismo. Su mejora constante es evidente y refleja el gran empeño que pone en crecer y contribuir al proyecto.",
     },
   ];
 

@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons"; // Cambiado a faPlus y faMinus
 import Footer from "./Footer.jsx";
 import "../../styles/Footercolapsado.css";
 
 const Footercolapsado = () => {
-    // Estado para manejar la visibilidad del footer
     const [isFooterVisible, setFooterVisible] = useState(false);
-    // Función para alternar la visibilidad del footer
     const toggleFooter = () => {
         setFooterVisible(!isFooterVisible);
     };
@@ -16,7 +14,7 @@ const Footercolapsado = () => {
         <div>
             <div className="footer-colapsado">
                 <div className="toggle-icon" onClick={toggleFooter}>
-                    <FontAwesomeIcon icon={isFooterVisible ? faChevronDown : faChevronUp} size="2x" className={isFooterVisible ? '' : 'icon-moradito'} />
+                    <FontAwesomeIcon icon={isFooterVisible ? faMinus : faPlus} size="2x" className={isFooterVisible ? '' : 'icon-moradito'} />
                 </div>
             </div>
             {/* Footer que se despliega al hacer clic */}

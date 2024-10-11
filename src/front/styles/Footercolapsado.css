@@ -22,20 +22,20 @@
 .footer-container {
     position: fixed;
     bottom: 0;
-    right: -44%;  /* Centra el contenedor horizontalmente */
-    transform: translateX(-50%); /* Alinea el contenedor al centro */
-    height: 0; /* Inicialmente colapsado */
-    background-color: #000000; /* Color de fondo del footer */
-    z-index: 9999; /* Debajo del icono */
-    transition: height 0.5s ease; /* Transición para efecto de despliegue */
-    overflow: hidden; /* Oculta el contenido sobrante */
-    width: 86%;
+    left: 0; 
+    width: 100%; 
+    height: 0; 
+    background-color: #000000; 
+    z-index: 9999; 
+    transition: height 0.5s ease;
+    overflow: hidden; 
 }
 
 .footer-container.visible {
     height: 16%; /* Se expande hacia arriba */
     bottom: 0; /* Mantiene el contenedor en la parte inferior */
 }
+
 
 .icon-white {
     color: white; /* Establece el color blanco */
