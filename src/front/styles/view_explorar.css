@@ -1,8 +1,8 @@
 .vista-explorar {
   align-items: center;
   background-color: #f8f8f8;
-  margin-left: 15vw; /* Ajuste inicial para pantallas grandes */
-  padding: 0 1rem; /* Asegura que haya algo de margen en pantallas pequeñas */
+  margin-left: 15vw;
+  padding: 0 1rem;
 }
 
 .welcome-message {
@@ -17,7 +17,7 @@
 
 @media (min-width: 48rem) {
   .book-list {
-    justify-content: flex-start; /* Ajuste para pantallas medianas en adelante */
+    justify-content: flex-start;
   }
 }
 
@@ -26,9 +26,13 @@
   font-family: 'Special Elite', cursive;
   font-size: 2rem;
   color: #555;
-  margin-top: 20px;
-  width: 100%;
-  margin-left: 33vw;
+  margin-top: 10px;
+}
+
+.searchContainer + .no-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loading-container {
@@ -124,7 +128,6 @@
   }
 }
 
-/* Ajustes para pantallas medianas (tabletas) */
 @media (max-width: 1024px) {
   .vista-explorar {
     margin-left: 0;
@@ -154,7 +157,6 @@
   }
 }
 
-/* Ajustes para pantallas grandes (escritorio) */
 @media (min-width: 1200px) {
   .vista-explorar {
     margin-left: 10vw;
@@ -170,6 +172,10 @@
 
   .welcome-message {
     margin-left: 16%;
+  }
+
+  .no-results {
+    font-size: 1.3rem; 
   }
 
   .loading-container p {

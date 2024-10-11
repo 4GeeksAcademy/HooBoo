@@ -15,9 +15,10 @@ const BookCard = ({ book }) => {
 
     const showLoginAlert = () => {
         Swal.fire({
-            title: 'Acceso denegado',
-            text: 'Para agregar a favoritos o ver la información del libro, debes registrarte o iniciar sesión.',
-            icon: 'error',
+            title: '¡Hola Booklover!',
+            text: 'Para disfrutar de nuestro contenido, te invitamos a que te registres o inicies sesión',
+            icon: 'warning',
+            iconColor: "#7029ab",
             confirmButtonText: 'Iniciar sesión',
             cancelButtonText: 'Cancelar',
             showCancelButton: true,
