@@ -6,10 +6,12 @@
 
 .favoritos-titulo {
     text-align: center;
-    font-size: 2rem;
     font-weight: bold;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    font-family: 'Special Elite', cursive;
+    font-size: 3rem;
+    color: #7029ab;
 }
 
 .favoritos-list {
