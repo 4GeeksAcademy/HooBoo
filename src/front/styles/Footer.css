@@ -8,7 +8,8 @@
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  font-size: 0.75rem; /* Cambiado de 12px a rem para tamaño relativo del texto */
+  font-size: 0.75rem; 
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .footer-content {
@@ -21,11 +22,11 @@
 
 .section {
   text-align: left;
-  margin-bottom: 1.25em; /* Cambiado de 20px a em */
+  margin-bottom: 1.25em; 
 }
 
 .icon {
-  font-size: 1.5rem; /* Cambiado de 24px a rem */
+  font-size: 1.5rem;
   cursor: pointer;
   color: #fff;
   display: flex;
@@ -33,19 +34,19 @@
   justify-content: center;
 }
 
-/* Estilo para cada red social con su color específico */
+
 .twitter-icon, .instagram-icon, .facebook-icon, .tiktok-icon, .telegram-icon, .whatsapp-icon, .youtube-icon {
-  border-radius: 0.3em; /* Cambiado de 5px a em */
+  border-radius: 0.3em; 
 }
 
 .stars {
   display: flex;
   justify-content: center;
-  gap: 0.3em; /* Cambiado de 5px a em */
+  gap: 0.3em; 
 }
 
 .star {
-  font-size: 1.6rem; /* Cambiado de 25px a rem */
+  font-size: 1.6rem; 
   color: #F0C419;
 }
 
@@ -66,7 +67,7 @@
 }
 
 .bottom-section h4 {
-  margin-bottom: 0.625em; /* Cambiado de 10px a em */
+  margin-bottom: 0.625em; 
 }
 
 .bottom-section ul {
@@ -75,7 +76,7 @@
 }
 
 .bottom-section li {
-  margin-bottom: 0.3em; /* Cambiado de 5px a em */
+  margin-bottom: 0.3em; 
 }
 
 .social-icons {
@@ -83,16 +84,16 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 0.6em; /* Cambiado de 10px a em */
-  margin-bottom: 1.25em; /* Cambiado de 20px a em */
+  gap: 0.6em; 
+  margin-bottom: 1.25em; 
 }
 
-/* Responsivo para pantallas pequeñas */
+
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
     align-items: center;
-    padding: 1.25em; /* Cambiado de px a em */
+    padding: 1.25em; 
   }
   .section {
     text-align: center;
@@ -100,7 +101,7 @@
   .social-icons {
     flex-direction: row;
     justify-content: center;
-    gap: 0.9em; /* Cambiado de 15px a em */
+    gap: 0.9em; 
   }
 }
 
@@ -111,61 +112,61 @@
 }
 
 
-/* Efecto hover para los íconos sociales con fondo morado claro */
+
 .twitter-icon:hover {
-  background-color: white !important; /* Fondo morado claro para el hover */
-  color: #a75df267 !important; /* Mantener el azul del ícono de Twitter */
+  background-color: white !important; 
+  color: #a75df267 !important; 
 }
 
 .instagram-icon:hover {
-  background-color: white !important; /* Fondo morado claro para el hover */
-  color: #a75df267 !important; /* Mantener el color blanco del símbolo */
+  background-color: white !important; 
+  color: #a75df267 !important; 
 }
 
 .facebook-icon:hover {
-  background-color: white !important; /* Fondo morado claro para el hover */
-  color: #a75df267 !important; /* Mantener el azul del ícono de Facebook */
+  background-color: white !important; 
+  color: #a75df267 !important; 
 }
 
 .tiktok-icon:hover {
-  background-color: white !important; /* Fondo morado claro para el hover */
-  color: #a75df267 !important; /* Mantener el color del ícono de TikTok */
+  background-color: white !important; 
+  color: #a75df267 !important; 
 }
 
 .telegram-icon:hover {
-  background-color: white !important; /* Fondo morado claro para el hover */
-  color: #a75df267 !important; /* Mantener el azul del ícono de Telegram */
+  background-color: white !important; 
+  color: #a75df267 !important; 
 }
 
 .whatsapp-icon:hover {
-  background-color: white !important; /* Fondo morado claro para el hover */
-  color: #a75df267 !important; /* Mantener el color blanco del ícono de WhatsApp */
+  background-color: white !important; 
+  color: #a75df267 !important; 
 }
 
 .youtube-icon:hover {
-  background-color: white !important; /* Fondo morado claro para el hover */
-  color: #a75df267 !important; /* Mantener el color blanco del triángulo de YouTube */
+  background-color: white !important; 
+  color: #a75df267 !important; 
 }
 
-/* Estilo base para los iconos de Spotify y Pinterest */
+
 .spotify-icon, .pinterest-icon {
-  border-radius: 0.3em; /* Igual al de otros íconos */
+  border-radius: 0.3em; 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Efecto hover para los íconos de Spotify y Pinterest */
+
 .spotify-icon:hover {
-  background-color: white !important; /* Fondo morado claro para el hover */
-  color: #a75df267 !important; /* Mantener el color blanco del símbolo */
+  background-color: white !important; 
+  color: #a75df267 !important; 
 }
 
 .pinterest-icon:hover {
-  background-color: white !important; /* Fondo morado claro para el hover */
-  color: #a75df267 !important; /* Mantener el color blanco del símbolo */
+  background-color: white !important; 
+  color: #a75df267 !important; 
 }
 
 .icon {
-  transition: background-color 0.3s ease, color 0.3s ease; /* Suaviza el efecto de hover */
+  transition: background-color 0.3s ease, color 0.3s ease; 
 }

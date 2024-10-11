@@ -13,7 +13,7 @@
     transition: width 0.3s ease, transform 0.3s ease;
     align-items: center;
     z-index: 1000;
-    font-family: 'Special Elite', cursive;
+    font-family: "IBM Plex Mono", monospace;
 }
 
 .navbar-activo.active {
