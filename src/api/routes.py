@@ -27,7 +27,7 @@ def reset_password_request():
     if not user:
         return jsonify({"msg": "No existe un usuario con ese correo"}), 404
 
-    reset_url = f"https://glorious-zebra-jjr544wgv59whj7rg-3000.app.github.dev/reset-password/{user.id}"
+    reset_url = f"https://probable-capybara-4jq7gg9rpxqrhv56-3000.app.github.dev/reset-password/{user.id}"
     
     msg = Message(subject="Restablecer contraseña", sender="hooboo4geeks@gmail.com", recipients=[user.email])
     msg.body = f"Hola, {user.email}. Para restablecer tu contraseña, haz clic en el siguiente enlace:{reset_url}\nEste enlace expirará en 15 minutos."
