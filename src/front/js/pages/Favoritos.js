@@ -31,23 +31,24 @@ const Favoritos = () => {
                 {store.favorites.length > 0 ? (
                     store.favorites.map((book, index) => (
                         <div key={index} className="favorito-card">
-                            <button
-                                className="trash-iicon derecha"
-                                onClick={() => handleRemoveFavorito(book)}
-                            >
-                                <i className="fa fa-trash"></i>
-                            </button>
+                            <div className="icons-container">
+                                <button className="info-iicon derecha" onClick={() => navigate(`/book/${book.id}`)}>
+                                    <i className="fa fa-info-circle"></i>
+                                </button>
+
+                                <button className="trash-iicon derecha" onClick={() => handleRemoveFavorito(book)}>
+                                    <i className="fa fa-trash"></i>
+                                </button>
+
+
+
+                            </div>
                             <img
                                 src={book.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/150"}
                                 alt={book.volumeInfo.title}
                                 className="favorito-image"
                             />
                             <h2 className="favorito-title">{book.volumeInfo.title}</h2>
-                            <Link to={`/book/${book.id}`}>
-                                <button className="info-iicon derecha">
-                                    <i className="fa fa-info-circle"></i>
-                                </button>
-                            </Link>
                         </div>
                     ))
                 ) : (

@@ -57,16 +57,16 @@ const BookCard = ({ book }) => {
             <img src={imageUrl} alt={title} className="book-image-card" />
             <div className="icons-container">
                 <FontAwesomeIcon
-                    icon={faHeart}
-                    className={`icon-book favorite-icon ${isFavorite ? "favorite-active" : ""}`}
-                    title="Agregar a Favoritos"
-                    onClick={handleFavoriteClick}
-                />
-                <FontAwesomeIcon
                     icon={faInfoCircle}
                     className="icon-book info-icon"
                     title="Más Información"
                     onClick={handleInfoClick}
+                />
+                <FontAwesomeIcon
+                    icon={faHeart}
+                    className={`icon-book favorite-icon ${isFavorite ? "favorite-active" : ""}`}
+                    title="Agregar a Favoritos"
+                    onClick={handleFavoriteClick}
                 />
             </div>
             <div className="book-title">{title}</div>

@@ -73,20 +73,6 @@
     gap: 20px;
 }
 
-.info-button,
-.trash {
-    border: none;
-    background-color: #C76AF1;
-    padding: 8px 12px;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.info-button:hover,
-.trash:hover {
-    background-color: #C124FF;
-}
 
 .sin-favoritos {
     text-align: center;
@@ -100,32 +86,6 @@
 }
 
 
-.trash-iicon {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #8c3bc4;
-    font-size: 1.5rem;
-}
-
-.info-iicon {
-    position: absolute;
-    bottom: 0.5rem;
-    right: 0.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #C76AF1;
-    font-size: 1.5rem;
-}
-
-.info-iicon:hover,
-.trash-iicon:hover {
-    color: #000000;
-}
 
 .derecha {
     padding: 0;
@@ -159,4 +119,35 @@
         margin-left: 12vw; 
         padding: 5rem 1rem; 
     }
+}
+
+.icons-container {
+    position: absolute;
+    top: 0.5rem; /* Posiciona los iconos en la parte superior */
+    right: 0.5rem; /* Alinea los iconos hacia la derecha */
+    display: flex;
+    gap: 0.5rem; /* Añade un espacio entre los iconos */
+}
+
+.trash-iicon,
+.info-iicon {
+    background-color: white; /* Fondo redondo blanco fijo */
+    border: none;
+    cursor: pointer;
+    color: #8c3bc4; /* Icono en color morado */
+    font-size: 1rem; /* Tamaño del icono reducido */
+    width: 1.6rem; /* Tamaño más pequeño para el círculo */
+    height: 1.6rem; /* Tamaño más pequeño para el círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Mantiene el fondo redondo */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para el color y el fondo */
+    padding: 0; /* Eliminar cualquier espacio interno extra */
+}
+
+.trash-iicon:hover,
+.info-iicon:hover {
+    background-color: #e0c6f5; /* Fondo morado claro al pasar el ratón */
+    color: #000000; /* Icono negro al pasar el ratón */
 }
