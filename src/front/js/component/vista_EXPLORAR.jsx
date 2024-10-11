@@ -6,7 +6,7 @@ import Footercolapsado from "./Footercolapsado.jsx";
 import Navbaractivo from "./Navbaractivo.jsx";
 import HoobooBanner from '../component/hooboo_banner.jsx';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faTimes } from "@fortawesome/free-solid-svg-icons"; // Agregamos faTimes
 import "../../styles/buscador_explorar.css";
 import "../../styles/view_explorar.css";
 
@@ -26,22 +26,19 @@ const VistaExplorar = () => {
             script.src = 'https://call.chatra.io/chatra.js';
             document.head.appendChild(script);
 
-            // Configuración adicional del chat
             script.onload = () => {
                 if (window.Chatra) {
-                    // Ajusta las dimensiones de la ventana del chat
                     window.Chatra('set', 'widgetSize', {
-                        width: '200px', // Cambia este valor a tu medida deseada
-                        height: '400px' // Cambia este valor a tu medida deseada
+                        width: '200px',
+                        height: '400px'
                     });
                 }
             };
         };
 
-        loadChatra(); // Carga el script al montar el componente
+        loadChatra();
 
         return () => {
-            // Limpieza opcional: Remover el script si se desea
             const chatraScript = document.querySelector('script[src="https://call.chatra.io/chatra.js"]');
             if (chatraScript) {
                 document.head.removeChild(chatraScript);
@@ -49,10 +46,12 @@ const VistaExplorar = () => {
         };
     }, []); 
 
-    
-
     const handleSearch = (event) => {
         setSearchBox(event.target.value);
+    };
+
+    const clearSearch = () => {
+        setSearchBox('');
     };
 
     const flattenBaseRespaldo = (baseRespaldo) => {
@@ -74,7 +73,7 @@ const VistaExplorar = () => {
 
     return (
         <>
-        <HoobooBanner />
+            <HoobooBanner />
             <Navbaractivo />
             <div className="searchBoxMar">
                 <p className="welcome-messageEXPLORAR">Tu viaje literario empieza aquí, {nombreUsuario}!</p>
@@ -86,7 +85,16 @@ const VistaExplorar = () => {
                         onChange={handleSearch}
                         className="searchInput"
                     />
-                    <FontAwesomeIcon icon={faMagnifyingGlass} className="searchIcon" />
+                    {searchBox && (
+                        <FontAwesomeIcon
+                            icon={faTimes} // Agregamos ícono de "X" para limpiar
+                            className="clearSearchIcon" // Estilo para el ícono
+                            onClick={clearSearch} // Limpiar la búsqueda al hacer clic
+                        />
+                    )}
+                    {!searchBox && (
+                        <FontAwesomeIcon icon={faMagnifyingGlass} className="searchIcon" />
+                    )}
                 </div>
             </div>
             {store.loading ? (

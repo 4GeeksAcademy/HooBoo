@@ -9,7 +9,6 @@
     z-index: 1; /* Aseguramos que esté en una capa visible */
 }
 
-
 .welcome-messageINVITADOS {
     font-size: 2vw;
     text-align: center;
@@ -17,14 +16,17 @@
     font-family: 'Special Elite', cursive;
     margin-top: 3vw;
     padding-bottom: 1vw;
-
 }
 
 .no-resultsINVITADOS {
     text-align: center;
-    font-size: 1.2rem;
+    font-family: 'Special Elite', cursive;
+    font-size: 1.7rem;
     color: #555;
     margin-top: 20px;
+    width: 100%;
+    margin-left: 33vw;
+    margin-bottom: 5vh;
 }
 
 .loading-containerINVITADOS {
@@ -145,6 +147,7 @@
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Ícono de lupa (inicial) */
 .searchIconINVITADOS {
     position: absolute;
     right: 20px;
@@ -154,6 +157,19 @@
 }
 
 .searchIconINVITADOS:hover {
+    color: #a75df2;
+}
+
+/* Ícono de "X" para limpiar la búsqueda */
+.clearSearchIcon {
+    position: absolute;
+    right: 20px;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.clearSearchIcon:hover {
     color: #a75df2;
 }
 
@@ -178,6 +194,10 @@
 
     .loading-containerINVITADOS p {
         font-size: 1.25rem;
+    }
+
+    .searchInputINVITADOS {
+        width: 70vw;
     }
 }
 
@@ -217,10 +237,6 @@
 
     .welcome-messageINVITADOS {
         margin-left: 0;
-    }
-
-    .no-resultsINVITADOS {
-        font-size: 1.3rem;
     }
 
     .loading-containerINVITADOS p {

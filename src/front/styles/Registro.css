@@ -87,3 +87,15 @@
         width: 90%;
     }
 }
+
+.error-messageee{
+    color: #a75df2;
+    text-align: center;
+    font-family: 'Special Elite', cursive;
+}
+
+.success-messageee{
+    color: #a75df2;
+    text-align: center;
+    font-family: 'Special Elite', cursive;
+}

@@ -23,9 +23,12 @@
 
 .no-results {
   text-align: center;
-  font-size: 1.2rem;
+  font-family: 'Special Elite', cursive;
+  font-size: 2rem;
   color: #555;
   margin-top: 20px;
+  width: 100%;
+  margin-left: 33vw;
 }
 
 .loading-container {
@@ -40,25 +43,71 @@
   color: #555;
 }
 
+/* Estilos del cuadro de búsqueda */
+.searchBoxMar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+.searchContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  padding: 10px 40px 10px 15px;
+  font-size: 16px;
+  width: 40vw;
+  max-width: 500px;
+  border-radius: 25px;
+  border: 1px solid #a75df2;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.searchIcon {
+  position: absolute;
+  right: 20px;
+  color: #ccc;
+  pointer-events: none;
+  font-size: 18px;
+}
+
+.clearSearchIcon {
+  position: absolute;
+  right: 45px;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.clearSearchIcon:hover {
+  color: #a75df2;
+}
+
 /* Ajustes para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
   .vista-explorar {
-    margin-left: 0; 
-    padding: 0 1rem; 
+    margin-left: 0;
+    padding: 0 1rem;
   }
 
   .hooboobaner {
-    font-size: 1.25rem; 
+    font-size: 1.25rem;
     padding: 0.625rem;
   }
 
   .book-list {
-    justify-content: center; 
-    padding: 1rem 0; 
+    justify-content: center;
+    padding: 1rem 0;
   }
 
   .welcome-message {
-    margin-left: 0; /* Centra el mensaje en móviles */
+    margin-left: 0;
     font-size: 0.9rem;
   }
 
@@ -67,19 +116,23 @@
   }
 
   .loading-container p {
-    font-size: 1.25rem; 
+    font-size: 1.25rem;
+  }
+
+  .searchInput {
+    width: 70vw;
   }
 }
 
 /* Ajustes para pantallas medianas (tabletas) */
 @media (max-width: 1024px) {
   .vista-explorar {
-    margin-left: 0; 
-    padding: 0 2rem; 
+    margin-left: 0;
+    padding: 0 2rem;
   }
 
   .hooboobaner {
-    font-size: 1.4rem; 
+    font-size: 1.4rem;
     padding: 0.75rem;
   }
 
@@ -88,23 +141,23 @@
   }
 
   .welcome-message {
-    margin-left: 8%; /* Ajuste para tabletas */
+    margin-left: 8%;
     font-size: 1rem;
   }
 
   .no-results {
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
   }
 
   .loading-container p {
-    font-size: 1.4rem; 
+    font-size: 1.4rem;
   }
 }
 
 /* Ajustes para pantallas grandes (escritorio) */
 @media (min-width: 1200px) {
   .vista-explorar {
-    margin-left: 10vw; 
+    margin-left: 10vw;
   }
 
   .book-list {
@@ -112,18 +165,14 @@
   }
 
   .hooboobaner {
-    font-size: 1.75rem; 
+    font-size: 1.75rem;
   }
 
   .welcome-message {
-    margin-left: 16%; /* Mantiene el mensaje alineado */
-  }
-
-  .no-results {
-    font-size: 1.3rem; 
+    margin-left: 16%;
   }
 
   .loading-container p {
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
   }
 }

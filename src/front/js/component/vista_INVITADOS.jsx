@@ -5,7 +5,7 @@ import Footer from "../component/Footer.jsx";
 import Navbar from './Navbar.jsx'; 
 import BannerOnlyHome from "./BannerOnlyHome.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/buscador_explorar.css";
 import "../../styles/vista_INVITADOS.css";
 import "../../styles/Navbar.css";
@@ -22,6 +22,11 @@ const VistaInvitados = () => {
 
     const handleSearch = (event) => {
         setSearchBox(event.target.value);
+    };
+
+    // Función para limpiar el campo de búsqueda
+    const clearSearch = () => {
+        setSearchBox('');
     };
 
     const flattenBaseRespaldo = (baseRespaldo) => {
@@ -56,9 +61,21 @@ const VistaInvitados = () => {
                         onChange={handleSearch}
                         className="searchInputINVITADOS"
                     />
-                    <FontAwesomeIcon icon={faMagnifyingGlass} className="searchIconINVITADOS" />
+                    {searchBox ? (
+                        <FontAwesomeIcon
+                            icon={faTimes} // Ícono de "X"
+                            className="clearSearchIcon"
+                            onClick={clearSearch} // Limpiar la búsqueda al hacer clic
+                        />
+                    ) : (
+                        <FontAwesomeIcon
+                            icon={faMagnifyingGlass} // Ícono de búsqueda (lupa)
+                            className="searchIconINVITADOS"
+                        />
+                    )}
                 </div>
             </div>
+
             {store.loading ? (
                 <div className="loading-containerINVITADOS">
                     <p>Cargando libros...</p>
