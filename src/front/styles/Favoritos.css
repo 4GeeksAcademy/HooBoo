@@ -118,7 +118,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: #3498db;
+    color: #C76AF1;
     font-size: 1.5rem;
 }
 
@@ -131,6 +131,7 @@
     padding: 0;
     margin: 0;
     width: 2rem;
+    border-radius: 50%;
 }
 
 .derecha:hover {
