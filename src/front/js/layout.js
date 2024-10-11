@@ -20,7 +20,7 @@ const AppContent = () => {
     const isHomePage = location.pathname === "/";
 
     return (
-        <ColorFondo> {/* Envuelve todo con ColorFondo */}
+        <ColorFondo> 
             <Routes>
                 <Route element={<Principal />} path="/" />
                 <Route element={<Login />} path="/Login" />

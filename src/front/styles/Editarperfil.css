@@ -3,118 +3,124 @@
   flex-direction: row; 
   justify-content: center;
   align-items: flex-start;
-  padding: 40px;
-  gap: 40px;
-  max-width: 1000px; /* Asegúrate de que este valor se ajuste a tu diseño */
+  padding: 2.5rem; 
+  gap: 2.5rem; 
+  max-width: 62.5rem; 
   border: 1px solid #cca1f7; 
   background-color: #f0f0f0; 
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445); 
+  border-radius: 1.25rem;
+  box-shadow: 0 0.25rem 0.625rem rgba(135, 15, 165, 0.445); 
 }
 
-.centradito_todo {
-  display: flex; /* Flex para centrar */
-  flex-direction: column; /* Coloca los elementos en columna */
-  align-items: center; /* Centra horizontalmente */
-  justify-content: center; /* Centra verticalmente si es posible */
-  height: 100vh; /* Para que ocupe toda la altura */
+
+.toast-custom-purple {
+  background-color: white !important; 
+  color: #7029ab !important; 
 }
+
+
+.toast-progress-bar {
+  background-color: #7029ab !important; 
+}
+
+
+.edit-back-button, .edit-save-button, .edit-cancel-button {
+  display: inline-block;
+  padding: 0.5rem 1rem; 
+  background-color: #a75df2; 
+  color: white;
+  border: none;
+  border-radius: 0.25rem; 
+  cursor: pointer;
+  font-size: 0.875rem;
+  min-width: 8rem; 
+  max-width: 12rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.1); 
+}
+
+
+.edit-back-button:hover, .edit-save-button:hover, .edit-cancel-button:hover {
+  background-color: #5a218f; 
+}
+
+
+.button-group {
+  display: flex;
+  justify-content: center; 
+  gap: 0.5rem; 
+  margin-top: 1rem; 
+}
+
+
+.centradito_todo {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh;
+}
+
 
 .profile-pic-section {
   flex: 1;
   text-align: center; 
 }
 
+
 .profile-pic-box {
-  width: 300px;
-  height: 300px;
+  width: 18.75rem; 
+  height: 18.75rem; 
   border: 2px solid #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   cursor: pointer;
-  font-size: 18px;
-  padding: 20px;
+  font-size: 1.125rem; 
+  padding: 1.25rem; 
   background-color: #f9f9f9;
-  border-radius: 8px;
-  overflow: hidden; /* Evita que el contenido sobresalga */
+  border-radius: 0.5rem; 
+  overflow: hidden; 
 }
+
 
 .profile-edit-section {
   flex: 2;
 }
 
+
 .dit-form-group {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem; 
 }
+
 
 .dit-form-group label {
   display: block;
-  margin-bottom: 8px;
-  font-size: 16px;
+  margin-bottom: 0.5rem; 
+  font-size: 1rem; 
   color: black;
 }
 
+
 .dit-form-group input {
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
+  padding: 0.8rem; 
+  font-size: 1rem; 
   border: 1px solid #cca1f7; 
-  border-radius: 6px;
+  border-radius: 0.375rem; 
   background-color: #fff; 
   color: #333;
   font-family: "IBM Plex Mono", monospace;
 }
 
-.edit-save-button {
-  display: inline-block;
-  padding: 12px 20px;
-  background-color: #a75df2; 
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-  width: 200px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
-}
-
-.edit-save-button:hover {
-  background-color: #8c3bc4; 
-}
-
-.button-group {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.edit-cancel-button {
-  display: inline-block;
-  padding: 12px 20px;
-  background-color: #cca1f7;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-  width: 200px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-left: 20px;
-}
-
-.edit-cancel-button:hover {
-  background-color: #851be9; 
-}
 
 .nombre-editar-perfil {
-  font-size: 3rem;
+  font-size: 2.5rem; 
   font-weight: bold;
   color: #7029ab; 
-  text-align: center; /* Centra el texto */
-  margin-bottom: 20px; /* Espacio entre el título y el contenedor del formulario */
+  text-align: center; 
+  margin-bottom: 1.25rem; 
   font-family: 'Special Elite', cursive;
 }
 
@@ -122,19 +128,19 @@
 @media (max-width: 768px) {
   .edit-form-container {
     flex-direction: column; 
-    padding: 20px;
-    gap: 20px;
+    padding: 1.25rem; 
+    gap: 1.25rem; 
     max-width: 90%;
   }
 
   .profile-pic-box {
-    width: 200px; 
-    height: 200px;
+    width: 12.5rem; 
+    height: 12.5rem; 
   }
 
-  .edit-save-button, .edit-cancel-button {
+  .edit-save-button, .edit-cancel-button, .edit-back-button {
     width: 100%; 
-    font-size: 14px; 
+    font-size: 0.875rem; 
   }
 
   .nombre-editar-perfil {
@@ -143,19 +149,20 @@
   }
 }
 
+
 @media (max-width: 1024px) {
   .edit-form-container {
     max-width: 100%; 
-    padding: 30px;
-    gap: 30px;
+    padding: 1.875rem; 
+    gap: 1.875rem;
   }
 
   .profile-pic-box {
-    width: 250px;
-    height: 250px;
+    width: 15.625rem; 
+    height: 15.625rem; 
   }
 
-  .edit-save-button, .edit-cancel-button {
+  .edit-save-button, .edit-cancel-button, .edit-back-button {
     width: 50%; 
   }
 
@@ -166,38 +173,54 @@
 
 
 .avatar-selection {
-  display: flex; /* Utiliza flexbox para una distribución en fila */
-  justify-content: center; /* Centra los avatares horizontalmente */
-  margin-top: 10px; /* Espacio entre el título y los avatares */
+  display: flex; 
+  justify-content: center; 
+  margin-top: 10px; 
 }
+
 
 .avatar-option {
-  margin: 10px; /* Espacio entre cada avatar */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el avatar */
+  width: 4rem; 
+  height: 4rem; 
+  margin: 0.5rem; 
+  cursor: pointer; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .avatar-image {
-  width: 80px; /* Ancho de las imágenes */
-  height: 80px; /* Altura de las imágenes */
-  border-radius: 50%; /* Hace que las imágenes sean circulares */
-  border: 2px solid transparent; /* Borde por defecto, transparente */
-  transition: border-color 0.3s; /* Animación suave para el borde */
-  object-fit: cover; /* Mantiene la proporción de la imagen */
+  width: 100%; 
+  height: 100%; 
+  border-radius: 50%; 
+  border: 2px solid transparent; 
+  transition: border-color 0.3s; 
+  object-fit: cover; 
+  object-position: center; 
 }
+
 
 .avatar-image.selected {
-  border-color: #28a745; /* Color de borde cuando está seleccionado */
+  border-color: #7029ab; 
 }
 
+
 .titulito-avataress {
-  display: block; /* Hace que el título se comporte como un bloque */
-  text-align: center; /* Centra el texto del título */
-  margin-bottom: 10px; /* Espacio debajo del título */
+  display: block; 
+  text-align: center; 
+  margin-bottom: 10px; 
   color: black;
 }
 
+
 .selected-avatar {
-  width: 220px; /* Ajusta el tamaño del avatar seleccionado */
-  height: 200px; /* Mantén el aspecto cuadrado */
-  border-radius: 50%; /* Mantiene el avatar como círculo */
+  width: 12rem; 
+  height: 12rem; 
+  border-radius: 50%; 
+  object-fit: cover; 
+  object-position: center; 
+  border: 2px solid #7029ab; 
+  overflow: hidden; 
 }
+
