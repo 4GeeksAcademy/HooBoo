@@ -35,10 +35,9 @@
     border: 1px solid var(--primary-color);
     border-radius: 1rem;
     padding: 1.5rem;
-    
     transition: transform 0.3s ease;
     margin-top: 1%;
-    font-family: 'Special Elite', cursive;
+    font-family: "IBM Plex Mono", monospace;
 }
 
 .memberCard:hover {
@@ -147,4 +146,8 @@ p {
 
   .color-letra{
     color: black;
+  }
+
+  h3 {
+    font-family: 'Special Elite', cursive;
   }
