@@ -9,21 +9,21 @@ import { Context } from "../store/appContext";
 
 
 const AcercaDeNosotros = ({ isActive }) => {
-  const { store } = useContext(Context);  // Usar el contexto para acceder al estado de autenticación
-  const navigate = useNavigate();  // Para redirigir programáticamente
+  const { store } = useContext(Context);
+  const navigate = useNavigate();
 
   const teamMembers = [
     {
       name: 'Patricia',
       role: 'Project Manager',
       image: patriciaImage,
-      description: 'Patricia fue la que propuso la idea del proyecto de hacer esta librería online.',
+      description: "Apasionada de la lectura y creadora de la idea original de HooBoo, vi una oportunidad en el mercado para crear una plataforma innovadora para lectores. Mi enfoque se centra en el diseño visual y el desarrollo front-end del proyecto, asegurándome de que cada detalle brinde una experiencia atractiva y fácil de usar. Estoy comprometida con convertir nuestra visión en un espacio donde los amantes de los libros puedan conectar, descubrir y compartir su pasión por la lectura.",
     },
     {
       name: 'Mariana',
-      role: 'Especialista en Frontend',
+      role: 'Especialista en Backend',
       image: marianaImage,
-      description: 'Mariana ha sido la encargada del backend.',
+      description: "Mariana, mexicana y amante de la buena comida, aporta esfuerzo y pasión en cada detalle de HooBoo. Siempre dispuesta a dar lo mejor de sí, ha contribuido en todos los aspectos posibles del proyecto, demostrando una actitud abierta y flexible para escuchar, aprender y hacer mejoras constantes. Su dedicación y entusiasmo son clave para el crecimiento de nuestro equipo.",
     },
     {
       name: 'Luis Castilla',
@@ -35,15 +35,15 @@ const AcercaDeNosotros = ({ isActive }) => {
       name: 'Raúl',
       role: 'Encargado del Frontend',
       image: raulImage,
-      description: 'Raúl ha hecho el frontend.',
+      description: "Raúl es un miembro comprometido que escucha a sus compañeros, aportando siempre su actitud positiva y disposición para adaptarse a las decisiones del equipo. Cabe destacar su capacidad para amoldarse y seguir adelante. Raúl acepta cualquier tarea con entusiasmo, esforzándose siempre por dar lo mejor de sí mismo. Su mejora constante es evidente y refleja el gran empeño que pone en crecer y contribuir al proyecto.",
     },
   ];
 
   const handleBackClick = () => {
-    if (store.token) {  // Verificamos si el token existe en el store de Flux
-      navigate('/vistaexplorar');  // Si el token existe, redirigimos a /vistaexplorar
+    if (store.token) {
+      navigate('/vistaexplorar');
     } else {
-      navigate('/');  // Si no hay token, redirigimos a la página de inicio
+      navigate('/');
     }
   };
   return (
@@ -60,7 +60,7 @@ const AcercaDeNosotros = ({ isActive }) => {
         ))}
       </div>
       <div className="backButtonContainer">
-        <button onClick={handleBackClick} className="backButton">Volver</button> {/* Cambiamos Link por button */}
+        <button onClick={handleBackClick} className="backButton">Volver</button>
       </div>
     </div>
   );

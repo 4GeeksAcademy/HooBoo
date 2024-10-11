@@ -35,13 +35,14 @@
     border: 1px solid var(--primary-color);
     border-radius: 1rem;
     padding: 1.5rem;
-    box-shadow: 0 4px 10px var(--shadow-color);
+    
     transition: transform 0.3s ease;
     margin-top: 1%;
+    font-family: 'Special Elite', cursive;
 }
 
 .memberCard:hover {
-    transform: scale(1.05);
+    box-shadow: 0 4px 10px var(--shadow-color);
 }
 
 .memberImage {
@@ -71,7 +72,7 @@ p {
 
     .memberCard {
         flex: 1 1 100%; 
-        max-width: 90%; 
+        max-width: 70%; 
         margin: auto; 
     }
 }
@@ -101,8 +102,8 @@ p {
     }
 
     .memberCard {
-        flex: 1 1 22%; /* Ocupa el 22% del ancho del contenedor para mostrar 4 tarjetas en una fila */
-        max-width: 22%; /* Se asegura que se muestren 4 tarjetas por fila */
+        flex: 1 1 18%; /* Ocupa el 22% del ancho del contenedor para mostrar 4 tarjetas en una fila */
+        max-width: 18%; /* Se asegura que se muestren 4 tarjetas por fila */
     }
 }
 
@@ -140,7 +141,7 @@ p {
 
   .diseño-deestetitulo {
     font-family: 'Special Elite', cursive;
-    color: #a75df2;
+    color: #7029ab;
     font-weight: bold;
   }
 

@@ -40,12 +40,14 @@
     cursor: pointer;
 }
 
+
+
 .favorite-icon:hover {
-    color: #e74c3c;
+    color: #a75df2;
 }
 
 .info-icon:hover {
-    color: #3498db;
+    color: #a75df2;
 }
 
 .book-title {

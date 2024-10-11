@@ -15,7 +15,7 @@ const BookCard = ({ book }) => {
 
     const showLoginAlert = () => {
         Swal.fire({
-            title: 'Acceso requerido',
+            title: 'Acceso denegado',
             text: 'Para agregar a favoritos o ver la información del libro, debes registrarte o iniciar sesión.',
             icon: 'error',
             confirmButtonText: 'Iniciar sesión',
@@ -32,24 +32,24 @@ const BookCard = ({ book }) => {
     };
 
     const handleFavoriteClick = () => {
-        if (!store.user || Object.keys(store.user).length === 0) {
+        if (!store.token) {
             showLoginAlert();
-        } else {
-            if (isFavorite) {
-                actions.removeFavoritos(book);
-            } else {
-                actions.addFavoritos(book);
-            }
-            setIsFavorite(!isFavorite);
+            return;
         }
+        if (isFavorite) {
+            actions.removeFavoritos(book);
+        } else {
+            actions.addFavoritos(book);
+        }
+        setIsFavorite(!isFavorite);
     };
 
     const handleInfoClick = () => {
-        if (!store.user || Object.keys(store.user).length === 0) {
+        if (!store.token) {
             showLoginAlert();
-        } else {
-            navigate(`/book/${book.id}`);
+            return;
         }
+        navigate(`/book/${book.id}`);
     };
 
     return (
