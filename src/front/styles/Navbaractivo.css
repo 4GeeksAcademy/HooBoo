@@ -1,6 +1,4 @@
-/* Estilos para el sidebar en pantallas grandes */
 .navbar-activo {
-    width: 15%;
     background-color: #000;
     color: #fff;
     position: fixed;
@@ -15,13 +13,12 @@
     transition: width 0.3s ease, transform 0.3s ease;
     align-items: center;
     z-index: 1000;
+    font-family: 'Special Elite', cursive;
 }
-
 
 .navbar-activo.active {
     transform: translateX(0); 
 }
-
 
 @media (max-width: 768px) {
     .navbar-activo {
@@ -31,7 +28,6 @@
     }
 }
 
-
 .logo-activo {
     font-size: 1.5rem; 
     font-weight: bold;
@@ -40,23 +36,19 @@
     text-decoration: none;
 }
 
-
 /* Estilo del logo en el sidebar */
 .logo-img-explorar {
     display: block;
-    background-color: #ffffff; /* Fondo blanco */
-    border-radius: 50%; /* Hace que el fondo sea un círculo */
-    padding: 10px; /* Espacio interno entre el logo y el borde circular */
+    background-color: #ffffff; 
+    border-radius: 50%; 
+    padding: 10px; 
     width: 20vh;
     height: auto;
-    margin: 0 auto; /* Centra el logo dentro del sidebar */
-    border: 5px solid #7029ab; /* Borde sólido de color púrpura */
+    margin: 0 auto; 
+    border: 5px solid #7029ab;
     margin-top: 4vh;
     margin-bottom: 4vh;
 }
-
-
-
 
 .menu {
     display: flex;
@@ -64,15 +56,15 @@
     gap: 1vw;
 }
 
-
+/* Ajuste del tamaño de letra en los elementos del menú del navbar */
 .menu-item {
     display: flex;
     align-items: center;
-    gap: 1vw;
+    gap: 0.8vw; 
     color: #fff;
     text-decoration: none;
-    font-size: 1rem; 
-    padding: 0.5rem 0.5rem 0.5rem 2rem; 
+    font-size: 1.2rem; 
+    padding: 0.4rem 0.4rem 0.4rem 1.5rem; 
     border-radius: 0.5rem;
     transition: box-shadow 0.3s ease;
     background: black;
@@ -83,6 +75,7 @@
     box-shadow: 0 0 0.625rem #7029ab;
     color: #a75df2;
 }
+
 
 .profile {
     position: relative;
@@ -132,7 +125,7 @@
     box-shadow: 0 0 0.625rem #7029ab;
 }
 
-
+/* Estilo del botón de cerrar sesión */
 .logout-btn {
     background-color: #a75df2;
     color: #fff;
@@ -142,6 +135,10 @@
     cursor: pointer;
     text-decoration: none;
     margin: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .logout-btn:hover {
@@ -150,14 +147,38 @@
     text-decoration: none;
 }
 
+/* Asegurarse de que solo se muestre el ícono cuando la sidebar esté colapsada */
+.logout-btn .logout-text {
+    display: inline;
+}
+
+.logout-btn .logout-icon {
+    display: inline;
+}
+
+@media (max-width: 768px) {
+    .logout-btn {
+        padding: 0.5rem;
+        width: auto; /* Ajusta el ancho del botón */
+        display: flex;
+        justify-content: center; /* Centra el ícono */
+        align-items: center;
+    }
+
+    .logout-btn .logout-text {
+        display: none; /* Oculta el texto cuando la sidebar está colapsada */
+    }
+}
 
 .menu-item.favoritos {
     position: relative;
 }
 
+/* Ajustes para el contador de favoritos */
 .favorite-count {
-    top: 0.3rem;
-    left: 10vw; 
+    top: 0;
+    right: 0; /* Alinea el contador de favoritos con la estrella */
+    position: absolute;
     background-color: #7029ab;
     color: white;
     border-radius: 50%;
@@ -166,13 +187,13 @@
     font-weight: bold;
 }
 
-
 .menu-toggle {
     display: none; 
     position: absolute;
     top: 1rem;
     left: 1rem;
     background-color: transparent;
+    color: #7029ab; /* Cambia el color del ícono de la hamburguesa a morado */
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
@@ -205,19 +226,16 @@
         height: 3rem;
     }
 
-    .logout-btn {
-        width: 100%; 
-    }
-
     .favorite-count {
-        left: 5rem; 
+        right: 0.5rem; /* Ajuste del contador para que no se desplace demasiado */
     } 
-       .logo-img-explorar {
+
+    .logo-img-explorar {
         max-width: 70%; /* Reduce el tamaño máximo del logo en pantallas pequeñas */
         max-height: 100px; /* Ajusta la altura máxima para dispositivos móviles */
+        margin-top: 8vh; /* Añade un margen superior para separar el logo del ícono */
     }
 }
-
 
 @media (max-width: 480px) {
     .navbar-activo {
@@ -243,12 +261,9 @@
     .edit-profile-btn, .logout-btn {
         font-size: 0.75rem; 
     }
+
     .logo-img-explorar {
         max-width: 60%; /* Reduce aún más el tamaño máximo del logo en pantallas muy pequeñas */
         max-height: 80px; /* Ajuste de la altura máxima para pantallas muy pequeñas */
     }
-
 }
-
-
-

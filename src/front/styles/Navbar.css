@@ -80,11 +80,11 @@
 
 @media (max-width: 768px) {
     .navbar-container {
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
         height: auto;
         padding: 0.5%;
-        background-color: rgba(160, 121, 172, 0.158); 
+        /* background-color: rgba(160, 121, 172, 0.158);  */
     }
 
     .nav-link {
@@ -109,7 +109,7 @@
     }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     .navbar-container {
         flex-direction: column;
         align-items: center;
@@ -137,7 +137,7 @@
         width: 30vw; 
         height: 30vw; 
     }
-}
+} */
 
 /* Estilos para hover y focus */
 .btn-login:hover,

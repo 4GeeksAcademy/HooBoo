@@ -694,17 +694,18 @@ const getState = ({ getStore, getActions, setStore }) => {
                         },
                         body: JSON.stringify({ email, password }),
                     });
-
+            
                     if (!res.ok) {
                         const errorData = await res.json();
                         throw new Error(errorData.msg || "Error en la solicitud de login");
                     }
-
+            
                     const data = await res.json();
                     localStorage.setItem("jwt-token", data.access_token);
-                    setStore({ token: data.access_token });
+                    const favoritosGuardados = JSON.parse(localStorage.getItem("favorites")) || [];
+                    setStore({ token: data.access_token, favorites: favoritosGuardados });
                     console.log("Usuario autenticado:", data);
-
+            
                     return { success: true, token: data.access_token };
                 } catch (error) {
                     console.error("Error en la solicitud de login:", error);
@@ -840,16 +841,17 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             cerrarSesion: () => {
                 localStorage.removeItem("jwt-token");
-                setStore({ token: null });
+                setStore({ token: null, favorites: [] }); 
                 if (window.Chatra) {
-                    window.Chatra('shutdown');  // Apaga el widget de Chatra
-                    window.Chatra('hide');      // Oculta el widget visualmente
+                    window.Chatra('shutdown'); 
+                    window.Chatra('hide');     
                     console.log("Chatra apagado y ocultado");
                 } else {
                     console.log("Chatra no está disponible");
                 }
                 console.log("Usuario deslogueado");
             },
+            
             addFavoritos: (book) => {
                 const store = getStore();
                 if (!store.favorites.some((fav) => fav.id === book.id)) {

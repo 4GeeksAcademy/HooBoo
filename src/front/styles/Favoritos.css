@@ -6,10 +6,12 @@
 
 .favoritos-titulo {
     text-align: center;
-    font-size: 2rem;
     font-weight: bold;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    font-family: 'Special Elite', cursive;
+    font-size: 3rem;
+    color: #7029ab;
 }
 
 .favoritos-list {
@@ -94,8 +96,9 @@
 }
 
 .favorite-active {
-    color: red;
+    color: #d14fff;
 }
+
 
 .trash-iicon {
     position: absolute;
@@ -115,7 +118,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: #3498db;
+    color: #C76AF1;
     font-size: 1.5rem;
 }
 
@@ -128,6 +131,7 @@
     padding: 0;
     margin: 0;
     width: 2rem;
+    border-radius: 50%;
 }
 
 .derecha:hover {
