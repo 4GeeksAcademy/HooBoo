@@ -9,10 +9,14 @@ import "../../styles/Footer.css";
 
 const Footer = () => {
   const { store, actions } = useContext(Context);
-  const rating = 4.5;
+
+  // Obtener las valoraciones desde el estado global
+  const ratings = store.ratings || []; // Asegura que ratings esté definido
+  const totalVotes = ratings.length;
+  const averageRating = totalVotes > 0 ? (ratings.reduce((acc, rating) => acc + rating, 0) / totalVotes).toFixed(1) : 0;
 
   const handleRating = (rate) => {
-    actions.submitRating(rate);
+    actions.submitRating(rate); // Llama a la acción para enviar una nueva valoración
   };
 
   return (
@@ -45,17 +49,11 @@ const Footer = () => {
 
           <div className="section">
             <Link to="/acerca-de-nosotros" style={{ textDecoration: 'none', color: 'white' }}>
-              <h4 style={{ cursor: 'pointer' }}>
-                Acerca de Nosotros
-              </h4>
+              <h4 style={{ cursor: 'pointer' }}>Acerca de Nosotros</h4>
             </Link>
             <div className="quitar-espacios-footer">
-              <p>
-                ~ Conoce a Nuestro Equipo.
-              </p>
-              <p>
-                ~ A qué Nos Dedicamos.
-              </p>
+              <p>~ Conoce a Nuestro Equipo.</p>
+              <p>~ A qué Nos Dedicamos.</p>
             </div>
           </div>
 
@@ -80,25 +78,22 @@ const Footer = () => {
           <div className="section">
             <h4>Servicios</h4>
             <div className="quitar-espacios-footer">
-              <p>
-                ~ Recomendación De Libros.
-              </p>
-              <p>
-                ~ Soporte:
-              </p>
-              <p>
-                de Lunes a Viernes de 10:00 AM a 7:00 PM.
-              </p>
+              <p>~ Recomendación De Libros.</p>
+              <p>~ Soporte:</p>
+              <p>de Lunes a Viernes de 10:00 AM a 7:00 PM.</p>
             </div>
-            {/* Aquí puedes añadir más detalles sobre los servicios */}
           </div>
 
           <div className="section rating">
             <EstrellasValoracion
-              rating={rating}
+              rating={averageRating}
               onRate={handleRating}
               isAuthenticated={!!store.token}
             />
+            <div className="rating-text">
+              <p>Valoración Media: {averageRating} / 5</p>
+              <p>{totalVotes} Usuarios han votado</p>
+            </div>
           </div>
         </div>
       </footer>
