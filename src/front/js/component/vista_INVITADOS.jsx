@@ -58,7 +58,11 @@ const VistaInvitados = () => {
                     />
                     <FontAwesomeIcon icon={faMagnifyingGlass} className="searchIconINVITADOS" />
                 </div>
+                {filteredBooks.length === 0 && searchBox && (
+                    <p className="no-resultsINVITADOS">No se encontraron resultados</p>
+                )}
             </div>
+            
             {store.loading ? (
                 <div className="loading-containerINVITADOS">
                     <p>Cargando libros...</p>
@@ -69,9 +73,7 @@ const VistaInvitados = () => {
                         filteredBooks.map((book, index) => (
                             <BookCard key={index} book={book} />
                         ))
-                    ) : (
-                        <p className="no-resultsINVITADOS">No se encontraron resultados</p>
-                    )}
+                    ) : null}
                 </div>
             )}
 
