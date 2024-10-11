@@ -1,26 +1,24 @@
 .container {
     position: relative; 
     width: 100%; 
-    height: 300%;
+    height: 30vh; 
 }
 
 .banner-image-only-home {
     width: 100vw; 
     height: 30vh;
     object-fit: cover;
-    }
+}
 
 .bannerHome-text {
     position: absolute;
     top: 65%;
-    left: 15%;
-    margin-left: 1vw;
-    transform: translate(-50%, -50%);
+    left: 5%; 
+    transform: translateY(-50%); 
     color: black;
-    /* color: rgba(0, 0, 0, 0.603); */
-    text-align: center;
+    text-align: left;
     font-family: 'Special Elite', cursive;
-    z-index: 2; 
+    z-index: 2;
 }
 
 .banner-overlay {
@@ -37,45 +35,46 @@ h2 {
     font-size: 7vw;
 }
 
-.slogan{
+.slogan {
     margin: 0;
     font-size: 3vw; 
     margin-top: -2vw;
-    color:  black;
+    color: black;
 }
 
-
-
-/* Adjustments for tablets */
+/* Ajustes para tablets */
 @media (max-width: 768px) {
     .bannerHome-text {
-        top: 25%;
-        font-size: 4rem;
+        top: 50%;
+        left: 5%; 
+        font-size: 5vw;
     }
-    
-    h2 {
-        font-size: 7vw;
-    }
-    
-    .slogan {
-        font-size: 4vw;
-        margin-top: 1vw;
-    }
-}
 
-/* Adjustments for mobile phones */
-@media (max-width: 480px) {
-    .bannerHome-text {
-        top: 30%;
-        font-size: 3rem;
-    }
-    
     h2 {
         font-size: 8vw;
     }
-    
+
+    .slogan {
+        font-size: 4vw;
+        margin-top: -1vw; 
+    }
+}
+
+/* Ajustes para teléfonos móviles */
+@media (max-width: 480px) {
+    .bannerHome-text {
+        top: 50%; 
+        left: 5%; 
+        font-size: 6vw;
+    }
+
+    h2 {
+        font-size: 10vw;
+        margin-top: 0; 
+    }
+
     .slogan {
         font-size: 5vw;
-        margin-top: 2vw;
+        margin-top: -2vw; 
     }
 }

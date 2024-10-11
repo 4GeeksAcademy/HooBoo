@@ -1,10 +1,10 @@
 .bodyHome {
-    z-index: 0; /* para que esté por debajo de todo el contenido */
+    z-index: 0;
+    overflow-x: hidden;
 }
 
 .principal-container {
     text-align: center;
-    margin: 2vw;
 }
 
 .header-text {
@@ -24,28 +24,24 @@
     position: relative;
     opacity: 1;
     transition: opacity 1s ease-in-out;
-    gap: 2vh;
-    z-index: 1; /* Cambia a un valor positivo */
+    gap: 2vh; 
+    z-index: 1; 
 }
 
 .image-grid img {
     width: 12vw;
-    height: 40vh;
-    object-fit: cover;
+    height: 40vh; 
+    object-fit: cover; 
     border-radius: 10px;
     opacity: 1;
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
     box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
     border: 2px solid #a75df267;
     position: relative;
-    transform: translateY(10vh);
     animation: slideIn 0.20s forwards;
 }
 
-.image-grid img:hover {
-    transform: scale(1.1);
-}
-
+/* Efecto de cascada para pantallas normales y grandes */
 .image-grid img:nth-child(7n+1) {
     transform: translateY(-10vw);
 }
@@ -74,10 +70,14 @@
     transform: translateY(-10vw);
 }
 
+.image-grid img:hover {
+    transform: scale(1.1);
+}
+
 .book-image {
     width: 15vw;
-    height: auto;
-    object-fit: cover;
+    height: 40vh; 
+    object-fit: cover; 
     border-radius: 10px;
     opacity: 1;
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
@@ -130,7 +130,6 @@
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
@@ -140,7 +139,6 @@
     from {
         opacity: 1;
     }
-
     to {
         opacity: 0;
     }
@@ -151,105 +149,225 @@
     text-align: center;
 }
 
-/* Media queries para pantallas medianas */
-@media (max-width: 1024px) {
+/* Pantallas pequeñas (sm) */
+@media (max-width: 576px) {
     .titulo_principalproyecto {
-        font-size: 4vw;
-        margin-top: 10vw;
+        font-size: 6vw;
+        margin-top: 1vw;
     }
 
     .image-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1vh;
-    }
-    .image-grid img:nth-child(4n+1) {
-        transform: translateY(-10vw);
-    }
-    .image-grid img:nth-child(4n+2) {
-        transform: translateY(-10vw);
-    }
-    .image-grid img:nth-child(4n+3) {
-        transform: translateY(-10vw);
-    }
-    .image-grid img:nth-child(4n+4) {
-        transform: translateY(-10vw);
+        grid-template-columns: 1fr; 
+        margin-top: 7vw;
     }
 
     .image-grid img {
-        width: 24vw;
-        height: 40vh;
+        width: 50vw; 
+        height: 40vh; 
+        object-fit: cover; 
     }
 
-    .book-image {
-        width: 20vw;
+    img.book-image {
+        margin-bottom: 2vh;
     }
 
-    .genre-indicators {
-        margin-top: 2vw;
+    .image-grid img:nth-child(1n+1) {
+        transform: translateY(1vw);
     }
 
-    .indicator {
-        width: 2vw;
-        height: 2vw;
-        padding: 1vw;
+    .image-grid img:nth-child(1n+2) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(1n+3) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(1n+4) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(1n+5) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(1n+6) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(1n+7) {
+        transform: translateY(1vw);
     }
 
     .main-content {
-        margin-top: 15vw;
-        margin-bottom: 10vh;
+        margin-top: 1vw;
+        margin-bottom: 5vh;
     }
 }
 
-/* Media queries para pantallas pequeñas */
-@media (max-width: 768px) {
+/* Pantallas medianas (md) */
+@media (min-width: 577px) and (max-width: 768px) {
     .titulo_principalproyecto {
-        font-size: 6vw;
-        margin-top: 8vw;
+        font-size: 5vw;
+        margin-top: 1vw;
     }
 
     .image-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1vh;
+        margin-top: 6vw;
     }
 
     .image-grid img {
-        width: 40vw;
-        height: 25vh;
+        width: 35vw;
+        height: 45vh;
     }
 
-    .book-image {
-        width: 30vw;
+    img.book-image {
+        margin-bottom: 2vh;
+    }
+
+    .image-grid img:nth-child(2n+1) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(2n+2) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(2n+3) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(2n+4) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(2n+5) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(2n+6) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(2n+7) {
+        transform: translateY(1vw);
     }
 
     .main-content {
-        margin-top: 10vw;
-        margin-bottom: 10vh;
+        margin-top: 1vw;
+        margin-bottom: 5vh;
     }
 }
 
-/* Media queries para pantallas muy pequeñas */
-@media (max-width: 480px) {
+/* Pantallas grandes (lg) */
+@media (min-width: 769px) and (max-width: 1024px) {
     .titulo_principalproyecto {
-        font-size: 8vw;
-        margin-top: 5vw;
+        font-size: 5vw;
+        margin-top: 1vw;
     }
 
     .image-grid {
-        grid-template-columns: 1fr;
-        gap: 0.5vh;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: -2vw;
     }
 
     .image-grid img {
-        width: 80vw;
-        height: 20vh;
+        width: 28vw;
+        height: 35vh;
+        object-fit: cover; 
     }
 
-    .book-image {
-        width: 50vw;
+    img.book-image {
+        margin-bottom: 2vh;
+    }
+
+    .image-grid img:nth-child(3n+1) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(3n+2) {
+        transform: translateY(10vw);
+    }
+
+    .image-grid img:nth-child(3n+3) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(3n+4) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(3n+5) {
+        transform: translateY(10vw);
+    }
+
+    .image-grid img:nth-child(3n+6) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(3n+7) {
+        transform: translateY(1vw);
     }
 
     .main-content {
-        margin-top: 5vw;
+        margin-top: 1vw;
         margin-bottom: 5vh;
     }
+}
+
+/* Pantallas extra grandes (xl) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .titulo_principalproyecto {
+        font-size: 5vw;
+        margin-top: 1vw;
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: -6vw;
+    }
+
+    .image-grid img {
+        width: 22vw;
+        height: 40vh;
+    }
+
+    .image-grid img:nth-child(4n+1) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(4n+2) {
+        transform: translateY(10vw);
+    }
+
+    .image-grid img:nth-child(4n+3) {
+        transform: translateY(10vw);
+    }
+
+    .image-grid img:nth-child(4n+4) {
+        transform: translateY(1vw);
+    }
+
+    .image-grid img:nth-child(4n+5) {
+        transform: translateY(2vw);
+    }
+
+    .image-grid img:nth-child(4n+6) {
+        transform: translateY(12vw);
+    }
+
+    .image-grid img:nth-child(4n+7) {
+        transform: translateY(12vw);
+    }
+
+    .main-content {
+        margin-top: 1vw;
+        margin-bottom: 20vh;
+    }
+}
+
+/* para un mejor control de los tamaños */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
