@@ -1,8 +1,8 @@
 .vista-explorar {
   align-items: center;
   background-color: #f8f8f8;
-  margin-left: 15vw; /* Ajuste inicial para pantallas grandes */
-  padding: 0 1rem; /* Asegura que haya algo de margen en pantallas pequeñas */
+  margin-left: 15vw;
+  padding: 0 1rem;
 }
 
 .welcome-message {
@@ -17,7 +17,7 @@
 
 @media (min-width: 48rem) {
   .book-list {
-    justify-content: flex-start; /* Ajuste para pantallas medianas en adelante */
+    justify-content: flex-start;
   }
 }
 
@@ -25,7 +25,13 @@
   text-align: center;
   font-size: 1.2rem;
   color: #555;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.searchContainer + .no-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loading-container {
@@ -40,7 +46,6 @@
   color: #555;
 }
 
-/* Ajustes para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
   .vista-explorar {
     margin-left: 0; 
@@ -58,7 +63,7 @@
   }
 
   .welcome-message {
-    margin-left: 0; /* Centra el mensaje en móviles */
+    margin-left: 0;
     font-size: 0.9rem;
   }
 
@@ -71,7 +76,6 @@
   }
 }
 
-/* Ajustes para pantallas medianas (tabletas) */
 @media (max-width: 1024px) {
   .vista-explorar {
     margin-left: 0; 
@@ -88,7 +92,7 @@
   }
 
   .welcome-message {
-    margin-left: 8%; /* Ajuste para tabletas */
+    margin-left: 8%;
     font-size: 1rem;
   }
 
@@ -101,7 +105,6 @@
   }
 }
 
-/* Ajustes para pantallas grandes (escritorio) */
 @media (min-width: 1200px) {
   .vista-explorar {
     margin-left: 10vw; 
@@ -116,7 +119,7 @@
   }
 
   .welcome-message {
-    margin-left: 16%; /* Mantiene el mensaje alineado */
+    margin-left: 16%;
   }
 
   .no-results {

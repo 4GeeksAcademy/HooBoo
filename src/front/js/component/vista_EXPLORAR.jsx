@@ -26,30 +26,25 @@ const VistaExplorar = () => {
             script.src = 'https://call.chatra.io/chatra.js';
             document.head.appendChild(script);
 
-            // Configuración adicional del chat
             script.onload = () => {
                 if (window.Chatra) {
-                    // Ajusta las dimensiones de la ventana del chat
                     window.Chatra('set', 'widgetSize', {
-                        width: '200px', // Cambia este valor a tu medida deseada
-                        height: '400px' // Cambia este valor a tu medida deseada
+                        width: '200px',
+                        height: '400px'
                     });
                 }
             };
         };
 
-        loadChatra(); // Carga el script al montar el componente
+        loadChatra();
 
         return () => {
-            // Limpieza opcional: Remover el script si se desea
             const chatraScript = document.querySelector('script[src="https://call.chatra.io/chatra.js"]');
             if (chatraScript) {
                 document.head.removeChild(chatraScript);
             }
         };
     }, []); 
-
-    
 
     const handleSearch = (event) => {
         setSearchBox(event.target.value);
@@ -88,6 +83,9 @@ const VistaExplorar = () => {
                     />
                     <FontAwesomeIcon icon={faMagnifyingGlass} className="searchIcon" />
                 </div>
+                {filteredBooks.length === 0 && !store.loading && (
+                    <p className="no-results">No se encontraron resultados</p>
+                )}
             </div>
             {store.loading ? (
                 <div className="loading-container">
@@ -95,16 +93,12 @@ const VistaExplorar = () => {
                 </div>
             ) : (
                 <div className="book-list">
-                    {filteredBooks.length > 0 ? (
-                        filteredBooks.map((book, index) => (
-                            <BookCard
-                                key={index}
-                                book={book}
-                            />
-                        ))
-                    ) : (
-                        <p className="no-results">No se encontraron resultados</p>
-                    )}
+                    {filteredBooks.map((book, index) => (
+                        <BookCard
+                            key={index}
+                            book={book}
+                        />
+                    ))}
                 </div>
             )}
             <Footercolapsado />
