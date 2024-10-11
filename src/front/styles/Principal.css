@@ -2,22 +2,18 @@
     z-index: 0; /* para que esté por debajo de todo el contenido */
 }
 
-
 .principal-container {
     text-align: center;
-    margin-left: 2vw;
+    margin: 2vw;
 }
 
 .header-text {
-    margin-bottom: 5vw;
-    margin-top: 5vw;
-
+    margin: 5vw 0;
 }
 
 .titulo_principalproyecto {
     font-size: 2vw;
-    margin-top: 13vw;
-    margin-bottom: 0;
+    margin: 13vw 0 0 0;
     font-family: 'Special Elite', cursive;
 }
 
@@ -55,7 +51,7 @@
 }
 
 .image-grid img:nth-child(7n+2) {
-    transform: translateY( -5vw);
+    transform: translateY(-5vw);
 }
 
 .image-grid img:nth-child(7n+3) {
@@ -151,13 +147,109 @@
 }
 
 .main-content {
-    margin-top: -10vw;
+    margin: -10vw 2vw 20vh 2vw;
     text-align: center;
-    margin-bottom: 20vh;
 }
 
-@media (max-width: 768px) {
+/* Media queries para pantallas medianas */
+@media (max-width: 1024px) {
+    .titulo_principalproyecto {
+        font-size: 4vw;
+        margin-top: 10vw;
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1vh;
+    }
+    .image-grid img:nth-child(4n+1) {
+        transform: translateY(-10vw);
+    }
+    .image-grid img:nth-child(4n+2) {
+        transform: translateY(-10vw);
+    }
+    .image-grid img:nth-child(4n+3) {
+        transform: translateY(-10vw);
+    }
+    .image-grid img:nth-child(4n+4) {
+        transform: translateY(-10vw);
+    }
+
+    .image-grid img {
+        width: 24vw;
+        height: 40vh;
+    }
+
+    .book-image {
+        width: 20vw;
+    }
+
+    .genre-indicators {
+        margin-top: 2vw;
+    }
+
+    .indicator {
+        width: 2vw;
+        height: 2vw;
+        padding: 1vw;
+    }
+
     .main-content {
-        margin-top: 25vh;
+        margin-top: 15vw;
+        margin-bottom: 10vh;
+    }
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .titulo_principalproyecto {
+        font-size: 6vw;
+        margin-top: 8vw;
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1vh;
+    }
+
+    .image-grid img {
+        width: 40vw;
+        height: 25vh;
+    }
+
+    .book-image {
+        width: 30vw;
+    }
+
+    .main-content {
+        margin-top: 10vw;
+        margin-bottom: 10vh;
+    }
+}
+
+/* Media queries para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .titulo_principalproyecto {
+        font-size: 8vw;
+        margin-top: 5vw;
+    }
+
+    .image-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5vh;
+    }
+
+    .image-grid img {
+        width: 80vw;
+        height: 20vh;
+    }
+
+    .book-image {
+        width: 50vw;
+    }
+
+    .main-content {
+        margin-top: 5vw;
+        margin-bottom: 5vh;
     }
 }
