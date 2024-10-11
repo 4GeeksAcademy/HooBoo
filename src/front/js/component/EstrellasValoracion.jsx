@@ -14,7 +14,7 @@ const EstrellasValoracion = ({ rating, onRate }) => {
     const showLoginAlert = () => {
         Swal.fire({
             title: "¡Hola Booklover!",
-            text: "Para disfrutar de nuestro contenido, te invitamos a que te registres o inicies sesión",
+            text: "Si deseas valorar la página, te invitamos a que te registres o inicies sesión",
             icon: "warning",
             iconColor: "#7029ab",
             confirmButtonText: "Iniciar sesión",
