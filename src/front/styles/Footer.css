@@ -1,15 +1,16 @@
 .footer {
   background-color: #222;
   color: #fff;
-  padding: 10px 40px 0 40px;
+  padding: 2em;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  font-size: 12px;
+  font-size: 0.75rem; /* Cambiado de 12px a rem para tamaño relativo del texto */
 }
+
 .footer-content {
   display: flex;
   justify-content: space-between;
@@ -17,101 +18,81 @@
   width: 100%;
   box-sizing: border-box;
 }
+
 .section {
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 1.25em; /* Cambiado de 20px a em */
 }
 
 .icon {
-  font-size: 24px;
+  font-size: 1.5rem; /* Cambiado de 24px a rem */
   cursor: pointer;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 /* Estilo para cada red social con su color específico */
-.twitter-icon {
-  background-color: #1DA1F2; /* Azul de Twitter */
-  color: white; /* Pájaro blanco */
-  border-radius: 5px;
+.twitter-icon, .instagram-icon, .facebook-icon, .tiktok-icon, .telegram-icon, .whatsapp-icon, .youtube-icon {
+  border-radius: 0.3em; /* Cambiado de 5px a em */
 }
-.instagram-icon {
-  background: linear-gradient(45deg, #F09433, #E6683C, #DC2743, #CC2366, #BC1888);
-  color: white;
-  border-radius: 5px;
-}
-.facebook-icon {
-  background-color: #1877F2; /* Azul de Facebook */
-  color: white; /* Letra F blanca */
-  border-radius: 5px;
-}
-.tiktok-icon {
-  background-color: #000000; /* Fondo negro */
-  color: #69C9D0; /* Color de TikTok */
-  border-radius: 5px;
-}
-.telegram-icon {
-  background-color: #0088CC; /* Azul de Telegram */
-  color: white; /* Avión blanco */
-  border-radius: 5px;
-}
-.whatsapp-icon {
-  background-color: #25D366; /* Verde de WhatsApp */
-  color: white; /* Logo blanco */
-  border-radius: 5px;
-}
-.youtube-icon {
-  background-color: #FF0000; /* Rojo de YouTube */
-  color: white; /* Triángulo blanco */
-  border-radius: 5px;
-}
+
 .stars {
   display: flex;
   justify-content: center;
-  gap: 5px;
+  gap: 0.3em; /* Cambiado de 5px a em */
 }
+
 .star {
-  font-size: 25px;
+  font-size: 1.6rem; /* Cambiado de 25px a rem */
   color: #F0C419;
 }
+
 .rating {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .rating-text {
   text-align: center;
   margin-top: 0;
 }
+
 .rating-text p {
   margin: 0;
   font-weight: bold;
 }
+
 .bottom-section h4 {
-  margin-bottom: 10px;
+  margin-bottom: 0.625em; /* Cambiado de 10px a em */
 }
+
 .bottom-section ul {
   list-style-type: none;
   padding: 0;
 }
+
 .bottom-section li {
-  margin-bottom: 5px;
+  margin-bottom: 0.3em; /* Cambiado de 5px a em */
 }
+
 .social-icons {
-  display: flex; /* Asegura que los íconos se dispongan en fila */
-  flex-direction: row; /* Disposición en fila (horizontal) */
-  justify-content: center; /* Centra los íconos */
-  align-items: center; /* Centra verticalmente los íconos */
-  gap: 10px; /* Espacio entre los íconos */
-  margin-bottom: 20px; /* Espacio inferior para separación */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6em; /* Cambiado de 10px a em */
+  margin-bottom: 1.25em; /* Cambiado de 20px a em */
 }
+
 /* Responsivo para pantallas pequeñas */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
     align-items: center;
-    padding: 20px 20px;
+    padding: 1.25em; /* Cambiado de px a em */
   }
   .section {
     text-align: center;
@@ -119,12 +100,72 @@
   .social-icons {
     flex-direction: row;
     justify-content: center;
-    gap: 15px;
+    gap: 0.9em; /* Cambiado de 15px a em */
   }
 }
 
 .quitar-espacios-footer p {
-  margin: 0; /* Elimina los márgenes entre los párrafos */
-  padding: 0; /* Opcional: Elimina cualquier padding si es necesario */
+  margin: 0;
+  padding: 0;
   color: white;
+}
+
+
+/* Efecto hover para los íconos sociales con fondo morado claro */
+.twitter-icon:hover {
+  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
+  color: white !important; /* Mantener el azul del ícono de Twitter */
+}
+
+.instagram-icon:hover {
+  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
+  color: white !important; /* Mantener el color blanco del símbolo */
+}
+
+.facebook-icon:hover {
+  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
+  color: white !important; /* Mantener el azul del ícono de Facebook */
+}
+
+.tiktok-icon:hover {
+  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
+  color: white !important; /* Mantener el color del ícono de TikTok */
+}
+
+.telegram-icon:hover {
+  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
+  color: white !important; /* Mantener el azul del ícono de Telegram */
+}
+
+.whatsapp-icon:hover {
+  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
+  color: white !important; /* Mantener el color blanco del ícono de WhatsApp */
+}
+
+.youtube-icon:hover {
+  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
+  color: white !important; /* Mantener el color blanco del triángulo de YouTube */
+}
+
+/* Estilo base para los iconos de Spotify y Pinterest */
+.spotify-icon, .pinterest-icon {
+  border-radius: 0.3em; /* Igual al de otros íconos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Efecto hover para los íconos de Spotify y Pinterest */
+.spotify-icon:hover {
+  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
+  color: white !important; /* Mantener el color blanco del símbolo */
+}
+
+.pinterest-icon:hover {
+  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
+  color: white !important; /* Mantener el color blanco del símbolo */
+}
+
+.icon {
+  transition: background-color 0.3s ease, color 0.3s ease; /* Suaviza el efecto de hover */
 }
