@@ -1,5 +1,5 @@
 .footer {
-  background-color: #222;
+  background-color: #22222293;
   color: #fff;
   padding: 2em;
   text-align: center;
@@ -112,38 +112,38 @@
 
 /* Efecto hover para los íconos sociales con fondo morado claro */
 .twitter-icon:hover {
-  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
-  color: white !important; /* Mantener el azul del ícono de Twitter */
+  background-color: white !important; /* Fondo morado claro para el hover */
+  color: #a75df267 !important; /* Mantener el azul del ícono de Twitter */
 }
 
 .instagram-icon:hover {
-  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
-  color: white !important; /* Mantener el color blanco del símbolo */
+  background-color: white !important; /* Fondo morado claro para el hover */
+  color: #a75df267 !important; /* Mantener el color blanco del símbolo */
 }
 
 .facebook-icon:hover {
-  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
-  color: white !important; /* Mantener el azul del ícono de Facebook */
+  background-color: white !important; /* Fondo morado claro para el hover */
+  color: #a75df267 !important; /* Mantener el azul del ícono de Facebook */
 }
 
 .tiktok-icon:hover {
-  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
-  color: white !important; /* Mantener el color del ícono de TikTok */
+  background-color: white !important; /* Fondo morado claro para el hover */
+  color: #a75df267 !important; /* Mantener el color del ícono de TikTok */
 }
 
 .telegram-icon:hover {
-  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
-  color: white !important; /* Mantener el azul del ícono de Telegram */
+  background-color: white !important; /* Fondo morado claro para el hover */
+  color: #a75df267 !important; /* Mantener el azul del ícono de Telegram */
 }
 
 .whatsapp-icon:hover {
-  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
-  color: white !important; /* Mantener el color blanco del ícono de WhatsApp */
+  background-color: white !important; /* Fondo morado claro para el hover */
+  color: #a75df267 !important; /* Mantener el color blanco del ícono de WhatsApp */
 }
 
 .youtube-icon:hover {
-  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
-  color: white !important; /* Mantener el color blanco del triángulo de YouTube */
+  background-color: white !important; /* Fondo morado claro para el hover */
+  color: #a75df267 !important; /* Mantener el color blanco del triángulo de YouTube */
 }
 
 /* Estilo base para los iconos de Spotify y Pinterest */
@@ -156,13 +156,13 @@
 
 /* Efecto hover para los íconos de Spotify y Pinterest */
 .spotify-icon:hover {
-  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
-  color: white !important; /* Mantener el color blanco del símbolo */
+  background-color: white !important; /* Fondo morado claro para el hover */
+  color: #a75df267 !important; /* Mantener el color blanco del símbolo */
 }
 
 .pinterest-icon:hover {
-  background-color: #b19cd9 !important; /* Fondo morado claro para el hover */
-  color: white !important; /* Mantener el color blanco del símbolo */
+  background-color: white !important; /* Fondo morado claro para el hover */
+  color: #a75df267 !important; /* Mantener el color blanco del símbolo */
 }
 
 .icon {
