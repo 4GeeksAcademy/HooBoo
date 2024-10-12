@@ -12,7 +12,6 @@
 }
 
 .imagenTarjetaLibroMar {
-    width: 40%; /* Ajusta el ancho de la imagen dentro del modal */
     height: 100%;
     object-fit: cover;
     border-top-left-radius: 15px;
@@ -25,8 +24,9 @@
 }
 
 .cuerpoDetalleTarjetaLibroMar {
-    width: 60%; /* Ajuste para que sea dinámico dentro del modal */
+    width: 100%;
     padding: 20px;
+    padding-top: 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -215,3 +215,39 @@
     z-index: 1050 !important;  /* Asegura que esté por encima de todo */
 }
 
+/* Para suavizar las esquinas del modal */
+.modal-content {
+    border-radius: 15px; /* Esquinas redondeadas */
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra para darle un poco más de estilo */
+}
+
+/* Hacer que la sección de comentarios ocupe el 100% */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Asegura que ocupe el 100% del espacio disponible */
+    max-height: 80vh; /* Controlar la altura máxima para evitar que se salga de la pantalla */
+    overflow-y: auto; /* Si el contenido es demasiado largo, agrega scroll */
+}
+
+/* Ajustes específicos para la sección de comentarios */
+.comment-card {
+    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+    margin: 0; /* Elimina márgenes no deseados */
+    border-radius: 10px; /* Suaviza las esquinas de los comentarios */
+    box-shadow: none; /* Elimina sombras adicionales si no es necesario */
+}
+
+.comment-container {
+    width: 100%; /* Asegura que ocupe el 100% del contenedor */
+}
+
+/* Para desenfocar el fondo */
+.modal-backdrop-blur {
+    backdrop-filter: blur(10px); /* Desenfoca el fondo */
+}
+
+.modal-header {
+    font-family: 'Special Elite', cursive;
+}
