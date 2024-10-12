@@ -52,7 +52,7 @@ const BookCard = ({ book }) => {
         }
         navigate(`/book/${book.id}`);
     };
-
+    
     return (
         <div className="book-card">
             <img src={imageUrl} alt={title} className="book-image-card" />
