@@ -1,7 +1,6 @@
 .footer {
   background-color: #22222293;
   color: #fff;
-  padding: 2em;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -10,6 +9,8 @@
   box-sizing: border-box;
   font-size: 0.75rem; 
   font-family: "IBM Plex Mono", monospace;
+  padding-top: 1em;
+  padding-left: 5em;
 }
 
 .footer-content {

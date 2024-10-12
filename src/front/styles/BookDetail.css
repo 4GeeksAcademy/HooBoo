@@ -1,19 +1,18 @@
+/* Ajustes para la tarjeta del libro en el modal */
 .tarjetaDeLibroMar {
-    width: 50%;
-    height: 100%;
+    width: 100%; /* Se ajusta al tamaño del modal */
+    height: auto;
     margin: 20px auto;
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
     display: flex;
     flex-direction: row;
     overflow: hidden;
-    margin-left: 32%;
     margin-top: 5%;
 }
 
-
 .imagenTarjetaLibroMar {
-    width: 42%;
+    width: 40%; /* Ajusta el ancho de la imagen dentro del modal */
     height: 100%;
     object-fit: cover;
     border-top-left-radius: 15px;
@@ -26,7 +25,7 @@
 }
 
 .cuerpoDetalleTarjetaLibroMar {
-    width: 60%;
+    width: 60%; /* Ajuste para que sea dinámico dentro del modal */
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -36,7 +35,7 @@
     overflow-y: auto;
 }
 
-.cuerpoDetalleTarjetaLibroMar p{
+.cuerpoDetalleTarjetaLibroMar p {
     color: black;
 }
 
@@ -78,29 +77,7 @@
     gap: 0.625rem;
 }
 
-
-.shareIconMar {
-    background-color: rgb(33, 37, 41);
-    color: white;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
-    transition: background-color 0.3s;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    border-radius: 50%;
-    padding: 0.3125rem;
-}
-
-.shareIconMar:hover {
-    color: #a75df2;
-
-}
-
+.shareIconMar,
 .favoritoIconoMar {
     background-color: rgb(33, 37, 41);
     color: white;
@@ -113,13 +90,24 @@
     padding: 10px;
     cursor: pointer;
     text-decoration: none;
-    border-radius: 50%;
     padding: 0.3125rem;
 }
 
+.shareIconMar:hover,
 .favoritoIconoMar:hover {
     color: #a75df2;
+}
 
+/* Estilos para los comentarios */
+.comment-card {
+    width: 100%; /* Se adapta al ancho del modal */
+    height: auto;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
+    display: flex;
+    flex-direction: column; /* Columna para que los comentarios se ajusten verticalmente */
+    overflow: hidden;
 }
 
 .comment-container {
@@ -190,10 +178,11 @@
     max-width: 70%;
 }
 
+/* Ajustes responsivos para pantallas más pequeñas */
 @media (max-width: 768px) {
     .tarjetaDeLibroMar {
-        width: 90%;
-        height: 100%;
+        width: 100%; /* Que el modal ocupe todo el ancho disponible en pantallas pequeñas */
+        height: auto;
         flex-direction: column;
         border-radius: 20px;
         box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
@@ -201,12 +190,12 @@
     }
 
     .imagenTarjetaLibroMar {
-        width: 100%;
+        width: 100%; /* La imagen ocupará todo el ancho del modal en pantallas pequeñas */
         border-radius: 15px 15px 0 0;
     }
 
     .cuerpoDetalleTarjetaLibroMar {
-        width: 100%;
+        width: 100%; /* Se adapta al ancho del modal */
         padding: 10px;
         overflow-y: auto;
     }
@@ -221,16 +210,8 @@
 }
 
 
-.comment-card {
-    width: 50%;
-    height: 100%;
-    margin: 20px auto;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    margin-left: 32%;
+.modal {
+    position: fixed !important;  /* Asegura que esté completamente flotando */
+    z-index: 1050 !important;  /* Asegura que esté por encima de todo */
 }
-
 

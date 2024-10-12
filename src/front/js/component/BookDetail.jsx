@@ -1,24 +1,17 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { Context } from '../store/appContext';
 import { Card, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
-import Navbaractivo from "./Navbaractivo.jsx";
 import '../../styles/BookDetail.css';
 
-const BookDetail = () => {
+const BookDetail = ({ bookId }) => {
     const { store, actions } = useContext(Context);
-    const { bookId } = useParams();
-    console.log("ID del libro:", bookId);
-
     const [isFavorite, setIsFavorite] = useState(false);
-
 
     const getBookById = (id) => {
         let book = store.books.find(b => b.id === id);
         if (!book) {
-            // Si no lo encuentra, busca en store.base_respaldo
             const flattenedBooks = flattenBaseRespaldo(store.base_respaldo);
             book = flattenedBooks.find(b => b.id === id);
         }
@@ -30,20 +23,30 @@ const BookDetail = () => {
     };
 
     const book = getBookById(bookId);  
-    console.log("Libro encontrado:", book); 
-
 
     useEffect(() => {
         if (book && store.favorites.some((fav) => fav.id === book.id)) {
             setIsFavorite(true);
         }
+
+        // Reinsertar el script de comentarios cada vez que el componente se monte
         const script = document.createElement('script');
         script.src = "https://cdn.commento.io/js/commento.js";
         script.async = true;
-        document.body.appendChild(script);
 
+        const commentoDiv = document.getElementById("commento");
+
+        // Solo inserta el script si el contenedor existe
+        if (commentoDiv) {
+            commentoDiv.innerHTML = "";  // Limpia cualquier contenido anterior
+            commentoDiv.appendChild(script);
+        }
+
+        // Fase de limpieza (cleanup): elimina el script si aún existe en el DOM
         return () => {
-            document.body.removeChild(script);
+            if (script && script.parentNode) {
+                script.parentNode.removeChild(script);
+            }
         };
     }, [book, store.favorites]);
 
@@ -78,9 +81,6 @@ const BookDetail = () => {
 
     return (
         <Container fluid className="d-flex flex-column">
-            <div className="navbar">
-                <Navbaractivo />
-            </div>
             <div className="content flex-grow-1 d-flex justify-content-center align-items-center flex-column">
                 <Card className="tarjetaDeLibroMar mb-4">
                     <Card.Img variant="top" src={book.volumeInfo.imageLinks?.thumbnail} className="imagenTarjetaLibroMar" alt={book.volumeInfo.title} />
@@ -105,7 +105,7 @@ const BookDetail = () => {
                 <Card className="tarjetaDeLibroMar comment-card">
                     <Card.Body className="cuerpoDetalleTarjetaLibroMar">
                         <h5 className="detalleLibroTituloMar">Comentarios</h5>
-                        <div id="commento"></div>
+                        <div id="commento"></div>  {/* Div para el script de comentarios */}
                     </Card.Body>
                 </Card>
             </div>
