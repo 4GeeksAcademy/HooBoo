@@ -126,3 +126,10 @@
         width: 90%;
     }
 }
+
+.login-error-message{
+    color: #a75df2;
+    text-align: center;
+    font-family: 'Special Elite', cursive;
+    
+}

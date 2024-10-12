@@ -95,7 +95,12 @@ def Login():
 
     user = User.query.filter_by(email=email).first()
 
-    if not user or not check_password_hash(user.password, password):
+    # Si el email no existe en la base de datos
+    if not user:
+        return jsonify({"msg": "Usuario no registrado"}), 404
+
+    # Si la contraseña es incorrecta
+    if not check_password_hash(user.password, password):
         return jsonify({"msg": "Email o contraseña incorrecta"}), 401
 
     access_token = create_access_token(identity={"email": user.email})

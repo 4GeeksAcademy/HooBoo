@@ -6,6 +6,7 @@ import avatar1 from '../../img/avatar1.png';
 import avatar2 from '../../img/avatar2.png';
 import avatar3 from '../../img/avatar3.png';
 import avatar4 from '../../img/avatar4.png';
+import defaultAvatar from '../../img/default.png';
 import "../../styles/Editarperfil.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,7 +16,7 @@ const Editarperfil = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [selectedAvatar, setSelectedAvatar] = useState("");
+    const [selectedAvatar, setSelectedAvatar] = useState(defaultAvatar);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -38,7 +39,7 @@ const Editarperfil = () => {
                     console.log(data);
                     setUsername(data.username);
                     setEmail(data.email);
-                    setSelectedAvatar(data.profile_pic || avatar1);
+                    setSelectedAvatar(data.profile_pic || defaultAvatar);
                 } else {
                     const errorText = await res.text();
                     console.error("Error al obtener los datos del usuario:", res.status, errorText);

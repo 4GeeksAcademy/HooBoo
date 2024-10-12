@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBell, FaRegStar, FaUserCircle, FaCompass, FaPlus, FaSignOutAlt, FaCog, FaBars } from 'react-icons/fa';
 import { Context } from "../store/appContext";
+import defaultAvatar from '../../img/default.png';
 import "../../styles/Navbaractivo.css";
 import logoHooBoo from "/workspaces/HooBoo/src/front/img/logoHooBoo.png";
 
@@ -62,7 +63,11 @@ const Navbaractivo = () => {
                         <FaUserCircle /> <span>Mi Perfil</span>
                         {showProfileMenu && (
                             <div className="profile-menu">
-                                <img src={store.user?.profile_pic || "default_profile_pic_url"} alt="Foto" className="profile-picture" />
+                                <img 
+                                    src={store.user?.profile_pic || defaultAvatar} 
+                                    alt="Foto" 
+                                    className="profile-picture" 
+                                />
                                 <p className="perfil_nombre">{store.user?.username || "Nombre de usuario"}</p>
                                 <p className="perfil_correo">{store.user?.email || "Correo"}</p>
                                 <Link to="/Editarperfil" className="edit-profile-btn">

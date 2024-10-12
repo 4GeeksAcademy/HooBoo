@@ -9,13 +9,15 @@ from api.admin import setup_admin
 from api.commands import setup_commands
 from flask_jwt_extended import JWTManager
 from flask_mail import Mail, Message
-import cloudinary
+from datetime import timedelta
 
 ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../public/')
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
+
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=1)
 
 app.config["JWT_SECRET_KEY"] = "HooBoo"
 jwt = JWTManager(app)
@@ -42,13 +44,6 @@ else:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(app, db, compare_type=True)
 db.init_app(app)
-
-# Configure Cloudinary
-cloudinary.config(
-    cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
-    api_key=os.getenv('CLOUDINARY_API_KEY'),
-    api_secret=os.getenv('CLOUDINARY_API_SECRET')
-)
 
 # Configuración para cargar imágenes
 UPLOAD_FOLDER = 'static/profile_pics'  # Carpeta donde se almacenarán las imágenes

@@ -698,7 +698,15 @@ const getState = ({ getStore, getActions, setStore }) => {
             
                     if (!res.ok) {
                         const errorData = await res.json();
-                        throw new Error(errorData.msg || "Error en la solicitud de login");
+                        
+                        // Manejar diferentes tipos de error según la respuesta del backend
+                        if (res.status === 404) {
+                            throw new Error("Usuario no registrado");
+                        } else if (res.status === 401) {
+                            throw new Error("Email o contraseña incorrecta");
+                        } else {
+                            throw new Error(errorData.msg || "Error en la solicitud de login");
+                        }
                     }
             
                     const data = await res.json();
