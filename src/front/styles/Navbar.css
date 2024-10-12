@@ -29,7 +29,7 @@ html {
     align-items: center; 
 }
 
-/* Ocultar los botones en móviles y mostrar el icono de menú */
+
 .dropdown-toggle {
     display: none;
 }
@@ -85,7 +85,7 @@ html {
     object-fit: cover;
 }
 
-/* Estilos del menú desplegable */
+ 
 .dropdown-menu {
     display: none; 
     flex-direction: row-reverse; 
@@ -96,11 +96,11 @@ html {
     width: 100%; 
     z-index: 999; 
     padding: 10px 0; 
-    top: 100%; /* Esto hace que el menú se coloque justo debajo del icono */
+    top: 100%;
     left: 0;
 }
 
-/* Ajustes para pantallas pequeñas */
+
 @media (max-width: 768px) {
     .navbar-container {
         flex-direction: row; 
@@ -112,7 +112,7 @@ html {
     }
 
     .dropdown-toggle {
-        display: block; /* Mostrar botón en móvil */
+        display: block; 
         background: none;
         border: none;
         font-size: 2rem; 
@@ -123,11 +123,10 @@ html {
     .dropdown-toggle {
         margin-top: 5vh;
     }
+}
 
-    /* Mostrar el menú desplegable al hacer clic */
     .dropdown-menu.show {
-        display: flex; /* Mostrar el menú */
-    }
+        display: flex; 
     .btn-logo {
         display: block;
         background-color: #ffffff; 
@@ -152,7 +151,7 @@ html {
     }
 }
 
-/* Estilos para hover y focus */
+
 .btn-login:hover,
 .btn-signup:hover,
 .btn-explorar:hover {

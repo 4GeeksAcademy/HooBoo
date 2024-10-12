@@ -14,7 +14,7 @@
     box-shadow: none !important; 
     padding: 0; 
     font-family: 'Special Elite', cursive;
-    font-size: clamp(1.5rem, 2vw, 3rem); /* Ajusta el tamaño del texto de forma responsiva */
+    font-size: clamp(1.5rem, 2vw, 3rem); 
     margin-left: 13%;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .searchIcon {
-    position: absolute; /* Posicionar el ícono dentro del input */
+    position: absolute; 
     right: 15px;
     color: #ccc;
     pointer-events: none;

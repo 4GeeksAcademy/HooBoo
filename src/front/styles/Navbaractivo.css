@@ -56,7 +56,6 @@
     gap: 1vw;
 }
 
-/* Ajuste del tamaño de letra en los elementos del menú del navbar */
 .menu-item {
     display: flex;
     align-items: center;
@@ -147,7 +146,7 @@
     text-decoration: none;
 }
 
-/* Asegurarse de que solo se muestre el ícono cuando la sidebar esté colapsada */
+
 .logout-btn .logout-text {
     display: inline;
 }
@@ -159,14 +158,14 @@
 @media (max-width: 768px) {
     .logout-btn {
         padding: 0.5rem;
-        width: auto; /* Ajusta el ancho del botón */
+        width: auto; 
         display: flex;
-        justify-content: center; /* Centra el ícono */
+        justify-content: center; 
         align-items: center;
     }
 
     .logout-btn .logout-text {
-        display: none; /* Oculta el texto cuando la sidebar está colapsada */
+        display: none; 
     }
 }
 
@@ -174,10 +173,10 @@
     position: relative;
 }
 
-/* Ajustes para el contador de favoritos */
+
 .favorite-count {
     top: 0;
-    right: 0; /* Alinea el contador de favoritos con la estrella */
+    right: 0; 
     position: absolute;
     background-color: #7029ab;
     color: white;
@@ -193,7 +192,7 @@
     top: 1rem;
     left: 1rem;
     background-color: transparent;
-    color: #7029ab; /* Cambia el color del ícono de la hamburguesa a morado */
+    color: #7029ab; 
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
@@ -227,13 +226,13 @@
     }
 
     .favorite-count {
-        right: 0.5rem; /* Ajuste del contador para que no se desplace demasiado */
+        right: 0.5rem; 
     } 
 
     .logo-img-explorar {
-        max-width: 70%; /* Reduce el tamaño máximo del logo en pantallas pequeñas */
-        max-height: 100px; /* Ajusta la altura máxima para dispositivos móviles */
-        margin-top: 8vh; /* Añade un margen superior para separar el logo del ícono */
+        max-width: 70%; 
+        max-height: 100px; 
+        margin-top: 8vh; 
     }
 }
 
@@ -263,7 +262,7 @@
     }
 
     .logo-img-explorar {
-        max-width: 60%; /* Reduce aún más el tamaño máximo del logo en pantallas muy pequeñas */
-        max-height: 80px; /* Ajuste de la altura máxima para pantallas muy pequeñas */
+        max-width: 60%; 
+        max-height: 80px; 
     }
 }

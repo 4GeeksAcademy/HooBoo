@@ -98,15 +98,15 @@
     color: #a75df2;
 }
 
-/* Estilos para los comentarios */
+
 .comment-card {
-    width: 100%; /* Se adapta al ancho del modal */
+    width: 100%; 
     height: auto;
     margin: 20px auto;
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
     display: flex;
-    flex-direction: column; /* Columna para que los comentarios se ajusten verticalmente */
+    flex-direction: column; 
     overflow: hidden;
 }
 
@@ -178,10 +178,10 @@
     max-width: 70%;
 }
 
-/* Ajustes responsivos para pantallas más pequeñas */
+
 @media (max-width: 768px) {
     .tarjetaDeLibroMar {
-        width: 100%; /* Que el modal ocupe todo el ancho disponible en pantallas pequeñas */
+        width: 100%; 
         height: auto;
         flex-direction: column;
         border-radius: 20px;
@@ -190,12 +190,12 @@
     }
 
     .imagenTarjetaLibroMar {
-        width: 100%; /* La imagen ocupará todo el ancho del modal en pantallas pequeñas */
+        width: 100%; 
         border-radius: 15px 15px 0 0;
     }
 
     .cuerpoDetalleTarjetaLibroMar {
-        width: 100%; /* Se adapta al ancho del modal */
+        width: 100%; 
         padding: 10px;
         overflow-y: auto;
     }
@@ -211,41 +211,41 @@
 
 
 .modal {
-    position: fixed !important;  /* Asegura que esté completamente flotando */
-    z-index: 1050 !important;  /* Asegura que esté por encima de todo */
+    position: fixed !important;  
+    z-index: 1050 !important;  
 }
 
-/* Para suavizar las esquinas del modal */
+
 .modal-content {
-    border-radius: 15px; /* Esquinas redondeadas */
+    border-radius: 15px; 
     padding: 2rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra para darle un poco más de estilo */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
 }
 
-/* Hacer que la sección de comentarios ocupe el 100% */
+
 .modal-body {
     display: flex;
     flex-direction: column;
-    height: 100%; /* Asegura que ocupe el 100% del espacio disponible */
-    max-height: 80vh; /* Controlar la altura máxima para evitar que se salga de la pantalla */
-    overflow-y: auto; /* Si el contenido es demasiado largo, agrega scroll */
+    height: 100%; 
+    max-height: 80vh; 
+    overflow-y: auto; 
 }
 
-/* Ajustes específicos para la sección de comentarios */
+
 .comment-card {
-    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
-    margin: 0; /* Elimina márgenes no deseados */
-    border-radius: 10px; /* Suaviza las esquinas de los comentarios */
-    box-shadow: none; /* Elimina sombras adicionales si no es necesario */
+    width: 100%; 
+    margin: 0; 
+    border-radius: 10px; 
+    box-shadow: none; 
 }
 
 .comment-container {
-    width: 100%; /* Asegura que ocupe el 100% del contenedor */
+    width: 100%; 
 }
 
-/* Para desenfocar el fondo */
+
 .modal-backdrop-blur {
-    backdrop-filter: blur(10px); /* Desenfoca el fondo */
+    backdrop-filter: blur(10px); 
 }
 
 .modal-header {

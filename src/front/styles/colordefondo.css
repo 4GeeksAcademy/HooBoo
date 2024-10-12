@@ -1,35 +1,147 @@
+/* Estilos por defecto (modo claro) */
+body {
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+
 .colorFondo {
-    min-height: 100vh; /* Altura mínima para el fondo */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para el color de fondo y el color del texto */
-    background-color: #ffffff; /* Color por defecto */
-    color: #000000; /* Color de texto por defecto (negro) */
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 .colorFondo.active {
-    background-color: #3a3939; /* Color negro cuando está activo */
-    color: #ffffff; /* Color blanco para el texto en fondo negro */
+    background-color: #3a3939;
+    color: #ffffff;
 }
 
 .colorSelector {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 15px;
+    right: 15px;
     display: flex;
     align-items: center;
 }
 
 .colorButton {
-    padding: 5px;
-    background: #8e4ad1;
+    padding: 10px;
+    background: linear-gradient(135deg, #c28ef7, #c2a5e4);
     border-radius: 50%;
     cursor: pointer;
     z-index: 100000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
 }
 
-.iconBlack {
-    color: #000000; /* Color negro para el icono del sol en fondo blanco */
+.colorButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.iconWhite {
-    color: #3a3939; /* Color blanco para el icono del sol en fondo negro */
+.colorButton:active {
+    transform: scale(0.95);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.darkMode {
+    background: linear-gradient(135deg, #4a4a4a, #6a6a6a);
+    border-radius: 30%;
+}
+
+.icon {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.colorFondo.active .icon {
+    color: #a063e6; 
+}
+
+
+body.dark-mode {
+    background-color: #837f7f; 
+    color: #e0e0e0; 
+}
+
+body.dark-mode .colorFondo {
+    background-color: #7e7d7d; 
+}
+
+body.dark-mode a {
+    color: #bb86fc; 
+}
+
+
+body.dark-mode button:not(.btn-logo), 
+body.dark-mode input, 
+body.dark-mode textarea {
+    background-color: #746f6f;
+    color: #e0e0e0;
+    border: 1px solid #aaaaaa;
+}
+
+
+body.dark-mode .colorButton {
+    background: linear-gradient(135deg, #4a4a4a, #6a6a6a); 
+}
+
+
+/* Hover más suave para los botones */
+body.dark-mode header button:hover {
+    background-color: #a999c5 !important; 
+    color: white !important;
+}
+
+
+body.dark-mode .footer .social-icons i {
+    color: #a063e6; 
+    transition: color 0.3s ease;
+}
+
+
+body.dark-mode .footer .social-icons i:hover {
+    color: #c47df5; 
+}
+
+
+body.dark-mode button:not(.btn-logo), 
+body.dark-mode .btn-login, 
+body.dark-mode .btn-signup, 
+body.dark-mode .btn-explorar, 
+body.dark-mode .btn-logout {
+    border: 2px solid #b49cd8; 
+    transition: box-shadow 0.3s ease, background-color 0.3s ease; 
+}
+
+
+body.dark-mode button:not(.btn-logo):hover, 
+body.dark-mode .btn-login:hover, 
+body.dark-mode .btn-signup:hover, 
+body.dark-mode .btn-explorar:hover, 
+body.dark-mode .btn-logout:hover {
+    background-color: #b49cd8; 
+    box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.3); 
+    color: #fff;
+    transform: none; 
+}
+
+
+
+.menu-item, .logout {
+    color: #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+
+.menu-item:hover {
+    box-shadow: 6px 6px 12px rgba(160, 99, 230, 0.7); 
+    color: #fff; 
 }

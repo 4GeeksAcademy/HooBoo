@@ -8,6 +8,18 @@
     width: 100vw; 
     height: 30vh;
     object-fit: cover;
+    transition: filter 0.3s ease, opacity 0.3s ease; /* Transición suave para oscurecer */
+}
+
+/* Superposición sobre el banner */
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 30vh;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), #f8f8f8); /* Fondo por defecto */
+    transition: background 0.3s ease;
 }
 
 .bannerHome-text {
@@ -19,15 +31,7 @@
     text-align: left;
     font-family: 'Special Elite', cursive;
     z-index: 2;
-}
-
-.banner-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw; 
-    height: 30vh;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), #f8f8f8);
+    transition: color 0.3s ease;
 }
 
 h2 {
@@ -40,6 +44,24 @@ h2 {
     font-size: 3vw; 
     margin-top: -2vw;
     color: black;
+    transition: color 0.3s ease; /* Transición para el color */
+}
+
+/* Modo oscuro */
+body.dark-mode .banner-image-only-home {
+    filter: brightness(0.6); /* Oscurece la imagen del banner */
+}
+
+body.dark-mode .banner-overlay {
+    background: rgba(0, 0, 0, 0.5); /* Superposición oscura en modo oscuro */
+}
+
+body.dark-mode .bannerHome-text {
+    color: white; /* Texto blanco en modo oscuro */
+}
+
+body.dark-mode .slogan {
+    color: white; /* Slogan en blanco en modo oscuro */
 }
 
 /* Ajustes para tablets */
