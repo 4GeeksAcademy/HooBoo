@@ -21,18 +21,17 @@
   }
 }
 
-.no-results {
-  text-align: center;
-  font-family: 'Special Elite', cursive;
-  font-size: 2rem;
-  color: #555;
-  margin-top: 10px;
-}
-
 .searchContainer + .no-results {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.no-results {
+  text-align: center;
+  font-family: 'Special Elite', cursive;
+  font-size: 1.7rem;
+  margin: 10vh 0 10vh 13vw;
 }
 
 .loading-container {
@@ -172,10 +171,6 @@
 
   .welcome-message {
     margin-left: 16%;
-  }
-
-  .no-results {
-    font-size: 1.3rem; 
   }
 
   .loading-container p {
