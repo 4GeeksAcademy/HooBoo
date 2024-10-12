@@ -6,7 +6,7 @@ import Footercolapsado from "./Footercolapsado.jsx";
 import Navbaractivo from "./Navbaractivo.jsx";
 import HoobooBanner from '../component/hooboo_banner.jsx';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faTimes } from "@fortawesome/free-solid-svg-icons"; // Agregamos faTimes
+import { faMagnifyingGlass, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/buscador_explorar.css";
 import "../../styles/view_explorar.css";
 
@@ -87,9 +87,9 @@ const VistaExplorar = () => {
                     />
                     {searchBox && (
                         <FontAwesomeIcon
-                            icon={faTimes} // Agregamos ícono de "X" para limpiar
-                            className="clearSearchIcon" // Estilo para el ícono
-                            onClick={clearSearch} // Limpiar la búsqueda al hacer clic
+                            icon={faTimes}
+                            className="clearSearchIcon"
+                            onClick={clearSearch}
                         />
                     )}
                     {!searchBox && (

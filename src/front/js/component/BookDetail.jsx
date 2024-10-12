@@ -30,20 +30,17 @@ const BookDetail = ({ bookId }) => {
             setIsFavorite(true);
         }
 
-        // Reinsertar el script de comentarios cada vez que el componente se monte
         const script = document.createElement('script');
         script.src = "https://cdn.commento.io/js/commento.js";
         script.async = true;
 
         const commentoDiv = document.getElementById("commento");
 
-        // Solo inserta el script si el contenedor existe
         if (commentoDiv) {
-            commentoDiv.innerHTML = "";  // Limpia cualquier contenido anterior
+            commentoDiv.innerHTML = "";
             commentoDiv.appendChild(script);
         }
 
-        // Fase de limpieza (cleanup): elimina el script si aún existe en el DOM
         return () => {
             if (script && script.parentNode) {
                 script.parentNode.removeChild(script);
@@ -108,7 +105,7 @@ const BookDetail = ({ bookId }) => {
                 <Card className="tarjetaDeLibroMar comment-card">
                     <Card.Body className="cuerpoDetalleTarjetaLibroMar">
                         <h5 className="detalleLibroTituloMar">Comentarios</h5>
-                        <div id="commento"></div>  {/* Div para el script de comentarios */}
+                        <div id="commento"></div>
                     </Card.Body>
                 </Card>
             </div>
