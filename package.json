@@ -87,7 +87,7 @@
 		"react-modal": "^3.16.1",
 		"react-polyfills": "0.0.1",
 		"react-router-dom": "^6.26.2",
-		"react-toastify": "^8.1.0",
+		"react-toastify": "^6.0.0",
 		"sweetalert2": "^11.14.2"
 	}
 }

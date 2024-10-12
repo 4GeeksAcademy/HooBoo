@@ -1,25 +1,37 @@
-.body, html{
+.body,
+html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.headerHome{
+.headerHome {
     position: relative;
     width: 100%;
 }
 
 .navbar-container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: column; 
+    justify-content: flex-end;
+    align-items: end; 
     position: absolute;
-    top: 1vh;
+    top: 0;  
     left: 0;
     width: 100%;
     padding: 15px;
     background: rgba(0, 0, 0, 0);
     z-index: 1000;
+}
+
+.navbar-links {
+    display: flex; 
+    align-items: center; 
+}
+
+/* Ocultar los botones en móviles y mostrar el icono de menú */
+.dropdown-toggle {
+    display: none;
 }
 
 .nav-link {
@@ -31,11 +43,6 @@
     transition: color 0.3s ease;
 }
 
-.navbar-right {
-    display: flex;
-    align-items: center;
-}
-
 .btn-login,
 .btn-signup,
 .btn-explorar {
@@ -44,10 +51,10 @@
     color: black;
     border-radius: 35px;
     text-decoration: none;
+    font-family: "IBM Plex Mono", monospace;
     font-size: 1rem;
     margin-right: 1vw;
-    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
-    /* border: 0.2rem solid whitesmoke; */
+    transition: background-color 0.3s ease, transform 0.2s ease;
     height: 6vh;
     display: flex;
     align-content: center;
@@ -55,7 +62,7 @@
     align-items: center;
     padding: 25px;
 }
-    
+
 .btn-logo {
     display: block;
     background-color: #ffffff; 
@@ -78,78 +85,82 @@
     object-fit: cover;
 }
 
-@media (max-width: 768px) {
-    .navbar-container {
-        flex-direction: column;
-        justify-content: space-between;
-        height: auto;
-        padding: 0.5%;
-        /* background-color: rgba(160, 121, 172, 0.158);  */
-    }
-
-    .nav-link {
-        margin-right: 5vw; 
-        font-size: 3vw; 
-    }
-
-    .btn-login,
-    .btn-signup,
-    .btn-explorar,
-    .btn-logo {
-        width: 20vw; 
-        height: 6vh;
-        font-size: 1rem; 
-        border: 0.2rem solid #7029ab;
-        margin-right: 1vw;
-    }
-
-    .btn-logo {
-        width: 15vw; 
-        height: 15vw; 
-    }
+/* Estilos del menú desplegable */
+.dropdown-menu {
+    display: none; 
+    flex-direction: row-reverse; 
+    align-items: flex-start; 
+    position: absolute; 
+    background: #9b9a9a80; 
+    box-shadow: 0 4px 10px rgba(92, 91, 91, 0.466); 
+    width: 100%; 
+    z-index: 999; 
+    padding: 10px 0; 
+    top: 100%; /* Esto hace que el menú se coloque justo debajo del icono */
+    left: 0;
 }
 
-/* @media (max-width: 480px) {
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
     .navbar-container {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row; 
+        align-items: center; 
+    }
+
+    .navbar-links {
+        display: none; 
+    }
+
+    .dropdown-toggle {
+        display: block; /* Mostrar botón en móvil */
+        background: none;
+        border: none;
+        font-size: 2rem; 
+        color: #4c347e; 
+        cursor: pointer;
+        margin-left: -5px; 
+    }
+    .dropdown-toggle {
+        margin-top: 5vh;
+    }
+
+    /* Mostrar el menú desplegable al hacer clic */
+    .dropdown-menu.show {
+        display: flex; /* Mostrar el menú */
+    }
+    .btn-logo {
+        display: block;
+        background-color: #ffffff; 
+        border-radius: 50%; 
+        padding: 10px; 
+        width: 15vw;
         height: auto;
-        padding: 1%;
+        margin: auto;
+        border: 2px solid #a75df2; 
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        margin-top: 5vh;
     }
-
-    .nav-link {
-        margin-right: 2vw;
-        font-size: 4vw; 
+    
+    .logo-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%; 
+        cursor: pointer;
+        display: block;
+        object-fit: cover;
     }
-
-    .btn-login,
-    .btn-signup,
-    .btn-explorar,
-    .btn-logo {
-        min-width: 8vw;  
-        height: 8vh;
-        font-size: 0.8rem;
-        border: 0.15rem solid #7029ab;
-        margin-right: 0.5vw;
-    }
-
-    .btn-logo {
-        width: 30vw; 
-        height: 30vw; 
-    }
-} */
+}
 
 /* Estilos para hover y focus */
 .btn-login:hover,
 .btn-signup:hover,
-.btn-explorar:hover
- {
+.btn-explorar:hover {
     background-color: #a75df2;
     transform: scale(1.05);
     color: #fff;
     border: 2px solid #7029ab;
 }
-
 
 .btn-logo:hover {
     transform: scale(1.05);
