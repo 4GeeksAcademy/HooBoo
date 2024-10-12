@@ -51,7 +51,9 @@ const BookCard = ({ book }) => {
             return;
         }
         navigate(`/book/${book.id}`);
+        console.log(book.id);
     };
+    
 
     return (
         <div className="book-card">

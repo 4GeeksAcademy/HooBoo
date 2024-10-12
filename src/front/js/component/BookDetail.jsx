@@ -8,17 +8,17 @@ import Navbaractivo from "./Navbaractivo.jsx";
 import '../../styles/BookDetail.css';
 
 const BookDetail = () => {
-    const [profilePicture] = useState('https://via.placeholder.com/50');
     const { store, actions } = useContext(Context);
     const { bookId } = useParams();
+    console.log("ID del libro:", bookId);
+
     const [isFavorite, setIsFavorite] = useState(false);
 
-    // Función para buscar el libro por ID
+
     const getBookById = (id) => {
-        // Buscar en store.books
         let book = store.books.find(b => b.id === id);
         if (!book) {
-            // Si no se encuentra, buscar en store.base_respaldo
+            // Si no lo encuentra, busca en store.base_respaldo
             const flattenedBooks = flattenBaseRespaldo(store.base_respaldo);
             book = flattenedBooks.find(b => b.id === id);
         }
@@ -29,14 +29,14 @@ const BookDetail = () => {
         return Object.values(baseRespaldo).flat();
     };
 
-    const book = getBookById(bookId);
+    const book = getBookById(bookId);  
+    console.log("Libro encontrado:", book); 
+
 
     useEffect(() => {
         if (book && store.favorites.some((fav) => fav.id === book.id)) {
             setIsFavorite(true);
         }
-
-        // Integración de Commento en el contenedor específico
         const script = document.createElement('script');
         script.src = "https://cdn.commento.io/js/commento.js";
         script.async = true;
@@ -53,9 +53,9 @@ const BookDetail = () => {
 
     const handleAddToFavorites = () => {
         if (isFavorite) {
-            actions.removeFavoritos(book); 
+            actions.removeFavoritos(book);
         } else {
-            actions.addFavoritos(book); 
+            actions.addFavoritos(book);
         }
         setIsFavorite(!isFavorite);
     };
@@ -82,7 +82,6 @@ const BookDetail = () => {
                 <Navbaractivo />
             </div>
             <div className="content flex-grow-1 d-flex justify-content-center align-items-center flex-column">
-                {/* Card de detalles del libro */}
                 <Card className="tarjetaDeLibroMar mb-4">
                     <Card.Img variant="top" src={book.volumeInfo.imageLinks?.thumbnail} className="imagenTarjetaLibroMar" alt={book.volumeInfo.title} />
                     <Card.Body className="cuerpoDetalleTarjetaLibroMar">
@@ -103,12 +102,9 @@ const BookDetail = () => {
                         <p className="detalleLibroAutorMar">Autor: {book.volumeInfo.authors?.join(', ')}</p>
                     </Card.Body>
                 </Card>
-
-                {/* Nueva Card para los comentarios */}
                 <Card className="tarjetaDeLibroMar comment-card">
                     <Card.Body className="cuerpoDetalleTarjetaLibroMar">
                         <h5 className="detalleLibroTituloMar">Comentarios</h5>
-                        {/* Contenedor para el widget de Commento */}
                         <div id="commento"></div>
                     </Card.Body>
                 </Card>
