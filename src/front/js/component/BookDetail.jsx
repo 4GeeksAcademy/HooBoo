@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
 import Navbaractivo from "./Navbaractivo.jsx";
 import '../../styles/BookDetail.css';
+import Footercolapsado from "../component/Footercolapsado.jsx";
 
 const BookDetail = () => {
     const { store, actions } = useContext(Context);
@@ -77,6 +78,8 @@ const BookDetail = () => {
     };
 
     return (
+        <div>
+
         <Container fluid className="d-flex flex-column">
             <div className="navbar">
                 <Navbaractivo />
@@ -110,6 +113,8 @@ const BookDetail = () => {
                 </Card>
             </div>
         </Container>
+        <Footercolapsado />
+        </div>
     );
 };
 
