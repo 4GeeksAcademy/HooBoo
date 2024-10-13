@@ -69,19 +69,6 @@ body.dark-mode .colorFondo {
     background-color: #7e7d7d; 
 }
 
-body.dark-mode a {
-    color: #bb86fc; 
-}
-
-
-body.dark-mode button:not(.btn-logo), 
-body.dark-mode input, 
-body.dark-mode textarea {
-    background-color: #746f6f;
-    color: #e0e0e0;
-    border: 1px solid #aaaaaa;
-}
-
 
 body.dark-mode .colorButton {
     background: linear-gradient(135deg, #4a4a4a, #6a6a6a); 
@@ -106,30 +93,28 @@ body.dark-mode .footer .social-icons i:hover {
 }
 
 
-body.dark-mode button:not(.btn-logo), 
-body.dark-mode .btn-login, 
-body.dark-mode .btn-signup, 
-body.dark-mode .btn-explorar, 
-body.dark-mode .btn-logout {
-    border: 2px solid #b49cd8; 
-    transition: box-shadow 0.3s ease, background-color 0.3s ease; 
-}
-
-
-body.dark-mode button:not(.btn-logo):hover, 
-body.dark-mode .btn-login:hover, 
-body.dark-mode .btn-signup:hover, 
-body.dark-mode .btn-explorar:hover, 
-body.dark-mode .btn-logout:hover {
-    background-color: #b49cd8; 
-    box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.3); 
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8vw; 
     color: #fff;
-    transform: none; 
+    text-decoration: none;
+    font-size: 1.2rem; 
+    padding: 0.4rem 0.4rem 0.4rem 1.5rem; 
+    border-radius: 0.5rem;
+    transition: box-shadow 0.3s ease;
+    background: black;
+    border: 0;
+}
+
+.menu-item:hover {
+    box-shadow: 0 0 0.625rem #7029ab;
+    color: #a75df2;
 }
 
 
 
-.menu-item, .logout {
+.logout {
     color: #e0e0e0;
     padding: 10px 20px;
     border-radius: 5px;
@@ -140,8 +125,68 @@ body.dark-mode .btn-logout:hover {
     cursor: pointer;
 }
 
+.logout:hover {
+    box-shadow: 0px 12px 12px #a063e6(0, 0, 0, 0.3); 
+}
 
-.menu-item:hover {
-    box-shadow: 6px 6px 12px rgba(160, 99, 230, 0.7); 
-    color: #fff; 
+body.dark-mode .searchInput {
+    background-color: rgb(201, 200, 200);
+}
+
+
+.sin-favoritos {
+    color: white
+}
+
+/* Estilos para el modal en modo oscuro */
+body.dark-mode .modal-content {
+    background-color: #b9b7b7; /* Fondo oscuro para el modal */
+    color: black; /* Texto claro para el modal */
+    border-radius: 15px; 
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Sombra más oscura */
+}
+
+body.dark-mode .modal-header {
+    border-bottom: 1px solid #4a4a4a;
+}
+
+body.dark-mode .modal-body {
+    color: #e0e0e0; /* Color de texto en modo oscuro */
+}
+
+.comment-card {
+    width: 100%; 
+    height: auto;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden;
+    background-color: #ffffff; /* Fondo claro para la tarjeta de comentarios */
+}
+
+/* Tarjeta de comentario en modo oscuro */
+body.dark-mode .comment-card {
+    background-color: white; /* Fondo oscuro para comentarios */
+}
+
+
+/* Estilo para los botones en modo oscuro */
+body.dark-mode .btn-login,
+body.dark-mode .btn-signup,
+body.dark-mode .btn-explorar {
+    background-color: #969696; /* Fondo gris oscuro en modo oscuro */
+    color: black; /* Texto blanco */
+    border: 2px solid #a75df2; /* Borde morado */
+}
+
+body.dark-mode .btn-login:hover,
+body.dark-mode .btn-signup:hover,
+body.dark-mode .btn-explorar:hover {
+    background-color: #7029ab; /* Cambia a un fondo morado oscuro en hover */
+    color: #ffffff; /* Mantén el texto blanco en hover */
+    transform: scale(1.05); /* Mismo efecto de aumento en hover */
+    border: 2px solid #a75df2; /* Borde más claro en hover */
 }

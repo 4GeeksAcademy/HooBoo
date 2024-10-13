@@ -1,25 +1,11 @@
+
+
 .footer-colapsado {
     position: fixed;
     bottom: 1px;
     left: 56%;
     z-index: 10000;
 }
-
-.question-icon {
-    cursor: pointer;
-    color: #fff;
-    background-color: #222;
-    border-radius: 50%;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-}
-.question-icon:hover {
-    background-color: #555;
-}
-
 .footer-container {
     position: fixed;
     bottom: 0;
@@ -52,3 +38,5 @@
     color: black;
     margin-bottom: 1vh;
 }
+
+

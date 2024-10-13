@@ -4,6 +4,26 @@
     transition: margin-left 0.3s ease;
 }
 
+  
+.favoritos-list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+    gap: 1.25rem;
+    padding: 1.25rem;
+  }
+  
+  .sin-favoritos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;       /* Ajusta el tamaño de la fuente según lo necesites */
+    color: #8e3bc4;          /* Mantén el color que tienes definido */
+  }
+  
+  
+  
 .favoritos-titulo {
     text-align: center;
     font-weight: bold;
@@ -14,12 +34,7 @@
     color: #7029ab;
 }
 
-.favoritos-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
-    gap: 1.25rem;
-    padding: 1.25rem;
-}
+
 
 .favorito-card {
     position: relative;
@@ -74,12 +89,7 @@
 }
 
 
-.sin-favoritos {
-    text-align: center;
-    font-size: 1.5rem;
-    color: #8c3bc4;
-    margin-top: 2rem;
-}
+
 
 .favorite-active {
     color: #d14fff;

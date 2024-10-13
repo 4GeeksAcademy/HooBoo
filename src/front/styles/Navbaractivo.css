@@ -83,13 +83,14 @@
 
 .profile-menu {
     position: absolute;
-    background-color: #333;
+    background-color: #aca8a8;
     padding: 2vw; 
     border-radius: 2vw;
     top: 3%;
     left: 0;
     z-index: 1000;
     margin-top: 5vh; 
+    color: black
 }
 
 .profile-menu p {
