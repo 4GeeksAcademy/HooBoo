@@ -1,4 +1,4 @@
-body,
+.body,
 html {
     margin: 0;
     padding: 0;
@@ -12,11 +12,11 @@ html {
 
 .navbar-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     justify-content: flex-end;
-    align-items: end;
+    align-items: end; 
     position: absolute;
-    top: 0;
+    top: 0;  
     left: 0;
     width: 100%;
     padding: 15px;
@@ -25,14 +25,13 @@ html {
 }
 
 .navbar-links {
-    display: flex;
-    align-items: center;
+    display: flex; 
+    align-items: center; 
 }
 
-
+/* Ocultar los botones en móviles y mostrar el icono de menú */
 .dropdown-toggle {
     display: none;
-    /* Inicialmente oculto */
 }
 
 .nav-link {
@@ -48,11 +47,11 @@ html {
 .btn-signup,
 .btn-explorar {
     background-color: whitesmoke;
-    border: 2px solid #a75df2;
+    border: 2px solid #a75df2; 
     color: black;
     border-radius: 35px;
     text-decoration: none;
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "IBM Plex Mono", monospace;
     font-size: 1rem;
     margin-right: 1vw;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -62,17 +61,18 @@ html {
     justify-content: center;
     align-items: center;
     padding: 25px;
+    margin-right: 4rem;
 }
 
 .btn-logo {
     display: block;
-    background-color: #ffffff;
-    border-radius: 50%;
-    padding: 10px;
+    background-color: #ffffff; 
+    border-radius: 50%; 
+    padding: 10px; 
     width: 9vw;
     height: auto;
     margin: auto;
-    border: 2px solid #a75df2;
+    border: 2px solid #a75df2; 
     margin-bottom: 1rem;
     margin-right: 3rem;
 }
@@ -80,25 +80,24 @@ html {
 .logo-img {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 50%; 
     cursor: pointer;
     display: block;
     object-fit: cover;
 }
 
- 
+/* Estilos del menú desplegable */
 .dropdown-menu {
-    display: none;
-    flex-direction: row-reverse;
-    align-items: flex-start;
-    position: absolute;
-    background: #9b9a9a80;
-    box-shadow: 0 4px 10px rgba(92, 91, 91, 0.466);
-    width: 100%;
-    z-index: 999;
-    padding: 10px 0;
-    top: 100%;
-    /* Esto hace que el menú se coloque justo debajo del icono */
+    display: none; 
+    flex-direction: row-reverse; 
+    align-items: flex-start; 
+    position: absolute; 
+    background: #9b9a9a80; 
+    box-shadow: 0 4px 10px rgba(92, 91, 91, 0.466); 
+    width: 100%; 
+    z-index: 999; 
+    padding: 10px 0; 
+    top: 100%; /* Esto hace que el menú se coloque justo debajo del icono */
     left: 0;
 }
 
@@ -129,10 +128,9 @@ html {
         box-sizing: border-box;
         margin-top: -1vh;
     }
-}
 
-    /* Menú desplegable al hacer clic */
-    .dropdown-menu.show {
+     /* Menú desplegable al hacer clic */
+     .dropdown-menu.show {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -149,6 +147,9 @@ html {
         border: 2px solid #a75df2;
         margin: 0 5px;
         box-sizing: border-box;
+        margin-bottom: 0.5rem;
+        margin-top: 0.9rem;
+        margin-right: 1rem;
     }
 
     .btn-login,
@@ -161,7 +162,7 @@ html {
         text-decoration: none;
         font-family: "IBM Plex Mono", monospace;
         font-size: .7rem;
-        margin-right: 1vw;
+        margin-right: 2vw;
         transition: background-color 0.3s ease, transform 0.2s ease;
         height: 6vh;
         display: flex;
@@ -172,6 +173,9 @@ html {
     }
 
 }
+
+   
+
 
 
 
