@@ -4,17 +4,15 @@ import { faHeart, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import Swal from 'sweetalert2';
-import BookModal from './BookModal.jsx';  // Importamos el modal de react-bootstrap
+import BookModal from './BookModal.jsx';
 import "../../styles/BookCard.css";
 
-const BookCard = ({ book }) => {
+const BookCard = ({ book, onModalToggle }) => {
     const navigate = useNavigate();
     const { store, actions } = useContext(Context);
     const imageUrl = book.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/150";
     const title = book.volumeInfo.title || "Título no disponible";
     const [isFavorite, setIsFavorite] = useState(store.favorites.some(fav => fav.id === book.id));
-
-    // Estado para controlar el modal
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const showLoginAlert = () => {
@@ -54,12 +52,13 @@ const BookCard = ({ book }) => {
             showLoginAlert();
             return;
         }
-        // Abre el modal
         setIsModalOpen(true);
+        onModalToggle(true);
     };
 
     const closeModal = () => {
         setIsModalOpen(false); 
+        onModalToggle(false);
     };
 
     return (
