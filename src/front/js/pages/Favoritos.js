@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import Navbaractivo from "../component/Navbaractivo.jsx";
 import Footercolapsado from "../component/Footercolapsado.jsx";
-import BookModal from "../component/BookModal.jsx"; // Importa el modal que creaste
+import BookModal from "../component/BookModal.jsx"; 
 import "../../styles/Favoritos.css";
 
 const Favoritos = () => {
     const { store, actions } = useContext(Context);
     const navigate = useNavigate();
 
-    const [showModal, setShowModal] = useState(false); // Estado para controlar el modal
-    const [selectedBookId, setSelectedBookId] = useState(null); // Estado para almacenar el ID del libro seleccionado
+    const [showModal, setShowModal] = useState(false); 
+    const [selectedBookId, setSelectedBookId] = useState(null); 
 
     useEffect(() => {
         if (!store.token) {
@@ -28,13 +28,13 @@ const Favoritos = () => {
     };
 
     const handleOpenModal = (bookId) => {
-        setSelectedBookId(bookId); // Establece el ID del libro seleccionado
-        setShowModal(true); // Muestra el modal
+        setSelectedBookId(bookId); 
+        setShowModal(true); 
     };
 
     const handleCloseModal = () => {
-        setShowModal(false); // Cierra el modal
-        setSelectedBookId(null); // Resetea el ID del libro seleccionado
+        setShowModal(false); 
+        setSelectedBookId(null); 
     };
 
     return (
@@ -69,8 +69,6 @@ const Favoritos = () => {
                     <p className="sin-favoritos">No hay favoritos guardados</p>
                 )}
             </div>
-
-            {/* Modal de detalles del libro */}
             {selectedBookId && (
                 <BookModal show={showModal} handleClose={handleCloseModal} bookId={selectedBookId} />
             )}

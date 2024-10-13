@@ -18,8 +18,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 1.5rem;       /* Ajusta el tamaño de la fuente según lo necesites */
-    color: #8e3bc4;          /* Mantén el color que tienes definido */
+    font-size: 1.5rem;       
+    color: #8e3bc4;          
   }
   
   
@@ -133,31 +133,31 @@
 
 .icons-container {
     position: absolute;
-    top: 0.5rem; /* Posiciona los iconos en la parte superior */
-    right: 0.5rem; /* Alinea los iconos hacia la derecha */
+    top: 0.5rem; 
+    right: 0.5rem; 
     display: flex;
-    gap: 0.5rem; /* Añade un espacio entre los iconos */
+    gap: 0.5rem; 
 }
 
 .trash-iicon,
 .info-iicon {
-    background-color: white; /* Fondo redondo blanco fijo */
+    background-color: white; 
     border: none;
     cursor: pointer;
-    color: #8c3bc4; /* Icono en color morado */
-    font-size: 1rem; /* Tamaño del icono reducido */
-    width: 1.6rem; /* Tamaño más pequeño para el círculo */
-    height: 1.6rem; /* Tamaño más pequeño para el círculo */
+    color: #8c3bc4; 
+    font-size: 1rem; 
+    width: 1.6rem; 
+    height: 1.6rem; 
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%; /* Mantiene el fondo redondo */
-    transition: background-color 0.3s, color 0.3s; /* Transición suave para el color y el fondo */
-    padding: 0; /* Eliminar cualquier espacio interno extra */
+    border-radius: 50%; 
+    transition: background-color 0.3s, color 0.3s; 
+    padding: 0; 
 }
 
 .trash-iicon:hover,
 .info-iicon:hover {
-    background-color: #e0c6f5; /* Fondo morado claro al pasar el ratón */
-    color: #000000; /* Icono negro al pasar el ratón */
+    background-color: #e0c6f5; 
+    color: #000000; 
 }

@@ -1,8 +1,7 @@
-/* Estilos por defecto (modo claro) */
 body {
     background-color: #ffffff;
     color: #000000;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+    transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
 .colorFondo {
@@ -134,17 +133,17 @@ body.dark-mode .searchInput {
 }
 
 
-.sin-favoritos {
+body.dark-mode .sin-favoritos {
     color: white
 }
 
-/* Estilos para el modal en modo oscuro */
+
 body.dark-mode .modal-content {
-    background-color: #b9b7b7; /* Fondo oscuro para el modal */
-    color: black; /* Texto claro para el modal */
+    background-color: #b9b7b7; 
+    color: black; 
     border-radius: 15px; 
     padding: 2rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Sombra más oscura */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); 
 }
 
 body.dark-mode .modal-header {
@@ -152,7 +151,7 @@ body.dark-mode .modal-header {
 }
 
 body.dark-mode .modal-body {
-    color: #e0e0e0; /* Color de texto en modo oscuro */
+    color: #e0e0e0; 
 }
 
 .comment-card {
@@ -164,29 +163,29 @@ body.dark-mode .modal-body {
     display: flex;
     flex-direction: column; 
     overflow: hidden;
-    background-color: #ffffff; /* Fondo claro para la tarjeta de comentarios */
+    background-color: #ffffff;
 }
 
-/* Tarjeta de comentario en modo oscuro */
+
 body.dark-mode .comment-card {
-    background-color: white; /* Fondo oscuro para comentarios */
+    background-color: white; 
 }
 
 
-/* Estilo para los botones en modo oscuro */
+
 body.dark-mode .btn-login,
 body.dark-mode .btn-signup,
 body.dark-mode .btn-explorar {
-    background-color: #969696; /* Fondo gris oscuro en modo oscuro */
-    color: black; /* Texto blanco */
-    border: 2px solid #a75df2; /* Borde morado */
+    background-color: #969696; 
+    color: black; 
+    border: 2px solid #a75df2; 
 }
 
 body.dark-mode .btn-login:hover,
 body.dark-mode .btn-signup:hover,
 body.dark-mode .btn-explorar:hover {
-    background-color: #7029ab; /* Cambia a un fondo morado oscuro en hover */
-    color: #ffffff; /* Mantén el texto blanco en hover */
-    transform: scale(1.05); /* Mismo efecto de aumento en hover */
-    border: 2px solid #a75df2; /* Borde más claro en hover */
+    background-color: #b586db; 
+    color: #ffffff; 
+    transform: scale(1.05); 
+    border: 2px solid #a75df2; 
 }
