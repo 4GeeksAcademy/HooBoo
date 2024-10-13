@@ -64,28 +64,11 @@ body.dark-mode .slogan {
     color: white; /* Slogan en blanco en modo oscuro */
 }
 
-/* Ajustes para tablets */
-@media (max-width: 768px) {
-    .bannerHome-text {
-        top: 50%;
-        left: 5%; 
-        font-size: 5vw;
-    }
-
-    h2 {
-        font-size: 8vw;
-    }
-
-    .slogan {
-        font-size: 4vw;
-        margin-top: -1vw; 
-    }
-}
 
 /* Ajustes para teléfonos móviles */
 @media (max-width: 480px) {
     .bannerHome-text {
-        top: 50%; 
+        margin-top: 2.5vh; 
         left: 5%; 
         font-size: 6vw;
     }
@@ -98,5 +81,24 @@ body.dark-mode .slogan {
     .slogan {
         font-size: 5vw;
         margin-top: -2vw; 
+    }
+}
+
+/*Pantallas tablet*/
+@media (max-width: 768px) {
+    .bannerHome-text {
+        top: 40%; 
+        left: 10%; 
+        font-size: 5vw; 
+    }
+
+    h2 {
+        font-size: 8vw; 
+        margin-top: 0;    
+    }
+
+    .slogan {
+        font-size: 4vw; 
+        margin-top: -1vw; 
     }
 }
