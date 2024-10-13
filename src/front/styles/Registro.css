@@ -1,12 +1,12 @@
 .registro-form-container {
-    background-color: #f0f0f0; /* Fondo gris claro que mantiene armonía */
-    border-radius: 20px; /* Mismo redondeo de bordes que en otros componentes */
+    background-color: #f0f0f0; 
+    border-radius: 20px; 
     padding: 20px;
     width: 320px;
     margin: 50px auto;
     color: #333;
-    box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445); /* Sombra similar a tu tarjeta de libro */
-    border: 1px solid #cca1f7; /* Añadir un borde morado suave como en tus tarjetas */
+    box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445); 
+    border: 1px solid #cca1f7; 
 }
 
 .registro-page-container {
@@ -17,9 +17,9 @@
 .supertituloxm {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 1.25rem; /* Ajuste para mantener proporción */
-    font-family: 'Special Elite', cursive; /* Tipografía similar a la de los títulos */
-    color: #7029ab; /* Color morado oscuro */
+    font-size: 1.25rem; 
+    font-family: 'Special Elite', cursive; 
+    color: #7029ab; 
     font-weight: bold;
 }
 
@@ -28,7 +28,7 @@
     margin-bottom: 8px;
     font-size: 14px;
     color: #555;
-    font-family: "IBM Plex Mono", monospace; /* Tipografía uniforme */
+    font-family: "IBM Plex Mono", monospace; 
 }
 
 .registro-form-input {
@@ -36,9 +36,9 @@
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 6px;
-    border: 1px solid #cca1f7; /* Borde morado suave */
-    background-color: #fff; /* Fondo blanco para el campo */
-    color: #333; /* Texto oscuro */
+    border: 1px solid #cca1f7; 
+    background-color: #fff; 
+    color: #333; 
     font-family: "IBM Plex Mono", monospace;
 }
 
@@ -50,24 +50,24 @@
     width: 100%;
     padding: 12px;
     margin-bottom: 12px;
-    background-color: #a75df2; /* Color morado principal */
+    background-color: #a75df2; 
     color: white;
     font-size: 16px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 .registro-form-button:hover {
-    background-color: #8c3bc4; /* Un morado más oscuro al hacer hover */
+    background-color: #8c3bc4; 
 }
 
 .registro-volver-button {
     width: 100%;
     padding: 12px;
-    background-color: #cca1f7; /* Rojo similar al hover de tus íconos */
+    background-color: #cca1f7;
     color: white;
     font-size: 16px;
     border: none;
@@ -79,7 +79,7 @@
 }
 
 .registro-volver-button:hover {
-    background-color: #851be9; /* Rojo más oscuro en hover */
+    background-color: #851be9; 
 }
 
 @media (max-width: 600px) {

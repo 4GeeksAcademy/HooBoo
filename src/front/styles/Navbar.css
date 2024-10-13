@@ -29,7 +29,7 @@ html {
     align-items: center;
 }
 
-/* Ocultar los botones en móviles y mostrar el icono de menú */
+
 .dropdown-toggle {
     display: none;
     /* Inicialmente oculto */
@@ -74,7 +74,7 @@ html {
     margin: auto;
     border: 2px solid #a75df2;
     margin-bottom: 1rem;
-    margin-right: 1rem;
+    margin-right: 3rem;
 }
 
 .logo-img {
@@ -86,7 +86,7 @@ html {
     object-fit: cover;
 }
 
-/* Estilos del menú desplegable */
+ 
 .dropdown-menu {
     display: none;
     flex-direction: row-reverse;
@@ -129,6 +129,7 @@ html {
         box-sizing: border-box;
         margin-top: -1vh;
     }
+}
 
     /* Menú desplegable al hacer clic */
     .dropdown-menu.show {
@@ -191,3 +192,4 @@ html {
     outline: none;
     box-shadow: 0 0 0 3px rgba(167, 93, 242, 0.5);
 }
+

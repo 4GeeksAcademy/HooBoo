@@ -1,35 +1,191 @@
+body {
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
 .colorFondo {
-    min-height: 100vh; /* Altura mínima para el fondo */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para el color de fondo y el color del texto */
-    background-color: #ffffff; /* Color por defecto */
-    color: #000000; /* Color de texto por defecto (negro) */
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 .colorFondo.active {
-    background-color: #3a3939; /* Color negro cuando está activo */
-    color: #ffffff; /* Color blanco para el texto en fondo negro */
+    background-color: #3a3939;
+    color: #ffffff;
 }
 
 .colorSelector {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 15px;
+    right: 15px;
     display: flex;
     align-items: center;
 }
 
 .colorButton {
-    padding: 5px;
-    background: #8e4ad1;
+    padding: 10px;
+    background: linear-gradient(135deg, #c28ef7, #c2a5e4);
     border-radius: 50%;
     cursor: pointer;
     z-index: 100000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
 }
 
-.iconBlack {
-    color: #000000; /* Color negro para el icono del sol en fondo blanco */
+.colorButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.iconWhite {
-    color: #3a3939; /* Color blanco para el icono del sol en fondo negro */
+.colorButton:active {
+    transform: scale(0.95);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.darkMode {
+    background: linear-gradient(135deg, #4a4a4a, #6a6a6a);
+    border-radius: 30%;
+}
+
+.icon {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.colorFondo.active .icon {
+    color: #a063e6; 
+}
+
+
+body.dark-mode {
+    background-color: #837f7f; 
+    color: #e0e0e0; 
+}
+
+body.dark-mode .colorFondo {
+    background-color: #7e7d7d; 
+}
+
+
+body.dark-mode .colorButton {
+    background: linear-gradient(135deg, #4a4a4a, #6a6a6a); 
+}
+
+
+/* Hover más suave para los botones */
+body.dark-mode header button:hover {
+    background-color: #a999c5 !important; 
+    color: white !important;
+}
+
+
+body.dark-mode .footer .social-icons i {
+    color: #a063e6; 
+    transition: color 0.3s ease;
+}
+
+
+body.dark-mode .footer .social-icons i:hover {
+    color: #c47df5; 
+}
+
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8vw; 
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem; 
+    padding: 0.4rem 0.4rem 0.4rem 1.5rem; 
+    border-radius: 0.5rem;
+    transition: box-shadow 0.3s ease;
+    background: black;
+    border: 0;
+}
+
+.menu-item:hover {
+    box-shadow: 0 0 0.625rem #7029ab;
+    color: #a75df2;
+}
+
+
+
+.logout {
+    color: #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.logout:hover {
+    box-shadow: 0px 12px 12px #a063e6(0, 0, 0, 0.3); 
+}
+
+body.dark-mode .searchInput {
+    background-color: rgb(201, 200, 200);
+}
+
+
+body.dark-mode .sin-favoritos {
+    color: white
+}
+
+
+body.dark-mode .modal-content {
+    background-color: #b9b7b7; 
+    color: black; 
+    border-radius: 15px; 
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); 
+}
+
+body.dark-mode .modal-header {
+    border-bottom: 1px solid #4a4a4a;
+}
+
+body.dark-mode .modal-body {
+    color: #e0e0e0; 
+}
+
+.comment-card {
+    width: 100%; 
+    height: auto;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+
+body.dark-mode .comment-card {
+    background-color: white; 
+}
+
+
+
+body.dark-mode .btn-login,
+body.dark-mode .btn-signup,
+body.dark-mode .btn-explorar {
+    background-color: #969696; 
+    color: black; 
+    border: 2px solid #a75df2; 
+}
+
+body.dark-mode .btn-login:hover,
+body.dark-mode .btn-signup:hover,
+body.dark-mode .btn-explorar:hover {
+    background-color: #b586db; 
+    color: #ffffff; 
+    transform: scale(1.05); 
+    border: 2px solid #a75df2; 
 }

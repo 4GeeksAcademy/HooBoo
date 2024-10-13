@@ -1,45 +1,31 @@
+
+
 .footer-colapsado {
     position: fixed;
     bottom: 1px;
     left: 56%;
     z-index: 10000;
 }
-
-.question-icon {
-    cursor: pointer;
-    color: #fff;
-    background-color: #222;
-    border-radius: 50%;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-}
-.question-icon:hover {
-    background-color: #555;
-}
-
 .footer-container {
     position: fixed;
     bottom: 0;
-    right: -44%;  /* Centra el contenedor horizontalmente */
-    transform: translateX(-50%); /* Alinea el contenedor al centro */
-    height: 0; /* Inicialmente colapsado */
-    background-color: #000000; /* Color de fondo del footer */
-    z-index: 9999; /* Debajo del icono */
-    transition: height 0.5s ease; /* Transición para efecto de despliegue */
-    overflow: hidden; /* Oculta el contenido sobrante */
+    right: -44%;  
+    transform: translateX(-50%);
+    height: 0; 
+    background-color: #000000; 
+    z-index: 9999; 
+    transition: height 0.5s ease;
+    overflow: hidden; 
     width: 87%;
 }
 
 .footer-container.visible {
-    height: 17%; /* Se expande hacia arriba */
-    bottom: 0; /* Mantiene el contenedor en la parte inferior */
+    height: 17%; 
+    bottom: 0; 
 }
 
 .icon-white {
-    color: white; /* Establece el color blanco */
+    color: white;
 }
 
 .icon-moradito {
@@ -52,3 +38,5 @@
     color: black;
     margin-bottom: 1vh;
 }
+
+

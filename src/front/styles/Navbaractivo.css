@@ -54,7 +54,6 @@
     gap: 1vw;
 }
 
-/* Ajuste del tamaño de letra en los elementos del menú del navbar */
 .menu-item {
     display: flex;
     align-items: center;
@@ -81,13 +80,14 @@
 
 .profile-menu {
     position: absolute;
-    background-color: #333;
-    padding: 2vw;
+    background-color: #aca8a8;
+    padding: 2vw; 
     border-radius: 2vw;
     top: 3%;
     left: 0;
     z-index: 1000;
-    margin-top: 5vh;
+    margin-top: 5vh; 
+    color: black
 }
 
 .profile-menu p {
@@ -143,8 +143,11 @@
     color: #fff;
 }
 
-/* Asegurarse de que solo se muestre el ícono cuando la sidebar esté colapsada */
-.logout-btn .logout-text,
+
+.logout-btn .logout-text {
+    display: inline;
+}
+
 .logout-btn .logout-icon {
     display: inline;
 }
@@ -167,7 +170,7 @@
     position: relative;
 }
 
-/* Ajustes para el contador de favoritos */
+
 .favorite-count {
     top: 0;
     right: 0; 

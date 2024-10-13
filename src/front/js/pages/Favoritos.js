@@ -1,13 +1,17 @@
-import React, { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import Navbaractivo from "../component/Navbaractivo.jsx";
 import Footercolapsado from "../component/Footercolapsado.jsx";
+import BookModal from "../component/BookModal.jsx"; 
 import "../../styles/Favoritos.css";
 
 const Favoritos = () => {
     const { store, actions } = useContext(Context);
     const navigate = useNavigate();
+
+    const [showModal, setShowModal] = useState(false); 
+    const [selectedBookId, setSelectedBookId] = useState(null); 
 
     useEffect(() => {
         if (!store.token) {
@@ -23,6 +27,16 @@ const Favoritos = () => {
         actions.removeFavoritos(book);
     };
 
+    const handleOpenModal = (bookId) => {
+        setSelectedBookId(bookId); 
+        setShowModal(true); 
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false); 
+        setSelectedBookId(null); 
+    };
+
     return (
         <div className="vista-favoritos">
             <Navbaractivo />
@@ -32,16 +46,16 @@ const Favoritos = () => {
                     store.favorites.map((book, index) => (
                         <div key={index} className="favorito-card">
                             <div className="icons-container">
-                                <button className="info-iicon derecha" onClick={() => navigate(`/book/${book.id}`)}>
+                                <button
+                                    className="info-iicon derecha"
+                                    onClick={() => handleOpenModal(book.id)} // Abre el modal con el ID del libro
+                                >
                                     <i className="fa fa-info-circle"></i>
                                 </button>
 
                                 <button className="trash-iicon derecha" onClick={() => handleRemoveFavorito(book)}>
                                     <i className="fa fa-trash"></i>
                                 </button>
-
-
-
                             </div>
                             <img
                                 src={book.volumeInfo.imageLinks?.thumbnail || "https://via.placeholder.com/150"}
@@ -55,6 +69,10 @@ const Favoritos = () => {
                     <p className="sin-favoritos">No hay favoritos guardados</p>
                 )}
             </div>
+            {selectedBookId && (
+                <BookModal show={showModal} handleClose={handleCloseModal} bookId={selectedBookId} />
+            )}
+
             <Footercolapsado />
         </div>
     );
