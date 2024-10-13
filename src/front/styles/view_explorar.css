@@ -1,7 +1,9 @@
 .vista-explorar {
-  align-items: center;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
   background-color: #f8f8f8;
-  margin-left: 15vw;
+  margin-left: 15vw; 
   padding: 0 1rem;
 }
 
@@ -9,67 +11,37 @@
   font-size: 1rem; 
   font-weight: bold;
   margin-top: 20px;
-  text-align: center;
-  margin-left: 16%;
+  text-align: center; 
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
   margin-bottom: 1.25rem;
 }
 
-@media (min-width: 48rem) {
-  .book-list {
-    justify-content: flex-start;
-  }
-}
-
-.searchContainer + .no-results {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.no-results {
-  text-align: center;
-  font-family: 'Special Elite', cursive;
-  font-size: 1.7rem;
-  margin: 10vh 0 10vh 13vw;
-}
-
-.loading-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px; 
-}
-
-.loading-container p {
-  font-size: 1.5rem;
-  color: #555;
-}
-
-/* Estilos del cuadro de búsqueda */
 .searchBoxMar {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; 
   padding-bottom: 2rem;
   width: 100%;
-  text-align: center;
+  text-align: center; 
 }
 
 .searchContainer {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center; 
+  margin: 0 auto; 
 }
 
 .searchInput {
   padding: 10px 40px 10px 15px;
   font-size: 16px;
-  width: 40vw;
-  max-width: 500px;
+  width: 70vw; 
+  max-width: 500px; 
   border-radius: 25px;
   border: 1px solid #a75df2;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; 
 }
 
 .searchIcon {
@@ -92,88 +64,113 @@
   color: #a75df2;
 }
 
+.no-results {
+  text-align: center;
+  font-family: 'Special Elite', cursive;
+  font-size: 1.7rem;
+  margin: 10vh 0; /* Ajustar márgenes para móviles */
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; 
+}
+
+.loading-container p {
+  font-size: 1.5rem;
+  color: #555;
+  text-align: center; /* Asegurar que el texto esté centrado */
+}
+
 /* Ajustes para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
-  .vista-explorar {
-    margin-left: 0;
-    padding: 0 1rem;
+  .welcome-message {
+    font-size: 1rem; 
+    font-weight: bold;
+    text-align: center; 
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    margin-bottom: 1.25rem;
   }
-
-  .hooboobaner {
-    font-size: 1.25rem;
-    padding: 0.625rem;
+  
+  .searchBoxMar {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding-bottom: 2rem;
+    width: 100%;
+    text-align: center; 
+    margin-top: -4rem;
+    margin-left: -1.5rem;
   }
+  
+  .searchContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin: 0 auto; 
+  }
+  
+  .searchInput {
+    padding: 10px 40px 10px 15px;
+    font-size: 16px;
+    width: 70vw; 
+    max-width: 500px; 
+    border-radius: 25px;
+    border: 1px solid #a75df2;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; 
+  }
+  
 
   .book-list {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+    gap: 1.25rem; 
+    margin: 1rem auto; 
+    padding: 0; /* Sin padding */
     justify-content: center;
-    padding: 1rem 0;
-  }
-
-  .welcome-message {
-    margin-left: 0;
-    font-size: 0.9rem;
-  }
-
-  .no-results {
-    font-size: 1rem;
-  }
-
-  .loading-container p {
-    font-size: 1.25rem;
-  }
-
-  .searchInput {
-    width: 70vw;
+    margin-top: -3rem;
   }
 }
 
 @media (max-width: 1024px) {
   .vista-explorar {
-    margin-left: 0;
-    padding: 0 2rem;
-  }
-
-  .hooboobaner {
-    font-size: 1.4rem;
-    padding: 0.75rem;
-  }
-
-  .book-list {
-    justify-content: center;
+    margin-left: 0; /* Eliminar margen izquierdo */
+    padding: 0 2rem; /* Ajustar padding */
   }
 
   .welcome-message {
-    margin-left: 8%;
-    font-size: 1rem;
+    font-size: 1rem; /* Ajustar tamaño de fuente */
+    margin: 0 auto; /* Centrar el mensaje */
+    padding: 0 1rem; /* Ajustar padding del mensaje */
   }
 
   .no-results {
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* Ajustar tamaño de fuente */
   }
 
   .loading-container p {
-    font-size: 1.4rem;
+    font-size: 1.4rem; /* Ajustar tamaño de fuente */
+  }
+
+  .book-list {
+    justify-content: center; /* Centrar libros */
   }
 }
 
 @media (min-width: 1200px) {
   .vista-explorar {
-    margin-left: 10vw;
+    margin-left: 10vw; /* Margen izquierdo para pantallas grandes */
   }
 
   .book-list {
-    justify-content: flex-start;
-  }
-
-  .hooboobaner {
-    font-size: 1.75rem;
+    justify-content: flex-start; /* Alinear libros a la izquierda */
   }
 
   .welcome-message {
-    margin-left: 16%;
-  }
-
-  .loading-container p {
-    font-size: 1.6rem;
+    margin-left: 16%; /* Margen izquierdo para pantallas grandes */
   }
 }

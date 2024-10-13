@@ -8,8 +8,8 @@
     justify-content: space-between;
     left: 0;
     top: 0;
-    min-width: 15rem; 
-    transform: translateX(0); 
+    min-width: 15rem;
+    transform: translateX(0);
     transition: width 0.3s ease, transform 0.3s ease;
     align-items: center;
     z-index: 1000;
@@ -17,19 +17,19 @@
 }
 
 .navbar-activo.active {
-    transform: translateX(0); 
+    transform: translateX(0);
 }
 
 @media (max-width: 768px) {
     .navbar-activo {
         width: 15vw;
-        min-width: 4rem; 
-        transform: translateX(-100%); 
+        min-width: 4rem;
+        transform: translateX(-100%);
     }
 }
 
 .logo-activo {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
     color: #fff;
@@ -39,15 +39,13 @@
 /* Estilo del logo en el sidebar */
 .logo-img-explorar {
     display: block;
-    background-color: #ffffff; 
-    border-radius: 50%; 
-    padding: 10px; 
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 10px;
     width: 20vh;
     height: auto;
-    margin: 0 auto; 
+    margin: 4vh auto; 
     border: 5px solid #7029ab;
-    margin-top: 4vh;
-    margin-bottom: 4vh;
 }
 
 .menu {
@@ -60,11 +58,11 @@
 .menu-item {
     display: flex;
     align-items: center;
-    gap: 0.8vw; 
+    gap: 0.8vw;
     color: #fff;
     text-decoration: none;
-    font-size: 1.2rem; 
-    padding: 0.4rem 0.4rem 0.4rem 1.5rem; 
+    font-size: 1.2rem;
+    padding: 0.4rem 1.5rem; 
     border-radius: 0.5rem;
     transition: box-shadow 0.3s ease;
     background: black;
@@ -76,7 +74,6 @@
     color: #a75df2;
 }
 
-
 .profile {
     position: relative;
     cursor: pointer;
@@ -85,12 +82,12 @@
 .profile-menu {
     position: absolute;
     background-color: #333;
-    padding: 2vw; 
+    padding: 2vw;
     border-radius: 2vw;
     top: 3%;
     left: 0;
     z-index: 1000;
-    margin-top: 5vh; 
+    margin-top: 5vh;
 }
 
 .profile-menu p {
@@ -144,14 +141,10 @@
 .logout-btn:hover {
     background-color: #7029ab;
     color: #fff;
-    text-decoration: none;
 }
 
 /* Asegurarse de que solo se muestre el ícono cuando la sidebar esté colapsada */
-.logout-btn .logout-text {
-    display: inline;
-}
-
+.logout-btn .logout-text,
 .logout-btn .logout-icon {
     display: inline;
 }
@@ -159,14 +152,14 @@
 @media (max-width: 768px) {
     .logout-btn {
         padding: 0.5rem;
-        width: auto; /* Ajusta el ancho del botón */
+        width: auto; 
         display: flex;
-        justify-content: center; /* Centra el ícono */
+        justify-content: center; 
         align-items: center;
     }
 
     .logout-btn .logout-text {
-        display: none; /* Oculta el texto cuando la sidebar está colapsada */
+        display: none; 
     }
 }
 
@@ -177,38 +170,39 @@
 /* Ajustes para el contador de favoritos */
 .favorite-count {
     top: 0;
-    right: 0; /* Alinea el contador de favoritos con la estrella */
+    right: 0; 
     position: absolute;
     background-color: #7029ab;
     color: white;
     border-radius: 50%;
     padding: 0.2rem 0.4rem;
-    font-size: 0.75rem; 
+    font-size: 0.75rem;
     font-weight: bold;
 }
 
 .menu-toggle {
-    display: none; 
+    display: none;
     position: absolute;
     top: 1rem;
     left: 1rem;
     background-color: transparent;
-    color: #7029ab; /* Cambia el color del ícono de la hamburguesa a morado */
+    color: #7029ab; 
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    z-index: 1001; 
+    z-index: 1001;
 }
 
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block; 
+        display: block;
+        left:1.35rem
     }
 
     .menu-item {
-        justify-content: center; 
+        justify-content: center;
         padding: 0.5rem;
-        font-size: 0.875rem; 
+        font-size: 0.875rem;
         text-align: center;
     }
 
@@ -217,7 +211,7 @@
     }
 
     .profile-menu {
-        width: 80%; 
+        width: 80%;
         padding: 5vw;
     }
 
@@ -227,19 +221,19 @@
     }
 
     .favorite-count {
-        right: 0.5rem; /* Ajuste del contador para que no se desplace demasiado */
-    } 
+        right: 0.5rem; 
+    }
 
     .logo-img-explorar {
-        max-width: 70%; /* Reduce el tamaño máximo del logo en pantallas pequeñas */
-        max-height: 100px; /* Ajusta la altura máxima para dispositivos móviles */
-        margin-top: 8vh; /* Añade un margen superior para separar el logo del ícono */
+        max-width: 70%; 
+        max-height: 100px; 
+        margin-top: 8vh; 
     }
 }
 
 @media (max-width: 480px) {
     .navbar-activo {
-        width: 12vw; 
+        width: 20vw; 
         min-width: 3rem; 
         transform: translateX(-100%); 
     }
@@ -248,6 +242,8 @@
         font-size: 0.75rem; 
         padding: 0.3rem;
     }
+
+    
 
     .profile-picture {
         width: 2.5rem;
@@ -258,12 +254,13 @@
         width: 100%;
     }
 
-    .edit-profile-btn, .logout-btn {
+    .edit-profile-btn,
+    .logout-btn {
         font-size: 0.75rem; 
     }
 
     .logo-img-explorar {
-        max-width: 60%; /* Reduce aún más el tamaño máximo del logo en pantallas muy pequeñas */
-        max-height: 80px; /* Ajuste de la altura máxima para pantallas muy pequeñas */
+        max-width: 60%;
+        max-height: 80px; 
     }
 }
