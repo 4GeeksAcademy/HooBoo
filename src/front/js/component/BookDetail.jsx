@@ -28,27 +28,30 @@ const BookDetail = ({ bookId }) => {
         if (book && store.favorites.some((fav) => fav.id === book.id)) {
             setIsFavorite(true);
         }
-
+    
         // Reinsertar el script de comentarios cada vez que el componente se monte
         const script = document.createElement('script');
         script.src = "https://cdn.commento.io/js/commento.js";
         script.async = true;
-
+    
+        // Aquí especificamos un identificador único para cada libro
         const commentoDiv = document.getElementById("commento");
-
+    
         // Solo inserta el script si el contenedor existe
         if (commentoDiv) {
             commentoDiv.innerHTML = "";  // Limpia cualquier contenido anterior
+            script.setAttribute('data-page-id', `book-${bookId}`); // Identificador único para cada libro
             commentoDiv.appendChild(script);
         }
-
+    
         // Fase de limpieza (cleanup): elimina el script si aún existe en el DOM
         return () => {
             if (script && script.parentNode) {
                 script.parentNode.removeChild(script);
             }
         };
-    }, [book, store.favorites]);
+    }, [book, store.favorites, bookId]);
+    
 
     if (!book) {
         return <div>Libro no encontrado. ID buscado: {bookId}</div>;

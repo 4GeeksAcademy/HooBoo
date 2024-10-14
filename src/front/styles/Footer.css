@@ -12,6 +12,13 @@
   padding-left: 5em;
 }
 
+
+.footer.footer{
+  background-color: black;
+  z-index: 1000;
+}
+
+
 .footer-content {
   display: flex;
   justify-content: space-between;
