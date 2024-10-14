@@ -234,7 +234,6 @@
     }
 
     .profile-menu {
-        width: 80%; 
         padding: 5vw;
     }
 
@@ -271,9 +270,6 @@
         height: 2.5rem;
     }
 
-    .profile-menu {
-        width: 100%;
-    }
 
     .edit-profile-btn, .logout-btn {
         font-size: 0.75rem; 
@@ -284,3 +280,5 @@
         max-height: 80px; 
     }
 }
+
+
