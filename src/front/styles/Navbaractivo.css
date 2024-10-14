@@ -199,7 +199,7 @@
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
-        left:1.35rem
+        left:1.25rem
     }
 
     .menu-item {
@@ -208,6 +208,10 @@
         font-size: 0.875rem;
         text-align: center;
     }
+    .menu{
+        margin-left: -1.5rem;
+
+     }
 
     .menu-item span {
         display: none;
@@ -259,11 +263,15 @@
 
     .edit-profile-btn,
     .logout-btn {
-        font-size: 0.75rem; 
+        font-size: 1rem; 
+        margin-top: 5rem;
+
     }
 
     .logo-img-explorar {
         max-width: 60%;
         max-height: 80px; 
+        margin-top: 5rem;
+        margin-left: 2rem;
     }
 }

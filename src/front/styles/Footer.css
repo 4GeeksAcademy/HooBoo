@@ -5,9 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   box-sizing: border-box;
-  font-size: 0.75rem; 
+  font-size: 0.75rem;
   font-family: "IBM Plex Mono", monospace;
   padding-top: 1em;
   padding-left: 5em;
@@ -23,7 +22,7 @@
 
 .section {
   text-align: left;
-  margin-bottom: 1.25em; 
+  margin-bottom: 1.25em;
 }
 
 .icon {
@@ -35,19 +34,18 @@
   justify-content: center;
 }
 
-
 .twitter-icon, .instagram-icon, .facebook-icon, .tiktok-icon, .telegram-icon, .whatsapp-icon, .youtube-icon {
-  border-radius: 0.3em; 
+  border-radius: 0.3em;
 }
 
 .stars {
   display: flex;
   justify-content: center;
-  gap: 0.3em; 
+  gap: 0.3em;
 }
 
 .star {
-  font-size: 1.6rem; 
+  font-size: 1.6rem;
   color: #F0C419;
 }
 
@@ -68,7 +66,7 @@
 }
 
 .bottom-section h4 {
-  margin-bottom: 0.625em; 
+  margin-bottom: 0.625em;
 }
 
 .bottom-section ul {
@@ -77,7 +75,7 @@
 }
 
 .bottom-section li {
-  margin-bottom: 0.3em; 
+  margin-bottom: 0.3em;
 }
 
 .social-icons {
@@ -85,89 +83,106 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 0.6em; 
-  margin-bottom: 1.25em; 
+  gap: 0.6em;
+  margin-bottom: 1.25em;
 }
 
-
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
+@media (max-width: 780px){
+  footer {
+    background-color: #000000cf;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 1.25em; 
+    box-sizing: border-box;
+    font-size: 0.75rem;
+    font-family: "IBM Plex Mono", monospace;
+    padding-top: 1em;
   }
+  
+  .footer-content {
+    align-items: center;
+    box-sizing: border-box;
+    margin-left: -0.95rem;
+    background-color: #000000cf;
+
+  }
+
+  
   .section {
     text-align: center;
+    margin-left: -4rem;
+    margin-bottom: 1.25em;
+      background-color: #000000cf;
+
   }
+
+  .icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .twitter-icon, .instagram-icon, .facebook-icon, .tiktok-icon, .telegram-icon, .whatsapp-icon, .youtube-icon {
+    border-radius: 0.3em;
+  }
+  
+  .stars {
+    display: flex;
+    justify-content: center;
+    gap: 0.3em;
+  }
+  
+  .star {
+    font-size: 1.6rem;
+    color: #F0C419;
+  }
+  
+  .rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 4vw;
+  }
+  
+  .rating-text {
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  .rating-text p {
+    margin: 0;
+  }
+  
+  .bottom-section h4 {
+    margin-bottom: 0.625em;
+  }
+  
+  .bottom-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .bottom-section li {
+    margin-bottom: 0.3em;
+  }
+  
   .social-icons {
+    display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 0.9em; 
+    align-items: center;
+    gap: 0.6em;
+    margin-bottom: 1.25em;
   }
-}
 
-.quitar-espacios-footer p {
-  margin: 0;
-  padding: 0;
-  color: white;
-}
+  .footer.footer{
+    background-color: #000000f6;
 
-
-
-.twitter-icon:hover {
-  background-color: white !important; 
-  color: #a75df267 !important; 
-}
-
-.instagram-icon:hover {
-  background-color: white !important; 
-  color: #a75df267 !important; 
-}
-
-.facebook-icon:hover {
-  background-color: white !important; 
-  color: #a75df267 !important; 
-}
-
-.tiktok-icon:hover {
-  background-color: white !important; 
-  color: #a75df267 !important; 
-}
-
-.telegram-icon:hover {
-  background-color: white !important; 
-  color: #a75df267 !important; 
-}
-
-.whatsapp-icon:hover {
-  background-color: white !important; 
-  color: #a75df267 !important; 
-}
-
-.youtube-icon:hover {
-  background-color: white !important; 
-  color: #a75df267 !important; 
-}
-
-
-.spotify-icon, .pinterest-icon {
-  border-radius: 0.3em; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.spotify-icon:hover {
-  background-color: white !important; 
-  color: #a75df267 !important; 
-}
-
-.pinterest-icon:hover {
-  background-color: white !important; 
-  color: #a75df267 !important; 
-}
-
-.icon {
-  transition: background-color 0.3s ease, color 0.3s ease; 
+  }
+  
 }
