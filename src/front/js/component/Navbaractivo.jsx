@@ -4,7 +4,7 @@ import { FaBell, FaRegStar, FaUserCircle, FaCompass, FaPlus, FaSignOutAlt, FaCog
 import { Context } from "../store/appContext";
 import defaultAvatar from '../../img/default.png';
 import "../../styles/Navbaractivo.css";
-import logoHooBoo from "/workspaces/HooBoo/src/front/img/logoHooBoo.png";
+import logoHooBoo from "../../img/logoHooBoo.png";
 
 const Navbaractivo = () => {
     const [showProfileMenu, setShowProfileMenu] = useState(false);

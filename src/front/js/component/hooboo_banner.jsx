@@ -1,5 +1,5 @@
 import React from "react";
-import sincolor from "/workspaces/HooBoo/src/front/img/sincolor.png";
+import sincolor from "../../img/sincolor.png";
 
 import '../../styles/hooboo_banner.css';
 

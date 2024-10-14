@@ -1,5 +1,5 @@
 import React from "react";
-import LibrosMejor from "/workspaces/HooBoo/src/front/img/LibrosMejor.png";
+import LibrosMejor from "../../img/LibrosMejor.png";
 import '../../styles/BannerStyleOnlyHome.css';
 import Navbar from "./Navbar.jsx";
 
