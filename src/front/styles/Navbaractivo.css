@@ -98,12 +98,29 @@
 }
 
 .profile-picture {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
+    width: 6rem; /* Aumenta el tamaño del avatar */
+    height: 6rem; /* Asegúrate de que el ancho y alto sean iguales */
+    border-radius: 50%; /* Mantiene la imagen redonda */
     margin-bottom: 0.5rem;
     border: 1px solid #853ebe;
+    object-fit: cover; /* Asegura que la imagen no se deforme */
+    object-position: center; /* Centra la imagen en el contenedor */
 }
+
+@media (max-width: 768px) {
+    .profile-picture {
+        width: 5rem; /* Ajusta el tamaño para pantallas más pequeñas */
+        height: 5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-picture {
+        width: 4rem; /* Ajusta el tamaño para pantallas aún más pequeñas */
+        height: 4rem;
+    }
+}
+
 
 .edit-profile-btn {
     background-color: #1f1e1e;
