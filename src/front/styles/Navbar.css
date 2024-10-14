@@ -61,7 +61,13 @@ html {
     justify-content: center;
     align-items: center;
     padding: 25px;
-    margin-right: 5rem;
+    /* margin-right: 5rem; */
+}
+
+.btn-explorar{
+        margin-right: 4.5rem;
+
+
 }
 
 .btn-logo {

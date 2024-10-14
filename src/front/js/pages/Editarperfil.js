@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import Navbaractivo from '../component/Navbaractivo.jsx';
-import Footercolapsado from '../component/Footercolapsado.jsx';
+// import Footercolapsado from '../component/Footercolapsado.jsx';
 import avatar1 from '../../img/avatar1.png';
 import avatar2 from '../../img/avatar2.png';
 import avatar3 from '../../img/avatar3.png';
@@ -179,7 +179,7 @@ const Editarperfil = () => {
                 </div>
             </div>
             <ToastContainer />
-            <Footercolapsado />
+            { /*<Footercolapsado />*/ }
         </div>
     );
 };
