@@ -76,7 +76,7 @@ const VistaExplorar = () => {
             <HoobooBanner />
             <Navbaractivo />
             <div className="searchBoxMar">
-                <p className="welcome-messageEXPLORAR">Tu viaje literario empieza aquí, {nombreUsuario}!</p>
+                <p className="welcome-messageEXPLORAR">{nombreUsuario}, tu viaje literario empieza aquí!</p>
                 <div className="searchContainer">
                     <input
                         type="text"
