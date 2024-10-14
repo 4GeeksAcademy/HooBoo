@@ -4,7 +4,6 @@ import { Card, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/BookDetail.css';
-import Footercolapsado from "../component/Footercolapsado.jsx";
 
 const BookDetail = ({ bookId }) => {
     const { store, actions } = useContext(Context);
@@ -113,7 +112,6 @@ const BookDetail = ({ bookId }) => {
                 </Card>
             </div>
         </Container>
-        <Footercolapsado />
         </div>
     );
 };

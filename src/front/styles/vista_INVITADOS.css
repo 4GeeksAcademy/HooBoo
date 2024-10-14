@@ -37,7 +37,7 @@
 
 .book-listINVITADOS {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(12.99rem, 1fr));
     gap: 1.25rem;
     padding: 1rem 0;
     padding-left: 10rem;
@@ -63,18 +63,7 @@
     transform: scale(1.05);
 }
 
-@keyframes fadeInUp {
-    0% {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.book-image-cardINVITADOS {
+.book-image-card{
     width: 100%;
     height: 30vh;
     display: block;
@@ -83,6 +72,7 @@
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
     box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445);
     border: 2px solid #a75df267;
+    object-fit: cover; /* Para mantener la proporción de las imágenes */
 }
 
 .icons-containerINVITADOS {
@@ -117,10 +107,10 @@
 
 .searchBoxMarINVITADOS {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
     padding-bottom: 2rem;
-    width: 100%; 
+    width: 100%;
     text-align: center;
 }
 
@@ -173,11 +163,6 @@
         padding: 0 1rem;
     }
 
-    .hooboobaner {
-        font-size: 1.25rem;
-        padding: 0.625rem;
-    }
-
     .welcome-messageINVITADOS {
         font-size: 0.9rem;
     }
@@ -193,16 +178,84 @@
     .searchInputINVITADOS {
         width: 70vw;
     }
+
+    .book-listINVITADOS {
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+        gap: 1.25rem; 
+        margin: 0 auto; 
+        padding: 0;
+    }
+
+    .book-cardINVITADOS {
+        position: relative;
+        margin: 0.625rem; 
+        overflow: hidden; 
+        border-radius: 0.625rem; 
+        background-color: #f0f0f0; 
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); 
+        transition: transform 0.3s;
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .book-cardINVITADOS:hover {
+        transform: scale(1.05);
+    }
+
+    .book-image-card {
+        width: 100%; 
+        height: 30vh; 
+        display: block; 
+        border-bottom: 0.0625rem solid #ddd;
+        border-radius: 0.625rem 0.625rem 0 0; 
+        opacity: 1; /* Opacidad completa */
+        transition: opacity 1s ease-in-out, transform 1s ease-in-out; 
+        box-shadow: 0 4px 10px rgba(135, 15, 165, 0.445); 
+        border: 2px solid #a75df267; 
+        object-fit: cover; 
+    }
+
+    .icons-container {
+        position: absolute; 
+        top: 0.625rem; 
+        right: 0.625rem; 
+        display: flex; 
+        gap: 0.625rem; 
+    }
+
+    .icon-book {
+        color: #fff; /* Color del icono */
+        background-color: rgba(0, 0, 0, 0.6); 
+        border-radius: 50%;
+        padding: 0.3125rem; 
+        cursor: pointer; 
+    }
+
+    .favorite-icon:hover,
+    .info-icon:hover {
+        color: #a75df2; 
+    }
+
+    .book-title {
+        font-size: 0.875rem; 
+        font-weight: bold; 
+        text-align: center;
+        color: black; 
+    }
+
+    .onebook {
+        max-width: 12.5rem; 
+        margin: 0 auto; 
+        text-align: center; 
+    }
 }
+
 
 @media (max-width: 1024px) {
     .vista-invitados {
         padding: 0 2rem;
-    }
-
-    .hooboobaner {
-        font-size: 1.4rem;
-        padding: 0.75rem;
     }
 
     .welcome-messageINVITADOS {
@@ -223,15 +276,22 @@
         padding: 0;
     }
 
-    .hooboobaner {
-        font-size: 1.75rem;
-    }
-
     .welcome-messageINVITADOS {
         margin-left: 0;
     }
 
     .loading-containerINVITADOS p {
         font-size: 1.6rem;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
