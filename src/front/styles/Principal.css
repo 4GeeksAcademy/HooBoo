@@ -17,6 +17,8 @@
     font-family: 'Special Elite', cursive;
 }
 
+
+
 .image-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -29,8 +31,9 @@
 }
 
 .image-grid img {
-    width: 12vw;
-    height: 40vh; 
+    width: 100%; /* Cambiar a 100% para que las imágenes ocupen todo el espacio disponible */
+    height: 100%; /* Mantener la proporción de la imagen */
+    max-height: 45vh; /* Limitar la altura máxima */
     object-fit: cover; 
     border-radius: 10px;
     opacity: 1;
@@ -75,8 +78,9 @@
 }
 
 .book-image {
-    width: 15vw;
-    height: 40vh; 
+    width: 100%; 
+    height: 100%; /* Mantener la proporción de la imagen */
+    max-height: 45vh; /* Limitar la altura máxima */
     object-fit: cover; 
     border-radius: 10px;
     opacity: 1;
@@ -162,9 +166,11 @@
     }
 
     .image-grid img {
-        width: 50vw; 
-        height: 40vh; 
+        width: 100%; /* Cambiar a 100% para que las imágenes ocupen todo el espacio disponible */
+        height: 100%; /* Mantener la proporción de la imagen */
+        max-height: 45vh; /* Limitar la altura máxima */
         object-fit: cover; 
+    
     }
 
     img.book-image {
@@ -206,7 +212,7 @@
 }
 
 /* Pantallas medianas (md) */
-@media (min-width: 577px) and (max-width: 768px) {
+@media (min-width: 300px) and (max-width: 768px) {
     .titulo_principalproyecto {
         font-size: 5vw;
         margin-top: 1vw;
@@ -218,8 +224,11 @@
     }
 
     .image-grid img {
-        width: 35vw;
-        height: 45vh;
+        width: 90%; /* Cambiar a 100% para que las imágenes ocupen todo el espacio disponible */
+        height: 100%; /* Mantener la proporción de la imagen */
+        max-height: 70vh; /* Limitar la altura máxima */
+        object-fit: cover; 
+    
     }
 
     img.book-image {
@@ -273,9 +282,11 @@
     }
 
     .image-grid img {
-        width: 28vw;
-        height: 35vh;
+        width: 100%; /* Cambiar a 100% para que las imágenes ocupen todo el espacio disponible */
+        height: 100%; /* Mantener la proporción de la imagen */
+        max-height: 60vh; /* Limitar la altura máxima */
         object-fit: cover; 
+    
     }
 
     img.book-image {
@@ -329,9 +340,11 @@
     }
 
     .image-grid img {
-        width: 22vw;
-        height: 40vh;
-    }
+        width: 100%; /* Cambiar a 100% para que las imágenes ocupen todo el espacio disponible */
+        height: 100%; /* Mantener la proporción de la imagen */
+        max-height: 80vh; /* Limitar la altura máxima */
+        object-fit: cover; 
+        }
 
     .image-grid img:nth-child(4n+1) {
         transform: translateY(1vw);
@@ -350,15 +363,15 @@
     }
 
     .image-grid img:nth-child(4n+5) {
-        transform: translateY(2vw);
+        transform: translateY(1vw);
     }
 
     .image-grid img:nth-child(4n+6) {
-        transform: translateY(12vw);
+        transform: translateY(10vw);
     }
 
     .image-grid img:nth-child(4n+7) {
-        transform: translateY(12vw);
+        transform: translateY(10vw);
     }
 
     .main-content {

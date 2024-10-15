@@ -8,7 +8,7 @@
     width: 100vw; 
     height: 30vh;
     object-fit: cover;
-    transition: filter 0.3s ease, opacity 0.3s ease; /* Transición suave para oscurecer */
+    transition: filter 0.3s ease, opacity 0.3s ease; 
 }
 
 /* Superposición sobre el banner */
@@ -18,13 +18,13 @@
     left: 0;
     width: 100vw; 
     height: 30vh;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), #f8f8f8); /* Fondo por defecto */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), #f8f8f8); 
     transition: background 0.3s ease;
 }
 
 .bannerHome-text {
     position: absolute;
-    top: 65%;
+    top: 50%; 
     left: 5%; 
     transform: translateY(-50%); 
     color: black;
@@ -64,30 +64,29 @@ body.dark-mode .slogan {
     color: white; /* Slogan en blanco en modo oscuro */
 }
 
-
 /* Ajustes para teléfonos móviles */
 @media (max-width: 480px) {
     .bannerHome-text {
-        margin-top: 2.5vh; 
+        top: 50%; 
         left: 5%; 
-        font-size: 6vw;
+        font-size: 6vw; 
     }
 
     h2 {
-        font-size: 10vw;
+        font-size: 10vw; 
         margin-top: 0; 
     }
 
     .slogan {
-        font-size: 5vw;
-        margin-top: -2vw; 
+        font-size: 5vw; 
+        margin-top: -1vw; 
     }
 }
 
-/*Pantallas tablet*/
-@media (max-width: 768px) {
+/* Pantallas tablet */
+@media (max-width: 530px) {
     .bannerHome-text {
-        top: 40%; 
+        top: 50%; 
         left: 10%; 
         font-size: 5vw; 
     }
@@ -99,6 +98,24 @@ body.dark-mode .slogan {
 
     .slogan {
         font-size: 4vw; 
+        margin-top: -1vw; 
+    }
+}
+
+@media (min-width: 857px) and (max-width: 1075px) {
+    .bannerHome-text {
+        top: 9rem; 
+        left: 4rem; 
+        font-size: 5vw; 
+    }
+
+    h2 {
+        font-size: 6vw; 
+        margin-top: 0;    
+    }
+
+    .slogan {
+        font-size: 3vw; 
         margin-top: -1vw; 
     }
 }
