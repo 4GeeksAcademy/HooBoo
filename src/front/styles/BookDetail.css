@@ -258,3 +258,7 @@
 .modal-header {
     font-family: 'Special Elite', cursive;
 }
+
+.commento-root .commento-textarea-container {
+    width: 100%;
+}
