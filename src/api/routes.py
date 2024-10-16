@@ -5,7 +5,7 @@ from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identi
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from flask_mail import Message
-from api.models import db, User, Book
+from api.models import db, User, Book, Rating
 
 
 api = Blueprint('api', __name__)
@@ -162,42 +162,38 @@ def get_books():
         return jsonify(books_list), 200
     except Exception as e:
         return jsonify({"msg": "Error al obtener los libros", "error": str(e)}), 500
-    
-@api.route('/rate', methods=['POST'])
+
+@api.route('/ratings', methods=['POST'])
 @jwt_required()
 def submit_rating():
-    current_user_identity = get_jwt_identity()
-    user = User.query.filter_by(email=current_user_identity["email"]).first()
-
+    current_user = get_jwt_identity()
+    user_email = current_user['email']
+    user = User.query.filter_by(email=user_email).first()
     if not user:
-        return jsonify({"msg": "Usuario no encontrado"}), 404
+        return jsonify({"error": "User not found"}), 404
 
+    user_id = user.id
     data = request.get_json()
-    rating = data.get('rating')
+    rating_value = data.get('rating')
 
-    if not rating or not (1 <= rating <= 5):
-        return jsonify({"msg": "La calificación debe estar entre 1 y 5"}), 400
+    if rating_value not in [1, 2, 3, 4, 5]:
+        return jsonify({"error": "Rating must be between 1 and 5"}), 400
 
-    # Guardar la calificación del usuario
-    user.rating = rating
+    existing_rating = Rating.query.filter_by(user_id=user_id).first()
+    if existing_rating: 
+        existing_rating.rating = rating_value 
+        existing_rating.email = user_email
+    else: 
+        new_rating = Rating(user_id=user_id, rating=rating_value, email=user_email) 
+        db.session.add(new_rating)
 
     try:
-        db.session.commit()
-        return jsonify({"msg": "Calificación guardada con éxito", "rating": user.rating}), 200
+        db.session.commit() 
     except Exception as e:
         db.session.rollback()
-        return jsonify({"msg": "Error al guardar la calificación", "error": str(e)}), 500
+        return jsonify({"msg": "Error saving rating", "error": str(e)}), 500
 
-@api.route('/average-rating', methods=['GET'])
-def get_average_rating():
-    try:
-        users_with_rating = User.query.filter(User.rating.isnot(None)).all()
-        if not users_with_rating:
-            return jsonify({"msg": "No hay calificaciones disponibles"}), 404
-        
-        total_ratings = len(users_with_rating)
-        average_rating = sum([user.rating for user in users_with_rating]) / total_ratings
+    all_ratings = Rating.query.all()
+    serialized_ratings = [rating.serialize() for rating in all_ratings]
 
-        return jsonify({"average_rating": round(average_rating, 2), "total_ratings": total_ratings}), 200
-    except Exception as e:
-        return jsonify({"msg": "Error al obtener la calificación promedio", "error": str(e)}), 500
+    return jsonify(serialized_ratings), 200

@@ -44,7 +44,7 @@
     padding: 10px;
     width: 20vh;
     height: auto;
-    margin: 4vh auto; 
+    margin: 4vh auto;
     border: 5px solid #7029ab;
 }
 
@@ -61,7 +61,7 @@
     color: #fff;
     text-decoration: none;
     font-size: 1.2rem;
-    padding: 0.4rem 1.5rem; 
+    padding: 0.4rem 1.5rem;
     border-radius: 0.5rem;
     transition: box-shadow 0.3s ease;
     background: black;
@@ -81,13 +81,13 @@
 .profile-menu {
     position: absolute;
     background-color: #aca8a8;
-    padding: 2vw; 
+    padding: 2vw;
     border-radius: 2vw;
     top: 3%;
     left: 0;
     z-index: 1000;
-    margin-top: 5vh; 
-    color: black
+    margin-top: 5vh;
+    color: black;
 }
 
 .profile-menu p {
@@ -95,29 +95,28 @@
 }
 
 .profile-picture {
-    width: 6rem; /* Aumenta el tamaño del avatar */
-    height: 6rem; /* Asegúrate de que el ancho y alto sean iguales */
-    border-radius: 50%; /* Mantiene la imagen redonda */
+    width: 6rem; 
+    height: 6rem; 
+    border-radius: 50%; 
     margin-bottom: 0.5rem;
     border: 1px solid #853ebe;
-    object-fit: cover; /* Asegura que la imagen no se deforme */
-    object-position: center; /* Centra la imagen en el contenedor */
+    object-fit: cover; 
+    object-position: center; 
 }
 
 @media (max-width: 768px) {
     .profile-picture {
-        width: 5rem; /* Ajusta el tamaño para pantallas más pequeñas */
+        width: 5rem; 
         height: 5rem;
     }
 }
 
 @media (max-width: 480px) {
     .profile-picture {
-        width: 4rem; /* Ajusta el tamaño para pantallas aún más pequeñas */
+        width: 4rem; 
         height: 4rem;
     }
 }
-
 
 .edit-profile-btn {
     background-color: #1f1e1e;
@@ -160,7 +159,6 @@
     color: #fff;
 }
 
-
 .logout-btn .logout-text {
     display: inline;
 }
@@ -172,14 +170,14 @@
 @media (max-width: 768px) {
     .logout-btn {
         padding: 0.5rem;
-        width: auto; 
+        width: auto;
         display: flex;
-        justify-content: center; 
+        justify-content: center;
         align-items: center;
     }
 
     .logout-btn .logout-text {
-        display: none; 
+        display: none;
     }
 }
 
@@ -187,10 +185,9 @@
     position: relative;
 }
 
-
 .favorite-count {
     top: 0;
-    right: 0; 
+    right: 0;
     position: absolute;
     background-color: #7029ab;
     color: white;
@@ -206,7 +203,7 @@
     top: 1rem;
     left: 1rem;
     background-color: transparent;
-    color: #7029ab; 
+    color: #7029ab;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
@@ -216,7 +213,7 @@
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
-        left:1.25rem
+        left: 1.25rem;
     }
 
     .menu-item {
@@ -225,10 +222,10 @@
         font-size: 0.875rem;
         text-align: center;
     }
-    .menu{
-        margin-left: -1.5rem;
 
-     }
+    .menu {
+        margin-left: -1.5rem;
+    }
 
     .menu-item span {
         display: none;
@@ -244,49 +241,53 @@
     }
 
     .favorite-count {
-        right: 0.5rem; 
+        right: 0.5rem;
     }
 
     .logo-img-explorar {
-        max-width: 70%; 
-        max-height: 100px; 
-        margin-top: 8vh; 
+        max-width: 70%;
+        max-height: 100px;
+        margin-top: 8vh;
     }
 }
 
 @media (max-width: 480px) {
     .navbar-activo {
-        width: 20vw; 
-        min-width: 3rem; 
-        transform: translateX(-100%); 
+        width: 20vw;
+        min-width: 3rem;
+        transform: translateX(-100%);
     }
 
     .menu-item {
-        font-size: 0.75rem; 
+        font-size: 0.75rem;
         padding: 0.3rem;
     }
-
-    
 
     .profile-picture {
         width: 2.5rem;
         height: 2.5rem;
     }
 
-
     .edit-profile-btn,
     .logout-btn {
-        font-size: 1rem; 
+        font-size: 1rem;
         margin-top: 5rem;
-
     }
 
     .logo-img-explorar {
         max-width: 60%;
-        max-height: 80px; 
+        max-height: 80px;
         margin-top: 5rem;
         margin-left: 2rem;
     }
+
+    /* Asegurando que los elementos se vean bien en pantallas muy pequeñas */
+    .menu-item {
+        padding: 0.5rem 0; 
+        font-size: 0.85rem; 
+    }
+
+    .logout-btn {
+        padding: 0.4rem 0.8rem; 
+    }
 }
-
-

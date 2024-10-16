@@ -10,7 +10,6 @@ class User(db.Model):
     password = db.Column(db.String(250), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
     profile_pic = db.Column(db.String(500), nullable=True)
-    rating = db.Column(db.Float, nullable=True)
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -21,7 +20,6 @@ class User(db.Model):
             "email": self.email,
             "username": self.username, 
             "profile_pic": self.profile_pic,
-            "rating": self.rating
         }
 
 class Book(db.Model):
@@ -32,7 +30,6 @@ class Book(db.Model):
     picture_url = db.Column(db.String(120), unique=True, nullable=False)
     synopsis = db.Column(db.String(120), unique=True, nullable=False)
     author = db.Column(db.String(120), unique=True, nullable=False)
-    # isbn = db.Column(db.String(120), unique=True, nullable=False)
     
     def __repr__(self):
         return f'<Book {self.title}>'
@@ -45,5 +42,17 @@ class Book(db.Model):
             "picture_url":self.picture_url,
             "synopsis":self.synopsis,
             "author":self.author,
-            # "isbn":self.isbn
+        }
+    
+class Rating(db.Model):
+    __tablename__ = "rating"
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    rating = db.Column(db.Integer, nullable=False) 
+
+    def serialize(self):
+        return {
+            "email": self.email,
+            "rating": self.rating,
         }

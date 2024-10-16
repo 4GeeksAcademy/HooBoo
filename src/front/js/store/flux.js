@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             user: [],
             token: localStorage.getItem("jwt-token") || null,
             books: [],
-            ratings: [],
+            ratings: JSON.parse(localStorage.getItem("ratings")) || [],
             loading: false,
             favorites: JSON.parse(localStorage.getItem("favorites")) || [],
             base_respaldo: {
@@ -860,7 +860,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
                 console.log("Usuario deslogueado");
             },
-            
             addFavoritos: (book) => {
                 const store = getStore();
                 if (!store.favorites.some((fav) => fav.id === book.id)) {
@@ -948,59 +947,36 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return { error: error.message };
                 }
             },
-            loadInitialRatings: async () => {
-                try {
-                    const response = await fetch(`${process.env.BACKEND_URL}/api/ratings`, {
-                        method: "GET",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                    });
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        setStore({ ratings: data }); // Guardar las valoraciones en el estado
-                    } else {
-                        console.error("Error al cargar las valoraciones del servidor.");
-                    }
-                } catch (error) {
-                    console.error("Error al cargar las valoraciones:", error);
-                }
-            },
-            submitRating: (rating) => {
-                const store = getStore();
-                const updatedRatings = [...store.ratings, rating]; // Agregar la nueva votación al array existente
-                setStore({ ratings: updatedRatings }); // Actualiza el estado global con las nuevas votaciones
-            },
-
-            obtenerCalificacion: async (rating) => {
-                const token = localStorage.getItem("jwt-token");
+            submitRating: async (rate) => {
+                const token = localStorage.getItem("jwt-token"); 
+                
                 if (!token) {
-                    console.error("No estás autenticado");
                     return;
                 }
-
+            
                 try {
-                    const res = await fetch(`${process.env.BACKEND_URL}/api/rating`, {
+            
+                    const response = await fetch(`${process.env.BACKEND_URL}/api/ratings`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
-                            Authorization: `Bearer ${token}`,
+                            Authorization: `Bearer ${token}`, 
                         },
-                        body: JSON.stringify({ rating }),
+                        body: JSON.stringify({ rating: rate }),
                     });
-
-                    if (!res.ok) {
-                        throw new Error("Error al enviar la calificación");
+            
+                    if (response.ok) {
+                        const data = await response.json();
+                        setStore({ ratings: data });
+                        localStorage.setItem("ratings", JSON.stringify(data));
+                    } else {
+                        console.log("Error submitting rating, response status:", response.status);
                     }
-
-                    const data = await res.json();
-                    console.log("Calificación enviada con éxito:", data);
-                    getActions().submitRating(rating); // Actualizar el estado local después de enviar la calificación
                 } catch (error) {
-                    console.error("Error al enviar la calificación:", error);
+                    console.log("Error occurred while submitting rating:", error);
                 }
             },
+            
         }
     };
 };
