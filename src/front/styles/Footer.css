@@ -1,195 +1,74 @@
 .footer {
-  background-color: #22222293;
-  color: #fff;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  font-size: 0.75rem;
-  font-family: "IBM Plex Mono", monospace;
-  padding-top: 1em;
-  padding-left: 5em;
-}
-
-
-.footer.footer{
-  background-color: black;
-  z-index: 1000;
-}
-
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  background-color: #3333339c;
+  color: white;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
   width: 100%;
-  box-sizing: border-box;
+  font-family: 'Special Elite', cursive;
 }
 
 .section {
-  text-align: left;
-  margin-bottom: 1.25em;
-}
-
-.icon {
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.twitter-icon, .instagram-icon, .facebook-icon, .tiktok-icon, .telegram-icon, .whatsapp-icon, .youtube-icon {
-  border-radius: 0.3em;
-}
-
-.stars {
-  display: flex;
-  justify-content: center;
-  gap: 0.3em;
-}
-
-.star {
-  font-size: 1.6rem;
-  color: #F0C419;
-}
-
-.rating {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 4vw;
-}
-
-.rating-text {
   text-align: center;
-  margin-top: 0;
-}
-
-.rating-text p {
-  margin: 0;
-}
-
-.bottom-section h4 {
-  margin-bottom: 0.625em;
-}
-
-.bottom-section ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.bottom-section li {
-  margin-bottom: 0.3em;
 }
 
 .social-icons {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  gap: 0.6em;
-  margin-bottom: 1.25em;
+  gap: 15px;
 }
 
-@media (max-width: 780px){
-  footer {
-    background-color: #000000cf;
-    color: #fff;
+.icon {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #a754eb; 
+}
+
+.link-acerca {
+  color: white;
+  transition: color 0.3s ease; 
+}
+
+.link-acerca:hover {
+  color: #a754eb; 
+}
+
+.quitar-espacios-footer p {
+  margin: 5px 0;
+}
+
+.star-rating{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.rating {
+  text-align: center;
+}
+
+.rating-text {
+  margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    font-size: 0.75rem;
-    font-family: "IBM Plex Mono", monospace;
-    padding-top: 1em;
-  }
-  
-  .footer-content {
-    align-items: center;
-    box-sizing: border-box;
-    margin-left: -0.95rem;
-    background-color: #000000cf;
-
   }
 
-  
-  .section {
-    text-align: center;
-    margin-left: -4rem;
-    margin-bottom: 1.25em;
-      background-color: #000000cf;
-
-  }
-
-  .icon {
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .twitter-icon, .instagram-icon, .facebook-icon, .tiktok-icon, .telegram-icon, .whatsapp-icon, .youtube-icon {
-    border-radius: 0.3em;
-  }
-  
-  .stars {
-    display: flex;
-    justify-content: center;
-    gap: 0.3em;
-  }
-  
-  .star {
-    font-size: 1.6rem;
-    color: #F0C419;
-  }
-  
-  .rating {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 4vw;
-  }
-  
-  .rating-text {
-    text-align: center;
-    margin-top: 0;
-  }
-  
-  .rating-text p {
-    margin: 0;
-  }
-  
-  .bottom-section h4 {
-    margin-bottom: 0.625em;
-  }
-  
-  .bottom-section ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .bottom-section li {
-    margin-bottom: 0.3em;
-  }
-  
   .social-icons {
-    display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    gap: 0.6em;
-    margin-bottom: 1.25em;
   }
+}
 
-  .footer.footer{
-    background-color: #000000f6;
-
+@media (max-width: 480px) {
+  .icon {
+    font-size: 1.2rem;
   }
-  
 }
