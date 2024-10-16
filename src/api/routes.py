@@ -195,6 +195,5 @@ def submit_rating():
 
     all_ratings = Rating.query.all()
     serialized_ratings = [rating.serialize() for rating in all_ratings]
-    print(f"All ratings after submission: {serialized_ratings}") 
 
     return jsonify(serialized_ratings), 200
