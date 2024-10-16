@@ -1,22 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import EstrellasValoracion from './EstrellasValoracion.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faInstagram, faFacebook, faYoutube, faSpotify, faTiktok, faPinterest, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'; 
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import "../../styles/Footer.css";
 
 const Footer = () => {
   const { store, actions } = useContext(Context);
 
-  // Obtener las valoraciones desde el estado global
-  const ratings = store.ratings || []; // Asegura que ratings esté definido
+  const ratings = store.ratings || []; 
   const totalVotes = ratings.length;
-  const averageRating = totalVotes > 0 ? (ratings.reduce((acc, rating) => acc + rating, 0) / totalVotes).toFixed(1) : 0;
+  const averageRating = totalVotes > 0 ? (ratings.reduce((acc, rating) => acc + rating.rating, 0) / totalVotes).toFixed(1) : 0;
 
   const handleRating = (rate) => {
-    actions.submitRating(rate); // Llama a la acción para enviar una nueva valoración
+    actions.submitRating(rate); 
   };
 
   return (
