@@ -83,7 +83,7 @@ const Editarperfil = () => {
             if (res.ok) {
                 toast.success("Cambios guardados correctamente", {
                     className: 'toast-custom-purple', // Clase personalizada para el color morado
-                    progressClassName: 'toast-progress-bar', // Clase para la barra de progreso (opcional)
+                    progressClassName: 'toast-progress-bar',
                 });
             } else {
                 const errorText = await res.text();
